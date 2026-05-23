@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 天体写真愛好家診断</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #0f172a; color: #e2e8f0; }
+        h1 { text-align: center; color: #60a5fa; }
+        .question { background: #1e2937; padding: 20px; margin: 15px 0; border-radius: 12px; }
+        label { display: block; padding: 8px 0; cursor: pointer; }
+        button { width: 100%; padding: 18px; font-size: 20px; background: #3b82f6; color: white; border: none; border-radius: 10px; margin: 30px 0; }
+        #result { display: none; padding: 40px; background: #1e2937; border-radius: 20px; text-align: center; border: 3px solid #60a5fa; margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>🌌 天体写真愛好家診断</h1>
+    <p style="text-align:center;">6つの質問に答えてください</p>
+
+    <form id="quizForm">
+        <div class="question">
+            <strong>1. 天体写真を始めた理由は？</strong><br><br>
+            <label><input type="radio" name="q1" value="A"> A. 美しい星景</label><br>
+            <label><input type="radio" name="q1" value="B"> B. 天の川</label><br>
+            <label><input type="radio" name="q1" value="C"> C. 星雲・銀河</label><br>
+            <label><input type="radio" name="q1" value="D"> D. 月・惑星</label><br>
+            <label><input type="radio" name="q1" value="E"> E. 流星群</label><br>
+            <label><input type="radio" name="q1" value="F"> F. 機材いじり</label><br>
+            <label><input type="radio" name="q1" value="G"> G. タイムラプス</label><br>
+            <label><input type="radio" name="q1" value="H"> H. 街中撮影</label><br>
+            <label><input type="radio" name="q1" value="I"> I. 太陽・月</label><br>
+            <label><input type="radio" name="q1" value="J"> J. 気軽に楽しむ</label>
+        </div>
+
+        <div class="question">
+            <strong>2. 一番撮りたいものは？</strong><br><br>
+            <label><input type="radio" name="q2" value="A"> A. 星景</label><br>
+            <label><input type="radio" name="q2" value="B"> B. 天の川</label><br>
+            <label><input type="radio" name="q2" value="C"> C. 星雲・銀河</label><br>
+            <label><input type="radio" name="q2" value="D"> D. 惑星</label><br>
+            <label><input type="radio" name="q2" value="E"> E. 流星</label><br>
+            <label><input type="radio" name="q2" value="F"> F. 機材テスト</label><br>
+            <label><input type="radio" name="q2" value="G"> G. 星の軌跡</label><br>
+            <label><input type="radio" name="q2" value="H"> H. 街中星空</label><br>
+            <label><input type="radio" name="q2" value="I"> I. 太陽・月</label><br>
+            <label><input type="radio" name="q2" value="J"> J. なんでも</label>
+        </div>
+
+        <div class="question">
+            <strong>3. 撮影時間帯は？</strong><br><br>
+            <label><input type="radio" name="q3" value="A"> A. 夕方〜夜</label><br>
+            <label><input type="radio" name="q3" value="B"> B. 深夜</label><br>
+            <label><input type="radio" name="q3" value="C"> C. 明け方</label><br>
+            <label><input type="radio" name="q3" value="D"> D. 月が出ている夜</label><br>
+            <label><input type="radio" name="q3" value="E"> E. 流星群の時</label><br>
+            <label><input type="radio" name="q3" value="F"> F. 短時間</label><br>
+            <label><input type="radio" name="q3" value="G"> G. 長時間</label><br>
+            <label><input type="radio" name="q3" value="H"> H. 早い時間</label><br>
+        </div>
+
+        <div class="question">
+            <strong>4. 機材で大事なのは？</strong><br><br>
+            <label><input type="radio" name="q4" value="A"> A. 広角レンズ</label><br>
+            <label><input type="radio" name="q4" value="B"> B. 赤道儀</label><br>
+            <label><input type="radio" name="q4" value="C"> C. 冷却カメラ</label><br>
+            <label><input type="radio" name="q4" value="D"> D. 高倍率望遠鏡</label><br>
+            <label><input type="radio" name="q4" value="E"> E. 三脚</label><br>
+            <label><input type="radio" name="q4" value="F"> F. 自作・改造</label><br>
+        </div>
+
+        <div class="question">
+            <strong>5. 撮影で一番楽しい瞬間は？</strong><br><br>
+            <label><input type="radio" name="q5" value="A"> A. 美しい星景が撮れた時</label><br>
+            <label><input type="radio" name="q5" value="B"> B. 天の川が写った時</label><br>
+            <label><input type="radio" name="q5" value="C"> C. 星雲が写った時</label><br>
+            <label><input type="radio" name="q5" value="D"> D. 惑星がシャープに写った時</label><br>
+            <label><input type="radio" name="q5" value="E"> E. 流星が写った瞬間</label><br>
+            <label><input type="radio" name="q5" value="F"> F. 機材がうまく動いた時</label><br>
+        </div>
+
+        <div class="question">
+            <strong>6. あなたのスタイルは？</strong><br><br>
+            <label><input type="radio" name="q6" value="A"> A. 芸術</label><br>
+            <label><input type="radio" name="q6" value="B"> B. 浪漫</label><br>
+            <label><input type="radio" name="q6" value="C"> C. 探求</label><br>
+            <label><input type="radio" name="q6" value="D"> D. 精密</label><br>
+            <label><input type="radio" name="q6" value="E"> E. 瞬間</label><br>
+            <label><input type="radio" name="q6" value="F"> F. 技術</label><br>
+        </div>
+    </form>
+
+    <button onclick="calculateResult()">診断結果を見る 🌠</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateResult() {
+            const scores = {A:0,B:0,C:0,D:0,E:0,F:0};
+            let answered = 0;
+
+            for(let i = 1; i <= 6; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    scores[selected.value]++;
+                    answered++;
+                }
+            }
+
+            if (answered < 6) {
+                alert("すべての質問に回答してください！");
+                return;
+            }
+
+            let maxType = 'A';
+            for (let key in scores) {
+                if (scores[key] > scores[maxType]) maxType = key;
+            }
+
+            const types = {
+                A: {name:"星景詩人", emoji:"🌄✨", desc:"美しい星景を撮る芸術派"},
+                B: {name:"天の川ハンター", emoji:"🌌", desc:"天の川を追い求める情熱家"},
+                C: {name:"ディープスカイマスター", emoji:"🔭", desc:"星雲・銀河の本格派"},
+                D: {name:"惑星フォトグラファー", emoji:"🪐", desc:"惑星撮影の精密派"},
+                E: {name:"流星群ウォッチャー", emoji:"🌠", desc:"流星を狙うスリル好き"},
+                F: {name:"機材ギーク", emoji:"⚙️", desc:"機材を極める技術派"}
+            };
+
+            const t = types[maxType];
+            document.getElementById("result").innerHTML = `
+                <div style="font-size:80px;">${t.emoji}</div>
+                <h2>あなたは「${t.name}」タイプです！</h2>
+                <p>${t.desc}</p>
+            `;
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+</html>
