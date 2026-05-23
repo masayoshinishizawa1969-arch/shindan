@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 老害天体撮影おじさん 14タイプ診断</title>
+    <style>
+        body { 
+            font-family: Arial, 'Hiragino Sans', sans-serif; 
+            max-width: 920px; 
+            margin: 30px auto; 
+            padding: 20px; 
+            background: linear-gradient(180deg, #0f172a, #1e2937); 
+            color: #e2e8f0; 
+        }
+        h1 { text-align: center; color: #60a5fa; }
+        .subtitle { text-align: center; color: #94a3b8; margin-bottom: 30px; }
+        .question { 
+            background: #1e2937; 
+            padding: 20px; 
+            margin: 18px 0; 
+            border-radius: 12px; 
+            border: 1px solid #334155;
+        }
+        label { display: block; padding: 9px 0; cursor: pointer; }
+        button { 
+            width: 100%; 
+            padding: 18px; 
+            font-size: 20px; 
+            background: #3b82f6; 
+            color: white; 
+            border: none; 
+            border-radius: 10px; 
+            margin: 30px 0; 
+            cursor: pointer;
+        }
+        #result { 
+            display: none; 
+            padding: 40px; 
+            background: #1e2937; 
+            border-radius: 20px; 
+            text-align: center; 
+            border: 3px solid #60a5fa;
+            margin-top: 30px;
+        }
+        .illustration { font-size: 90px; margin: 15px 0; }
+        .type-name { font-size: 28px; color: #60a5fa; margin: 15px 0; }
+    </style>
+</head>
+<body>
+    <h1>🌌 老害天体撮影おじさん 14タイプ診断</h1>
+    <p class="subtitle">14の質問に答えて、あなたはどの老害おじさんタイプか診断！</p>
+
+    <form id="quizForm">
+        <div class="question">
+            <strong>1. 撮影で一番大事にしていることは？</strong><br><br>
+            <label><input type="radio" name="q1" value="A"> A. 極軸の精度</label><br>
+            <label><input type="radio" name="q1" value="B"> B. その日のシーイング</label><br>
+            <label><input type="radio" name="q1" value="C"> C. フィルム時代の味</label><br>
+            <label><input type="radio" name="q1" value="D"> D. 機材の総額と性能</label><br>
+            <label><input type="radio" name="q1" value="E"> E. ノイズの完全排除</label><br>
+            <label><input type="radio" name="q1" value="F"> F. 画像処理のテクニック</label><br>
+            <label><input type="radio" name="q1" value="G"> G. 赤道儀の性能</label><br>
+            <label><input type="radio" name="q1" value="H"> H. 空の暗さ</label><br>
+            <label><input type="radio" name="q1" value="I"> I. 観望会の進行</label><br>
+            <label><input type="radio" name="q1" value="J"> J. 惑星の拡大率</label><br>
+            <label><input type="radio" name="q1" value="K"> K. フラット画像の精度</label><br>
+            <label><input type="radio" name="q1" value="L"> L. 寒さへの耐性</label><br>
+            <label><input type="radio" name="q1" value="M"> M. SNSでの反応</label><br>
+            <label><input type="radio" name="q1" value="N"> N. 双眼鏡の有用性</label>
+        </div>
+
+        <div class="question">
+            <strong>2. 他の人の写真を見たとき最初に思うことは？</strong><br><br>
+            <label><input type="radio" name="q2" value="A"> A. 極軸が甘い</label><br>
+            <label><input type="radio" name="q2" value="B"> B. シーイングが悪い</label><br>
+            <label><input type="radio" name="q2" value="C"> C. デジタル臭い</label><br>
+            <label><input type="radio" name="q2" value="D"> D. 機材が貧弱</label><br>
+            <label><input type="radio" name="q2" value="E"> E. ノイズが酷い</label><br>
+            <label><input type="radio" name="q2" value="F"> F. 処理が下手</label><br>
+            <label><input type="radio" name="q2" value="G"> G. 赤道儀を使ってない</label><br>
+            <label><input type="radio" name="q2" value="H"> H. 空が明るすぎる</label><br>
+            <label><input type="radio" name="q2" value="I"> I. 構図が悪い</label><br>
+            <label><input type="radio" name="q2" value="J"> J. もっと拡大すべき</label><br>
+            <label><input type="radio" name="q2" value="K"> K. フラットが取れてない</label><br>
+            <label><input type="radio" name="q2" value="L"> L. 寒くないのか？</label><br>
+            <label><input type="radio" name="q2" value="M"> M. コメントが足りない</label><br>
+            <label><input type="radio" name="q2" value="N"> N. 双眼鏡で撮ってる</label>
+        </div>
+
+        <div class="question">
+            <strong>3. よく口にするセリフは？</strong><br><br>
+            <label><input type="radio" name="q3" value="A"> A. 「極軸は命だ」</label><br>
+            <label><input type="radio" name="q3" value="B"> B. 「今日はシーイング終わってる」</label><br>
+            <label><input type="radio" name="q3" value="C"> C. 「昔はフィルムが良かった」</label><br>
+            <label><input type="radio" name="q3" value="D"> D. 「俺の機材総額は…」</label><br>
+            <label><input type="radio" name="q3" value="E"> E. 「ノイズは許さん」</label><br>
+            <label><input type="radio" name="q3" value="F"> F. 「ヒストグラム見ろ」</label><br>
+            <label><input type="radio" name="q3" value="G"> G. 「赤道儀以外は邪道」</label><br>
+            <label><input type="radio" name="q3" value="H"> H. 「俺の場所はBortle 2だ」</label><br>
+            <label><input type="radio" name="q3" value="I"> I. 「観望会は俺が仕切る」</label><br>
+            <label><input type="radio" name="q3" value="J"> J. 「惑星は拡大だ！」</label><br>
+            <label><input type="radio" name="q3" value="K"> K. 「まずはフラット撮れ」</label><br>
+            <label><input type="radio" name="q3" value="L"> L. 「-10℃でも余裕だ」</label><br>
+            <label><input type="radio" name="q3" value="M"> M. 「ここ気になりますね」</label><br>
+            <label><input type="radio" name="q3" value="N"> N. 「双眼鏡は遊びだ」</label>
+        </div>
+
+        <div class="question">
+            <strong>4. 機材選びで重視するのは？</strong><br><br>
+            <label><input type="radio" name="q4" value="A"> A. 極軸調整機能</label><br>
+            <label><input type="radio" name="q4" value="B"> B. 冷却性能</label><br>
+            <label><input type="radio" name="q4" value="C"> C. フィルム対応</label><br>
+            <label><input type="radio" name="q4" value="D"> D. 高級ブランド</label><br>
+            <label><input type="radio" name="q4" value="E"> E. 低ノイズセンサー</label><br>
+            <label><input type="radio" name="q4" value="F"> F. 処理ソフトの相性</label><br>
+            <label><input type="radio" name="q4" value="G"> G. 赤道儀の精度</label><br>
+            <label><input type="radio" name="q4" value="H"> H. 軽量さ</label><br>
+            <label><input type="radio" name="q4" value="I"> I. 観望会向け</label><br>
+            <label><input type="radio" name="q4" value="J"> J. 高倍率対応</label><br>
+            <label><input type="radio" name="q4" value="K"> K. フラット取りやすさ</label><br>
+            <label><input type="radio" name="q4" value="L"> L. 耐寒性能</label><br>
+            <label><input type="radio" name="q4" value="M"> M. SNS映え</label><br>
+            <label><input type="radio" name="q4" value="N"> N. 双眼鏡の質</label>
+        </div>
+
+        <div class="question">
+            <strong>5. 撮影後の楽しみ方は？</strong><br><br>
+            <label><input type="radio" name="q5" value="A"> A. 極軸の振り返り</label><br>
+            <label><input type="radio" name="q5" value="B"> B. シーイングの愚痴</label><br>
+            <label><input type="radio" name="q5" value="C"> C. フィルム時代との比較</label><br>
+            <label><input type="radio" name="q5" value="D"> D. 機材自慢</label><br>
+            <label><input type="radio" name="q5" value="E"> E. ノイズチェック</label><br>
+            <label><input type="radio" name="q5" value="F"> F. 画像処理</label><br>
+            <label><input type="radio" name="q5" value="G"> G. 追尾精度の確認</label><br>
+            <label><input type="radio" name="q5" value="H"> H. 空の暗さ自慢</label><br>
+            <label><input type="radio" name="q5" value="I"> I. 観望会の反省会</label><br>
+            <label><input type="radio" name="q5" value="J"> J. 惑星の拡大画像作成</label><br>
+            <label><input type="radio" name="q5" value="K"> K. フラット画像の確認</label><br>
+            <label><input type="radio" name="q5" value="L"> L. 寒さ武勇伝</label><br>
+            <label><input type="radio" name="q5" value="M"> M. SNS投稿</label><br>
+            <label><input type="radio" name="q5" value="N"> N. 双眼鏡で直接見る</label>
+        </div>
+
+        <div class="question">
+            <strong>6. 初心者に言うアドバイスは？</strong><br><br>
+            <label><input type="radio" name="q6" value="A"> A. まずは極軸を完璧に</label><br>
+            <label><input type="radio" name="q6" value="B"> B. シーイングを待て</label><br>
+            <label><input type="radio" name="q6" value="C"> C. フィルムから始めた方がいい</label><br>
+            <label><input type="radio" name="q6" value="D"> D. 良い機材を買え</label><br>
+            <label><input type="radio" name="q6" value="E"> E. ノイズ処理を勉強しろ</label><br>
+            <label><input type="radio" name="q6" value="F"> F. 画像処理を学べ</label><br>
+            <label><input type="radio" name="q6" value="G"> G. 赤道儀を買え</label><br>
+            <label><input type="radio" name="q6" value="H"> H. 暗い場所を探せ</label><br>
+            <label><input type="radio" name="q6" value="I"> I. 観望会に来い</label><br>
+            <label><input type="radio" name="q6" value="J"> J. 惑星は拡大だ</label><br>
+            <label><input type="radio" name="q6" value="K"> K. フラットは必須</label><br>
+            <label><input type="radio" name="q6" value="L"> L. 寒さに耐えろ</label><br>
+            <label><input type="radio" name="q6" value="M"> M. コメントをよく読め</label><br>
+            <label><input type="radio" name="q6" value="N"> N. 双眼鏡から始めろ</label>
+        </div>
+
+        <div class="question">
+            <strong>7. 寒い夜の撮影でどう思う？</strong><br><br>
+            <label><input type="radio" name="q7" value="L"> L. 寒さは武勇伝</label><br>
+            <label><input type="radio" name="q7" value="A"> A. 極軸が狂わないか心配</label><br>
+            <label><input type="radio" name="q7" value="H"> H. 空が暗くなって良い</label><br>
+            <label><input type="radio" name="q7" value="B"> B. シーイングが良くなる</label><br>
+        </div>
+
+        <div class="question">
+            <strong>8. SNSで他人の写真を見た反応は？</strong><br><br>
+            <label><input type="radio" name="q8" value="M"> M. 添削コメントを入れる</label><br>
+            <label><input type="radio" name="q8" value="F"> F. 処理が甘い</label><br>
+            <label><input type="radio" name="q8" value="E"> E. ノイズが目立つ</label><br>
+            <label><input type="radio" name="q8" value="K"> K. フラットが取れてない</label><br>
+        </div>
+
+        <div class="question">
+            <strong>9. 機材トラブル時の対応は？</strong><br><br>
+            <label><input type="radio" name="q9" value="G"> G. 赤道儀を疑う</label><br>
+            <label><input type="radio" name="q9" value="D"> D. 機材のグレードが足りない</label><br>
+            <label><input type="radio" name="q9" value="A"> A. 極軸を再調整</label><br>
+            <label><input type="radio" name="q9" value="F"> F. 画像処理でごまかす</label><br>
+        </div>
+
+        <div class="question">
+            <strong>10. 天体写真の最終的な結論は？</strong><br><br>
+            <label><input type="radio" name="q10" value="A"> A. 極軸が全て</label><br>
+            <label><input type="radio" name="q10" value="H"> H. 空の暗さが命</label><br>
+            <label><input type="radio" name="q10" value="J"> J. 惑星は拡大だ</label><br>
+            <label><input type="radio" name="q10" value="L"> L. 寒さに耐えた者だけが良い写真を撮れる</label><br>
+        </div>
+
+        <div class="question">
+            <strong>11. 観測地の自慢の仕方は？</strong><br><br>
+            <label><input type="radio" name="q11" value="H"> H. 「俺の場所はBortle 2だ」</label><br>
+            <label><input type="radio" name="q11" value="I"> I. 「観望会は俺が仕切る」</label><br>
+        </div>
+
+        <div class="question">
+            <strong>12. 初心者への圧の掛け方は？</strong><br><br>
+            <label><input type="radio" name="q12" value="K"> K. 「まずはフラット撮れ」</label><br>
+            <label><input type="radio" name="q12" value="A"> A. 「極軸を完璧にしろ」</label><br>
+        </div>
+
+        <div class="question">
+            <strong>13. 機材トークの傾向は？</strong><br><br>
+            <label><input type="radio" name="q13" value="D"> D. 総額自慢</label><br>
+            <label><input type="radio" name="q13" value="G"> G. 赤道儀自慢</label><br>
+        </div>
+
+        <div class="question">
+            <strong>14. 全体として一番近いタイプは？</strong><br><br>
+            <label><input type="radio" name="q14" value="M"> M. SNS添削おじさん</label><br>
+            <label><input type="radio" name="q14" value="N"> N. 双眼鏡軽視おじさん</label><br>
+            <label><input type="radio" name="q14" value="L"> L. 寒さ武勇伝おじさん</label><br>
+        </div>
+    </form>
+
+    <button onclick="calculateResult()">診断結果を見る 🌠</button>
+    <div id="result"></div>
+
+    <script>
+        function calculateResult() {
+            const scores = {A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0,I:0,J:0,K:0,L:0,M:0,N:0};
+            let answered = 0;
+
+            for(let i = 1; i <= 14; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected) {
+                    scores[selected.value]++;
+                    answered++;
+                }
+            }
+
+            if (answered < 14) {
+                alert("すべての質問に回答してください！");
+                return;
+            }
+
+            let maxType = 'A';
+            for (let key in scores) {
+                if (scores[key] > scores[maxType]) maxType = key;
+            }
+
+            const types = {
+                A: {name: "極軸ガチ勢おじさん", emoji: "📐🔭", desc: "極軸は命。1分角でも妥協しない本気勢"},
+                B: {name: "シーイング警察おじさん", emoji: "👮‍♂️🌌", desc: "今日はシーイング終わってる…とすぐ言う"},
+                C: {name: "昔はフィルムおじさん", emoji: "📼", desc: "フィルム時代が最高だったと語る"},
+                D: {name: "機材総額マウントおじさん", emoji: "💰🔭", desc: "機材の総額で語るのが大好き"},
+                E: {name: "ノイズゼロ信者おじさん", emoji: "🔇", desc: "ノイズは悪。完全排除に命を懸ける"},
+                F: {name: "画像処理説教おじさん", emoji: "💻📊", desc: "ヒストグラム見ろ！と熱く語る"},
+                G: {name: "赤道儀こそ正義おじさん", emoji: "⚙️", desc: "赤道儀以外は邪道と断言"},
+                H: {name: "空の暗さ自慢おじさん", emoji: "🌃", desc: "自分の観測地の暗さを自慢する"},
+                I: {name: "観望会仕切りおじさん", emoji: "🗣️", desc: "観望会で仕切りたがる"},
+                J: {name: "惑星は拡大だおじさん", emoji: "🪐🔍", desc: "惑星はとにかく拡大！"},
+                K: {name: "フラット撮れ圧おじさん", emoji: "📸", desc: "まずはフラット撮れ！と圧をかける"},
+                L: {name: "寒さ武勇伝おじさん", emoji: "❄️", desc: "-10℃でも平気と武勇伝を語る"},
+                M: {name: "SNS添削おじさん", emoji: "📱", desc: "他人の写真に熱心に添削コメント"},
+                N: {name: "双眼鏡軽視おじさん", emoji: "🔭👀", desc: "双眼鏡は遊びと軽視する"}
+            };
+
+            const t = types[maxType];
+            document.getElementById("result").innerHTML = `
+                <div class="illustration">${t.emoji}</div>
+                <h2 class="type-name">あなたは「${t.name}」タイプです！</h2>
+                <p>${t.desc}</p>
+                <p style="margin-top:25px; color:#94a3b8;">老害天体撮影おじさん図鑑にようこそ🌠</p>
+            `;
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+</body>
+</html>
