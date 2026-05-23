@@ -140,8 +140,8 @@
       </div>
       <div class="score-card">
         <h3>🧭 軸の意味</h3>
-        <p><strong>X軸</strong>: 作品表現 ←→ 対象追求</p>
-        <p><strong>Y軸</strong>: 気軽さ ←→ 精密さ</p>
+        <p><strong>X軸</strong>: 芸術性 ←→ 科学性</p>
+        <p><strong>Y軸</strong>: お手軽 ←→ 難しい</p>
       </div>
     </div>
 
@@ -156,20 +156,19 @@
     // =========================================
     // 1. 散布図のタイプ定義
     // x, y は -10 ～ +10 くらいを想定
-    // ※ここを実際の散布図に合わせて変更してください
     // =========================================
     const TYPES = [
       {
         name: "星景ロマン派",
         x: -7,
         y: -6,
-        description: "風景と星空の一体感を大切にするタイプ。機動力があり、感動を作品として残すのが得意です。"
+        description: "風景と星空の一体感を大切にするタイプ。感動や雰囲気を作品として残すのが得意です。"
       },
       {
         name: "天の川ハンター",
         x: -2,
         y: -4,
-        description: "広がりのある夜空や季節の銀河を狙うタイプ。遠征や空の条件に敏感で、空の表情を読むのが得意です。"
+        description: "広がりのある夜空や季節の銀河を狙うタイプ。遠征や空の条件を読むのが得意です。"
       },
       {
         name: "ディープスカイ職人",
@@ -187,13 +186,15 @@
         name: "観望バランサー",
         x: 1,
         y: 0,
-        description: "気軽さとこだわりのバランスが良い万能型。幅広い対象を楽しみながら、無理なく継続できるタイプです。"
+        description: "お手軽さとこだわりのバランスが良い万能型。幅広い対象を楽しみながら、無理なく継続できるタイプです。"
       }
     ];
 
     // =========================================
     // 2. 質問定義
     // 各回答で x, y に点数加算
+    // x: 芸術性(-) ←→ 科学性(+)
+    // y: お手軽(-) ←→ 難しい(+)
     // =========================================
     const QUESTIONS = [
       {
@@ -210,14 +211,14 @@
         options: [
           { label: "A. 雰囲気や美しさ", x: -3, y: -1 },
           { label: "B. 空の状態や季節感", x: -1, y: 0 },
-          { label: "C. 解像感や精密さ", x: 3, y: 3 },
+          { label: "C. 解像感や正確さ", x: 3, y: 3 },
           { label: "D. 対象の細部描写", x: 3, y: 2 }
         ]
       },
       {
         text: "3. 機材についてどう思う？",
         options: [
-          { label: "A. 軽くて手軽が一番", x: -2, y: -3 },
+          { label: "A. 軽くてお手軽が一番", x: -2, y: -3 },
           { label: "B. 必要十分ならOK", x: 0, y: -1 },
           { label: "C. 目的のためなら増えるのも仕方ない", x: 2, y: 2 },
           { label: "D. 精度のためなら妥協したくない", x: 3, y: 3 }
@@ -235,7 +236,7 @@
       {
         text: "5. 遠征スタイルは？",
         options: [
-          { label: "A. 近場で気軽に楽しみたい", x: -2, y: -2 },
+          { label: "A. 近場でお手軽に楽しみたい", x: -2, y: -2 },
           { label: "B. 条件が良ければ遠出もする", x: -1, y: 0 },
           { label: "C. 暗い空のためなら遠征する", x: 1, y: 1 },
           { label: "D. ベスト条件を追って動く", x: 2, y: 2 }
@@ -258,15 +259,16 @@
       const div = document.createElement("div");
       div.className = "question";
       div.innerHTML = `<h3>${q.text}</h3>`;
+
       q.options.forEach((opt, j) => {
-        const id = `q${i}_o${j}`;
         const label = document.createElement("label");
         label.innerHTML = `
-          <input type="radio" name="q${i}" id="${id}" value="${j}">
+          <input type="radio" name="q${i}" value="${j}">
           ${opt.label}
         `;
         div.appendChild(label);
       });
+
       quizForm.appendChild(div);
     });
 
@@ -280,12 +282,13 @@
           alert(`${i + 1}問目に回答してください。`);
           return;
         }
+
         const selected = QUESTIONS[i].options[checked.value];
         totalX += selected.x;
         totalY += selected.y;
       }
 
-      // スコアを -10 ～ +10 に丸める感じで調整
+      // スコアを -10 ～ +10 に調整
       totalX = Math.max(-10, Math.min(10, Math.round(totalX / 2)));
       totalY = Math.max(-10, Math.min(10, Math.round(totalY / 2)));
 
@@ -336,10 +339,11 @@
       ctx.font = "16px Arial";
       ctx.fillText("天体写真愛好家タイプ散布図", 20, 30);
 
-      // 軸
+      // 軸中心
       const centerX = w / 2;
       const centerY = h / 2;
 
+      // 軸線
       ctx.strokeStyle = "#94a3b8";
       ctx.lineWidth = 1;
       ctx.beginPath();
@@ -352,14 +356,16 @@
       // 軸ラベル
       ctx.fillStyle = "#334155";
       ctx.font = "14px Arial";
-      ctx.fillText("作品表現 ← X → 対象追求", centerX - 90, h - 20);
+      ctx.fillText("芸術性 ← X → 科学性", centerX - 75, h - 20);
+
       ctx.save();
-      ctx.translate(20, centerY + 80);
+      ctx.translate(20, centerY + 70);
       ctx.rotate(-Math.PI / 2);
-      ctx.fillText("気軽さ ← Y → 精密さ", 0, 0);
+      ctx.fillText("お手軽 ← Y → 難しい", 0, 0);
       ctx.restore();
 
-      // 目盛り
+      // 目盛り・グリッド
+      ctx.font = "12px Arial";
       for (let i = -10; i <= 10; i += 5) {
         const px = mapX(i, w, pad);
         const py = mapY(i, h, pad);
@@ -373,8 +379,8 @@
         ctx.stroke();
 
         ctx.fillStyle = "#64748b";
-        ctx.fillText(i, px - 5, centerY + 18);
-        ctx.fillText(i, centerX + 8, py + 5);
+        ctx.fillText(i, px - 6, centerY + 16);
+        ctx.fillText(i, centerX + 8, py + 4);
       }
 
       // タイプ点
@@ -392,7 +398,7 @@
         ctx.fillText(type.name, px + 10, py - 8);
       });
 
-      // ユーザー点
+      // あなたの点
       const userPx = mapX(userX, w, pad);
       const userPy = mapY(userY, h, pad);
 
