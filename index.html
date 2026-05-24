@@ -1,275 +1,1084 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌌 老害天体撮影おじさん 14タイプ診断</title>
-    <style>
-        body { 
-            font-family: Arial, 'Hiragino Sans', sans-serif; 
-            max-width: 920px; 
-            margin: 30px auto; 
-            padding: 20px; 
-            background: linear-gradient(180deg, #0f172a, #1e2937); 
-            color: #e2e8f0; 
-        }
-        h1 { text-align: center; color: #60a5fa; }
-        .subtitle { text-align: center; color: #94a3b8; margin-bottom: 30px; }
-        .question { 
-            background: #1e2937; 
-            padding: 20px; 
-            margin: 18px 0; 
-            border-radius: 12px; 
-            border: 1px solid #334155;
-        }
-        label { display: block; padding: 9px 0; cursor: pointer; }
-        button { 
-            width: 100%; 
-            padding: 18px; 
-            font-size: 20px; 
-            background: #3b82f6; 
-            color: white; 
-            border: none; 
-            border-radius: 10px; 
-            margin: 30px 0; 
-            cursor: pointer;
-        }
-        #result { 
-            display: none; 
-            padding: 40px; 
-            background: #1e2937; 
-            border-radius: 20px; 
-            text-align: center; 
-            border: 3px solid #60a5fa;
-            margin-top: 30px;
-        }
-        .illustration { font-size: 90px; margin: 15px 0; }
-        .type-name { font-size: 28px; color: #60a5fa; margin: 15px 0; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>天体写真愛好家タイプ診断</title>
+  <style>
+    :root {
+      --bg1: #081120;
+      --bg2: #101d35;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #e5eefb;
+      --subtext: #c7d3e6;
+      --accent2: #38bdf8;
+      --yellow: #facc15;
+      --shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(236,72,153,0.12), transparent 25%),
+        linear-gradient(160deg, #081120, #101d35);
+      min-height: 100vh;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.8), transparent),
+        radial-gradient(1.5px 1.5px at 120px 80px, rgba(255,255,255,.7), transparent),
+        radial-gradient(1.2px 1.2px at 200px 140px, rgba(255,255,255,.6), transparent),
+        radial-gradient(1.8px 1.8px at 320px 40px, rgba(255,255,255,.8), transparent),
+        radial-gradient(1.3px 1.3px at 420px 130px, rgba(255,255,255,.5), transparent),
+        radial-gradient(1.7px 1.7px at 560px 70px, rgba(255,255,255,.7), transparent);
+      background-size: 600px 200px;
+      opacity: .35;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 16px 10px 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero,
+    .panel,
+    .result {
+      border: 1px solid var(--card-border);
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 18px 16px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    .hero-copy {
+      margin: 0;
+      color: var(--subtext);
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      font-family: inherit;
+    }
+
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .badge {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(125, 211, 252, 0.12);
+      border: 1px solid rgba(125, 211, 252, 0.25);
+      color: #d7f3ff;
+      font-size: 13px;
+    }
+
+    .panel {
+      padding: 16px;
+    }
+
+    .question {
+      background: rgba(10, 18, 34, 0.48);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 14px;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+
+    .question:hover {
+      transform: translateY(-2px);
+      border-color: rgba(125,211,252,0.25);
+      background: rgba(13, 25, 46, 0.58);
+    }
+
+    .question h3 {
+      margin: 0 0 10px;
+      color: #d7efff;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .option {
+      display: block;
+      margin: 8px 0;
+      padding: 14px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+      -webkit-tap-highlight-color: transparent;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .option:hover {
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(125,211,252,0.25);
+      transform: translateX(2px);
+    }
+
+    .option.active {
+      background: rgba(56,189,248,0.14);
+      border-color: rgba(125,211,252,0.45);
+      box-shadow: 0 0 0 1px rgba(125,211,252,0.15) inset;
+    }
+
+    .option input[type="radio"] {
+      margin-right: 10px;
+      transform: scale(1.08);
+      accent-color: var(--accent2);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+      margin-top: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 14px;
+      padding: 15px 18px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(34,197,94,0.25);
+    }
+
+    .secondary-btn {
+      background: rgba(255,255,255,0.10);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .x-btn {
+      background: linear-gradient(135deg, #111827, #000000);
+      color: white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+    }
+
+    .result {
+      display: none;
+      margin-top: 20px;
+      padding: 16px;
+      animation: fadeUp .35s ease;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .result-head {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .result-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      color: var(--yellow);
+      line-height: 1.35;
+    }
+
+    .result-type {
+      color: #ffd1eb;
+      text-shadow: 0 0 16px rgba(236,72,153,.25);
+    }
+
+    .result-catch {
+      margin: 0 0 14px;
+      font-size: 20px;
+      color: #d7efff;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+      text-shadow: 0 0 12px rgba(125, 211, 252, 0.25);
+    }
+
+    .result-desc {
+      color: var(--subtext);
+      margin: 0 auto;
+      max-width: 860px;
+      text-align: left;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .chart-wrap {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      padding: 12px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 700px;
+      background: #f8fbff;
+      border-radius: 14px;
+    }
+
+    .small {
+      font-size: 13px;
+      color: var(--subtext);
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .result-catch {
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .container {
+        padding: 24px 14px 56px;
+      }
+
+      .hero {
+        padding: 24px 18px;
+      }
+
+      .panel,
+      .result {
+        padding: 20px;
+      }
+
+      .question {
+        padding: 16px;
+      }
+
+      .question h3 {
+        font-size: 17px;
+      }
+
+      .button-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        flex: 1 1 220px;
+        width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>🌌 老害天体撮影おじさん 14タイプ診断</h1>
-    <p class="subtitle">14の質問に答えて、あなたはどの老害おじさんタイプか診断！</p>
+  <div class="stars"></div>
 
-    <form id="quizForm">
-        <div class="question">
-            <strong>1. 撮影で一番大事にしていることは？</strong><br><br>
-            <label><input type="radio" name="q1" value="A"> A. 極軸の精度</label><br>
-            <label><input type="radio" name="q1" value="B"> B. その日のシーイング</label><br>
-            <label><input type="radio" name="q1" value="C"> C. フィルム時代の味</label><br>
-            <label><input type="radio" name="q1" value="D"> D. 機材の総額と性能</label><br>
-            <label><input type="radio" name="q1" value="E"> E. ノイズの完全排除</label><br>
-            <label><input type="radio" name="q1" value="F"> F. 画像処理のテクニック</label><br>
-            <label><input type="radio" name="q1" value="G"> G. 赤道儀の性能</label><br>
-            <label><input type="radio" name="q1" value="H"> H. 空の暗さ</label><br>
-            <label><input type="radio" name="q1" value="I"> I. 観望会の進行</label><br>
-            <label><input type="radio" name="q1" value="J"> J. 惑星の拡大率</label><br>
-            <label><input type="radio" name="q1" value="K"> K. フラット画像の精度</label><br>
-            <label><input type="radio" name="q1" value="L"> L. 寒さへの耐性</label><br>
-            <label><input type="radio" name="q1" value="M"> M. SNSでの反応</label><br>
-            <label><input type="radio" name="q1" value="N"> N. 双眼鏡の有用性</label>
+  <div class="container">
+    <section class="hero">
+      <h1>🌌 天体写真愛好家タイプ診断</h1>
+      <p class="hero-copy">
+        いくつかの質問に答えると、あなたが散布図上のどのタイプに近いかを診断します。<br>
+        迷ったら「いちばんワクワクするもの」を選ぶと、結果が自然になりやすいです。
+      </p>
+      <div class="badge-row">
+        <span class="badge">X軸：印象派 ↔ リアリズム</span>
+        <span class="badge">Y軸：お手軽派 ↔ テクニシャン</span>
+        <span class="badge">結果はXでシェア可能 🐦</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <form id="quizForm"></form>
+
+      <div class="button-row">
+        <button type="button" id="submitBtn" class="primary-btn">✨ 診断する</button>
+        <button type="button" id="resetBtn" class="secondary-btn">🔄 もう一度診断する</button>
+      </div>
+    </section>
+
+    <section id="result" class="result">
+      <div class="result-head">
+        <h2>診断結果：<span id="resultType" class="result-type"></span></h2>
+        <p id="resultCatch" class="result-catch"></p>
+        <div id="resultDescription" class="result-desc"></div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <p class="small">診断結果をXに投稿できます。</p>
+          <div class="button-row" style="margin-top:10px;">
+            <button type="button" id="shareBtn" class="x-btn">🐦 Xでシェア</button>
+          </div>
         </div>
+      </div>
 
-        <div class="question">
-            <strong>2. 他の人の写真を見たとき最初に思うことは？</strong><br><br>
-            <label><input type="radio" name="q2" value="A"> A. 極軸が甘い</label><br>
-            <label><input type="radio" name="q2" value="B"> B. シーイングが悪い</label><br>
-            <label><input type="radio" name="q2" value="C"> C. デジタル臭い</label><br>
-            <label><input type="radio" name="q2" value="D"> D. 機材が貧弱</label><br>
-            <label><input type="radio" name="q2" value="E"> E. ノイズが酷い</label><br>
-            <label><input type="radio" name="q2" value="F"> F. 処理が下手</label><br>
-            <label><input type="radio" name="q2" value="G"> G. 赤道儀を使ってない</label><br>
-            <label><input type="radio" name="q2" value="H"> H. 空が明るすぎる</label><br>
-            <label><input type="radio" name="q2" value="I"> I. 構図が悪い</label><br>
-            <label><input type="radio" name="q2" value="J"> J. もっと拡大すべき</label><br>
-            <label><input type="radio" name="q2" value="K"> K. フラットが取れてない</label><br>
-            <label><input type="radio" name="q2" value="L"> L. 寒くないのか？</label><br>
-            <label><input type="radio" name="q2" value="M"> M. コメントが足りない</label><br>
-            <label><input type="radio" name="q2" value="N"> N. 双眼鏡で撮ってる</label>
-        </div>
+      <div class="chart-wrap">
+        <canvas id="chart" width="960" height="620"></canvas>
+      </div>
 
-        <div class="question">
-            <strong>3. よく口にするセリフは？</strong><br><br>
-            <label><input type="radio" name="q3" value="A"> A. 「極軸は命だ」</label><br>
-            <label><input type="radio" name="q3" value="B"> B. 「今日はシーイング終わってる」</label><br>
-            <label><input type="radio" name="q3" value="C"> C. 「昔はフィルムが良かった」</label><br>
-            <label><input type="radio" name="q3" value="D"> D. 「俺の機材総額は…」</label><br>
-            <label><input type="radio" name="q3" value="E"> E. 「ノイズは許さん」</label><br>
-            <label><input type="radio" name="q3" value="F"> F. 「ヒストグラム見ろ」</label><br>
-            <label><input type="radio" name="q3" value="G"> G. 「赤道儀以外は邪道」</label><br>
-            <label><input type="radio" name="q3" value="H"> H. 「俺の場所はBortle 2だ」</label><br>
-            <label><input type="radio" name="q3" value="I"> I. 「観望会は俺が仕切る」</label><br>
-            <label><input type="radio" name="q3" value="J"> J. 「惑星は拡大だ！」</label><br>
-            <label><input type="radio" name="q3" value="K"> K. 「まずはフラット撮れ」</label><br>
-            <label><input type="radio" name="q3" value="L"> L. 「-10℃でも余裕だ」</label><br>
-            <label><input type="radio" name="q3" value="M"> M. 「ここ気になりますね」</label><br>
-            <label><input type="radio" name="q3" value="N"> N. 「双眼鏡は遊びだ」</label>
-        </div>
+      <p class="footer-note small">
+        ピンクの星があなた、カラフルな点が各タイプです。
+      </p>
+    </section>
+  </div>
 
-        <div class="question">
-            <strong>4. 機材選びで重視するのは？</strong><br><br>
-            <label><input type="radio" name="q4" value="A"> A. 極軸調整機能</label><br>
-            <label><input type="radio" name="q4" value="B"> B. 冷却性能</label><br>
-            <label><input type="radio" name="q4" value="C"> C. フィルム対応</label><br>
-            <label><input type="radio" name="q4" value="D"> D. 高級ブランド</label><br>
-            <label><input type="radio" name="q4" value="E"> E. 低ノイズセンサー</label><br>
-            <label><input type="radio" name="q4" value="F"> F. 処理ソフトの相性</label><br>
-            <label><input type="radio" name="q4" value="G"> G. 赤道儀の精度</label><br>
-            <label><input type="radio" name="q4" value="H"> H. 軽量さ</label><br>
-            <label><input type="radio" name="q4" value="I"> I. 観望会向け</label><br>
-            <label><input type="radio" name="q4" value="J"> J. 高倍率対応</label><br>
-            <label><input type="radio" name="q4" value="K"> K. フラット取りやすさ</label><br>
-            <label><input type="radio" name="q4" value="L"> L. 耐寒性能</label><br>
-            <label><input type="radio" name="q4" value="M"> M. SNS映え</label><br>
-            <label><input type="radio" name="q4" value="N"> N. 双眼鏡の質</label>
-        </div>
+  <script>
+    // x: 印象派(-) ←→ リアリズム(+)
+    // y: お手軽派(-) ←→ テクニシャン(+)
+    const TYPES = [
+      {
+        name: "星景スマホ派",
+        x: -5,
+        y: -5,
+        tag: "ポケット宇宙採集家",
+        color: "#38bdf8",
+        labelDx: -10,
+        labelDy: 16,
+        description: `
+          <p>あなたは <strong>星景スマホ派</strong> です。星空に対して「まず撮ってみよう」が自然に発動する、行動力のあるタイプです。難しい機材よりも、<strong>“今この空きれい！” を逃さない瞬発力</strong> が最大の武器。気合いの赤道儀より、まずはスマホの充電残量を確認する現実派でもあります。</p>
+          <p>このタイプは、天体写真の入り口を軽やかに飛び越える才能があります。撮影準備に30分かけるより、3分で外に出て1枚撮るほうが向いています。結果として、周りが機材談義をしている間に、あなたはちゃんと星空の思い出を増やしているタイプです。<strong>“機材沼の手前で景色を楽しめる賢さ”</strong> が光ります。</p>
+          <p>おすすめは、三脚・夜景モード・簡単な編集アプリをうまく活用して、<strong>気軽だけど雰囲気のある作品</strong> を増やしていくこと。気をつける点は、「そのうち本格的に…」と言いながら、気づくとスマホ用アクセサリがじわじわ増えることです。沼は浅く見えて、意外とぬかるみます。</p>
+        `
+      },
+      {
+        name: "スマート望遠鏡派",
+        x: 0,
+        y: -7,
+        tag: "自動化で宇宙に時短",
+        color: "#14b8a6",
+        labelDx: 12,
+        labelDy: 18,
+        description: `
+          <p>あなたは <strong>スマート望遠鏡派</strong>。複雑な設定に情熱を燃やすというより、<strong>技術をうまく使って宇宙体験を最短距離で楽しむ</strong> のが得意です。天体写真の世界で言えば、“根性” ではなく “賢さ” で勝負するタイプ。ケーブルの数より、成功率の高さにロマンを感じます。</p>
+          <p>このタイプは、効率・再現性・気軽さのバランス感覚がとても優秀です。「今日は晴れてるからすぐ始めよう」ができるので、観望の機会を逃しにくいのが強み。重装備の人がセッティング中に、あなたはすでに天体を見て「おお…」となっていることもあります。地味に強いです。</p>
+          <p>おすすめは、自動導入やスタック機能を活かしつつ、少しずつ対象や構図の好みを育てていくこと。弱点を挙げるなら、便利すぎて「人力で苦労した話」に混ざれないこと。でも大丈夫です。宇宙は苦労話コンテストではありません。</p>
+        `
+      },
+      {
+        name: "観望バランサー",
+        x: 0,
+        y: 0,
+        tag: "ちょうどよく宇宙好き",
+        color: "#8b5cf6",
+        labelDx: 12,
+        labelDy: -30,
+        description: `
+          <p>あなたは <strong>観望バランサー</strong>。印象派にもリアリズムにも、お手軽派にも本格派にも寄りすぎない、<strong>ちょうどいい宇宙との付き合い方</strong> ができるタイプです。極端なこだわりはないけれど、だからこそ長く楽しめる安定感があります。言うなれば、天体趣味界の “万能型” です。</p>
+          <p>このタイプは、星景も惑星も星雲も「それぞれ面白いよね」と自然に言える懐の深さがあります。SNSで誰かの作品を見て「それもいいな」と素直に思えるので、趣味の幅が広がりやすいのも特徴。機材の数でマウントを取るより、ちゃんと夜空を見上げる余裕を持っています。えらい。</p>
+          <p>おすすめは、気になったジャンルを少しずつ試して、自分の“好きの芯”を見つけていくこと。弱点は、何でも楽しめるぶん、たまに「自分は何派なんだろう」と迷子になること。でもその迷子、たぶんかなり幸せな迷子です。</p>
+        `
+      },
+      {
+        name: "星景ロマン派",
+        x: -5,
+        y: 5,
+        tag: "空を撮る詩人",
+        color: "#ec4899",
+        labelDx: 12,
+        labelDy: -28,
+        description: `
+          <p>あなたは <strong>星景ロマン派</strong>。星を “記録” するよりも、<strong>その夜の空気ごと作品に閉じ込めたい</strong> タイプです。構図、雰囲気、余韻、そして「なんか好き」がとても大切。写った星の数より、写真を見た人の胸のざわつきを重視する、芸術肌の住人です。</p>
+          <p>このタイプは、夜景・地上風景・月明かり・薄雲まで、全部を “味” に変える力があります。条件が完璧じゃなくても、むしろそこにドラマを見つけてしまうのが強み。観測屋さんから見ると「それ科学的には…」と言われることもあるかもしれませんが、あなたは心の中でこう思います。<strong>“でも、きれいだからヨシ！”</strong></p>
+          <p>おすすめは、ロケーション探しと色づくりをさらに磨くこと。広角レンズや季節の空の変化とも相性抜群です。弱点は、美しい空を見るとすぐに足を止めるので、帰宅時間の見積もりが雑になりがちなこと。ロマンは時に、睡眠時間を削ります。</p>
+        `
+      },
+      {
+        name: "ディープスカイ職人",
+        x: 0,
+        y: 7,
+        tag: "淡いひかりの彫刻師",
+        color: "#6366f1",
+        labelDx: -150,
+        labelDy: -34,
+        description: `
+          <p>あなたは <strong>ディープスカイ職人</strong>。星雲や銀河のような淡く遠い対象を、機材・追尾・露光・画像処理の総力戦で仕上げる本格派です。ひとことで言うと、<strong>“夜空を相手に黙々と精度を積み上げる人”</strong>。ロマンもあるけれど、それ以上に再現性と完成度に燃えるタイプです。</p>
+          <p>このタイプは、撮影そのものだけでなく、調整・比較・改善のプロセスも楽しめます。「なんか写った」では満足せず、「もっと滑らかに」「もっと淡部を」「星像をもう少し…」と、静かに自分を追い込みます。外から見るとかなり真面目ですが、本人はそれをちゃんと楽しんでいます。たぶん。</p>
+          <p>おすすめは、対象選びと処理フローを自分の型として育てていくこと。積み上げるほど強いタイプです。注意点は、撮影より配線図のほうを長く見ている日があること。とはいえ、その苦労の先に出てくる一枚は本当に強い。職人、かっこいいです。</p>
+        `
+      },
+      {
+        name: "惑星ディテール派",
+        x: 5,
+        y: 7,
+        tag: "模様は正義",
+        color: "#f59e0b",
+        labelDx: 16,
+        labelDy: 18,
+        description: `
+          <p>あなたは <strong>惑星ディテール派</strong>。月面の地形、木星の縞、土星の環、火星の模様――そういう <strong>“細部が見える快感”</strong> にしっかり魅了されるタイプです。ピント、シーイング、拡大率、スタック枚数。ロマンはもちろんありますが、そのロマンはかなり高解像です。</p>
+          <p>このタイプは、天体を見るとまず「きれい」より「どこまで見える？」が先に来ます。ちょっとした気流の乱れにも敏感で、空を見上げながら心の中で「今日は揺れてるな…」と評論家モードになることも。一般人が“月だ！”で終わるところを、あなたはクレーターの陰影で10分語れます。強い。</p>
+          <p>おすすめは、気流条件の見極めと処理技術を磨いて、1段上のシャープさを狙うこと。弱点は、細部を求めるあまり、気づくと自分自身の寝不足がいちばん荒れていることです。空の分解能も大事ですが、体力の分解能も守ってください。</p>
+        `
+      },
+      {
+        name: "宇宙望遠鏡・惑星探査機",
+        x: 10,
+        y: 10,
+        tag: "宇宙の最前線研究室",
+        color: "#ef4444",
+        labelDx: -190,
+        labelDy: 12,
+        description: `
+          <p>あなたは <strong>宇宙望遠鏡・惑星探査機</strong> タイプ。もうここまで来ると、単なる“天体写真好き”というより、<strong>宇宙そのものへの知的好奇心がメインエンジン</strong> です。JWST、ハッブル、探査機ミッション、観測波長、解析結果――そういう言葉にワクワクするなら、かなりこのタイプ寄りです。</p>
+          <p>このタイプは、写真を作品として味わうだけでなく、その背後にある観測技術や科学的意味にも深く惹かれます。「きれい」で終わらず、「これは何を示しているのか？」まで掘りたくなるのが特徴。会話中に突然ミッション名や観測装置の話を始め、相手の脳内に軽い宇宙授業を開講してしまうこともあります。たぶん悪気はありません。</p>
+          <p>おすすめは、探査機・宇宙望遠鏡の成果を入り口に、自分の観望や撮影とつなげて楽しむこと。弱点は、知識が増えすぎて、ただ星を見に来た人に対して情報量が濃くなりすぎることです。でも大丈夫。その熱量、かなり魅力です。宇宙の広さに対抗できるのは、あなたの好奇心かもしれません。</p>
+        `
+      }
+    ];
 
-        <div class="question">
-            <strong>5. 撮影後の楽しみ方は？</strong><br><br>
-            <label><input type="radio" name="q5" value="A"> A. 極軸の振り返り</label><br>
-            <label><input type="radio" name="q5" value="B"> B. シーイングの愚痴</label><br>
-            <label><input type="radio" name="q5" value="C"> C. フィルム時代との比較</label><br>
-            <label><input type="radio" name="q5" value="D"> D. 機材自慢</label><br>
-            <label><input type="radio" name="q5" value="E"> E. ノイズチェック</label><br>
-            <label><input type="radio" name="q5" value="F"> F. 画像処理</label><br>
-            <label><input type="radio" name="q5" value="G"> G. 追尾精度の確認</label><br>
-            <label><input type="radio" name="q5" value="H"> H. 空の暗さ自慢</label><br>
-            <label><input type="radio" name="q5" value="I"> I. 観望会の反省会</label><br>
-            <label><input type="radio" name="q5" value="J"> J. 惑星の拡大画像作成</label><br>
-            <label><input type="radio" name="q5" value="K"> K. フラット画像の確認</label><br>
-            <label><input type="radio" name="q5" value="L"> L. 寒さ武勇伝</label><br>
-            <label><input type="radio" name="q5" value="M"> M. SNS投稿</label><br>
-            <label><input type="radio" name="q5" value="N"> N. 双眼鏡で直接見る</label>
-        </div>
+    const QUESTIONS = [
+      {
+        text: "1. いちばん心が動くのはどんな対象・写真ですか？",
+        options: [
+          { label: "A. スマホで気軽に撮った星空や夜景との組み合わせ", x: -5, y: -5 },
+          { label: "B. 自動導入で楽に見える・撮れる星雲や星団", x: 0, y: -7 },
+          { label: "C. どれかに偏るより、いろいろ楽しめるのがいちばん", x: 0, y: 0 },
+          { label: "D. 風景と星空が一体になった作品的な星景写真", x: -5, y: 5 },
+          { label: "E. 星雲・銀河の繊細で丁寧な仕上がり", x: 0, y: 7 },
+          { label: "F. 月や惑星の細かい模様や地形", x: 5, y: 7 },
+          { label: "G. 宇宙望遠鏡や探査機が捉えた最先端画像", x: 10, y: 10 }
+        ]
+      },
+      {
+        text: "2. あなたが重視するのはどちらに近いですか？",
+        options: [
+          { label: "A. まずは気軽さ。星が見えて撮れたらうれしい", x: -5, y: -5 },
+          { label: "B. 手間は少なく、成功率は高く", x: 0, y: -7 },
+          { label: "C. 無理なく長く楽しめるバランス", x: 0, y: 0 },
+          { label: "D. 空気感や余韻、作品としての美しさ", x: -5, y: 5 },
+          { label: "E. 淡い対象をちゃんと出し切る完成度", x: 0, y: 7 },
+          { label: "F. 細部がどこまで見えるか", x: 5, y: 7 },
+          { label: "G. 科学的な意味や観測価値", x: 10, y: 10 }
+        ]
+      },
+      {
+        text: "3. 理想の機材スタイルは？",
+        options: [
+          { label: "A. スマホと小物で軽やかに", x: -5, y: -5 },
+          { label: "B. スマート望遠鏡で自動化したい", x: 0, y: -7 },
+          { label: "C. 必要十分。重すぎず軽すぎず", x: 0, y: 0 },
+          { label: "D. カメラと三脚でロケーション勝負", x: -5, y: 5 },
+          { label: "E. 赤道儀・冷却カメラなどをしっかり運用", x: 0, y: 7 },
+          { label: "F. 惑星向けの高倍率システム", x: 5, y: 7 },
+          { label: "G. 観測機器や探査データ環境そのものに惹かれる", x: 10, y: 10 }
+        ]
+      },
+      {
+        text: "4. 休日に時間ができたら何をしたいですか？",
+        options: [
+          { label: "A. 近場でサッと星を撮る", x: -5, y: -5 },
+          { label: "B. 自動観望・自動撮影で効率よく楽しむ", x: 0, y: -7 },
+          { label: "C. 空次第で、その日に合うことをのんびり選ぶ", x: 0, y: 0 },
+          { label: "D. ロケーションを選んで印象的な星景を狙う", x: -5, y: 5 },
+          { label: "E. 長時間露光で星雲や銀河をじっくり攻める", x: 0, y: 7 },
+          { label: "F. シーイングを見ながら惑星を狙い撃ち", x: 5, y: 7 },
+          { label: "G. 宇宙探査や観測成果を追ってニヤニヤする", x: 10, y: 10 }
+        ]
+      },
+      {
+        text: "5. 画像処理や後処理への気持ちは？",
+        options: [
+          { label: "A. できれば最小限。すぐ見たい", x: -5, y: -5 },
+          { label: "B. 自動処理でいい感じになるのが理想", x: 0, y: -7 },
+          { label: "C. 必要なぶんだけ、ほどほどに", x: 0, y: 0 },
+          { label: "D. 色味や雰囲気づくりは楽しい", x: -5, y: 5 },
+          { label: "E. 画像処理も作品完成の重要工程", x: 0, y: 7 },
+          { label: "F. スタックやシャープ化を詰めたい", x: 5, y: 7 },
+          { label: "G. 科学画像や観測データの見方にも興味がある", x: 10, y: 10 }
+        ]
+      },
+      {
+        text: "6. いちばん近い価値観は？",
+        options: [
+          { label: "A. 星はまず気軽に楽しみたい", x: -5, y: -5 },
+          { label: "B. 難しい準備は減らして、体験を増やしたい", x: 0, y: -7 },
+          { label: "C. どのジャンルにも良さがあると思う", x: 0, y: 0 },
+          { label: "D. 星空は作品として心を動かしたい", x: -5, y: 5 },
+          { label: "E. 淡い光を丁寧に写し出したい", x: 0, y: 7 },
+          { label: "F. 月や惑星のディテールを追い込みたい", x: 5, y: 7 },
+          { label: "G. 宇宙の最前線を知的に追いかけたい", x: 10, y: 10 }
+        ]
+      }
+    ];
 
-        <div class="question">
-            <strong>6. 初心者に言うアドバイスは？</strong><br><br>
-            <label><input type="radio" name="q6" value="A"> A. まずは極軸を完璧に</label><br>
-            <label><input type="radio" name="q6" value="B"> B. シーイングを待て</label><br>
-            <label><input type="radio" name="q6" value="C"> C. フィルムから始めた方がいい</label><br>
-            <label><input type="radio" name="q6" value="D"> D. 良い機材を買え</label><br>
-            <label><input type="radio" name="q6" value="E"> E. ノイズ処理を勉強しろ</label><br>
-            <label><input type="radio" name="q6" value="F"> F. 画像処理を学べ</label><br>
-            <label><input type="radio" name="q6" value="G"> G. 赤道儀を買え</label><br>
-            <label><input type="radio" name="q6" value="H"> H. 暗い場所を探せ</label><br>
-            <label><input type="radio" name="q6" value="I"> I. 観望会に来い</label><br>
-            <label><input type="radio" name="q6" value="J"> J. 惑星は拡大だ</label><br>
-            <label><input type="radio" name="q6" value="K"> K. フラットは必須</label><br>
-            <label><input type="radio" name="q6" value="L"> L. 寒さに耐えろ</label><br>
-            <label><input type="radio" name="q6" value="M"> M. コメントをよく読め</label><br>
-            <label><input type="radio" name="q6" value="N"> N. 双眼鏡から始めろ</label>
-        </div>
+    const quizForm = document.getElementById("quizForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const shareBtn = document.getElementById("shareBtn");
+    const resultEl = document.getElementById("result");
 
-        <div class="question">
-            <strong>7. 寒い夜の撮影でどう思う？</strong><br><br>
-            <label><input type="radio" name="q7" value="L"> L. 寒さは武勇伝</label><br>
-            <label><input type="radio" name="q7" value="A"> A. 極軸が狂わないか心配</label><br>
-            <label><input type="radio" name="q7" value="H"> H. 空が暗くなって良い</label><br>
-            <label><input type="radio" name="q7" value="B"> B. シーイングが良くなる</label><br>
-        </div>
+    const resultTypeEl = document.getElementById("resultType");
+    const resultCatchEl = document.getElementById("resultCatch");
+    const resultDescriptionEl = document.getElementById("resultDescription");
 
-        <div class="question">
-            <strong>8. SNSで他人の写真を見た反応は？</strong><br><br>
-            <label><input type="radio" name="q8" value="M"> M. 添削コメントを入れる</label><br>
-            <label><input type="radio" name="q8" value="F"> F. 処理が甘い</label><br>
-            <label><input type="radio" name="q8" value="E"> E. ノイズが目立つ</label><br>
-            <label><input type="radio" name="q8" value="K"> K. フラットが取れてない</label><br>
-        </div>
+    let latestResult = {
+      name: "",
+      x: 0,
+      y: 0,
+      tag: ""
+    };
 
-        <div class="question">
-            <strong>9. 機材トラブル時の対応は？</strong><br><br>
-            <label><input type="radio" name="q9" value="G"> G. 赤道儀を疑う</label><br>
-            <label><input type="radio" name="q9" value="D"> D. 機材のグレードが足りない</label><br>
-            <label><input type="radio" name="q9" value="A"> A. 極軸を再調整</label><br>
-            <label><input type="radio" name="q9" value="F"> F. 画像処理でごまかす</label><br>
-        </div>
+    QUESTIONS.forEach((q, i) => {
+      const box = document.createElement("div");
+      box.className = "question";
 
-        <div class="question">
-            <strong>10. 天体写真の最終的な結論は？</strong><br><br>
-            <label><input type="radio" name="q10" value="A"> A. 極軸が全て</label><br>
-            <label><input type="radio" name="q10" value="H"> H. 空の暗さが命</label><br>
-            <label><input type="radio" name="q10" value="J"> J. 惑星は拡大だ</label><br>
-            <label><input type="radio" name="q10" value="L"> L. 寒さに耐えた者だけが良い写真を撮れる</label><br>
-        </div>
+      const title = document.createElement("h3");
+      title.textContent = q.text;
+      box.appendChild(title);
 
-        <div class="question">
-            <strong>11. 観測地の自慢の仕方は？</strong><br><br>
-            <label><input type="radio" name="q11" value="H"> H. 「俺の場所はBortle 2だ」</label><br>
-            <label><input type="radio" name="q11" value="I"> I. 「観望会は俺が仕切る」</label><br>
-        </div>
+      q.options.forEach((opt, j) => {
+        const label = document.createElement("label");
+        label.className = "option";
+        label.innerHTML = `
+          <input type="radio" name="q${i}" value="${j}">
+          ${opt.label}
+        `;
+        box.appendChild(label);
+      });
 
-        <div class="question">
-            <strong>12. 初心者への圧の掛け方は？</strong><br><br>
-            <label><input type="radio" name="q12" value="K"> K. 「まずはフラット撮れ」</label><br>
-            <label><input type="radio" name="q12" value="A"> A. 「極軸を完璧にしろ」</label><br>
-        </div>
+      quizForm.appendChild(box);
+    });
 
-        <div class="question">
-            <strong>13. 機材トークの傾向は？</strong><br><br>
-            <label><input type="radio" name="q13" value="D"> D. 総額自慢</label><br>
-            <label><input type="radio" name="q13" value="G"> G. 赤道儀自慢</label><br>
-        </div>
+    quizForm.addEventListener("change", (e) => {
+      if (e.target.type !== "radio") return;
+      const groupName = e.target.name;
+      const labels = quizForm.querySelectorAll(`input[name="${groupName}"]`);
+      labels.forEach(input => {
+        input.closest(".option")?.classList.remove("active");
+      });
+      e.target.closest(".option")?.classList.add("active");
+    });
 
-        <div class="question">
-            <strong>14. 全体として一番近いタイプは？</strong><br><br>
-            <label><input type="radio" name="q14" value="M"> M. SNS添削おじさん</label><br>
-            <label><input type="radio" name="q14" value="N"> N. 双眼鏡軽視おじさん</label><br>
-            <label><input type="radio" name="q14" value="L"> L. 寒さ武勇伝おじさん</label><br>
-        </div>
-    </form>
+    submitBtn.addEventListener("click", () => {
+      let totalX = 0;
+      let totalY = 0;
 
-    <button onclick="calculateResult()">診断結果を見る 🌠</button>
-    <div id="result"></div>
-
-    <script>
-        function calculateResult() {
-            const scores = {A:0,B:0,C:0,D:0,E:0,F:0,G:0,H:0,I:0,J:0,K:0,L:0,M:0,N:0};
-            let answered = 0;
-
-            for(let i = 1; i <= 14; i++) {
-                const selected = document.querySelector(`input[name="q${i}"]:checked`);
-                if (selected) {
-                    scores[selected.value]++;
-                    answered++;
-                }
-            }
-
-            if (answered < 14) {
-                alert("すべての質問に回答してください！");
-                return;
-            }
-
-            let maxType = 'A';
-            for (let key in scores) {
-                if (scores[key] > scores[maxType]) maxType = key;
-            }
-
-            const types = {
-                A: {name: "極軸ガチ勢おじさん", emoji: "📐🔭", desc: "極軸は命。1分角でも妥協しない本気勢"},
-                B: {name: "シーイング警察おじさん", emoji: "👮‍♂️🌌", desc: "今日はシーイング終わってる…とすぐ言う"},
-                C: {name: "昔はフィルムおじさん", emoji: "📼", desc: "フィルム時代が最高だったと語る"},
-                D: {name: "機材総額マウントおじさん", emoji: "💰🔭", desc: "機材の総額で語るのが大好き"},
-                E: {name: "ノイズゼロ信者おじさん", emoji: "🔇", desc: "ノイズは悪。完全排除に命を懸ける"},
-                F: {name: "画像処理説教おじさん", emoji: "💻📊", desc: "ヒストグラム見ろ！と熱く語る"},
-                G: {name: "赤道儀こそ正義おじさん", emoji: "⚙️", desc: "赤道儀以外は邪道と断言"},
-                H: {name: "空の暗さ自慢おじさん", emoji: "🌃", desc: "自分の観測地の暗さを自慢する"},
-                I: {name: "観望会仕切りおじさん", emoji: "🗣️", desc: "観望会で仕切りたがる"},
-                J: {name: "惑星は拡大だおじさん", emoji: "🪐🔍", desc: "惑星はとにかく拡大！"},
-                K: {name: "フラット撮れ圧おじさん", emoji: "📸", desc: "まずはフラット撮れ！と圧をかける"},
-                L: {name: "寒さ武勇伝おじさん", emoji: "❄️", desc: "-10℃でも平気と武勇伝を語る"},
-                M: {name: "SNS添削おじさん", emoji: "📱", desc: "他人の写真に熱心に添削コメント"},
-                N: {name: "双眼鏡軽視おじさん", emoji: "🔭👀", desc: "双眼鏡は遊びと軽視する"}
-            };
-
-            const t = types[maxType];
-            document.getElementById("result").innerHTML = `
-                <div class="illustration">${t.emoji}</div>
-                <h2 class="type-name">あなたは「${t.name}」タイプです！</h2>
-                <p>${t.desc}</p>
-                <p style="margin-top:25px; color:#94a3b8;">老害天体撮影おじさん図鑑にようこそ🌠</p>
-            `;
-            document.getElementById("result").style.display = "block";
+      for (let i = 0; i < QUESTIONS.length; i++) {
+        const checked = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!checked) {
+          alert(`${i + 1}問目に回答してください。`);
+          return;
         }
-    </script>
+        const selected = QUESTIONS[i].options[Number(checked.value)];
+        totalX += selected.x;
+        totalY += selected.y;
+      }
+
+      const avgX = Math.round(totalX / QUESTIONS.length);
+      const avgY = Math.round(totalY / QUESTIONS.length);
+
+      const finalX = Math.max(-10, Math.min(10, avgX));
+      const finalY = Math.max(-10, Math.min(10, avgY));
+
+      const nearestType = findNearestType(finalX, finalY);
+
+      latestResult = {
+        name: nearestType.name,
+        x: finalX,
+        y: finalY,
+        tag: nearestType.tag
+      };
+
+      resultTypeEl.textContent = nearestType.name;
+      resultCatchEl.textContent = nearestType.tag;
+      resultDescriptionEl.innerHTML = nearestType.description;
+
+      resultEl.style.display = "block";
+      drawChart(finalX, finalY);
+      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    resetBtn.addEventListener("click", () => {
+      quizForm.reset();
+      quizForm.querySelectorAll(".option.active").forEach(el => el.classList.remove("active"));
+      resultEl.style.display = "none";
+      latestResult = { name: "", x: 0, y: 0, tag: "" };
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    shareBtn.addEventListener("click", () => {
+      if (!latestResult.name) {
+        alert("先に診断してください。");
+        return;
+      }
+
+      const text =
+        `私の「天体写真愛好家タイプ診断」の結果は「${latestResult.name}（${latestResult.tag}）」でした！` +
+        ` 座標は X:${latestResult.x} / Y:${latestResult.y} 🌌 #天体写真 #天体写真愛好家タイプ診断`;
+
+      const shareUrl =
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href)}`;
+
+      window.open(shareUrl, "_blank", "noopener,noreferrer");
+    });
+
+    function findNearestType(x, y) {
+      let nearest = null;
+      let minDist = Infinity;
+
+      TYPES.forEach(type => {
+        const dist = Math.sqrt((x - type.x) ** 2 + (y - type.y) ** 2);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = type;
+        }
+      });
+
+      return nearest;
+    }
+
+    function drawChart(userX, userY) {
+      const canvas = document.getElementById("chart");
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+      const isMobile = window.innerWidth <= 768;
+      const pad = isMobile ? 92 : 88;
+      const centerX = w / 2;
+      const centerY = h / 2;
+
+      const titleFont = isMobile ? "bold 24px Arial" : "bold 22px Arial";
+      const gridFont = isMobile ? "13px Arial" : "12px Arial";
+      const axisFont = isMobile ? "bold 16px Arial" : "bold 14px Arial";
+      const quadrantFont = isMobile ? "bold 12px Arial" : "bold 11px Arial";
+      const pointLabelFont = isMobile ? "bold 14px Arial" : "bold 13px Arial";
+      const userLabelFont = isMobile ? "bold 14px Arial" : "bold 13px Arial";
+
+      ctx.clearRect(0, 0, w, h);
+
+      // 背景
+      const bg = ctx.createLinearGradient(0, 0, 0, h);
+      bg.addColorStop(0, "#ffffff");
+      bg.addColorStop(1, "#eef6ff");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, w, h);
+
+      // 4象限カラー
+      ctx.fillStyle = "rgba(244, 114, 182, 0.10)";
+      ctx.fillRect(pad, pad, centerX - pad, centerY - pad);
+
+      ctx.fillStyle = "rgba(99, 102, 241, 0.10)";
+      ctx.fillRect(centerX, pad, w - pad - centerX, centerY - pad);
+
+      ctx.fillStyle = "rgba(56, 189, 248, 0.10)";
+      ctx.fillRect(pad, centerY, centerX - pad, h - pad - centerY);
+
+      ctx.fillStyle = "rgba(20, 184, 166, 0.10)";
+      ctx.fillRect(centerX, centerY, w - pad - centerX, h - pad - centerY);
+
+      // タイトル
+      ctx.fillStyle = "#0f172a";
+      ctx.font = titleFont;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("天体写真愛好家タイプ散布図", w / 2, 30);
+
+      // グリッド
+      ctx.lineWidth = 1;
+      ctx.font = gridFont;
+      for (let i = -10; i <= 10; i += 5) {
+        const px = mapX(i, w, pad);
+        const py = mapY(i, h, pad);
+
+        ctx.strokeStyle = i === 0 ? "rgba(71,85,105,0.35)" : "rgba(148,163,184,0.22)";
+        ctx.beginPath();
+        ctx.moveTo(px, pad - 5);
+        ctx.lineTo(px, h - pad + 10);
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(pad - 10, py);
+        ctx.lineTo(w - pad + 10, py);
+        ctx.stroke();
+
+        if (i !== 0) {
+          ctx.fillStyle = "#64748b";
+          ctx.textAlign = "center";
+          ctx.fillText(i, px, centerY + (isMobile ? 22 : 18));
+          ctx.textAlign = "left";
+          ctx.fillText(i, centerX + 10, py + 4);
+        }
+      }
+
+      // 軸
+      ctx.strokeStyle = "#334155";
+      ctx.lineWidth = 2.2;
+      ctx.beginPath();
+      ctx.moveTo(pad - 10, centerY);
+      ctx.lineTo(w - pad + 10, centerY);
+      ctx.moveTo(centerX, pad - 5);
+      ctx.lineTo(centerX, h - pad + 10);
+      ctx.stroke();
+
+      // 原点
+      ctx.fillStyle = "#334155";
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, 4.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 軸ラベル
+      ctx.fillStyle = "#0f172a";
+      ctx.font = axisFont;
+      ctx.textAlign = "center";
+      ctx.fillText("印象派 ← X → リアリズム", centerX, h - (isMobile ? 20 : 24));
+
+      ctx.save();
+      ctx.translate(28, centerY);
+      ctx.rotate(-Math.PI / 2);
+      ctx.textAlign = "center";
+      ctx.fillText("お手軽派 ← Y → テクニシャン", 0, 0);
+      ctx.restore();
+
+      // 四象限補助ラベル
+      ctx.font = quadrantFont;
+      ctx.textAlign = "center";
+
+      ctx.fillStyle = "rgba(190,24,93,0.75)";
+      ctx.fillText("印象×テクニシャン", centerX - 165, 52);
+
+      ctx.fillStyle = "rgba(79,70,229,0.75)";
+      ctx.fillText("リアル×テクニシャン", centerX + 165, 52);
+
+      ctx.fillStyle = "rgba(3,105,161,0.70)";
+      ctx.fillText("印象×お手軽派", centerX - 160, h - 36);
+
+      ctx.fillStyle = "rgba(13,148,136,0.70)";
+      ctx.fillText("リアル×お手軽派", centerX + 160, h - 36);
+
+      // タイプ点
+      TYPES.forEach(type => {
+        const px = mapX(type.x, w, pad);
+        const py = mapY(type.y, h, pad);
+
+        ctx.beginPath();
+        ctx.fillStyle = hexToRgba(type.color, 0.18);
+        ctx.arc(px, py, 16, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = type.color;
+        ctx.arc(px, py, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 2;
+        ctx.arc(px, py, 8, 0, Math.PI * 2);
+        ctx.stroke();
+
+        drawPointLabel(
+          ctx,
+          type.name,
+          px,
+          py,
+          w,
+          h,
+          type.color,
+          type.labelDx,
+          type.labelDy,
+          pointLabelFont
+        );
+      });
+
+      // あなたの点
+      const baseUx = mapX(userX, w, pad);
+      const baseUy = mapY(userY, h, pad);
+      const userDisplay = getUserDisplayPosition(userX, userY, baseUx, baseUy, TYPES, w, h, pad);
+      const ux = userDisplay.x;
+      const uy = userDisplay.y;
+
+      if (userDisplay.shifted) {
+        ctx.save();
+        ctx.setLineDash([5, 4]);
+        ctx.strokeStyle = "rgba(236,72,153,0.75)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(baseUx, baseUy);
+        ctx.lineTo(ux, uy);
+        ctx.stroke();
+        ctx.restore();
+
+        ctx.beginPath();
+        ctx.strokeStyle = "#ec4899";
+        ctx.lineWidth = 2;
+        ctx.arc(baseUx, baseUy, 11, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // 星のハロー
+      ctx.beginPath();
+      ctx.fillStyle = "rgba(236,72,153,0.16)";
+      ctx.arc(ux, uy, 28, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = "rgba(236,72,153,0.22)";
+      ctx.arc(ux, uy, 22, 0, Math.PI * 2);
+      ctx.fill();
+
+      // キラッと光る十字
+      drawSparkle(ctx, ux, uy, 19, "#f9a8d4");
+
+      // 星形本体
+      drawStar(ctx, ux, uy, 5, 15, 7, "#ec4899", "#ffffff", 2.5);
+
+      // 中心ハイライト
+      ctx.beginPath();
+      ctx.fillStyle = "rgba(255,255,255,0.92)";
+      ctx.arc(ux, uy, 2.6, 0, Math.PI * 2);
+      ctx.fill();
+
+      drawUserLabel(ctx, "あなた", ux, uy, w, h, userLabelFont);
+    }
+
+    function getUserDisplayPosition(userX, userY, baseUx, baseUy, types, w, h, pad) {
+      const overlapType = types.find(type => type.x === userX && type.y === userY);
+
+      if (!overlapType) {
+        return { x: baseUx, y: baseUy, shifted: false };
+      }
+
+      // 星景ロマン派と重なったときは左下へ逃がす
+      if (overlapType.name === "星景ロマン派") {
+        let shiftedX = baseUx - 38;
+        let shiftedY = baseUy + 36;
+
+        if (shiftedX < pad - 4) shiftedX = baseUx + 36;
+        if (shiftedY > h - pad + 10) shiftedY = baseUy - 36;
+
+        return { x: shiftedX, y: shiftedY, shifted: true };
+      }
+
+      // それ以外は右下へ
+      let shiftedX = baseUx + 26;
+      let shiftedY = baseUy + 26;
+
+      if (shiftedX > w - pad + 10) shiftedX = baseUx - 26;
+      if (shiftedY > h - pad + 10) shiftedY = baseUy - 26;
+
+      return { x: shiftedX, y: shiftedY, shifted: true };
+    }
+
+    function drawPointLabel(ctx, text, px, py, w, h, color, preferredDx = 12, preferredDy = -28, font = "bold 13px Arial") {
+      ctx.save();
+      ctx.font = font;
+      const textWidth = ctx.measureText(text).width;
+      const paddingX = 10;
+      const boxW = textWidth + paddingX * 2;
+      const boxH = 26;
+
+      let x = px + preferredDx;
+      let y = py + preferredDy;
+
+      if (x + boxW > w - 12) x = w - boxW - 12;
+      if (x < 12) x = 12;
+      if (y < 48) y = 48;
+      if (y + boxH > h - 12) y = h - boxH - 12;
+
+      roundRect(ctx, x, y, boxW, boxH, 12);
+      ctx.fillStyle = "#ffffff";
+      ctx.fill();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = color;
+      ctx.textAlign = "left";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, x + paddingX, y + boxH / 2);
+      ctx.restore();
+    }
+
+    function drawUserLabel(ctx, text, px, py, w, h, font = "bold 13px Arial") {
+      ctx.save();
+      ctx.font = font;
+      const textWidth = ctx.measureText(text).width;
+      const paddingX = 10;
+      const boxW = textWidth + paddingX * 2;
+      const boxH = 26;
+
+      let x = px + 16;
+      let y = py - 36;
+
+      if (x + boxW > w - 12) x = px - boxW - 16;
+      if (x < 12) x = 12;
+      if (y < 48) y = py + 16;
+      if (y + boxH > h - 12) y = h - boxH - 12;
+
+      roundRect(ctx, x, y, boxW, boxH, 12);
+      ctx.fillStyle = "#ffe4f1";
+      ctx.fill();
+      ctx.strokeStyle = "#ec4899";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = "#9d174d";
+      ctx.textAlign = "left";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, x + paddingX, y + boxH / 2);
+      ctx.restore();
+    }
+
+    function drawSparkle(ctx, cx, cy, size, color) {
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 2;
+      ctx.lineCap = "round";
+
+      ctx.beginPath();
+      ctx.moveTo(cx - size, cy);
+      ctx.lineTo(cx + size, cy);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - size);
+      ctx.lineTo(cx, cy + size);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(cx - size * 0.65, cy - size * 0.65);
+      ctx.lineTo(cx + size * 0.65, cy + size * 0.65);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(cx + size * 0.65, cy - size * 0.65);
+      ctx.lineTo(cx - size * 0.65, cy + size * 0.65);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, fillColor, strokeColor, lineWidth = 2) {
+      let rotation = Math.PI / 2 * 3;
+      const step = Math.PI / spikes;
+
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - outerRadius);
+
+      for (let i = 0; i < spikes; i++) {
+        let x = cx + Math.cos(rotation) * outerRadius;
+        let y = cy + Math.sin(rotation) * outerRadius;
+        ctx.lineTo(x, y);
+        rotation += step;
+
+        x = cx + Math.cos(rotation) * innerRadius;
+        y = cy + Math.sin(rotation) * innerRadius;
+        ctx.lineTo(x, y);
+        rotation += step;
+      }
+
+      ctx.lineTo(cx, cy - outerRadius);
+      ctx.closePath();
+
+      ctx.fillStyle = fillColor;
+      ctx.fill();
+
+      ctx.strokeStyle = strokeColor;
+      ctx.lineWidth = lineWidth;
+      ctx.stroke();
+    }
+
+    function roundRect(ctx, x, y, width, height, radius) {
+      const r = Math.min(radius, width / 2, height / 2);
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.arcTo(x + width, y, x + width, y + height, r);
+      ctx.arcTo(x + width, y + height, x, y + height, r);
+      ctx.arcTo(x, y + height, x, y, r);
+      ctx.arcTo(x, y, x + width, y, r);
+      ctx.closePath();
+    }
+
+    function mapX(x, w, pad) {
+      return pad + ((x + 10) / 20) * (w - pad * 2);
+    }
+
+    function mapY(y, h, pad) {
+      return h - pad - ((y + 10) / 20) * (h - pad * 2);
+    }
+
+    function hexToRgba(hex, alpha) {
+      const h = hex.replace("#", "");
+      const bigint = parseInt(h, 16);
+      const r = (bigint >> 16) & 255;
+      const g = (bigint >> 8) & 255;
+      const b = bigint & 255;
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+  </script>
 </body>
 </html>
