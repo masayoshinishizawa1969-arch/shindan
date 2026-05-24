@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>月齢計算 WEB版</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg2: #1e293b;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.14);
+      --text: #e5eefc;
+      --muted: #a9b8d6;
+      --accent: #60a5fa;
+      --accent2: #3b82f6;
+      --buttonText: #ffffff;
+      --inputBg: #ffffff;
+      --inputText: #111827;
+      --shadow: rgba(0,0,0,0.25);
+    }
+
+    [data-theme="light"] {
+      --bg: #eef4ff;
+      --bg2: #dfe9ff;
+      --card: rgba(255,255,255,0.9);
+      --border: rgba(15,23,42,0.08);
+      --text: #111827;
+      --muted: #4b5563;
+      --accent: #2563eb;
+      --accent2: #1d4ed8;
+      --buttonText: #ffffff;
+      --inputBg: #ffffff;
+      --inputText: #111827;
+      --shadow: rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, #243b6b 0%, transparent 35%),
+        linear-gradient(180deg, var(--bg2), var(--bg));
+      min-height: 100vh;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 20px 16px 32px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 10px 30px var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #cbd5e1;
+      background: var(--inputBg);
+      color: var(--inputText);
+      font-size: 16px;
+    }
+
+    .field .help {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: var(--buttonText);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      filter: brightness(1.05);
+    }
+
+    .results {
+      margin-top: 18px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .result-item {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+    }
+
+    [data-theme="light"] .result-item {
+      background: rgba(255,255,255,0.7);
+    }
+
+    .result-label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .result-value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .theme-btn {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.12);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    [data-theme="light"] .theme-btn {
+      background: rgba(255,255,255,0.8);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <h1>月齢計算 WEB版 🌙</h1>
+      <p>現在日時を初期表示。入力・タイムゾーン表示・計算を縦型にしたシンプル版です。</p>
+    </div>
+
+    <div class="toolbar">
+      <button id="themeToggle" class="theme-btn" type="button">🌓 テーマ切替</button>
+    </div>
+
+    <section class="card">
+      <div class="stack">
+        <div class="field">
+          <label for="datetime">日付と時刻</label>
+          <input type="datetime-local" id="datetime" />
+          <div class="help">初期値は現在日時です。</div>
+        </div>
+
+        <div class="field">
+          <label for="tzSelect">タイムゾーン表示</label>
+          <select id="tzSelect">
+            <option value="local">Local（ブラウザのタイムゾーン）</option>
+            <option value="UTC">UTC</option>
+            <option value="Asia/Tokyo">Asia/Tokyo</option>
+            <option value="America/New_York">America/New_York</option>
+            <option value="Europe/London">Europe/London</option>
+            <option value="Asia/Shanghai">Asia/Shanghai</option>
+            <option value="Australia/Sydney">Australia/Sydney</option>
+            <option value="Europe/Paris">Europe/Paris</option>
+          </select>
+          <div class="help">タイムゾーンは表示用です。</div>
+        </div>
+
+        <button id="calcBtn" class="btn" type="button">計算</button>
+      </div>
+
+      <div class="results">
+        <div class="result-item">
+          <span class="result-label">月齢</span>
+          <div id="moonAge" class="result-value">-</div>
+        </div>
+
+        <div class="result-item">
+          <span class="result-label">月相</span>
+          <div id="moonPhase" class="result-value">-</div>
+        </div>
+
+        <div class="result-item">
+          <span class="result-label">照度</span>
+          <div id="illumination" class="result-value">-</div>
+        </div>
+
+        <div class="result-item">
+          <span class="result-label">UTC時刻</span>
+          <div id="utcText" class="result-value">-</div>
+        </div>
+
+        <div class="result-item">
+          <span class="result-label">選択タイムゾーンでの表示</span>
+          <div id="tzText" class="result-value">-</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const SYNODIC_MONTH = 29.530588853;
+    const BASE_NEW_MOON_JD = 2451550.1; // 2000-01-06 18:14 UTC 付近
+
+    function pad(n) {
+      return String(n).padStart(2, '0');
+    }
+
+    function setDefaultDatetimeLocal() {
+      const now = new Date();
+      const value =
+        `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}` +
+        `T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+      document.getElementById('datetime').value = value;
+    }
+
+    function julianDate(year, month, day, hourDec) {
+      let Y = year;
+      let M = month;
+      if (M <= 2) {
+        Y -= 1;
+        M += 12;
+      }
+      const A = Math.floor(Y / 100);
+      const B = 2 - A + Math.floor(A / 4);
+      return Math.floor(365.25 * (Y + 4716))
+           + Math.floor(30.6001 * (M + 1))
+           + day + B - 1524.5
+           + hourDec / 24;
+    }
+
+    function calcMoon(year, month, day, hourDec) {
+      const jd = julianDate(year, month, day, hourDec);
+      let cycle = (jd - BASE_NEW_MOON_JD) / SYNODIC_MONTH;
+      cycle = cycle - Math.floor(cycle);
+      if (cycle < 0) cycle += 1;
+
+      const ageDays = cycle * SYNODIC_MONTH;
+      const illumination = (1 - Math.cos(2 * Math.PI * cycle)) / 2;
+
+      const names = [
+        "新月",
+        "三日月",
+        "上弦前",
+        "上弦",
+        "十三夜前後",
+        "満月前後",
+        "下弦",
+        "有明月"
+      ];
+      const idx = Math.floor(cycle * 8) % 8;
+
+      return {
+        ageDays,
+        illumination,
+        phaseName: names[idx],
+        jd
+      };
+    }
+
+    function formatDateInTZ(date, tz) {
+      if (tz === "local") {
+        return date.toLocaleString("ja-JP");
+      }
+      return new Intl.DateTimeFormat("ja-JP", {
+        timeZone: tz,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      }).format(date) + ` (${tz})`;
+    }
+
+    function updateResults() {
+      const input = document.getElementById("datetime").value;
+      if (!input) return;
+
+      const date = new Date(input);
+      const year = date.getUTCFullYear();
+      const month = date.getUTCMonth() + 1;
+      const day = date.getUTCDate();
+      const hourDec = date.getUTCHours() + date.getUTCMinutes() / 60 + date.getUTCSeconds() / 3600;
+
+      const result = calcMoon(year, month, day, hourDec);
+      const tz = document.getElementById("tzSelect").value;
+
+      document.getElementById("moonAge").textContent = `${result.ageDays.toFixed(3)} 日`;
+      document.getElementById("moonPhase").textContent = result.phaseName;
+      document.getElementById("illumination").textContent = `${(result.illumination * 100).toFixed(1)}%`;
+      document.getElementById("utcText").textContent = date.toUTCString();
+      document.getElementById("tzText").textContent = formatDateInTZ(date, tz);
+    }
+
+    document.getElementById("calcBtn").addEventListener("click", updateResults);
+
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const root = document.documentElement;
+      const current = root.getAttribute("data-theme");
+      root.setAttribute("data-theme", current === "light" ? "dark" : "light");
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const root = document.documentElement;
+      root.setAttribute("data-theme", "dark");
+      setDefaultDatetimeLocal();
+      updateResults();
+    });
+  </script>
+</body>
+</html>
