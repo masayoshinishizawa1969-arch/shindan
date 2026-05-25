@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌌 星見スタイル診断</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #141a2a;
+      --text: #eaeaf2;
+      --muted: #aab2d6;
+      --accent: #7bd7ff;
+      --btn: #4a8bff;
+      --btnText: #fff;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; background: radial-gradient(circle at 20% -10%, rgba(100,150,255,.15), transparent 40%), radial-gradient(circle at 100% 0%, rgba(180,100,255,.15), transparent 40%), #0b1020; color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px; }
+    header { text-align: center; padding: 12px 0 20px; }
+    h1 { margin: 0; font-size: 28px; line-height: 1.2; }
+    p.sub { color: var(--muted); margin: 6px 0 0; }
+
+    /* Quiz & results */
+    .panel { background: rgba(20,26,42,0.8); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; margin-bottom: 18px; }
+    .hidden { display: none; }
+    .question-card { padding: 12px 6px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .question-title { font-weight: 600; margin-bottom: 8px; }
+    .options { display: grid; grid-template-columns: 1fr; gap: 6px; }
+    .option { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 8px; background: rgba(255,255,255,0.04); }
+    .option input { accent-color: #7bd7ff; width: 1.1em; height: 1.1em; }
+    .option span { font-size: 14px; }
+
+    .result-top { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+    .art-wrap { width: 100%; min-height: 240px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 8px; }
+    .result-label { font-size: 14px; color: #a3f3ff; margin-bottom: 6px; }
+    .result-title { margin: 4px 0 8px; font-size: 28px; }
+    .result-catch { color: var(--muted); margin-bottom: 12px; }
+    .fun-box { margin: 12px 0; padding: 8px 10px; background: rgba(255,255,255,0.04); border-radius: 8px; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .pill { background: rgba(255,255,255,0.1); padding: 6px 10px; border-radius: 999px; font-size: 13px; }
+    .result-actions { display: flex; gap: 12px; align-items: center; margin-top: 10px; }
+    .share-btn, .secondary-btn, .primary-btn { background: #2b2f4a; color: #fff; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer; }
+    .share-btn { background: #2f3f8a; }
+    .secondary-btn { background: #3a3f63; }
+    .primary-btn { background: var(--btn); }
+    #warning { color: #ffd479; text-align: center; margin: 6px 0; }
+    .center { text-align: center; }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .result-top { grid-template-columns: 1fr; }
+    }
+
+    /* Optional: image sizing inside the result art-wrap */
+    .art-wrap img { width: 100%; height: auto; display: block; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>🌌 あなたの星見スタイル診断</h1>
+      <p class="sub">10問に答えるだけで、あなたがどんな天文ファンかをゆるっと診断します ✨</p>
+      <p class="sub">🌠 肉眼派もOK • 🔭 機材派もOK • 📷 撮影派もOK • 🪐 初心者歓迎</p>
+    </header>
+
+    <section id="quiz" class="panel" aria-label="診断問題リスト"></section>
+
+    <section class="center" style="margin: 12px 0;">
+      <button class="primary-btn" onclick="calculateResult()">✨ 診断する</button>
+      <button class="secondary-btn" onclick="resetQuiz()">↺ もう一度やる</button>
+    </section>
+
+    <div id="warning" class="hidden" role="status" aria-live="polite"></div>
+
+    <section id="result" class="panel hidden" aria-label="診断結果">
+      <!-- 結果は JS でここに挿入されます -->
+    </section>
+  </div>
+
+  <script>
+    let currentResultKey = null;
+
+    const resultMeta = {
+      observe: {
+        name: "🔭 観測マスター型",
+        catch: "星空の“現場主義”エース。見てなんぼ、空の下で本領発揮！",
+        desc: "あなたは“実際にこの目で見る”ことに強いよろこびを感じるタイプ。写真や知識もいいけれど、最終的には『で、今日は何が見えるの？』がいちばん大事。月のクレーターや惑星の姿にテンションが上がる、夜空のリアル派です。",
+        fun: "晴れ予報を見ると、心の中でひそかに観測会が始まっています。",
+        picks: ["🌙 月", "🪐 木星", "🪐 土星"]
+      },
+      photo: {
+        name: "📷 天体撮影クリエイター型",
+        catch: "宇宙を“作品”に変える、きらめき収集のアーティスト！",
+        desc: "あなたは星空を『わあ、きれい！』で終わらせず、『残したい！』まで進むタイプ。構図、タイミング、空の条件、その全部がそろった瞬間に胸が高鳴るはず。星空を眺めるだけでなく、ちゃんと“作品化”したくなる表現派です。",
+        fun: "たぶん“いい空”を見ると、まず脳内でシャッターボタンが半押しされます。",
+        picks: ["✨ オリオン大星雲（M42）", "🌌 アンドロメダ銀河（M31）", "⭐ すばる（M45）"]
+      },
+      theory: {
+        name: "🧠 宇宙理論探究型",
+        catch: "夜空を見るとロマンより先に“仕組み”が気になる知の冒険者！",
+        desc: "あなたは『きれい』の先にある『なぜ？』が気になってしまうタイプ。ブラックホール、宇宙論、系外惑星など、頭の中で宇宙を広げていくのが得意です。星空を見上げながら、同時に脳内で研究会が始まる知識探究派です。",
+        fun: "“それってどういう原理？”があなたの魔法の呪文です。",
+        picks: ["🦀 かに星雲（M1）", "🌌 M87銀河", "🪐 TRAPPIST-1"]
+      },
+      planet: {
+        name: "🪐 惑星・月ラバー型",
+        catch: "月と惑星にめっぽう弱い、“近くて推せる天体”のファン！",
+        desc: "あなたは遠すぎるロマンより、まずは見て変化が感じられる天体に惹かれるタイプ。月齢の変化、木星の存在感、土星の特別感……そんな“わかりやすくて愛せる宇宙”に心が動きます。親しみやすい天体をじっくり味わう推し活派です。",
+        fun: "月がきれいな日は、それだけでちょっと機嫌がよくなります。",
+        picks: ["🌙 月", "✨ 金星", "🪐 木星"]
+      },
+      deepSky: {
+        name: "🌌 深宇宙ロマン派",
+        catch: "“何万光年先”の響きだけでワクワクできる、壮大スケール中毒！",
+        desc: "あなたは銀河、星雲、星団のような“遠い宇宙”に心をつかまれるタイプ。見えている光が何万年も旅してきたと思うと、もうそれだけでロマン満点。夜空を見上げながら、時間も距離も大きく超えてしまう壮大派です。",
+        fun: "“遠ければ遠いほどエモい”という宇宙的感性を持っています。",
+        picks: ["🌌 アンドロメダ銀河（M31）", "✨ オリオン大星雲（M42）", "⭐ プレセペ星団（M44）"]
+      },
+      gear: {
+        name: "🛠 機材こだわり型",
+        catch: "望遠鏡も架台も接眼レンズも、みんな推し。装備で語れる天文ファン！",
+        desc: "あなたは空そのものだけでなく、そこへたどり着くための“道具の世界”にも強く惹かれるタイプ。機材選び、組み合わせ、レビュー比較、セッティング最適化……そこにはもう一つの宇宙があります。スペック表もわりと楽しく読める研究家気質です。",
+        fun: "『それ何使ってるの？』と聞かれると、ちょっと嬉しくなります。",
+        picks: ["🌙 月", "🪐 土星", "✨ オリオン大星雲（M42）"]
+      },
+      social: {
+        name: "🤝 星仲間シェア型",
+        catch: "星の感動はひとりじめしない。広めて楽しい、語って楽しい！",
+        desc: "あなたは『自分が楽しい』で終わらず、『これ誰かにも見せたい！』となるタイプ。観望会、SNS、友だちとの星見、初心者へのおすすめ……あなたがいると星空体験が少しやさしく、少し賑やかになります。天文界のムードメーカーです。",
+        fun: "たぶんあなたは“星空の布教力”が高めです。",
+        picks: ["🌙 月", "⭐ オリオン座", "⭐ すばる（M45）"]
+      },
+      history: {
+        name: "📚 宇宙文化・歴史ロマン型",
+        catch: "星を見ると、人類の物語までセットで楽しめる教養ロマン派！",
+        desc: "あなたは宇宙を、科学だけでなく神話・歴史・文化ごと楽しめるタイプ。昔の人はこの星をどう見ていたのか、どんな名前をつけたのか、宇宙開発はどう進んだのか……そんな“宇宙と人の関係”に深く惹かれます。知れば知るほど味わい深いタイプです。",
+        fun: "あなたにとって星空は、夜の図書館みたいなものかもしれません。",
+        picks: ["⭐ オリオン座", "⭐ 北斗七星", "⭐ すばる（M45）"]
+      },
+      nakedEye: {
+        name: "🌠 肉眼星見ロマン派",
+        catch: "機材いらず、知識もあとからでOK。まずは空に包まれたい派！",
+        desc: "あなたは星空を“観測対象”というより、“心がほどける風景”として楽しむタイプ。寝転がって、ぼんやり空を見て、流れ星を待って、静かな時間ごと味わう……そんな星見がぴったりです。気づけば一番ロマンを持っているのは、こういう人かもしれません。",
+        fun: "レジャーシート1枚で、宇宙との距離を縮められる才能があります。",
+        picks: ["🌙 月", "⭐ 夏の大三角", "⭐ オリオン座"]
+      }
+    };
+
+    const questions = [
+      {
+        id: "q1",
+        text: "星空に触れるとき、一番ワクワクする瞬間は？",
+        options: [
+          { text: "A. 望遠鏡で天体の細部が見えた瞬間", scores: { observe: 2, planet: 1 } },
+          { text: "B. 星空や天体をきれいに写真に残せた瞬間", scores: { photo: 2, deepSky: 1 } },
+          { text: "C. その天体の仕組みや成り立ちがわかった瞬間", scores: { theory: 2, history: 1 } },
+          { text: "D. 寝転がって空全体をぼんやり眺めている時間", scores: { nakedEye: 2, social: 1 } }
+        ]
+      },
+      {
+        id: "q2",
+        text: "天文イベントに行くなら、どれが一番楽しみ？",
+        options: [
+          { text: "A. みんなで星を見上げる観望会", scores: { social: 2, observe: 1 } },
+          { text: "B. 星景写真や天体写真のワークショップ", scores: { photo: 2, gear: 1 } },
+          { text: "C. 研究者の講演や最新宇宙ニュース解説", scores: { theory: 2, history: 1 } },
+          { text: "D. プラネタリウムや天文学史・宇宙開発史の展示", scores: { history: 2, planet: 1 } }
+        ]
+      },
+      {
+        id: "q3",
+        text: "休日の夜、急に空がきれいだったら何をする？",
+        options: [
+          { text: "A. 機材を出して観測準備をする", scores: { observe: 2, gear: 1 } },
+          { text: "B. 撮影できそうな場所に行く", scores: { photo: 2, deepSky: 1 } },
+          { text: "C. 星図や天文アプリを見て狙いを決める", scores: { theory: 2, planet: 1 } },
+          { text: "D. そのまま外に出て、ただ空を眺める", scores: { nakedEye: 2, social: 1 } }
+        ]
+      },
+      {
+        id: "q4",
+        text: "特に気になる天体・テーマは？",
+        options: [
+          { text: "A. 月、木星、土星など見てわかりやすい天体", scores: { planet: 2, observe: 1 } },
+          { text: "B. 星雲、銀河、球状星団など遠い宇宙", scores: { deepSky: 2, photo: 1 } },
+          { text: "C. ブラックホール、宇宙論、系外惑星", scores: { theory: 2, deepSky: 1 } },
+          { text: "D. 星座神話、暦、昔の人の星の見方", scores: { history: 2, nakedEye: 1 } }
+        ]
+      },
+      {
+        id: "q5",
+        text: "新しく何か1つ手に入れるなら？",
+        options: [
+          { text: "A. 接眼レンズや架台などの観測アクセサリ", scores: { gear: 2, observe: 1 } },
+          { text: "B. カメラ、三脚、追尾機材", scores: { photo: 2, gear: 1 } },
+          { text: "C. 宇宙の解説本や科学雑誌", scores: { theory: 2, history: 1 } },
+          { text: "D. レジャーシート、星座早見盤、プラネタリウムのチケット", scores: { nakedEye: 2, history: 1 } }
+        ]
+      },
+      {
+        id: "q6",
+        text: "あなたにとって理想の星空の夜は？",
+        options: [
+          { text: "A. 静かな場所で月や惑星をじっくり観察する夜", scores: { observe: 2, planet: 1 } },
+          { text: "B. 暗い場所へ遠征して星空や深宇宙を狙う夜", scores: { photo: 2, deepSky: 1 } },
+          { text: "C. 宇宙の話をしながら、新発見に思いを巡らせる夜", scores: { theory: 2, social: 1 } },
+          { text: "D. 芝生や浜辺で寝転がって流れ星を待つ夜", scores: { nakedEye: 2, social: 1 } }
+        ]
+      },
+      {
+        id: "q7",
+        text: "SNSや友人に一番シェアしたくなるのは？",
+        options: [
+          { text: "A. 今日見えた月や惑星の感動", scores: { observe: 2, planet: 1 } },
+          { text: "B. 自分で撮れた星空写真や月の写真", scores: { photo: 2, deepSky: 1 } },
+          { text: "C. 面白い宇宙ニュースや『これ知ってる？』な解説", scores: { theory: 2, history: 1 } },
+          { text: "D. 星見会レポートや、みんなで見た空の思い出", scores: { social: 2, nakedEye: 1 } }
+        ]
+      },
+      {
+        id: "q8",
+        text: "初心者にまずおすすめするなら？",
+        options: [
+          { text: "A. まずは月を見てみよう", scores: { planet: 2, observe: 1 } },
+          { text: "B. 肉眼で星座や流星群を見よう", scores: { nakedEye: 2, social: 1 } },
+          { text: "C. プラネタリウムや博物館に行ってみよう", scores: { history: 2, theory: 1 } },
+          { text: "D. 自分に合う機材を調べてみよう", scores: { gear: 2, photo: 1 } }
+        ]
+      },
+      {
+        id: "q9",
+        text: "一番テンションが上がる言葉は？",
+        options: [
+          { text: "A. 『今夜はシーイングがいい』", scores: { observe: 2, planet: 1 } },
+          { text: "B. 『天の川がすごくきれいに見えてる』", scores: { photo: 2, deepSky: 1 } },
+          { text: "C. 『新しい観測結果が発表された』", scores: { theory: 2, history: 1 } },
+          { text: "D. 『この機材、かなり評判いいらしい』", scores: { gear: 2, observe: 1 } }
+        ]
+      },
+      {
+        id: "q10",
+        text: "あなたにとって天文の一番の魅力は？",
+        options: [
+          { text: "A. 実際に空の下で宇宙を感じられること", scores: { nakedEye: 2, observe: 1 } },
+          { text: "B. 宇宙の仕組みや法則を知れること", scores: { theory: 2, deepSky: 1 } },
+          { text: "C. 遠い天体や巨大なスケールにロマンを感じること", scores: { deepSky: 2, photo: 1 } },
+          { text: "D. 神話・暦・宇宙開発史など、人類との関わりを楽しめること", scores: { history: 2, social: 1 } }
+        ]
+      }
+    ];
+
+    function renderQuiz() {
+      const quizEl = document.getElementById("quiz");
+      quizEl.innerHTML = questions.map((q, index) => `
+        <section class="question-card">
+          <div class="question-title">Q${index + 1}. ${q.text}</div>
+          <div class="options">
+            ${q.options.map((opt, i) => `
+              <label class="option">
+                <input type="radio" name="${q.id}" value="${i}">
+                <span>${opt.text}</span>
+              </label>
+            `).join("")}
+          </div>
+        </section>
+      `).join("");
+    }
+
+    function createEmptyScores() {
+      return {
+        observe: 0,
+        photo: 0,
+        theory: 0,
+        planet: 0,
+        deepSky: 0,
+        gear: 0,
+        social: 0,
+        history: 0,
+        nakedEye: 0
+      };
+    }
+
+    function getCuteIllustration(key) {
+      // 画像ファイルで表示する mappings
+      const imageMap = {
+        observe: "1.jpeg",
+        photo: "2.jpeg",
+        theory: "3.jpeg",
+        planet: "4.jpeg",
+        deepSky: "5.jpeg",
+        gear: "1.jpeg",   // Gear は現状フォールバック
+        social: "6.jpeg",
+        history: "7.jpeg",
+        nakedEye: "8.jpeg"
+      };
+
+      const src = imageMap[key] || "1.jpeg";
+      // 画像を表示する img タグを返す
+      return `<img src="${src}" alt="${key} illustration" style="width:100%; height:auto; display:block;" />`;
+    }
+
+    function calculateResult() {
+      const warningEl = document.getElementById("warning");
+      const resultEl = document.getElementById("result");
+      const scores = createEmptyScores();
+      const unanswered = [];
+
+      questions.forEach((q, idx) => {
+        const checked = document.querySelector(`input[name="${q.id}"]:checked`);
+        if (!checked) {
+          unanswered.push(idx + 1);
+          return;
+        }
+        const option = q.options[Number(checked.value)];
+        Object.entries(option.scores).forEach(([key, value]) => {
+          scores[key] += value;
+        });
+      });
+
+      if (unanswered.length > 0) {
+        warningEl.classList.remove("hidden");
+        warningEl.textContent = `⚠️ 未回答があります：Q${unanswered.join(", Q")} に答えてください`;
+        resultEl.classList.add("hidden");
+        resultEl.innerHTML = "";
+        return;
+      }
+
+      warningEl.classList.add("hidden");
+      warningEl.textContent = "";
+
+      const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+      const primaryKey = sorted[0][0];
+      currentResultKey = primaryKey;
+      const result = resultMeta[primaryKey];
+
+      resultEl.innerHTML = `
+        <div class="result-top">
+          <div class="art-wrap">
+            ${getCuteIllustration(primaryKey)}
+          </div>
+
+          <div>
+            <div class="result-label">🌟 あなたのタイプはこれ！</div>
+            <h2 class="result-title">${result.name}</h2>
+            <div class="result-catch">${result.catch}</div>
+            <p class="result-desc">${result.desc}</p>
+
+
+
+
+
+            <div class="result-actions">
+              <button class="share-btn" onclick="shareToX()">𝕏 結果をシェア</button>
+              <button class="secondary-btn" onclick="resetQuiz()">↺ もう一度診断する</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      resultEl.classList.remove("hidden");
+      resultEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function shareToX() {
+      if (!currentResultKey) return;
+
+      const result = resultMeta[currentResultKey];
+      const text = `🌌 私の診断結果は「${result.name}」でした！\n${result.catch}\nおすすめの天体：${result.picks.join("、")}\n#星見スタイル診断 #天文ファン診断`;
+
+      const urlText = location.protocol.startsWith("http")
+        ? `&url=${encodeURIComponent(location.href)}`
+        : "";
+
+      const shareUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}${urlText}`;
+      window.open(shareUrl, "_blank", "noopener,noreferrer");
+    }
+
+    function resetQuiz() {
+      document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.checked = false;
+      });
+      currentResultKey = null;
+      document.getElementById("result").classList.add("hidden");
+      document.getElementById("result").innerHTML = "";
+      document.getElementById("warning").classList.add("hidden");
+      document.getElementById("warning").textContent = "";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // 初期レンダリング
+    renderQuiz();
+    // ページロード時に結果エリアを非表示、警告も非表示
+  </script>
+</body>
+</html>
