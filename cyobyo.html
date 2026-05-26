@@ -307,21 +307,25 @@
     white-space: nowrap;
   }
 
-  /* 数値入力の△▽を左右配置にする */
+  /* 数値入力欄＋左右ボタンを1列固定 */
   .num-wrap {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 44px minmax(0, 1fr) 44px;
+    grid-template-rows: 42px;
     gap: 6px;
     align-items: stretch;
+    width: 100%;
   }
 
-  .num-wrap input {
+  .num-wrap > input {
     grid-column: 2;
+    grid-row: 1;
     min-width: 0;
+    width: 100%;
   }
 
   .num-wrap .spinner {
-    display: contents;
+    display: contents !important;
   }
 
   .num-wrap .spin-btn {
@@ -330,14 +334,17 @@
     padding: 0;
     border-radius: 12px;
     font-size: 14px;
+    width: 44px;
   }
 
   .num-wrap .spin-btn[data-dir="down"] {
     grid-column: 1;
+    grid-row: 1;
   }
 
   .num-wrap .spin-btn[data-dir="up"] {
     grid-column: 3;
+    grid-row: 1;
   }
 }
   </style>
