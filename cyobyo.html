@@ -1,99 +1,118 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>長秒一枚撮り星景写真用 絞り値計算ツール</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg: #0d1117;
-      --card: #161b22;
-      --text: #e6edf3;
-      --muted: #9da7b3;
-      --accent: #58a6ff;
-      --accent2: #238636;
-      --border: #30363d;
-      --input: #0f141a;
+      --bg: #f6f7fb;
+      --panel: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #d7dce5;
+      --accent: #2563eb;
+      --accent2: #1d4ed8;
+      --btn: #ffffff;
+      --btnText: #1f2937;
+      --resultBg: #f8fbff;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+      --night-bg: #060606;
+      --night-panel: #111111;
+      --night-text: #ff5a5a;
+      --night-muted: #ff8a8a;
+      --night-border: #7a1f1f;
+      --night-btn: #1a1a1a;
+      --night-btn-text: #ff6666;
+      --night-result-bg: #160b0b;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: linear-gradient(180deg, #0b1020 0%, #0d1117 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans",
+        "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      background: var(--bg);
       color: var(--text);
       line-height: 1.5;
+      transition: background 0.25s ease, color 0.25s ease;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      padding: 16px 14px 10px;
+    .wrap {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 16px 14px 28px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 16px;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(1.25rem, 2vw, 1.8rem);
+      line-height: 1.3;
       text-align: center;
-      background: rgba(13, 17, 23, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-
-    #title {
-      margin: 0;
-      font-size: 1.35rem;
-      line-height: 1.35;
       font-weight: 800;
       letter-spacing: 0.02em;
     }
 
-    .lang-toggle {
-      margin-top: 12px;
-      border: 1px solid #4b5563;
-      background: #111827;
-      color: #fff;
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 0.95rem;
-      cursor: pointer;
+    .section {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 16px;
+      transition: border-color 0.25s ease;
     }
 
-    .container {
-      width: 100%;
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+    .section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
     }
 
-    .card {
-      background: linear-gradient(180deg, #161b22 0%, #11161d 100%);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.28);
-    }
-
-    .section-title {
-      font-size: 1.03rem;
-      font-weight: 700;
+    h2 {
       margin: 0 0 12px;
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
+
+    .field {
+      margin-bottom: 13px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+      color: var(--text);
     }
 
     .row {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 12px;
+      gap: 8px;
+      align-items: center;
     }
 
-    label {
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    input, select, button {
+    input,
+    select,
+    button {
       font: inherit;
     }
 
@@ -101,143 +120,203 @@
     input[type="text"],
     select {
       width: 100%;
-      min-height: 46px;
+      min-height: 42px;
       padding: 10px 12px;
-      border-radius: 10px;
       border: 1px solid var(--border);
-      background: var(--input);
+      border-radius: 12px;
+      background: #fff;
       color: var(--text);
+      outline: none;
+      transition: border-color 0.2s ease, background 0.25s ease, color 0.25s ease;
     }
 
-    .stepper {
-      display: flex;
-      gap: 8px;
+    input[type="number"]:focus,
+    input[type="text"]:focus,
+    select:focus {
+      border-color: var(--accent);
     }
 
-    .stepper input {
-      flex: 1;
-    }
-
-    .stepper button {
-      min-width: 84px;
-      min-height: 46px;
-      border: none;
-      border-radius: 10px;
-      background: #243041;
-      color: #fff;
+    button {
+      min-height: 42px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--btn);
+      color: var(--btnText);
       cursor: pointer;
-      font-weight: 700;
+      transition: transform 0.05s ease, background 0.2s ease, color 0.25s ease, border-color 0.25s ease;
+    }
+
+    button:hover {
+      border-color: var(--accent);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .stop-btn {
+      min-width: 72px;
+      white-space: nowrap;
     }
 
     .actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-top: 6px;
+      margin-top: 8px;
     }
 
-    .actions button {
-      flex: 1;
-      min-height: 48px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 800;
-    }
-
-    #calcBtn {
-      background: var(--accent);
-      color: #06121f;
-    }
-
-    #copyBtn {
-      background: #30363d;
-      color: #fff;
-    }
-
-    .readonly {
-      background: #0f141a;
-      color: #d2e7ff;
-      font-weight: 800;
-      text-align: center;
-      font-size: 1.05rem;
+    .result {
+      background: var(--resultBg);
+      font-weight: 700;
     }
 
     .computed {
-      background: #132a1c !important;
-      color: #98f5b1 !important;
-      border: 1px solid #2ea043 !important;
-      box-shadow: 0 0 0 1px rgba(46,160,67,0.15) inset;
+      border-color: var(--accent);
     }
 
     .note {
-      margin-top: 8px;
+      margin-top: 10px;
+      font-size: 0.9rem;
       color: var(--muted);
-      font-size: 0.86rem;
+    }
+
+    body.night {
+      background: var(--night-bg);
+      color: var(--night-text);
+    }
+
+    body.night .panel {
+      background: var(--night-panel);
+      border-color: var(--night-border);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38);
+    }
+
+    body.night .section {
+      border-color: var(--night-border);
+    }
+
+    body.night label,
+    body.night h1,
+    body.night h2,
+    body.night .note {
+      color: var(--night-text);
+    }
+
+    body.night input[type="number"],
+    body.night input[type="text"],
+    body.night select {
+      background: #0d0d0d;
+      color: var(--night-text);
+      border-color: var(--night-border);
+    }
+
+    body.night input[type="number"]:focus,
+    body.night input[type="text"]:focus,
+    body.night select:focus {
+      border-color: #ff4d4d;
+    }
+
+    body.night button {
+      background: var(--night-btn);
+      color: var(--night-btn-text);
+      border-color: var(--night-border);
+    }
+
+    body.night button:hover {
+      border-color: #ff4d4d;
+    }
+
+    body.night .result {
+      background: var(--night-result-bg);
+      color: #ff6b6b;
+      font-weight: 800;
+    }
+
+    @media (max-width: 560px) {
+      .row.aperture-row {
+        flex-wrap: wrap;
+      }
+
+      .row.aperture-row input {
+        flex: 1 1 100%;
+      }
+
+      .stop-btn {
+        flex: 1 1 calc(50% - 4px);
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1 id="title">長秒一枚撮り星景写真用<BR>絞り値計算ツール</h1>
-    <button class="lang-toggle" id="langBtn">English</button>
-  </header>
+  <div class="wrap">
+    <div class="topbar">
+      <button id="langBtn" type="button">English</button>
+      <button id="nightBtn" type="button">Day</button>
+    </div>
 
-  <main class="container">
-    <section class="card">
-      <div class="section-title" id="trialTitle">1) 試し撮りの数値を入力</div>
+    <div class="panel">
+      <h1 id="title">長秒一枚撮り星景写真用<br>絞り値計算ツール</h1>
 
-      <div class="row">
-        <label for="t1" id="t1Label">試し撮り露光 (秒)</label>
-        <input type="number" id="t1" value="15" step="1" min="1" />
-      </div>
+      <div class="section">
+        <h2 id="trialTitle">1) 試し撮りの数値を入力</h2>
 
-      <div class="row">
-        <label for="f1" id="f1Label">試し撮り絞り</label>
-        <div class="stepper">
-          <input type="number" id="f1" value="2.8" step="0.1" min="0.1" />
-          <button type="button" id="f1Minus">-1段</button>
-          <button type="button" id="f1Plus">+1段</button>
+        <div class="field">
+          <label id="t1Label" for="t1">試し撮り露光 (秒)</label>
+          <input id="t1" type="number" step="1" min="0" value="20" />
+        </div>
+
+        <div class="field">
+          <label id="f1Label" for="f1">試し撮り絞り</label>
+          <div class="row aperture-row">
+            <button id="f1Minus" type="button" class="stop-btn">-1段</button>
+            <input id="f1" type="number" step="0.1" min="0" value="4.0" />
+            <button id="f1Plus" type="button" class="stop-btn">+1段</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label id="iso1Label" for="iso1">試し撮り ISO</label>
+          <select id="iso1">
+            <option value="800">800</option>
+            <option value="1600">1600</option>
+            <option value="3200" selected>3200</option>
+            <option value="6400">6400</option>
+            <option value="12800">12800</option>
+            <option value="25600">25600</option>
+          </select>
         </div>
       </div>
 
-      <div class="row">
-        <label for="iso1" id="iso1Label">試し撮り ISO</label>
-        <input type="number" id="iso1" value="3200" step="100" min="1" />
-      </div>
-    </section>
+      <div class="section">
+        <h2 id="longTitle">2) 長秒設定と結果</h2>
 
-    <section class="card">
-      <div class="section-title" id="longTitle">2) 長秒設定と結果</div>
+        <div class="field">
+          <label id="iso2Label" for="iso2">長秒 ISO</label>
+          <input id="iso2" type="number" step="10" min="10" value="100" />
+        </div>
 
-      <div class="row">
-        <label for="iso2" id="iso2Label">長秒 ISO</label>
-        <select id="iso2">
-          <option value="100">100</option>
-          <option value="200">200</option>
-        </select>
-      </div>
+        <div class="field">
+          <label id="t2minLabel" for="t2min">長秒露光時間(分)</label>
+          <input id="t2min" type="number" step="1" min="0" value="30" />
+        </div>
 
-      <div class="row">
-        <label for="t2min" id="t2minLabel">長秒露光時間(分)</label>
-        <input type="number" id="t2min" value="30" step="1" min="1" />
-      </div>
+        <div class="field">
+          <label id="f2Label" for="f2">長秒絞り(自動算出)</label>
+          <input id="f2" class="result" type="text" readonly />
+        </div>
 
-      <div class="row">
-        <label for="f2" id="f2Label">長秒絞り(自動算出)</label>
-        <input type="text" id="f2" class="readonly" value="—" readonly />
-      </div>
+        <div class="actions">
+          <button id="copyBtn" type="button">結果をコピー</button>
+        </div>
 
-      <div class="actions">
-        <button id="calcBtn">計算する</button>
-        <button id="copyBtn">結果をコピー</button>
+        <div id="formulaNote" class="note">
+          ※ 露出等価: 露光時間 × ISO ÷ 絞り値² を基準に計算
+        </div>
       </div>
-
-      <div class="note" id="formulaNote">
-        ※ 露出等価: 露光時間 × ISO ÷ 絞り値² を基準に計算
-      </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
   <script>
     const SQRT2 = Math.SQRT2;
@@ -245,6 +324,7 @@
     const els = {
       title: document.getElementById('title'),
       langBtn: document.getElementById('langBtn'),
+      nightBtn: document.getElementById('nightBtn'),
 
       trialTitle: document.getElementById('trialTitle'),
       t1Label: document.getElementById('t1Label'),
@@ -257,7 +337,6 @@
       iso2Label: document.getElementById('iso2Label'),
       t2minLabel: document.getElementById('t2minLabel'),
       f2Label: document.getElementById('f2Label'),
-      calcBtn: document.getElementById('calcBtn'),
       copyBtn: document.getElementById('copyBtn'),
       formulaNote: document.getElementById('formulaNote'),
 
@@ -270,11 +349,14 @@
     };
 
     let lang = 'ja';
+    let night = localStorage.getItem('cyobyoNight') !== '0';
 
     const texts = {
       ja: {
         title: '長秒一枚撮り星景写真用<BR>絞り値計算ツール',
         langBtn: 'English',
+        nightBtn: 'Night',
+        dayBtn: 'Day',
         trialTitle: '1) 試し撮りの数値を入力',
         t1Label: '試し撮り露光 (秒)',
         f1Label: '試し撮り絞り',
@@ -285,16 +367,16 @@
         iso2Label: '長秒 ISO',
         t2minLabel: '長秒露光時間(分)',
         f2Label: '長秒絞り(自動算出)',
-        calcBtn: '計算する',
         copyBtn: '結果をコピー',
         formulaNote: '※ 露出等価: 露光時間 × ISO ÷ 絞り値² を基準に計算',
-        invalid: '入力値を確認してください。',
         copied: '結果をコピーしました。',
         copyFailed: 'コピーに失敗しました。'
       },
       en: {
         title: 'Long-Exposure Single-Shot Star Photography<BR>Aperture Calculator',
         langBtn: '日本語',
+        nightBtn: 'Night',
+        dayBtn: 'Day',
         trialTitle: '1) Enter trial values',
         t1Label: 'Trial exposure (sec)',
         f1Label: 'Trial aperture',
@@ -305,10 +387,8 @@
         iso2Label: 'Long exposure ISO',
         t2minLabel: 'Long exposure time (min)',
         f2Label: 'Long exposure aperture (auto)',
-        calcBtn: 'Calculate',
         copyBtn: 'Copy result',
         formulaNote: '※ Based on exposure equivalence: exposure time × ISO ÷ aperture²',
-        invalid: 'Please check the input values.',
         copied: 'Copied.',
         copyFailed: 'Copy failed.'
       }
@@ -318,6 +398,7 @@
       const t = texts[lang];
       els.title.innerHTML = t.title;
       els.langBtn.textContent = t.langBtn;
+      els.nightBtn.textContent = night ? t.dayBtn : t.nightBtn;
       els.trialTitle.textContent = t.trialTitle;
       els.t1Label.textContent = t.t1Label;
       els.f1Label.textContent = t.f1Label;
@@ -328,7 +409,6 @@
       els.iso2Label.textContent = t.iso2Label;
       els.t2minLabel.textContent = t.t2minLabel;
       els.f2Label.textContent = t.f2Label;
-      els.calcBtn.textContent = t.calcBtn;
       els.copyBtn.textContent = t.copyBtn;
       els.formulaNote.textContent = t.formulaNote;
       document.title = lang === 'ja'
@@ -336,20 +416,26 @@
         : 'Long-Exposure Single-Shot Star Photography Aperture Calculator';
     }
 
+    function applyNightMode() {
+      document.body.classList.toggle('night', night);
+      localStorage.setItem('cyobyoNight', night ? '1' : '0');
+      renderLang();
+    }
+
     function adjustAperture(delta) {
       let v = parseFloat(els.f1.value);
-      if (!isFinite(v) || v <= 0) v = 2.8;
+      if (!isFinite(v) || v <= 0) v = 4.0;
       v = delta > 0 ? v * SQRT2 : v / SQRT2;
       els.f1.value = v.toFixed(1);
       calculate();
     }
 
     function calculate() {
-      const t1 = parseFloat(els.t1.value);        // sec
+      const t1 = parseFloat(els.t1.value);
       const f1 = parseFloat(els.f1.value);
       const ISO1 = parseFloat(els.iso1.value);
       const ISO2 = parseFloat(els.iso2.value);
-      const t2min = parseFloat(els.t2min.value); // min
+      const t2min = parseFloat(els.t2min.value);
 
       if (
         !isFinite(t1) || t1 <= 0 ||
@@ -364,8 +450,6 @@
       }
 
       const t2sec = t2min * 60;
-
-      // Excelの露出等価に合わせた式
       const f2 = f1 * Math.sqrt((t2sec * ISO2) / (t1 * ISO1));
 
       if (isFinite(f2) && f2 > 0) {
@@ -379,7 +463,6 @@
 
     els.f1Minus.addEventListener('click', () => adjustAperture(-1));
     els.f1Plus.addEventListener('click', () => adjustAperture(1));
-    els.calcBtn.addEventListener('click', calculate);
 
     [els.t1, els.f1, els.iso1, els.iso2, els.t2min].forEach(el => {
       el.addEventListener('input', calculate);
@@ -410,7 +493,12 @@
       renderLang();
     });
 
-    renderLang();
+    els.nightBtn.addEventListener('click', () => {
+      night = !night;
+      applyNightMode();
+    });
+
+    applyNightMode();
     calculate();
   </script>
 </body>
