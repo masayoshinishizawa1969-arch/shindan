@@ -306,6 +306,39 @@
     padding: 10px 8px;
     white-space: nowrap;
   }
+
+  /* 数値入力の△▽を左右配置にする */
+  .num-wrap {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 6px;
+    align-items: stretch;
+  }
+
+  .num-wrap input {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .num-wrap .spinner {
+    display: contents;
+  }
+
+  .num-wrap .spin-btn {
+    min-height: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 12px;
+    font-size: 14px;
+  }
+
+  .num-wrap .spin-btn[data-dir="down"] {
+    grid-column: 1;
+  }
+
+  .num-wrap .spin-btn[data-dir="up"] {
+    grid-column: 3;
+  }
 }
   </style>
 </head>
