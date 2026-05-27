@@ -21,8 +21,6 @@
       --shadow-soft: 0 10px 24px rgba(108,128,153,.10);
       --youtube: #df5860;
       --x: #1f2937;
-      --ok: #5f8b6a;
-      --warn: #b07d36;
     }
 
     * { box-sizing: border-box; }
@@ -616,9 +614,9 @@
         </div>
 
         <div class="footer-help">
-          ・GitHub Pages またはローカルサーバーでの動作を推奨します。<br>
-          ・<code>file://</code> 直開きでは取得失敗しやすいです。<br>
-          ・カップリング判定は <code>songs</code> と <code>couplings[].tracks</code> の両方から統合します。
+          ・GitHub Pages では <code>./zard_songs_v2.json</code> を読み込みます。<br>
+          ・同じフォルダに <code>zard.html</code> と <code>zard_songs_v2.json</code> を置いてください。<br>
+          ・カップリング判定は <code>songs</code> と <code>couplings[].tracks</code> の両方を統合して行います。
         </div>
       </section>
 
@@ -637,7 +635,7 @@
   </main>
 
   <script>
-    const DATA_URL = "./zard_songs_v2.json";
+    const DATA_URL = new URL("./zard_songs_v2.json", window.location.href).href;
     const CACHE_KEY = "zardSongsCache_v2_fixed_20260527";
 
     const FALLBACK_DATA = {
@@ -798,11 +796,24 @@
       ].join("||");
     }
 
+    function isCoupling(song) {
+      return song.isCoupling === true || song.initialReleaseType === "coupling";
+    }
+
+    function isSingleMain(song) {
+      return song.initialReleaseType === "single" && !song.isCoupling;
+    }
+
+    function isAlbumTrack(song) {
+      return song.isAlbumTrack === true ||
+        song.initialReleaseType === "album_track" ||
+        song.initialReleaseType === "album_title";
+    }
+
     function buildSongPool(data) {
       const map = new Map();
       const rawSongs = Array.isArray(data.songs) ? data.songs : [];
       const rawCouplings = Array.isArray(data.couplings) ? data.couplings : [];
-
       let couplingTracksCount = 0;
 
       rawSongs.forEach((song) => {
@@ -818,6 +829,7 @@
 
         tracks.forEach((track) => {
           if (!track || !track.title) return;
+
           const normalized = normalizeSong(track, {
             initialReleaseType: "coupling",
             initialReleaseTitle: singleTitle,
@@ -833,6 +845,7 @@
               popularity: "minor"
             }
           });
+
           const key = buildUniqueKey(normalized);
           if (!map.has(key)) map.set(key, normalized);
         });
@@ -855,7 +868,7 @@
       updatedAtEl.textContent = APP_DATA.updatedAt || "不明";
       songCountEl.textContent = String(SONG_POOL.length || 0);
       albumCountEl.textContent = String(APP_DATA.albums?.length || 0);
-      dataUrlEl.textContent = DATA_URL;
+      dataUrlEl.textContent = "./zard_songs_v2.json";
       renderDebug();
     }
 
@@ -954,31 +967,15 @@
     async function loadData(force = false) {
       setStatus(force ? "最新JSONを再読込しています..." : "JSONを読み込み中です...");
 
-      // file:// は fetch 失敗しやすい
-      if (location.protocol === "file:") {
-        const cache = localStorage.getItem(CACHE_KEY);
-        if (cache) {
-          APP_DATA = normalizeData(JSON.parse(cache));
-          SONG_POOL = buildSongPool(APP_DATA);
-          setMeta();
-          populateFilters();
-          setStatus("file:// 直開きのためキャッシュを表示しています。ローカルサーバーまたはGitHub Pages推奨です。");
-          return;
-        }
-        APP_DATA = FALLBACK_DATA;
-        SONG_POOL = buildSongPool(APP_DATA);
-        setMeta();
-        populateFilters();
-        setStatus("file:// 直開きではJSON取得に失敗しやすいため、空データに近いフォールバック状態です。");
-        return;
-      }
-
       try {
         const res = await fetch(`${DATA_URL}?t=${Date.now()}`, {
           method: "GET",
           cache: "no-store"
         });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
 
         const json = await res.json();
         APP_DATA = normalizeData(json);
@@ -997,7 +994,7 @@
           SONG_POOL = buildSongPool(APP_DATA);
           setMeta();
           populateFilters();
-          setStatus("JSON取得に失敗したため、保存済みキャッシュを使用しています。");
+          setStatus(`JSON取得に失敗したため、保存済みキャッシュを使用しています。原因: ${err.message}`);
           return;
         }
 
@@ -1005,7 +1002,7 @@
         SONG_POOL = buildSongPool(APP_DATA);
         setMeta();
         populateFilters();
-        setStatus("JSON取得に失敗しました。ファイル名・配置・サーバー起動状態を確認してください。");
+        setStatus(`JSON取得に失敗しました。原因: ${err.message}`);
       }
     }
 
@@ -1018,20 +1015,6 @@
       return answers;
     }
 
-    function isSingleMain(song) {
-      return song.initialReleaseType === "single" && !song.isCoupling;
-    }
-
-    function isCoupling(song) {
-      return song.isCoupling === true || song.initialReleaseType === "coupling";
-    }
-
-    function isAlbumTrack(song) {
-      return song.isAlbumTrack === true ||
-        song.initialReleaseType === "album_track" ||
-        song.initialReleaseType === "album_title";
-    }
-
     function getFilteredSongs() {
       const selectedAlbum = albumFilterEl.value || "all";
       const selectedSingle = singleFilterEl.value || "all";
@@ -1040,11 +1023,9 @@
       return SONG_POOL.filter((song) => {
         if (selectedAlbum !== "all" && song.album !== selectedAlbum) return false;
         if (selectedSingle !== "all" && song.single !== selectedSingle) return false;
-
         if (selectedType === "single" && !isSingleMain(song)) return false;
         if (selectedType === "coupling" && !isCoupling(song)) return false;
         if (selectedType === "album_track" && !isAlbumTrack(song)) return false;
-
         return true;
       });
     }
@@ -1311,7 +1292,7 @@
 
     function clearCache() {
       localStorage.removeItem(CACHE_KEY);
-      setStatus("キャッシュを削除しました。次回の再読込で最新JSONを取得します。");
+      setStatus("キャッシュを削除しました。続けて「JSON再読込」を押してください。");
     }
 
     reloadBtn.addEventListener("click", async () => {
