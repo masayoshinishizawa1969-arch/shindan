@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>あなたにお勧めのZARD</title>
-  <meta name="description" content="質問に答えて、あなたにお勧めのZARD楽曲を診断するページ" />
+  <meta name="description" content="あなたにお勧めのZARD楽曲を、アルバム・シングル・カップリング・アルバム曲で絞り込みながら診断できます。" />
   <style>
     :root {
       --bg: #f6f7fb;
       --bg2: #eef3f8;
-      --card: rgba(255,255,255,.82);
+      --card: rgba(255,255,255,.84);
       --line: rgba(126,149,173,.22);
       --text: #314055;
       --muted: #6d7b8f;
@@ -20,7 +20,7 @@
       --shadow: 0 18px 40px rgba(108,128,153,.16);
       --shadow-soft: 0 10px 24px rgba(108,128,153,.10);
       --radius: 22px;
-      --youtube: #e1525f;
+      --youtube: #df5860;
       --x: #1f2937;
     }
 
@@ -49,8 +49,8 @@
     }
 
     .container {
-      width: min(1100px, calc(100% - 24px));
-      margin: 14px auto 44px;
+      width: min(1120px, calc(100% - 20px));
+      margin: 12px auto 40px;
       position: relative;
       z-index: 1;
     }
@@ -58,9 +58,9 @@
     .hero {
       position: relative;
       overflow: hidden;
-      padding: 28px 20px 22px;
+      padding: 26px 18px 20px;
       border-radius: 28px;
-      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(248,250,253,.80));
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(248,250,253,.82));
       border: 1px solid rgba(199,214,228,.65);
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
@@ -108,7 +108,7 @@
       color: var(--muted);
       line-height: 1.9;
       font-size: 15px;
-      max-width: 760px;
+      max-width: 820px;
     }
 
     .hero-meta {
@@ -167,11 +167,10 @@
       flex: 0 0 auto;
     }
 
-    .control-row {
+    .filter-grid {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
-      align-items: end;
       margin-bottom: 14px;
     }
 
@@ -407,11 +406,11 @@
       padding-right: 26px;
     }
 
-    .album-line {
+    .meta-line {
       color: var(--muted);
       font-size: 13px;
       margin-bottom: 10px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
     .reason {
@@ -482,9 +481,7 @@
     }
 
     @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
+      .layout { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 680px) {
@@ -498,10 +495,7 @@
         padding: 16px;
       }
 
-      .control-row {
-        grid-template-columns: 1fr;
-      }
-
+      .filter-grid,
       .question-grid {
         grid-template-columns: 1fr;
       }
@@ -515,13 +509,13 @@
         grid-column: 1 / -1;
       }
 
-      button {
-        min-height: 50px;
-      }
-
       .card-actions {
         display: grid;
         grid-template-columns: 1fr;
+      }
+
+      button {
+        min-height: 50px;
       }
     }
 
@@ -545,14 +539,15 @@
       <div class="eyebrow">YOUR ZARD RECOMMENDATION</div>
       <h1>あなたにお勧めのZARD</h1>
       <p class="lead">
-        いくつかの質問に答えると、あなたの気分や好みに合うZARDの楽曲をランキング形式でおすすめします。<br>
-        有名曲だけでなく、隠れた人気曲も選ばれやすい設計です。
+        気分や好みに合わせて、ZARDの楽曲をランキング形式でおすすめします。<br>
+        アルバム・シングル・カップリング・アルバム曲で絞り込みながら楽しめます。
       </p>
 
       <div class="hero-meta">
-        <div class="meta-chip">📦 読み込み元: <strong id="dataUrl">./zard_songs.json</strong></div>
+        <div class="meta-chip">📦 読み込み元: <strong id="dataUrl">./zard_songs_v2.json</strong></div>
         <div class="meta-chip">🗓 更新日: <strong id="updatedAt">読み込み中...</strong></div>
         <div class="meta-chip">🎵 曲数: <strong id="songCount">-</strong></div>
+        <div class="meta-chip">💿 アルバム数: <strong id="albumCount">-</strong></div>
       </div>
     </section>
 
@@ -560,11 +555,28 @@
       <section class="card">
         <h2 class="section-title">診断条件</h2>
 
-        <div class="control-row">
+        <div class="filter-grid">
           <div class="field">
             <label for="albumFilter">アルバムで絞り込む</label>
             <select id="albumFilter">
               <option value="all">すべてのアルバム</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="singleFilter">シングルで絞り込む</label>
+            <select id="singleFilter">
+              <option value="all">すべてのシングル</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="typeFilter">曲種別で絞り込む</label>
+            <select id="typeFilter">
+              <option value="all">すべて</option>
+              <option value="single">シングル表題曲</option>
+              <option value="coupling">カップリング</option>
+              <option value="album_track">アルバム曲</option>
             </select>
           </div>
 
@@ -587,9 +599,9 @@
         <div class="status" id="statusText">JSONを読み込み中です...</div>
 
         <div class="footer-help">
-          ・GitHub Pages ではそのまま動きます。<br>
-          ・<code>file://</code> で直接開くと JSON 取得に失敗する場合があります。<br>
-          ・YouTubeボタンは検索結果ページを開きます。
+          ・カップリング判定は <code>songs[].isCoupling</code> または <code>initialReleaseType: "coupling"</code> を使います。<br>
+          ・現在の v2 JSON で <code>couplings[].tracks</code> が空の場合、カップリング絞り込み結果も空になることがあります。<br>
+          ・<code>file://</code> 直開きでは JSON 読み込みに失敗する場合があります。
         </div>
       </section>
 
@@ -599,8 +611,8 @@
           <span>まだ診断していません</span>
         </div>
         <div id="emptyState" class="empty">
-          左側の質問に答えて「診断する」を押すと、ここにおすすめ曲が表示されます。<br>
-          アルバムで絞ってから診断すると、よりディープに楽しめます。
+          左側の条件を選んで「診断する」を押すと、ここにおすすめ曲が表示されます。<br>
+          アルバムやシングルで絞ると、よりディープに楽しめます。
         </div>
         <div id="resultList" class="result-list hidden"></div>
       </section>
@@ -608,16 +620,33 @@
   </main>
 
   <script>
-    const DATA_URL = "./zard_songs.json";
-    const CACHE_KEY = "zardSongsCache_v4";
+    const DATA_URL = "./zard_songs_v2.json";
+    const CACHE_KEY = "zardSongsCache_v2_html";
 
     const FALLBACK_DATA = {
+      artist: "ZARD",
+      version: "2.0",
       updatedAt: "2026-05-27",
+      albums: [
+        { id: "album_yureru_omoi", title: "揺れる想い", releaseYear: 1993, type: "album" },
+        { id: "album_hold_me", title: "HOLD ME", releaseYear: 1992, type: "album" }
+      ],
+      singles: [
+        { id: "single_makenai_de", title: "負けないで", releaseYear: 1993 },
+        { id: "single_yureru_omoi", title: "揺れる想い", releaseYear: 1993 }
+      ],
+      couplings: [],
       songs: [
         {
+          id: "song_makenai_de",
           title: "負けないで",
           year: 1993,
+          initialReleaseType: "single",
+          initialReleaseTitle: "負けないで",
           album: "揺れる想い",
+          single: "負けないで",
+          isCoupling: false,
+          isAlbumTrack: false,
           tags: {
             tempo: "fast",
             mood: "empowering",
@@ -628,9 +657,15 @@
           note: "背中を押してくれる王道の応援ソング。"
         },
         {
+          id: "song_yureru_omoi",
           title: "揺れる想い",
           year: 1993,
+          initialReleaseType: "single",
+          initialReleaseTitle: "揺れる想い",
           album: "揺れる想い",
+          single: "揺れる想い",
+          isCoupling: false,
+          isAlbumTrack: false,
           tags: {
             tempo: "mid",
             mood: "romantic",
@@ -641,9 +676,15 @@
           note: "透明感あふれるZARDの代表曲。"
         },
         {
+          id: "song_ano_hohoemi_o_wasurenai_de",
           title: "あの微笑みを忘れないで",
           year: 1992,
+          initialReleaseType: "album_track",
+          initialReleaseTitle: "HOLD ME",
           album: "HOLD ME",
+          single: null,
+          isCoupling: false,
+          isAlbumTrack: true,
           tags: {
             tempo: "mid",
             mood: "nostalgic",
@@ -689,6 +730,12 @@
         major: "有名曲中心",
         balanced: "バランス重視",
         minor: "隠れた人気曲寄り"
+      },
+      type: {
+        single: "シングル表題曲",
+        coupling: "カップリング",
+        album_track: "アルバム曲",
+        album_title: "アルバム曲"
       }
     };
 
@@ -732,14 +779,18 @@
     ];
 
     let APP_DATA = FALLBACK_DATA;
+    let SONG_POOL = [];
     let LAST_RESULTS = [];
 
     const updatedAtEl = document.getElementById("updatedAt");
     const songCountEl = document.getElementById("songCount");
+    const albumCountEl = document.getElementById("albumCount");
     const dataUrlEl = document.getElementById("dataUrl");
     const statusTextEl = document.getElementById("statusText");
     const questionGridEl = document.getElementById("questionGrid");
     const albumFilterEl = document.getElementById("albumFilter");
+    const singleFilterEl = document.getElementById("singleFilter");
+    const typeFilterEl = document.getElementById("typeFilter");
     const resultListEl = document.getElementById("resultList");
     const resultMetaEl = document.getElementById("resultMeta");
     const emptyStateEl = document.getElementById("emptyState");
@@ -749,19 +800,98 @@
     const shareAllBtn = document.getElementById("shareAllBtn");
 
     function cleanTitle(title) {
-      return String(title)
+      return String(title || "")
         .replace(/（マイナー）/g, "")
         .replace(/\(マイナー\)/g, "")
         .trim();
     }
 
     function escapeHtml(str) {
-      return String(str)
+      return String(str ?? "")
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
         .replaceAll('"', "&quot;")
         .replaceAll("'", "&#039;");
+    }
+
+    function normalizeSong(song, fallback = {}) {
+      const normalized = {
+        id: song.id || `${cleanTitle(song.title)}_${song.year || ""}`,
+        title: cleanTitle(song.title),
+        year: song.year || fallback.year || null,
+        initialReleaseType: song.initialReleaseType || fallback.initialReleaseType || "album_track",
+        initialReleaseTitle: song.initialReleaseTitle || fallback.initialReleaseTitle || song.album || fallback.album || null,
+        album: song.album ?? fallback.album ?? null,
+        single: song.single ?? fallback.single ?? null,
+        isCoupling: Boolean(song.isCoupling || song.initialReleaseType === "coupling" || fallback.isCoupling),
+        isAlbumTrack: Boolean(song.isAlbumTrack || song.initialReleaseType === "album_track" || song.initialReleaseType === "album_title" || fallback.isAlbumTrack),
+        official_discography_checked: Boolean(song.official_discography_checked),
+        tags: {
+          tempo: song.tags?.tempo || "mid",
+          mood: song.tags?.mood || "nostalgic",
+          era: song.tags?.era || "early90s",
+          theme: song.tags?.theme || "nostalgia",
+          popularity: song.tags?.popularity || "standard"
+        },
+        note: song.note || ""
+      };
+      return normalized;
+    }
+
+    function buildSongPool(data) {
+      const baseSongs = Array.isArray(data.songs) ? data.songs.map(s => normalizeSong(s)) : [];
+      const seen = new Set(baseSongs.map(s => s.id));
+      const extras = [];
+
+      if (Array.isArray(data.couplings)) {
+        data.couplings.forEach((entry) => {
+          const singleTitle = entry.singleTitle || null;
+          const tracks = Array.isArray(entry.tracks) ? entry.tracks : [];
+          tracks.forEach((track, idx) => {
+            if (typeof track === "string") return;
+            if (!track || !track.title) return;
+            const normalized = normalizeSong(track, {
+              initialReleaseType: "coupling",
+              single: singleTitle,
+              isCoupling: true
+            });
+            if (!seen.has(normalized.id)) {
+              seen.add(normalized.id);
+              extras.push(normalized);
+            }
+          });
+        });
+      }
+
+      return [...baseSongs, ...extras];
+    }
+
+    function normalizeData(data) {
+      if (!data || typeof data !== "object") {
+        throw new Error("JSON形式が不正です");
+      }
+      return {
+        artist: data.artist || "ZARD",
+        version: data.version || "2.0",
+        updatedAt: data.updatedAt || new Date().toISOString().slice(0, 10),
+        notes: Array.isArray(data.notes) ? data.notes : [],
+        albums: Array.isArray(data.albums) ? data.albums : [],
+        singles: Array.isArray(data.singles) ? data.singles : [],
+        couplings: Array.isArray(data.couplings) ? data.couplings : [],
+        songs: Array.isArray(data.songs) ? data.songs : []
+      };
+    }
+
+    function setMeta() {
+      updatedAtEl.textContent = APP_DATA.updatedAt || "不明";
+      songCountEl.textContent = String(SONG_POOL.length || 0);
+      albumCountEl.textContent = String(APP_DATA.albums?.length || 0);
+      dataUrlEl.textContent = DATA_URL;
+    }
+
+    function setStatus(text) {
+      statusTextEl.textContent = text;
     }
 
     function renderQuestions() {
@@ -802,42 +932,61 @@
       });
     }
 
-    function setMeta() {
-      updatedAtEl.textContent = APP_DATA.updatedAt || "不明";
-      songCountEl.textContent = String(APP_DATA.songs?.length || 0);
-      dataUrlEl.textContent = DATA_URL;
+    function uniqueSorted(arr) {
+      return [...new Set(arr.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "ja"));
     }
 
-    function setStatus(text) {
-      statusTextEl.textContent = text;
-    }
+    function populateFilters() {
+      const currentAlbum = albumFilterEl.value || "all";
+      const currentSingle = singleFilterEl.value || "all";
 
-    function normalizeData(data) {
-      if (Array.isArray(data)) {
-        return {
-          updatedAt: new Date().toISOString().slice(0, 10),
-          songs: data
-        };
-      }
-      if (!data || !Array.isArray(data.songs)) {
-        throw new Error("JSON形式が不正です");
-      }
-      return data;
+      const albumTitles = uniqueSorted([
+        ...(APP_DATA.albums || []).map(a => a.title),
+        ...SONG_POOL.map(s => s.album)
+      ]);
+
+      const singleTitles = uniqueSorted([
+        ...(APP_DATA.singles || []).map(s => s.title),
+        ...SONG_POOL.map(s => s.single),
+        ...(APP_DATA.couplings || []).map(c => c.singleTitle)
+      ]);
+
+      albumFilterEl.innerHTML = `<option value="all">すべてのアルバム</option>`;
+      albumTitles.forEach((title) => {
+        const option = document.createElement("option");
+        option.value = title;
+        option.textContent = title;
+        albumFilterEl.appendChild(option);
+      });
+
+      singleFilterEl.innerHTML = `<option value="all">すべてのシングル</option>`;
+      singleTitles.forEach((title) => {
+        const option = document.createElement("option");
+        option.value = title;
+        option.textContent = title;
+        singleFilterEl.appendChild(option);
+      });
+
+      albumFilterEl.value = albumTitles.includes(currentAlbum) ? currentAlbum : "all";
+      singleFilterEl.value = singleTitles.includes(currentSingle) ? currentSingle : "all";
     }
 
     async function loadData(force = false) {
       if (location.protocol === "file:") {
         const cache = localStorage.getItem(CACHE_KEY);
         if (cache) {
-          APP_DATA = JSON.parse(cache);
+          const parsed = JSON.parse(cache);
+          APP_DATA = normalizeData(parsed);
+          SONG_POOL = buildSongPool(APP_DATA);
           setMeta();
-          populateAlbumFilter();
+          populateFilters();
           setStatus("ローカル直開きのためキャッシュを表示しています。GitHub Pages またはローカルサーバー推奨です。");
           return;
         }
         APP_DATA = FALLBACK_DATA;
+        SONG_POOL = buildSongPool(APP_DATA);
         setMeta();
-        populateAlbumFilter();
+        populateFilters();
         setStatus("file:// 直開きではJSON取得に失敗しやすいため、埋め込みデータで表示しています。");
         return;
       }
@@ -845,52 +994,34 @@
       setStatus(force ? "JSONを再読込しています..." : "JSONを読み込み中です...");
 
       try {
-        const url = `${DATA_URL}?t=${Date.now()}`;
-        const res = await fetch(url, { cache: "no-store" });
+        const res = await fetch(`${DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
         const json = await res.json();
         APP_DATA = normalizeData(json);
+        SONG_POOL = buildSongPool(APP_DATA);
 
         localStorage.setItem(CACHE_KEY, JSON.stringify(APP_DATA));
         setMeta();
-        populateAlbumFilter();
-        setStatus(`最新データを読み込みました。${APP_DATA.songs.length}曲を利用できます。`);
+        populateFilters();
+        setStatus(`最新データを読み込みました。${SONG_POOL.length}曲を利用できます。`);
       } catch (err) {
         const cache = localStorage.getItem(CACHE_KEY);
         if (cache) {
-          APP_DATA = JSON.parse(cache);
+          APP_DATA = normalizeData(JSON.parse(cache));
+          SONG_POOL = buildSongPool(APP_DATA);
           setMeta();
-          populateAlbumFilter();
+          populateFilters();
           setStatus("JSON取得に失敗したため、保存済みキャッシュを使用しています。");
           return;
         }
         APP_DATA = FALLBACK_DATA;
+        SONG_POOL = buildSongPool(APP_DATA);
         setMeta();
-        populateAlbumFilter();
+        populateFilters();
         setStatus("JSON取得に失敗したため、埋め込みデータで表示しています。");
         console.error(err);
       }
-    }
-
-    function populateAlbumFilter() {
-      const current = albumFilterEl.value || "all";
-      const albums = [...new Set((APP_DATA.songs || []).map(song => song.album).filter(Boolean))];
-
-      albumFilterEl.innerHTML = "";
-      const allOpt = document.createElement("option");
-      allOpt.value = "all";
-      allOpt.textContent = "すべてのアルバム";
-      albumFilterEl.appendChild(allOpt);
-
-      albums.forEach((album) => {
-        const option = document.createElement("option");
-        option.value = album;
-        option.textContent = album;
-        albumFilterEl.appendChild(option);
-      });
-
-      albumFilterEl.value = albums.includes(current) ? current : "all";
     }
 
     function getAnswers() {
@@ -900,6 +1031,37 @@
         answers[q.id] = checked ? checked.value : q.default;
       });
       return answers;
+    }
+
+    function isSingleMain(song) {
+      return song.initialReleaseType === "single" && !song.isCoupling;
+    }
+
+    function isCoupling(song) {
+      return song.isCoupling === true || song.initialReleaseType === "coupling";
+    }
+
+    function isAlbumTrack(song) {
+      return song.isAlbumTrack === true ||
+        song.initialReleaseType === "album_track" ||
+        song.initialReleaseType === "album_title";
+    }
+
+    function getFilteredSongs() {
+      const selectedAlbum = albumFilterEl.value || "all";
+      const selectedSingle = singleFilterEl.value || "all";
+      const selectedType = typeFilterEl.value || "all";
+
+      return SONG_POOL.filter((song) => {
+        if (selectedAlbum !== "all" && song.album !== selectedAlbum) return false;
+        if (selectedSingle !== "all" && song.single !== selectedSingle) return false;
+
+        if (selectedType === "single" && !isSingleMain(song)) return false;
+        if (selectedType === "coupling" && !isCoupling(song)) return false;
+        if (selectedType === "album_track" && !isAlbumTrack(song)) return false;
+
+        return true;
+      });
     }
 
     function popularityScore(songPopularity, selected) {
@@ -927,7 +1089,6 @@
     function scoreSong(song, answers) {
       let score = 0;
       const matched = [];
-
       const weights = {
         tempo: 2,
         mood: 3,
@@ -958,35 +1119,16 @@
       return { song, score, matched };
     }
 
-    function buildReason(item, answers, selectedAlbum) {
-      const song = item.song;
-      const parts = [];
-
-      if (item.matched.includes("tempo")) parts.push(`テンポが「${LABELS.tempo[song.tags.tempo]}」`);
-      if (item.matched.includes("mood")) parts.push(`ムードが「${LABELS.mood[song.tags.mood]}」`);
-      if (item.matched.includes("era")) parts.push(`時代感が「${LABELS.era[song.tags.era]}」`);
-      if (item.matched.includes("theme")) parts.push(`テーマが「${LABELS.theme[song.tags.theme]}」`);
-      if (item.matched.includes("popularity")) parts.push(`知名度バランスが「${LABELS.popularity[answers.popularity]}」向き`);
-      if (selectedAlbum !== "all") parts.push(`アルバム「${selectedAlbum}」内で相性がよい`);
-
-      const base = parts.length ? parts.join(" / ") : "総合バランスのよさでおすすめ";
-      return `${base}。${song.note ? " " + song.note : ""}`;
-    }
-
-    function getFilteredSongs() {
-      const selectedAlbum = albumFilterEl.value || "all";
-      if (selectedAlbum === "all") return APP_DATA.songs || [];
-      return (APP_DATA.songs || []).filter(song => song.album === selectedAlbum);
-    }
-
     function pickTopResults(scored, answers) {
       scored.sort((a, b) => {
         if (b.score !== a.score) return b.score - a.score;
+
         const popDiff =
           tiePopularityValue(b.song.tags.popularity, answers.popularity) -
           tiePopularityValue(a.song.tags.popularity, answers.popularity);
         if (popDiff !== 0) return popDiff;
-        return a.song.year - b.song.year;
+
+        return (a.song.year || 9999) - (b.song.year || 9999);
       });
 
       let top = scored.slice(0, 3);
@@ -1007,16 +1149,37 @@
       return Math.max(8, Math.min(100, (score / max) * 100));
     }
 
+    function getTypeLabel(song) {
+      if (isCoupling(song)) return LABELS.type.coupling;
+      if (isAlbumTrack(song)) return LABELS.type.album_track;
+      return LABELS.type.single;
+    }
+
+    function buildReason(item, answers, selectedAlbum, selectedSingle, selectedType) {
+      const song = item.song;
+      const parts = [];
+
+      if (item.matched.includes("tempo")) parts.push(`テンポが「${LABELS.tempo[song.tags.tempo]}」`);
+      if (item.matched.includes("mood")) parts.push(`ムードが「${LABELS.mood[song.tags.mood]}」`);
+      if (item.matched.includes("era")) parts.push(`時代感が「${LABELS.era[song.tags.era]}」`);
+      if (item.matched.includes("theme")) parts.push(`テーマが「${LABELS.theme[song.tags.theme]}」`);
+      if (item.matched.includes("popularity")) parts.push(`知名度バランスが「${LABELS.popularity[answers.popularity]}」向き`);
+      if (selectedAlbum !== "all") parts.push(`アルバム「${selectedAlbum}」で絞った条件に合う`);
+      if (selectedSingle !== "all") parts.push(`シングル「${selectedSingle}」周辺で相性がよい`);
+      if (selectedType !== "all") parts.push(`曲種別「${selectedType === "single" ? "シングル表題曲" : selectedType === "coupling" ? "カップリング" : "アルバム曲"}」に一致`);
+
+      const base = parts.length ? parts.join(" / ") : "総合バランスのよさでおすすめ";
+      return `${base}。${song.note ? " " + song.note : ""}`;
+    }
+
     function openYouTubeSearch(title) {
-      const cleaned = cleanTitle(title);
-      const query = `ZARD ${cleaned}`;
+      const query = `ZARD ${cleanTitle(title)}`;
       const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
       window.open(url, "_blank", "noopener");
     }
 
     function openXShare(text) {
-      const shareUrl =
-        `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href.split("#")[0])}`;
+      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href.split("#")[0])}`;
       window.open(shareUrl, "_blank", "noopener");
     }
 
@@ -1035,27 +1198,40 @@
       resultListEl.innerHTML = "";
 
       const selectedAlbum = albumFilterEl.value || "all";
-      const albumLabel = selectedAlbum === "all" ? "全アルバム対象" : `アルバム: ${selectedAlbum}`;
-      resultMetaEl.innerHTML = `
-        <span>対象曲数: ${totalCount}曲</span>
-        <span>・</span>
-        <span>${escapeHtml(albumLabel)}</span>
-        <span>・</span>
-        <span>知名度設定: ${escapeHtml(LABELS.popularity[answers.popularity])}</span>
-      `;
+      const selectedSingle = singleFilterEl.value || "all";
+      const selectedType = typeFilterEl.value || "all";
+
+      const filters = [
+        `対象曲数: ${totalCount}曲`,
+        selectedAlbum === "all" ? "アルバム: すべて" : `アルバム: ${selectedAlbum}`,
+        selectedSingle === "all" ? "シングル: すべて" : `シングル: ${selectedSingle}`,
+        selectedType === "all" ? "曲種別: すべて" : `曲種別: ${selectedType === "single" ? "シングル表題曲" : selectedType === "coupling" ? "カップリング" : "アルバム曲"}`,
+        `知名度設定: ${LABELS.popularity[answers.popularity]}`
+      ];
+
+      resultMetaEl.innerHTML = filters.map(v => `<span>${escapeHtml(v)}</span>`).join('<span>・</span>');
 
       results.forEach((item, index) => {
         const song = item.song;
         const cleanedTitle = cleanTitle(song.title);
         const rankClass = `rank-${index + 1}`;
         const medal = index === 0 ? "👑 1位" : index === 1 ? "🥈 2位" : "🥉 3位";
+
         const chips = [
-          `📀 ${song.album}`,
-          `📅 ${song.year}`,
+          `🎚 ${getTypeLabel(song)}`,
+          song.album ? `📀 ${song.album}` : null,
+          song.single ? `💽 ${song.single}` : null,
+          song.year ? `📅 ${song.year}` : null,
           `🎼 ${LABELS.mood[song.tags.mood]}`,
           `🌙 ${LABELS.theme[song.tags.theme]}`,
-          `✨ ${POPULARITY_BADGE[song.tags.popularity]}`
-        ];
+          `✨ ${POPULARITY_BADGE[song.tags.popularity] || song.tags.popularity}`
+        ].filter(Boolean);
+
+        const metaLines = [
+          song.initialReleaseTitle ? `初出: ${song.initialReleaseTitle}` : null,
+          song.album ? `アルバム: ${song.album}` : null,
+          song.single ? `シングル: ${song.single}` : null
+        ].filter(Boolean).join(" / ");
 
         const card = document.createElement("article");
         card.className = `result-card ${rankClass}`;
@@ -1064,8 +1240,8 @@
         card.innerHTML = `
           <div class="rank-badge">${medal}</div>
           <h3 class="song-title">${escapeHtml(cleanedTitle)}</h3>
-          <div class="album-line">主な収録: ${escapeHtml(song.album)}</div>
-          <p class="reason">${escapeHtml(buildReason(item, answers, selectedAlbum))}</p>
+          <div class="meta-line">${escapeHtml(metaLines)}</div>
+          <p class="reason">${escapeHtml(buildReason(item, answers, selectedAlbum, selectedSingle, selectedType))}</p>
           <div class="chips">
             ${chips.map(chip => `<span class="chip">${escapeHtml(chip)}</span>`).join("")}
           </div>
@@ -1109,7 +1285,12 @@
         resultMetaEl.innerHTML = "<span>該当する曲がありません</span>";
         resultListEl.classList.add("hidden");
         emptyStateEl.classList.remove("hidden");
-        emptyStateEl.textContent = "このアルバム条件では曲が見つかりませんでした。フィルタを変更してみてください。";
+
+        if (typeFilterEl.value === "coupling") {
+          emptyStateEl.innerHTML = "カップリング曲の条件に合うデータが見つかりませんでした。<br>v2 JSON の <code>songs</code> か <code>couplings[].tracks</code> を追加すると表示できるようになります。";
+        } else {
+          emptyStateEl.textContent = "この条件では曲が見つかりませんでした。フィルタを変更してみてください。";
+        }
         return;
       }
 
@@ -1123,12 +1304,16 @@
         const input = document.querySelector(`input[name="${q.id}"][value="${q.default}"]`);
         if (input) input.checked = true;
       });
+
       albumFilterEl.value = "all";
+      singleFilterEl.value = "all";
+      typeFilterEl.value = "all";
+
       LAST_RESULTS = [];
       resultListEl.innerHTML = "";
       resultListEl.classList.add("hidden");
       emptyStateEl.classList.remove("hidden");
-      emptyStateEl.innerHTML = "左側の質問に答えて「診断する」を押すと、ここにおすすめ曲が表示されます。<br>アルバムで絞ってから診断すると、よりディープに楽しめます。";
+      emptyStateEl.innerHTML = "左側の条件を選んで「診断する」を押すと、ここにおすすめ曲が表示されます。<br>アルバムやシングルで絞ると、よりディープに楽しめます。";
       resultMetaEl.innerHTML = "<span>まだ診断していません</span>";
     }
 
@@ -1143,8 +1328,10 @@
       openXShare(shareTextFromResults());
     });
 
-    albumFilterEl.addEventListener("change", () => {
-      if (LAST_RESULTS.length) runDiagnosis();
+    [albumFilterEl, singleFilterEl, typeFilterEl].forEach((el) => {
+      el.addEventListener("change", () => {
+        if (LAST_RESULTS.length) runDiagnosis();
+      });
     });
 
     async function init() {
