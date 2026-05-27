@@ -971,58 +971,45 @@
       singleFilterEl.value = singleTitles.includes(currentSingle) ? currentSingle : "all";
     }
 
-    async function loadData(force = false) {
-      if (location.protocol === "file:") {
-        const cache = localStorage.getItem(CACHE_KEY);
-        if (cache) {
-          const parsed = JSON.parse(cache);
-          APP_DATA = normalizeData(parsed);
-          SONG_POOL = buildSongPool(APP_DATA);
-          setMeta();
-          populateFilters();
-          setStatus("ローカル直開きのためキャッシュを表示しています。GitHub Pages またはローカルサーバー推奨です。");
-          return;
-        }
-        APP_DATA = FALLBACK_DATA;
-        SONG_POOL = buildSongPool(APP_DATA);
-        setMeta();
-        populateFilters();
-        setStatus("file:// 直開きではJSON取得に失敗しやすいため、埋め込みデータで表示しています。");
-        return;
-      }
+<script>
+async function loadData(force = false) {
+  setStatus(force ? "JSONを再読込しています..." : "JSONを読み込み中です...");
 
-      setStatus(force ? "JSONを再読込しています..." : "JSONを読み込み中です...");
+  try {
+    const res = await fetch(`./zard_songs_v2.json?t=${Date.now()}`, {
+      cache: "no-store"
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-      try {
-        const res = await fetch(`${DATA_URL}?t=${Date.now()}`, { cache: "no-store" });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    APP_DATA = normalizeData(json);
+    SONG_POOL = buildSongPool(APP_DATA);
 
-        const json = await res.json();
-        APP_DATA = normalizeData(json);
-        SONG_POOL = buildSongPool(APP_DATA);
+    localStorage.setItem(CACHE_KEY, JSON.stringify(APP_DATA));
+    setMeta();
+    populateFilters();
+    setStatus(`最新データを読み込みました。${SONG_POOL.length}曲を利用できます。`);
+  } catch (err) {
+    console.error(err);
 
-        localStorage.setItem(CACHE_KEY, JSON.stringify(APP_DATA));
-        setMeta();
-        populateFilters();
-        setStatus(`最新データを読み込みました。${SONG_POOL.length}曲を利用できます。`);
-      } catch (err) {
-        const cache = localStorage.getItem(CACHE_KEY);
-        if (cache) {
-          APP_DATA = normalizeData(JSON.parse(cache));
-          SONG_POOL = buildSongPool(APP_DATA);
-          setMeta();
-          populateFilters();
-          setStatus("JSON取得に失敗したため、保存済みキャッシュを使用しています。");
-          return;
-        }
-        APP_DATA = FALLBACK_DATA;
-        SONG_POOL = buildSongPool(APP_DATA);
-        setMeta();
-        populateFilters();
-        setStatus("JSON取得に失敗したため、埋め込みデータで表示しています。");
-        console.error(err);
-      }
+    const cache = localStorage.getItem(CACHE_KEY);
+    if (cache) {
+      APP_DATA = normalizeData(JSON.parse(cache));
+      SONG_POOL = buildSongPool(APP_DATA);
+      setMeta();
+      populateFilters();
+      setStatus("JSON取得に失敗したため、保存済みキャッシュを使用しています。");
+      return;
     }
+
+    APP_DATA = FALLBACK_DATA;
+    SONG_POOL = buildSongPool(APP_DATA);
+    setMeta();
+    populateFilters();
+    setStatus("JSON取得に失敗したため、埋め込みデータで表示しています。");
+  }
+}
+</script>
 
     function getAnswers() {
       const answers = {};
