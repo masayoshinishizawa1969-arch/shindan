@@ -2,252 +2,345 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ZARD ファン診断</title>
-  <meta name="description" content="質問に答えて、あなたに合うZARDの曲をおすすめするファン診断" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>あなたにお勧めのZARD</title>
+  <meta name="description" content="質問に答えて、あなたにお勧めのZARD楽曲を診断するページ" />
   <style>
     :root {
-      --bg1: #0b1020;
-      --bg2: #1b1140;
-      --bg3: #071b2d;
-      --card: rgba(255,255,255,.12);
-      --card-border: rgba(255,255,255,.18);
-      --text: #f6f7fb;
-      --muted: #d0d6e4;
-      --accent1: #7c5cff;
-      --accent2: #00d2ff;
-      --accent3: #ff6ec7;
-      --gold: #ffd76a;
-      --shadow: 0 20px 40px rgba(0,0,0,.25);
+      --bg: #f6f7fb;
+      --bg2: #eef3f8;
+      --card: rgba(255,255,255,.82);
+      --line: rgba(126,149,173,.22);
+      --text: #314055;
+      --muted: #6d7b8f;
+      --accent: #8ba9c7;
+      --accent2: #d8c2c7;
+      --gold: #c7a86d;
+      --gold2: #e8d9b4;
+      --shadow: 0 18px 40px rgba(108,128,153,.16);
+      --shadow-soft: 0 10px 24px rgba(108,128,153,.10);
+      --radius: 22px;
+      --youtube: #e1525f;
+      --x: #1f2937;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
+      font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif;
       color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 10% 20%, rgba(124,92,255,.35), transparent 25%),
-        radial-gradient(circle at 90% 10%, rgba(0,210,255,.25), transparent 25%),
-        radial-gradient(circle at 80% 80%, rgba(255,110,199,.20), transparent 25%),
-        linear-gradient(135deg, var(--bg1), var(--bg2) 45%, var(--bg3));
+        radial-gradient(circle at 10% 15%, rgba(216,194,199,.35), transparent 20%),
+        radial-gradient(circle at 90% 10%, rgba(139,169,199,.20), transparent 22%),
+        linear-gradient(180deg, #fdfefe 0%, var(--bg) 45%, var(--bg2) 100%);
       min-height: 100vh;
-      overflow-x: hidden;
     }
 
-    .bg-orb {
+    .veil {
       position: fixed;
-      border-radius: 50%;
-      filter: blur(30px);
-      opacity: .35;
+      inset: 0;
       pointer-events: none;
-      z-index: 0;
-      animation: float 10s ease-in-out infinite;
-    }
-    .orb1 { width: 220px; height: 220px; background: #7c5cff; top: 8%; left: -40px; }
-    .orb2 { width: 280px; height: 280px; background: #00d2ff; top: 50%; right: -60px; animation-delay: -4s; }
-    .orb3 { width: 200px; height: 200px; background: #ff6ec7; bottom: 5%; left: 10%; animation-delay: -2s; }
-
-    @keyframes float {
-      0%,100% { transform: translateY(0) translateX(0); }
-      50% { transform: translateY(-14px) translateX(8px); }
+      background:
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,.55), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(255,255,255,.35), transparent 24%);
+      opacity: .85;
     }
 
     .container {
-      width: min(1100px, calc(100% - 32px));
-      margin: 24px auto 48px;
+      width: min(1100px, calc(100% - 24px));
+      margin: 14px auto 44px;
       position: relative;
       z-index: 1;
     }
 
     .hero {
-      padding: 28px;
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.08));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      padding: 28px 20px 22px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(248,250,253,.80));
+      border: 1px solid rgba(199,214,228,.65);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
     .hero::after {
       content: "";
       position: absolute;
-      inset: auto -60px -60px auto;
       width: 220px;
       height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,.35), transparent 60%);
-      opacity: .55;
+      right: -70px;
+      top: -90px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(216,194,199,.36), transparent 62%);
     }
 
-    .title {
-      margin: 0 0 8px;
-      font-size: clamp(30px, 5vw, 52px);
-      line-height: 1.1;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 6vw, 44px);
+      line-height: 1.18;
+      font-weight: 700;
       letter-spacing: .02em;
     }
 
-    .subtitle {
-      margin: 0;
+    .lead {
+      margin: 12px 0 0;
       color: var(--muted);
+      line-height: 1.9;
       font-size: 15px;
-      line-height: 1.8;
-      max-width: 780px;
+      max-width: 760px;
     }
 
-    .toolbar {
-      margin-top: 18px;
+    .hero-meta {
+      margin-top: 16px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
       align-items: center;
-    }
-
-    .pill,
-    .btn {
-      appearance: none;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      color: #fff;
+      gap: 8px;
+      min-height: 40px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(199,214,228,.6);
       border-radius: 999px;
-      padding: 10px 16px;
-      cursor: pointer;
-      transition: .2s ease;
-      text-decoration: none;
-      font-size: 14px;
-      box-shadow: 0 8px 20px rgba(0,0,0,.12);
-    }
-
-    .pill:hover,
-    .btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.16);
-    }
-
-    .pill.active {
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      border-color: transparent;
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, var(--accent1), var(--accent2));
-      border-color: transparent;
-    }
-
-    .btn.pink {
-      background: linear-gradient(135deg, var(--accent3), var(--accent1));
-      border-color: transparent;
-    }
-
-    .status {
+      box-shadow: var(--shadow-soft);
       color: var(--muted);
       font-size: 13px;
-      margin-left: auto;
     }
 
-    .grid {
+    .layout {
       display: grid;
       grid-template-columns: 1.05fr .95fr;
-      gap: 18px;
-      margin-top: 18px;
+      gap: 16px;
+      margin-top: 16px;
     }
 
     .card {
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
       background: var(--card);
-      backdrop-filter: blur(14px);
+      border: 1px solid rgba(199,214,228,.62);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 22px;
+      backdrop-filter: blur(10px);
+      padding: 18px;
     }
 
     .section-title {
-      margin: 0 0 14px;
-      font-size: 18px;
       display: flex;
       align-items: center;
       gap: 10px;
+      margin: 0 0 14px;
+      font-size: 18px;
+      font-weight: 700;
     }
 
-    .section-title .dot {
+    .section-title::before {
+      content: "";
       width: 10px;
       height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent2), var(--accent3));
-      box-shadow: 0 0 14px rgba(255,255,255,.55);
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), var(--accent2));
+      box-shadow: 0 0 0 5px rgba(231,212,167,.22);
       flex: 0 0 auto;
     }
 
-    .quiz-grid {
+    .control-row {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    select {
+      width: 100%;
+      min-height: 48px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.94);
+      color: var(--text);
+      padding: 0 14px;
+      font-size: 15px;
+    }
+
+    .question-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
     fieldset {
       margin: 0;
-      border: 1px solid rgba(255,255,255,.14);
+      border: 1px solid rgba(199,214,228,.7);
       border-radius: 18px;
-      padding: 14px 14px 10px;
-      background: rgba(255,255,255,.05);
+      padding: 12px;
+      background: rgba(255,255,255,.54);
     }
 
     legend {
       padding: 0 8px;
+      font-size: 14px;
       font-weight: 700;
-      color: #fff;
+      color: var(--text);
     }
 
-    .option-list {
+    .seg-grid {
       display: grid;
       gap: 8px;
       margin-top: 6px;
     }
 
-    .option {
+    .seg-item {
+      position: relative;
+    }
+
+    .seg-item input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .seg-item span {
       display: flex;
       align-items: center;
-      gap: 10px;
+      min-height: 44px;
       padding: 10px 12px;
       border-radius: 14px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid transparent;
-      transition: .2s ease;
-    }
-
-    .option:hover {
-      background: rgba(255,255,255,.09);
-      border-color: rgba(255,255,255,.10);
-    }
-
-    .option input {
-      accent-color: #7c5cff;
-      transform: scale(1.08);
-    }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-
-    .meta-box {
-      display: grid;
-      gap: 12px;
-    }
-
-    .info {
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
+      background: #fff;
+      border: 1px solid rgba(199,214,228,.72);
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.5;
+      transition: .22s ease;
+      box-shadow: 0 4px 10px rgba(108,128,153,.05);
+    }
+
+    .seg-item input:checked + span {
+      background: linear-gradient(135deg, rgba(139,169,199,.16), rgba(216,194,199,.18));
+      border-color: rgba(139,169,199,.56);
+      color: var(--text);
+      box-shadow: 0 8px 18px rgba(139,169,199,.16);
+      font-weight: 700;
+    }
+
+    .sticky-actions {
+      position: sticky;
+      bottom: 10px;
+      z-index: 10;
+      margin-top: 16px;
+      padding-top: 10px;
+      background: linear-gradient(180deg, rgba(246,247,251,0), rgba(246,247,251,.78) 35%, rgba(246,247,251,.98));
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    button {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      transition: .2s ease;
+      font-weight: 700;
       font-size: 14px;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 18px;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #b8cadc);
+      color: #fff;
+      box-shadow: 0 12px 22px rgba(139,169,199,.24);
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid rgba(199,214,228,.84);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-x {
+      background: linear-gradient(135deg, #111827, #374151);
+      color: #fff;
+    }
+
+    .btn-youtube {
+      background: linear-gradient(135deg, #e04959, #ff8c7a);
+      color: #fff;
+    }
+
+    .status {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 20px;
+      line-height: 1.7;
+    }
+
+    .footer-help {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .result-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .empty {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 14px;
+      padding: 8px 2px;
     }
 
     .result-list {
@@ -255,50 +348,75 @@
       gap: 14px;
     }
 
-    .result-item {
-      padding: 18px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(0,210,255,.14));
-      border: 1px solid rgba(255,255,255,.14);
+    .result-card {
       position: relative;
       overflow: hidden;
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid rgba(199,214,228,.7);
+      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(248,250,253,.80));
+      box-shadow: var(--shadow-soft);
+      animation: rise .55s ease both;
     }
 
-    .result-item::before {
+    .result-card.rank-1 {
+      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(255,250,239,.94));
+      border-color: rgba(231,212,167,.8);
+      box-shadow: 0 18px 36px rgba(199,168,109,.18);
+    }
+
+    .result-card.rank-2 {
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(245,248,252,.92));
+    }
+
+    .result-card.rank-3 {
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(249,245,246,.92));
+    }
+
+    .result-card::after {
       content: "";
       position: absolute;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      top: -60px;
-      right: -40px;
-      background: radial-gradient(circle, rgba(255,255,255,.28), transparent 60%);
+      top: -40px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(255,255,255,.75), transparent 62%);
+      pointer-events: none;
     }
 
-    .rank {
+    .rank-badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-width: 36px;
-      height: 36px;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold), #ffb347);
-      color: #241300;
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: #6a4d17;
+      font-size: 13px;
       font-weight: 800;
-      margin-bottom: 10px;
-      box-shadow: 0 6px 16px rgba(0,0,0,.18);
+      box-shadow: 0 8px 18px rgba(199,168,109,.18);
     }
 
     .song-title {
-      margin: 0 0 8px;
-      font-size: 22px;
-      line-height: 1.3;
+      margin: 12px 0 8px;
+      font-size: clamp(20px, 3.8vw, 26px);
+      line-height: 1.45;
+      font-weight: 700;
+      padding-right: 26px;
+    }
+
+    .album-line {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+      line-height: 1.7;
     }
 
     .reason {
       margin: 0;
-      color: #eef4ff;
-      line-height: 1.8;
+      line-height: 1.9;
       font-size: 14px;
     }
 
@@ -310,389 +428,500 @@
     }
 
     .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 10px;
       border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 12px;
-      color: #f4f7ff;
-      background: rgba(255,255,255,.11);
-      border: 1px solid rgba(255,255,255,.14);
-    }
-
-    .result-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .mini-btn {
-      appearance: none;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.12);
-      color: #fff;
-      border-radius: 999px;
-      padding: 9px 13px;
-      cursor: pointer;
-      transition: .2s ease;
-      font-size: 13px;
-    }
-
-    .mini-btn:hover {
-      transform: translateY(-1px);
-      background: rgba(255,255,255,.18);
-    }
-
-    .share-all {
-      margin-top: 14px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .footer-note {
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(199,214,228,.8);
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.7;
-      margin-top: 16px;
+      font-size: 12px;
+    }
+
+    .score-wrap {
+      margin-top: 14px;
+    }
+
+    .score-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .score-bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(199,214,228,.45);
+      overflow: hidden;
+    }
+
+    .score-bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent2), var(--accent), var(--gold));
+      box-shadow: 0 0 14px rgba(139,169,199,.22);
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
     }
 
     .hidden { display: none; }
 
-    @media (max-width: 860px) {
-      .grid {
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .layout {
         grid-template-columns: 1fr;
       }
-      .status {
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 14px, 100%);
+        margin-top: 8px;
+      }
+
+      .hero, .card {
+        border-radius: 20px;
+        padding: 16px;
+      }
+
+      .control-row {
+        grid-template-columns: 1fr;
+      }
+
+      .question-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .btn-row button:first-child {
+        grid-column: 1 / -1;
+      }
+
+      button {
+        min-height: 50px;
+      }
+
+      .card-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .meta-chip {
         width: 100%;
-        margin-left: 0;
+        justify-content: center;
+      }
+
+      .btn-row {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="bg-orb orb1"></div>
-  <div class="bg-orb orb2"></div>
-  <div class="bg-orb orb3"></div>
+  <div class="veil"></div>
 
   <main class="container">
     <section class="hero">
-      <h1 class="title" id="pageTitle">ZARD ファン診断 🎵</h1>
-      <p class="subtitle" id="pageLead">
-        いくつかの質問に答えると、あなたに合うZARDの曲をおすすめします。メジャー曲だけでなく、隠れた人気曲も混ぜて診断します。
+      <div class="eyebrow">YOUR ZARD RECOMMENDATION</div>
+      <h1>あなたにお勧めのZARD</h1>
+      <p class="lead">
+        いくつかの質問に答えると、あなたの気分や好みに合うZARDの楽曲をランキング形式でおすすめします。<br>
+        有名曲だけでなく、隠れた人気曲も選ばれやすい設計です。
       </p>
 
-      <div class="toolbar">
-        <button class="pill active" data-lang="ja">日本語</button>
-        <button class="pill" data-lang="en">English</button>
-
-        <button class="btn primary" id="reloadBtn">🔄 データ更新</button>
-        <span class="status" id="statusText">zard_songs.json を読み込み中...</span>
+      <div class="hero-meta">
+        <div class="meta-chip">📦 読み込み元: <strong id="dataUrl">./zard_songs.json</strong></div>
+        <div class="meta-chip">🗓 更新日: <strong id="updatedAt">読み込み中...</strong></div>
+        <div class="meta-chip">🎵 曲数: <strong id="songCount">-</strong></div>
       </div>
     </section>
 
-    <section class="grid">
-      <div class="card">
-        <h2 class="section-title"><span class="dot"></span><span id="quizTitle">質問に答える</span></h2>
-        <div id="quizArea"></div>
-      </div>
+    <section class="layout">
+      <section class="card">
+        <h2 class="section-title">診断条件</h2>
 
-      <div class="card">
-        <h2 class="section-title"><span class="dot"></span><span id="guideTitle">使い方</span></h2>
-        <div class="meta-box">
-          <div class="info" id="guideText">
-            すべての質問に答えなくても診断できます。<br>
-            「隠れた名曲寄り」を選ぶと、マイナー寄りの曲が出やすくなります。<br>
-            GitHub Pages 上では、このページを開くたびに JSON を再取得します。
+        <div class="control-row">
+          <div class="field">
+            <label for="albumFilter">アルバムで絞り込む</label>
+            <select id="albumFilter">
+              <option value="all">すべてのアルバム</option>
+            </select>
           </div>
-          <div class="actions">
-            <button class="btn" id="diagnoseBtn">✨ 診断する</button>
-            <button class="btn pink" id="resetBtn">↺ リセット</button>
+
+          <div class="field">
+            <label for="reloadBtn">データ更新</label>
+            <button id="reloadBtn" class="btn-secondary" type="button">🔄 JSONを再読込</button>
           </div>
-          <p class="footer-note" id="smallNote">
-            YouTube検索は公式音源の有無を保証するものではなく、検索結果ページを開きます。
-          </p>
         </div>
-      </div>
-    </section>
 
-    <section class="card hidden" id="resultsSection">
-      <h2 class="section-title"><span class="dot"></span><span id="resultsTitle">おすすめ結果</span></h2>
-      <div class="result-list" id="resultsList"></div>
-      <div class="share-all">
-        <button class="btn primary" id="shareAllBtn">🐦 診断結果をXでシェア</button>
-      </div>
+        <div class="question-grid" id="questionGrid"></div>
+
+        <div class="sticky-actions">
+          <div class="btn-row">
+            <button id="diagnoseBtn" class="btn-primary" type="button">✨ 診断する</button>
+            <button id="resetBtn" class="btn-secondary" type="button">↺ リセット</button>
+            <button id="shareAllBtn" class="btn-x" type="button">𝕏 結果をシェア</button>
+          </div>
+        </div>
+
+        <div class="status" id="statusText">JSONを読み込み中です...</div>
+
+        <div class="footer-help">
+          ・GitHub Pages ではそのまま動きます。<br>
+          ・<code>file://</code> で直接開くと JSON 取得に失敗する場合があります。<br>
+          ・YouTubeボタンは検索結果ページを開きます。
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">ランキング結果</h2>
+        <div class="result-meta" id="resultMeta">
+          <span>まだ診断していません</span>
+        </div>
+        <div id="emptyState" class="empty">
+          左側の質問に答えて「診断する」を押すと、ここにおすすめ曲が表示されます。<br>
+          アルバムで絞ってから診断すると、よりディープに楽しめます。
+        </div>
+        <div id="resultList" class="result-list hidden"></div>
+      </section>
     </section>
   </main>
 
   <script>
     const DATA_URL = "./zard_songs.json";
+    const CACHE_KEY = "zardSongsCache_v4";
 
-    const TEXTS = {
-      ja: {
-        pageTitle: "ZARD ファン診断 🎵",
-        pageLead: "いくつかの質問に答えると、あなたに合うZARDの曲をおすすめします。メジャー曲だけでなく、隠れた人気曲も混ぜて診断します。",
-        quizTitle: "質問に答える",
-        guideTitle: "使い方",
-        guideText: "すべての質問に答えなくても診断できます。<br>「隠れた名曲寄り」を選ぶと、マイナー寄りの曲が出やすくなります。<br>GitHub Pages 上では、このページを開くたびに JSON を再取得します。",
-        diagnoseBtn: "✨ 診断する",
-        resetBtn: "↺ リセット",
-        reloadBtn: "🔄 データ更新",
-        resultsTitle: "おすすめ結果",
-        shareAllBtn: "🐦 診断結果をXでシェア",
-        smallNote: "YouTube検索は公式音源の有無を保証するものではなく、検索結果ページを開きます。",
-        loading: "zard_songs.json を読み込み中...",
-        loaded: count => `${count} 曲を読み込みました`,
-        loadError: "JSONの読み込みに失敗しました。ファイル配置を確認してください。",
-        notEnough: "データがまだ読み込まれていません。",
-        score: "スコア",
-        reasonPrefix: "おすすめ理由",
-        youtube: "▶ YouTubeで検索",
-        shareX: "🐦 Xでシェア",
-        matched: "マッチ",
-        popularity: {
-          major: "有名曲",
-          mid: "中間",
-          minor: "隠れた人気曲"
+    const FALLBACK_DATA = {
+      updatedAt: "2026-05-27",
+      songs: [
+        {
+          title: "負けないで",
+          year: 1993,
+          album: "揺れる想い",
+          tags: {
+            tempo: "fast",
+            mood: "empowering",
+            era: "early90s",
+            theme: "empowerment",
+            popularity: "major"
+          },
+          note: "背中を押してくれる王道の応援ソング。"
         },
-        labels: {
-          tempo: "テンポ",
-          mood: "ムード",
-          era: "時代",
-          theme: "テーマ",
-          popularity: "知名度"
+        {
+          title: "揺れる想い",
+          year: 1993,
+          album: "揺れる想い",
+          tags: {
+            tempo: "mid",
+            mood: "romantic",
+            era: "early90s",
+            theme: "love",
+            popularity: "major"
+          },
+          note: "透明感あふれるZARDの代表曲。"
         },
-        values: {
-          slow: "ゆっくり",
-          mid: "中くらい",
-          fast: "速い",
-          sad: "切ない",
-          romantic: "ロマンチック",
-          empowering: "前向き",
-          cheerful: "明るい",
-          nostalgic: "ノスタルジック",
-          "90s": "90年代",
-          "2000s": "2000年代",
-          love: "恋愛",
-          loneliness: "孤独感",
-          nostalgia: "懐かしさ",
-          empowerment: "応援・前向き",
-          major: "有名曲中心",
-          balanced: "バランスよく",
-          minor: "隠れた名曲寄り",
-          any: "こだわらない"
+        {
+          title: "あの微笑みを忘れないで",
+          year: 1992,
+          album: "HOLD ME",
+          tags: {
+            tempo: "mid",
+            mood: "nostalgic",
+            era: "early90s",
+            theme: "nostalgia",
+            popularity: "minor"
+          },
+          note: "ファン人気の高い隠れた名曲。"
         }
+      ]
+    };
+
+    const LABELS = {
+      tempo: {
+        any: "こだわらない",
+        slow: "ゆっくり",
+        mid: "中くらい",
+        fast: "速め"
       },
-      en: {
-        pageTitle: "ZARD Fan Diagnosis 🎵",
-        pageLead: "Answer a few questions and get ZARD song recommendations, including both famous songs and hidden gems.",
-        quizTitle: "Answer the questions",
-        guideTitle: "How it works",
-        guideText: "You can run the diagnosis even if you don't answer everything.<br>If you choose hidden gems, less famous songs will be recommended more often.<br>On GitHub Pages, this page refetches the JSON when loaded.",
-        diagnoseBtn: "✨ Diagnose",
-        resetBtn: "↺ Reset",
-        reloadBtn: "🔄 Reload data",
-        resultsTitle: "Recommendations",
-        shareAllBtn: "🐦 Share result on X",
-        smallNote: "The YouTube button opens a search results page and does not guarantee official uploads.",
-        loading: "Loading zard_songs.json...",
-        loaded: count => `Loaded ${count} songs`,
-        loadError: "Failed to load JSON. Please check your file placement.",
-        notEnough: "Song data has not been loaded yet.",
-        score: "Score",
-        reasonPrefix: "Why this fits",
-        youtube: "▶ Search on YouTube",
-        shareX: "🐦 Share on X",
-        matched: "Matched",
-        popularity: {
-          major: "Major",
-          mid: "Mid",
-          minor: "Hidden gem"
-        },
-        labels: {
-          tempo: "Tempo",
-          mood: "Mood",
-          era: "Era",
-          theme: "Theme",
-          popularity: "Popularity"
-        },
-        values: {
-          slow: "Slow",
-          mid: "Mid",
-          fast: "Fast",
-          sad: "Sad",
-          romantic: "Romantic",
-          empowering: "Empowering",
-          cheerful: "Cheerful",
-          nostalgic: "Nostalgic",
-          "90s": "90s",
-          "2000s": "2000s",
-          love: "Love",
-          loneliness: "Loneliness",
-          nostalgia: "Nostalgia",
-          empowerment: "Encouragement",
-          major: "Popular songs",
-          balanced: "Balanced",
-          minor: "Hidden gems",
-          any: "Any"
-        }
+      mood: {
+        any: "こだわらない",
+        empowering: "前向き",
+        romantic: "ロマンチック",
+        sad: "切ない",
+        refreshing: "爽やか",
+        nostalgic: "ノスタルジック"
+      },
+      era: {
+        any: "こだわらない",
+        early90s: "90年代前半",
+        mid90s: "90年代中盤",
+        late90s: "90年代後半",
+        "00s": "2000年代"
+      },
+      theme: {
+        any: "こだわらない",
+        love: "恋愛",
+        empowerment: "応援・前向き",
+        nostalgia: "懐かしさ",
+        loneliness: "孤独感"
+      },
+      popularity: {
+        major: "有名曲中心",
+        balanced: "バランス重視",
+        minor: "隠れた人気曲寄り"
       }
+    };
+
+    const POPULARITY_BADGE = {
+      major: "有名曲",
+      standard: "定番",
+      minor: "隠れた人気曲"
     };
 
     const QUESTIONS = [
       {
         id: "tempo",
-        choices: ["slow", "mid", "fast", "any"]
+        title: "テンポ",
+        default: "any",
+        options: ["any", "slow", "mid", "fast"]
       },
       {
         id: "mood",
-        choices: ["sad", "romantic", "empowering", "cheerful", "nostalgic", "any"]
+        title: "ムード",
+        default: "any",
+        options: ["any", "empowering", "romantic", "sad", "refreshing", "nostalgic"]
       },
       {
         id: "era",
-        choices: ["90s", "2000s", "any"]
+        title: "時代",
+        default: "any",
+        options: ["any", "early90s", "mid90s", "late90s", "00s"]
       },
       {
         id: "theme",
-        choices: ["love", "empowerment", "nostalgia", "loneliness", "any"]
+        title: "テーマ",
+        default: "any",
+        options: ["any", "love", "empowerment", "nostalgia", "loneliness"]
       },
       {
         id: "popularity",
-        choices: ["major", "balanced", "minor"]
+        title: "知名度バランス",
+        default: "balanced",
+        options: ["major", "balanced", "minor"]
       }
     ];
 
-    let currentLang = "ja";
-    let SONGS = [];
-    let latestResults = [];
+    let APP_DATA = FALLBACK_DATA;
+    let LAST_RESULTS = [];
 
-    const pageTitle = document.getElementById("pageTitle");
-    const pageLead = document.getElementById("pageLead");
-    const quizTitle = document.getElementById("quizTitle");
-    const guideTitle = document.getElementById("guideTitle");
-    const guideText = document.getElementById("guideText");
+    const updatedAtEl = document.getElementById("updatedAt");
+    const songCountEl = document.getElementById("songCount");
+    const dataUrlEl = document.getElementById("dataUrl");
+    const statusTextEl = document.getElementById("statusText");
+    const questionGridEl = document.getElementById("questionGrid");
+    const albumFilterEl = document.getElementById("albumFilter");
+    const resultListEl = document.getElementById("resultList");
+    const resultMetaEl = document.getElementById("resultMeta");
+    const emptyStateEl = document.getElementById("emptyState");
+    const reloadBtn = document.getElementById("reloadBtn");
     const diagnoseBtn = document.getElementById("diagnoseBtn");
     const resetBtn = document.getElementById("resetBtn");
-    const reloadBtn = document.getElementById("reloadBtn");
-    const resultsTitle = document.getElementById("resultsTitle");
     const shareAllBtn = document.getElementById("shareAllBtn");
-    const smallNote = document.getElementById("smallNote");
-    const statusText = document.getElementById("statusText");
-    const quizArea = document.getElementById("quizArea");
-    const resultsSection = document.getElementById("resultsSection");
-    const resultsList = document.getElementById("resultsList");
 
-    function t() {
-      return TEXTS[currentLang];
+    function cleanTitle(title) {
+      return String(title)
+        .replace(/（マイナー）/g, "")
+        .replace(/\(マイナー\)/g, "")
+        .trim();
     }
 
-    function setLanguage(lang) {
-      currentLang = lang;
-      document.querySelectorAll(".pill[data-lang]").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      });
-
-      pageTitle.textContent = t().pageTitle;
-      pageLead.textContent = t().pageLead;
-      quizTitle.textContent = t().quizTitle;
-      guideTitle.textContent = t().guideTitle;
-      guideText.innerHTML = t().guideText;
-      diagnoseBtn.textContent = t().diagnoseBtn;
-      resetBtn.textContent = t().resetBtn;
-      reloadBtn.textContent = t().reloadBtn;
-      resultsTitle.textContent = t().resultsTitle;
-      shareAllBtn.textContent = t().shareAllBtn;
-      smallNote.textContent = t().smallNote;
-
-      renderQuiz();
-
-      if (SONGS.length > 0) {
-        statusText.textContent = t().loaded(SONGS.length);
-      }
-      if (latestResults.length > 0) {
-        renderResults(latestResults);
-      }
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
 
-    function renderQuiz() {
-      quizArea.innerHTML = "";
-      const wrapper = document.createElement("div");
-      wrapper.className = "quiz-grid";
+    function renderQuestions() {
+      questionGridEl.innerHTML = "";
 
       QUESTIONS.forEach((q) => {
         const fieldset = document.createElement("fieldset");
         const legend = document.createElement("legend");
-        legend.textContent = t().labels[q.id];
+        legend.textContent = q.title;
         fieldset.appendChild(legend);
 
-        const optionList = document.createElement("div");
-        optionList.className = "option-list";
+        const grid = document.createElement("div");
+        grid.className = "seg-grid";
 
-        q.choices.forEach((choice, index) => {
-          const id = `${q.id}_${choice}`;
+        q.options.forEach((option) => {
+          const id = `${q.id}_${option}`;
           const label = document.createElement("label");
-          label.className = "option";
+          label.className = "seg-item";
           label.setAttribute("for", id);
 
-          const radio = document.createElement("input");
-          radio.type = "radio";
-          radio.name = q.id;
-          radio.id = id;
-          radio.value = choice;
-
-          if (
-            (q.id !== "popularity" && choice === "any") ||
-            (q.id === "popularity" && choice === "balanced")
-          ) {
-            radio.checked = true;
-          }
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.id = id;
+          input.name = q.id;
+          input.value = option;
+          if (option === q.default) input.checked = true;
 
           const span = document.createElement("span");
-          span.textContent = t().values[choice] || choice;
+          span.textContent = LABELS[q.id][option];
 
-          label.appendChild(radio);
+          label.appendChild(input);
           label.appendChild(span);
-          optionList.appendChild(label);
+          grid.appendChild(label);
         });
 
-        fieldset.appendChild(optionList);
-        wrapper.appendChild(fieldset);
+        fieldset.appendChild(grid);
+        questionGridEl.appendChild(fieldset);
       });
-
-      quizArea.appendChild(wrapper);
     }
 
-    async function loadSongs() {
-      statusText.textContent = t().loading;
+    function setMeta() {
+      updatedAtEl.textContent = APP_DATA.updatedAt || "不明";
+      songCountEl.textContent = String(APP_DATA.songs?.length || 0);
+      dataUrlEl.textContent = DATA_URL;
+    }
+
+    function setStatus(text) {
+      statusTextEl.textContent = text;
+    }
+
+    function normalizeData(data) {
+      if (Array.isArray(data)) {
+        return {
+          updatedAt: new Date().toISOString().slice(0, 10),
+          songs: data
+        };
+      }
+      if (!data || !Array.isArray(data.songs)) {
+        throw new Error("JSON形式が不正です");
+      }
+      return data;
+    }
+
+    async function loadData(force = false) {
+      if (location.protocol === "file:") {
+        const cache = localStorage.getItem(CACHE_KEY);
+        if (cache) {
+          APP_DATA = JSON.parse(cache);
+          setMeta();
+          populateAlbumFilter();
+          setStatus("ローカル直開きのためキャッシュを表示しています。GitHub Pages またはローカルサーバー推奨です。");
+          return;
+        }
+        APP_DATA = FALLBACK_DATA;
+        setMeta();
+        populateAlbumFilter();
+        setStatus("file:// 直開きではJSON取得に失敗しやすいため、埋め込みデータで表示しています。");
+        return;
+      }
+
+      setStatus(force ? "JSONを再読込しています..." : "JSONを読み込み中です...");
 
       try {
-        const response = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
-        if (!response.ok) throw new Error("Failed to fetch JSON");
-        const data = await response.json();
+        const url = `${DATA_URL}?t=${Date.now()}`;
+        const res = await fetch(url, { cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-        if (!Array.isArray(data)) throw new Error("JSON format is invalid");
+        const json = await res.json();
+        APP_DATA = normalizeData(json);
 
-        SONGS = data;
-        localStorage.setItem("zardSongsCache", JSON.stringify(data));
-        statusText.textContent = t().loaded(SONGS.length);
-      } catch (error) {
-        const cache = localStorage.getItem("zardSongsCache");
+        localStorage.setItem(CACHE_KEY, JSON.stringify(APP_DATA));
+        setMeta();
+        populateAlbumFilter();
+        setStatus(`最新データを読み込みました。${APP_DATA.songs.length}曲を利用できます。`);
+      } catch (err) {
+        const cache = localStorage.getItem(CACHE_KEY);
         if (cache) {
-          SONGS = JSON.parse(cache);
-          statusText.textContent = `${t().loadError} / cache fallback`;
-        } else {
-          statusText.textContent = t().loadError;
-          console.error(error);
+          APP_DATA = JSON.parse(cache);
+          setMeta();
+          populateAlbumFilter();
+          setStatus("JSON取得に失敗したため、保存済みキャッシュを使用しています。");
+          return;
         }
+        APP_DATA = FALLBACK_DATA;
+        setMeta();
+        populateAlbumFilter();
+        setStatus("JSON取得に失敗したため、埋め込みデータで表示しています。");
+        console.error(err);
       }
+    }
+
+    function populateAlbumFilter() {
+      const current = albumFilterEl.value || "all";
+      const albums = [...new Set((APP_DATA.songs || []).map(song => song.album).filter(Boolean))];
+
+      albumFilterEl.innerHTML = "";
+      const allOpt = document.createElement("option");
+      allOpt.value = "all";
+      allOpt.textContent = "すべてのアルバム";
+      albumFilterEl.appendChild(allOpt);
+
+      albums.forEach((album) => {
+        const option = document.createElement("option");
+        option.value = album;
+        option.textContent = album;
+        albumFilterEl.appendChild(option);
+      });
+
+      albumFilterEl.value = albums.includes(current) ? current : "all";
     }
 
     function getAnswers() {
       const answers = {};
-      QUESTIONS.forEach(q => {
+      QUESTIONS.forEach((q) => {
         const checked = document.querySelector(`input[name="${q.id}"]:checked`);
-        answers[q.id] = checked ? checked.value : (q.id === "popularity" ? "balanced" : "any");
+        answers[q.id] = checked ? checked.value : q.default;
       });
       return answers;
+    }
+
+    function popularityScore(songPopularity, selected) {
+      if (selected === "major") {
+        if (songPopularity === "major") return 3;
+        if (songPopularity === "standard") return 1;
+        return 0;
+      }
+      if (selected === "minor") {
+        if (songPopularity === "minor") return 3.2;
+        if (songPopularity === "standard") return 1.4;
+        return 0;
+      }
+      if (songPopularity === "standard") return 2;
+      if (songPopularity === "minor") return 1.8;
+      return 1.4;
+    }
+
+    function tiePopularityValue(popularity, selected) {
+      if (selected === "minor") return { minor: 3, standard: 2, major: 1 }[popularity] || 0;
+      if (selected === "major") return { major: 3, standard: 2, minor: 1 }[popularity] || 0;
+      return { standard: 3, minor: 2, major: 1 }[popularity] || 0;
     }
 
     function scoreSong(song, answers) {
@@ -701,28 +930,21 @@
 
       const weights = {
         tempo: 2,
-        mood: 2,
+        mood: 3,
         era: 1.5,
         theme: 2.5
       };
 
-      ["tempo", "mood", "era", "theme"].forEach(key => {
+      ["tempo", "mood", "era", "theme"].forEach((key) => {
         if (answers[key] !== "any" && song.tags[key] === answers[key]) {
           score += weights[key];
           matched.push(key);
         }
       });
 
-      if (answers.popularity === "major") {
-        if (song.tags.popularity === "major") score += 2;
-        if (song.tags.popularity === "mid") score += 1;
-      } else if (answers.popularity === "minor") {
-        if (song.tags.popularity === "minor") score += 2;
-        if (song.tags.popularity === "mid") score += 1;
-      } else {
-        if (song.tags.popularity === "mid") score += 0.7;
-        if (song.tags.popularity === "minor") score += 0.7;
-      }
+      const pop = popularityScore(song.tags.popularity, answers.popularity);
+      score += pop;
+      if (pop >= 2) matched.push("popularity");
 
       if (
         answers.mood !== "any" &&
@@ -736,181 +958,202 @@
       return { song, score, matched };
     }
 
-    function buildReason(item, answers) {
+    function buildReason(item, answers, selectedAlbum) {
       const song = item.song;
       const parts = [];
 
-      if (item.matched.length > 0) {
-        parts.push(
-          `${t().reasonPrefix}: ` +
-          item.matched.map(key => t().labels[key]).join("・") +
-          ` がよく合っています。`
-        );
-      } else {
-        parts.push(
-          currentLang === "ja"
-            ? "幅広い回答に対応しやすいバランス型のおすすめです。"
-            : "A balanced recommendation that fits a wide range of answers."
-        );
-      }
+      if (item.matched.includes("tempo")) parts.push(`テンポが「${LABELS.tempo[song.tags.tempo]}」`);
+      if (item.matched.includes("mood")) parts.push(`ムードが「${LABELS.mood[song.tags.mood]}」`);
+      if (item.matched.includes("era")) parts.push(`時代感が「${LABELS.era[song.tags.era]}」`);
+      if (item.matched.includes("theme")) parts.push(`テーマが「${LABELS.theme[song.tags.theme]}」`);
+      if (item.matched.includes("popularity")) parts.push(`知名度バランスが「${LABELS.popularity[answers.popularity]}」向き`);
+      if (selectedAlbum !== "all") parts.push(`アルバム「${selectedAlbum}」内で相性がよい`);
 
-      if (song.note) {
-        parts.push(song.note);
-      }
-
-      if (answers.popularity === "minor" && song.tags.popularity === "minor") {
-        parts.push(
-          currentLang === "ja"
-            ? "隠れた人気曲寄りの希望にもマッチしています。"
-            : "It also fits your hidden-gem preference."
-        );
-      }
-
-      return parts.join(" ");
+      const base = parts.length ? parts.join(" / ") : "総合バランスのよさでおすすめ";
+      return `${base}。${song.note ? " " + song.note : ""}`;
     }
 
-    function renderResults(results) {
-      latestResults = results;
-      resultsList.innerHTML = "";
+    function getFilteredSongs() {
+      const selectedAlbum = albumFilterEl.value || "all";
+      if (selectedAlbum === "all") return APP_DATA.songs || [];
+      return (APP_DATA.songs || []).filter(song => song.album === selectedAlbum);
+    }
 
-      results.forEach((item, idx) => {
-        const song = item.song;
-
-        const card = document.createElement("article");
-        card.className = "result-item";
-
-        const rank = document.createElement("div");
-        rank.className = "rank";
-        rank.textContent = `#${idx + 1}`;
-
-        const title = document.createElement("h3");
-        title.className = "song-title";
-        title.textContent = song.title;
-
-        const reason = document.createElement("p");
-        reason.className = "reason";
-        reason.textContent = buildReason(item, getAnswers());
-
-        const chips = document.createElement("div");
-        chips.className = "chips";
-
-        const chipKeys = ["tempo", "mood", "era", "theme", "popularity"];
-        chipKeys.forEach(key => {
-          const chip = document.createElement("span");
-          chip.className = "chip";
-          const val = song.tags[key] === "balanced" ? "balanced" : song.tags[key];
-          const display = key === "popularity"
-            ? t().popularity[val] || val
-            : (t().values[val] || val);
-          chip.textContent = `${t().labels[key]}: ${display}`;
-          chips.appendChild(chip);
-        });
-
-        const score = document.createElement("div");
-        score.className = "chips";
-        const scoreChip = document.createElement("span");
-        scoreChip.className = "chip";
-        scoreChip.textContent = `${t().score}: ${item.score.toFixed(1)}`;
-        score.appendChild(scoreChip);
-
-        const actionWrap = document.createElement("div");
-        actionWrap.className = "result-actions";
-
-        const ytBtn = document.createElement("button");
-        ytBtn.className = "mini-btn";
-        ytBtn.textContent = t().youtube;
-        ytBtn.addEventListener("click", () => openYouTubeSearch(song.title));
-
-        const xBtn = document.createElement("button");
-        xBtn.className = "mini-btn";
-        xBtn.textContent = t().shareX;
-        xBtn.addEventListener("click", () => shareSongOnX(song.title));
-
-        actionWrap.appendChild(ytBtn);
-        actionWrap.appendChild(xBtn);
-
-        card.appendChild(rank);
-        card.appendChild(title);
-        card.appendChild(reason);
-        card.appendChild(chips);
-        card.appendChild(score);
-        card.appendChild(actionWrap);
-
-        resultsList.appendChild(card);
+    function pickTopResults(scored, answers) {
+      scored.sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        const popDiff =
+          tiePopularityValue(b.song.tags.popularity, answers.popularity) -
+          tiePopularityValue(a.song.tags.popularity, answers.popularity);
+        if (popDiff !== 0) return popDiff;
+        return a.song.year - b.song.year;
       });
 
-      resultsSection.classList.remove("hidden");
-      resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+      let top = scored.slice(0, 3);
 
-    function diagnose() {
-      if (!SONGS.length) {
-        alert(t().notEnough);
-        return;
+      if (answers.popularity === "minor" && !top.some(x => x.song.tags.popularity === "minor")) {
+        const minorCandidate = scored.find(x => x.song.tags.popularity === "minor");
+        if (minorCandidate && top.length >= 3) {
+          top[2] = minorCandidate;
+          top.sort((a, b) => b.score - a.score);
+        }
       }
 
-      const answers = getAnswers();
-      const ranked = SONGS
-        .map(song => scoreSong(song, answers))
-        .sort((a, b) => b.score - a.score);
-
-      const top3 = ranked.slice(0, 3);
-      renderResults(top3);
+      return top;
     }
 
-    function resetForm() {
-      renderQuiz();
-      latestResults = [];
-      resultsList.innerHTML = "";
-      resultsSection.classList.add("hidden");
+    function percent(score) {
+      const max = 12.2;
+      return Math.max(8, Math.min(100, (score / max) * 100));
     }
 
     function openYouTubeSearch(title) {
-      const query = encodeURIComponent(`ZARD ${title}`);
-      window.open(`https://www.youtube.com/results?search_query=${query}`, "_blank", "noopener");
+      const cleaned = cleanTitle(title);
+      const query = `ZARD ${cleaned}`;
+      const url = `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}`;
+      window.open(url, "_blank", "noopener");
     }
 
-    function shareSongOnX(title) {
-      const text = currentLang === "ja"
-        ? `ZARDファン診断のおすすめは「${title}」でした🎵 #ZARD #ZARDファン診断`
-        : `My ZARD Fan Diagnosis result is "${title}" 🎵 #ZARD #ZARDFanDiagnosis`;
-      const url = encodeURIComponent(location.href);
-      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`;
+    function openXShare(text) {
+      const shareUrl =
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href.split("#")[0])}`;
       window.open(shareUrl, "_blank", "noopener");
     }
 
-    function shareAllResults() {
-      if (!latestResults.length) return;
-
-      const titles = latestResults.map(x => x.song.title).join(" / ");
-      const text = currentLang === "ja"
-        ? `ZARDファン診断の結果は ${titles} でした🎵 #ZARD #ZARDファン診断`
-        : `My ZARD Fan Diagnosis results: ${titles} 🎵 #ZARD #ZARDFanDiagnosis`;
-
-      const url = encodeURIComponent(location.href);
-      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`;
-      window.open(shareUrl, "_blank", "noopener");
+    function shareTextFromResults() {
+      if (!LAST_RESULTS.length) {
+        return "あなたにお勧めのZARD をやってみた🎵 #ZARD #あなたにお勧めのZARD";
+      }
+      const titles = LAST_RESULTS.map((item, i) => `${i + 1}位: ${cleanTitle(item.song.title)}`).join(" / ");
+      return `あなたにお勧めのZARD の結果🎵 ${titles} #ZARD #あなたにお勧めのZARD`;
     }
 
-    document.querySelectorAll(".pill[data-lang]").forEach(btn => {
-      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
-    });
+    function renderResults(results, answers, totalCount) {
+      LAST_RESULTS = results;
+      emptyStateEl.classList.add("hidden");
+      resultListEl.classList.remove("hidden");
+      resultListEl.innerHTML = "";
+
+      const selectedAlbum = albumFilterEl.value || "all";
+      const albumLabel = selectedAlbum === "all" ? "全アルバム対象" : `アルバム: ${selectedAlbum}`;
+      resultMetaEl.innerHTML = `
+        <span>対象曲数: ${totalCount}曲</span>
+        <span>・</span>
+        <span>${escapeHtml(albumLabel)}</span>
+        <span>・</span>
+        <span>知名度設定: ${escapeHtml(LABELS.popularity[answers.popularity])}</span>
+      `;
+
+      results.forEach((item, index) => {
+        const song = item.song;
+        const cleanedTitle = cleanTitle(song.title);
+        const rankClass = `rank-${index + 1}`;
+        const medal = index === 0 ? "👑 1位" : index === 1 ? "🥈 2位" : "🥉 3位";
+        const chips = [
+          `📀 ${song.album}`,
+          `📅 ${song.year}`,
+          `🎼 ${LABELS.mood[song.tags.mood]}`,
+          `🌙 ${LABELS.theme[song.tags.theme]}`,
+          `✨ ${POPULARITY_BADGE[song.tags.popularity]}`
+        ];
+
+        const card = document.createElement("article");
+        card.className = `result-card ${rankClass}`;
+        card.style.animationDelay = `${index * 0.08}s`;
+
+        card.innerHTML = `
+          <div class="rank-badge">${medal}</div>
+          <h3 class="song-title">${escapeHtml(cleanedTitle)}</h3>
+          <div class="album-line">主な収録: ${escapeHtml(song.album)}</div>
+          <p class="reason">${escapeHtml(buildReason(item, answers, selectedAlbum))}</p>
+          <div class="chips">
+            ${chips.map(chip => `<span class="chip">${escapeHtml(chip)}</span>`).join("")}
+          </div>
+          <div class="score-wrap">
+            <div class="score-top">
+              <span>おすすめ度</span>
+              <strong>${item.score.toFixed(1)}</strong>
+            </div>
+            <div class="score-bar">
+              <span style="width:${percent(item.score)}%"></span>
+            </div>
+          </div>
+          <div class="card-actions">
+            <button class="btn-youtube" type="button" data-title="${escapeHtml(cleanedTitle)}">▶ YouTubeで検索</button>
+            <button class="btn-x" type="button" data-share="${escapeHtml(cleanedTitle)}">𝕏 この曲をシェア</button>
+          </div>
+        `;
+
+        resultListEl.appendChild(card);
+      });
+
+      resultListEl.querySelectorAll(".btn-youtube").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          openYouTubeSearch(btn.getAttribute("data-title"));
+        });
+      });
+
+      resultListEl.querySelectorAll(".btn-x").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const title = btn.getAttribute("data-share");
+          openXShare(`あなたにお勧めのZARD のおすすめ曲は「${title}」でした🎵 #ZARD #あなたにお勧めのZARD`);
+        });
+      });
+    }
+
+    function runDiagnosis() {
+      const answers = getAnswers();
+      const filteredSongs = getFilteredSongs();
+
+      if (!filteredSongs.length) {
+        resultMetaEl.innerHTML = "<span>該当する曲がありません</span>";
+        resultListEl.classList.add("hidden");
+        emptyStateEl.classList.remove("hidden");
+        emptyStateEl.textContent = "このアルバム条件では曲が見つかりませんでした。フィルタを変更してみてください。";
+        return;
+      }
+
+      const scored = filteredSongs.map(song => scoreSong(song, answers));
+      const top3 = pickTopResults(scored, answers);
+      renderResults(top3, answers, filteredSongs.length);
+    }
+
+    function resetAll() {
+      QUESTIONS.forEach((q) => {
+        const input = document.querySelector(`input[name="${q.id}"][value="${q.default}"]`);
+        if (input) input.checked = true;
+      });
+      albumFilterEl.value = "all";
+      LAST_RESULTS = [];
+      resultListEl.innerHTML = "";
+      resultListEl.classList.add("hidden");
+      emptyStateEl.classList.remove("hidden");
+      emptyStateEl.innerHTML = "左側の質問に答えて「診断する」を押すと、ここにおすすめ曲が表示されます。<br>アルバムで絞ってから診断すると、よりディープに楽しめます。";
+      resultMetaEl.innerHTML = "<span>まだ診断していません</span>";
+    }
 
     reloadBtn.addEventListener("click", async () => {
-      await loadSongs();
-      if (latestResults.length) diagnose();
+      await loadData(true);
+      if (LAST_RESULTS.length) runDiagnosis();
     });
 
-    diagnoseBtn.addEventListener("click", diagnose);
-    resetBtn.addEventListener("click", resetForm);
-    shareAllBtn.addEventListener("click", shareAllResults);
+    diagnoseBtn.addEventListener("click", runDiagnosis);
+    resetBtn.addEventListener("click", resetAll);
+    shareAllBtn.addEventListener("click", () => {
+      openXShare(shareTextFromResults());
+    });
+
+    albumFilterEl.addEventListener("change", () => {
+      if (LAST_RESULTS.length) runDiagnosis();
+    });
 
     async function init() {
-      setLanguage("ja");
-      await loadSongs();
+      renderQuestions();
+      setMeta();
+      await loadData(false);
     }
 
-    init();
+    document.addEventListener("DOMContentLoaded", init);
   </script>
 </body>
 </html>
