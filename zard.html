@@ -9,7 +9,7 @@
     :root {
       --bg: #f6f7fb;
       --bg2: #eef3f8;
-      --card: rgba(255,255,255,.84);
+      --card: rgba(255,255,255,.86);
       --line: rgba(126,149,173,.22);
       --text: #314055;
       --muted: #6d7b8f;
@@ -19,9 +19,10 @@
       --gold2: #e8d9b4;
       --shadow: 0 18px 40px rgba(108,128,153,.16);
       --shadow-soft: 0 10px 24px rgba(108,128,153,.10);
-      --radius: 22px;
       --youtube: #df5860;
       --x: #1f2937;
+      --ok: #5f8b6a;
+      --warn: #b07d36;
     }
 
     * { box-sizing: border-box; }
@@ -142,7 +143,7 @@
     .card {
       background: var(--card);
       border: 1px solid rgba(199,214,228,.62);
-      border-radius: var(--radius);
+      border-radius: 22px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(10px);
       padding: 18px;
@@ -283,9 +284,7 @@
       padding: 0 18px;
     }
 
-    button:hover {
-      transform: translateY(-1px);
-    }
+    button:hover { transform: translateY(-1px); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), #b8cadc);
@@ -317,6 +316,19 @@
       min-height: 20px;
       line-height: 1.7;
     }
+
+    .debug-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(199,214,228,.75);
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .debug-box strong { color: var(--text); }
 
     .footer-help {
       margin-top: 12px;
@@ -438,9 +450,7 @@
       font-size: 12px;
     }
 
-    .score-wrap {
-      margin-top: 14px;
-    }
+    .score-wrap { margin-top: 14px; }
 
     .score-top {
       display: flex;
@@ -546,7 +556,7 @@
       <div class="hero-meta">
         <div class="meta-chip">📦 読み込み元: <strong id="dataUrl">./zard_songs_v2.json</strong></div>
         <div class="meta-chip">🗓 更新日: <strong id="updatedAt">読み込み中...</strong></div>
-        <div class="meta-chip">🎵 曲数: <strong id="songCount">-</strong></div>
+        <div class="meta-chip">🎵 統合曲数: <strong id="songCount">-</strong></div>
         <div class="meta-chip">💿 アルバム数: <strong id="albumCount">-</strong></div>
       </div>
     </section>
@@ -581,8 +591,11 @@
           </div>
 
           <div class="field">
-            <label for="reloadBtn">データ更新</label>
-            <button id="reloadBtn" class="btn-secondary" type="button">🔄 JSONを再読込</button>
+            <label for="reloadBtn">データ操作</label>
+            <div class="btn-row">
+              <button id="reloadBtn" class="btn-secondary" type="button">🔄 JSON再読込</button>
+              <button id="clearCacheBtn" class="btn-secondary" type="button">🗑 キャッシュ削除</button>
+            </div>
           </div>
         </div>
 
@@ -598,10 +611,14 @@
 
         <div class="status" id="statusText">JSONを読み込み中です...</div>
 
+        <div class="debug-box" id="debugBox">
+          読み込み情報を表示します...
+        </div>
+
         <div class="footer-help">
-          ・カップリング判定は <code>songs[].isCoupling</code> または <code>initialReleaseType: "coupling"</code> を使います。<br>
-          ・現在の v2 JSON で <code>couplings[].tracks</code> が空の場合、カップリング絞り込み結果も空になることがあります。<br>
-          ・<code>file://</code> 直開きでは JSON 読み込みに失敗する場合があります。
+          ・GitHub Pages またはローカルサーバーでの動作を推奨します。<br>
+          ・<code>file://</code> 直開きでは取得失敗しやすいです。<br>
+          ・カップリング判定は <code>songs</code> と <code>couplings[].tracks</code> の両方から統合します。
         </div>
       </section>
 
@@ -612,7 +629,7 @@
         </div>
         <div id="emptyState" class="empty">
           左側の条件を選んで「診断する」を押すと、ここにおすすめ曲が表示されます。<br>
-          アルバムやシングルで絞ると、よりディープに楽しめます。
+          カップリングで絞り込むと、ディープな楽しみ方ができます。
         </div>
         <div id="resultList" class="result-list hidden"></div>
       </section>
@@ -621,80 +638,16 @@
 
   <script>
     const DATA_URL = "./zard_songs_v2.json";
-    const CACHE_KEY = "zardSongsCache_v2_html";
+    const CACHE_KEY = "zardSongsCache_v2_fixed_20260527";
 
     const FALLBACK_DATA = {
       artist: "ZARD",
-      version: "2.0",
+      version: "2.3",
       updatedAt: "2026-05-27",
-      albums: [
-        { id: "album_yureru_omoi", title: "揺れる想い", releaseYear: 1993, type: "album" },
-        { id: "album_hold_me", title: "HOLD ME", releaseYear: 1992, type: "album" }
-      ],
-      singles: [
-        { id: "single_makenai_de", title: "負けないで", releaseYear: 1993 },
-        { id: "single_yureru_omoi", title: "揺れる想い", releaseYear: 1993 }
-      ],
+      albums: [],
+      singles: [],
       couplings: [],
-      songs: [
-        {
-          id: "song_makenai_de",
-          title: "負けないで",
-          year: 1993,
-          initialReleaseType: "single",
-          initialReleaseTitle: "負けないで",
-          album: "揺れる想い",
-          single: "負けないで",
-          isCoupling: false,
-          isAlbumTrack: false,
-          tags: {
-            tempo: "fast",
-            mood: "empowering",
-            era: "early90s",
-            theme: "empowerment",
-            popularity: "major"
-          },
-          note: "背中を押してくれる王道の応援ソング。"
-        },
-        {
-          id: "song_yureru_omoi",
-          title: "揺れる想い",
-          year: 1993,
-          initialReleaseType: "single",
-          initialReleaseTitle: "揺れる想い",
-          album: "揺れる想い",
-          single: "揺れる想い",
-          isCoupling: false,
-          isAlbumTrack: false,
-          tags: {
-            tempo: "mid",
-            mood: "romantic",
-            era: "early90s",
-            theme: "love",
-            popularity: "major"
-          },
-          note: "透明感あふれるZARDの代表曲。"
-        },
-        {
-          id: "song_ano_hohoemi_o_wasurenai_de",
-          title: "あの微笑みを忘れないで",
-          year: 1992,
-          initialReleaseType: "album_track",
-          initialReleaseTitle: "HOLD ME",
-          album: "HOLD ME",
-          single: null,
-          isCoupling: false,
-          isAlbumTrack: true,
-          tags: {
-            tempo: "mid",
-            mood: "nostalgic",
-            era: "early90s",
-            theme: "nostalgia",
-            popularity: "minor"
-          },
-          note: "ファン人気の高い隠れた名曲。"
-        }
-      ]
+      songs: []
     };
 
     const LABELS = {
@@ -734,8 +687,7 @@
       type: {
         single: "シングル表題曲",
         coupling: "カップリング",
-        album_track: "アルバム曲",
-        album_title: "アルバム曲"
+        album_track: "アルバム曲"
       }
     };
 
@@ -746,41 +698,23 @@
     };
 
     const QUESTIONS = [
-      {
-        id: "tempo",
-        title: "テンポ",
-        default: "any",
-        options: ["any", "slow", "mid", "fast"]
-      },
-      {
-        id: "mood",
-        title: "ムード",
-        default: "any",
-        options: ["any", "empowering", "romantic", "sad", "refreshing", "nostalgic"]
-      },
-      {
-        id: "era",
-        title: "時代",
-        default: "any",
-        options: ["any", "early90s", "mid90s", "late90s", "00s"]
-      },
-      {
-        id: "theme",
-        title: "テーマ",
-        default: "any",
-        options: ["any", "love", "empowerment", "nostalgia", "loneliness"]
-      },
-      {
-        id: "popularity",
-        title: "知名度バランス",
-        default: "balanced",
-        options: ["major", "balanced", "minor"]
-      }
+      { id: "tempo", title: "テンポ", default: "any", options: ["any", "slow", "mid", "fast"] },
+      { id: "mood", title: "ムード", default: "any", options: ["any", "empowering", "romantic", "sad", "refreshing", "nostalgic"] },
+      { id: "era", title: "時代", default: "any", options: ["any", "early90s", "mid90s", "late90s", "00s"] },
+      { id: "theme", title: "テーマ", default: "any", options: ["any", "love", "empowerment", "nostalgia", "loneliness"] },
+      { id: "popularity", title: "知名度バランス", default: "balanced", options: ["major", "balanced", "minor"] }
     ];
 
     let APP_DATA = FALLBACK_DATA;
     let SONG_POOL = [];
     let LAST_RESULTS = [];
+    let DEBUG_INFO = {
+      rawSongs: 0,
+      rawCouplings: 0,
+      couplingTracks: 0,
+      mergedSongs: 0,
+      mergedCouplings: 0
+    };
 
     const updatedAtEl = document.getElementById("updatedAt");
     const songCountEl = document.getElementById("songCount");
@@ -795,9 +729,11 @@
     const resultMetaEl = document.getElementById("resultMeta");
     const emptyStateEl = document.getElementById("emptyState");
     const reloadBtn = document.getElementById("reloadBtn");
+    const clearCacheBtn = document.getElementById("clearCacheBtn");
     const diagnoseBtn = document.getElementById("diagnoseBtn");
     const resetBtn = document.getElementById("resetBtn");
     const shareAllBtn = document.getElementById("shareAllBtn");
+    const debugBoxEl = document.getElementById("debugBox");
 
     function cleanTitle(title) {
       return String(title || "")
@@ -815,65 +751,11 @@
         .replaceAll("'", "&#039;");
     }
 
-    function normalizeSong(song, fallback = {}) {
-      const normalized = {
-        id: song.id || `${cleanTitle(song.title)}_${song.year || ""}`,
-        title: cleanTitle(song.title),
-        year: song.year || fallback.year || null,
-        initialReleaseType: song.initialReleaseType || fallback.initialReleaseType || "album_track",
-        initialReleaseTitle: song.initialReleaseTitle || fallback.initialReleaseTitle || song.album || fallback.album || null,
-        album: song.album ?? fallback.album ?? null,
-        single: song.single ?? fallback.single ?? null,
-        isCoupling: Boolean(song.isCoupling || song.initialReleaseType === "coupling" || fallback.isCoupling),
-        isAlbumTrack: Boolean(song.isAlbumTrack || song.initialReleaseType === "album_track" || song.initialReleaseType === "album_title" || fallback.isAlbumTrack),
-        official_discography_checked: Boolean(song.official_discography_checked),
-        tags: {
-          tempo: song.tags?.tempo || "mid",
-          mood: song.tags?.mood || "nostalgic",
-          era: song.tags?.era || "early90s",
-          theme: song.tags?.theme || "nostalgia",
-          popularity: song.tags?.popularity || "standard"
-        },
-        note: song.note || ""
-      };
-      return normalized;
-    }
-
-    function buildSongPool(data) {
-      const baseSongs = Array.isArray(data.songs) ? data.songs.map(s => normalizeSong(s)) : [];
-      const seen = new Set(baseSongs.map(s => s.id));
-      const extras = [];
-
-      if (Array.isArray(data.couplings)) {
-        data.couplings.forEach((entry) => {
-          const singleTitle = entry.singleTitle || null;
-          const tracks = Array.isArray(entry.tracks) ? entry.tracks : [];
-          tracks.forEach((track, idx) => {
-            if (typeof track === "string") return;
-            if (!track || !track.title) return;
-            const normalized = normalizeSong(track, {
-              initialReleaseType: "coupling",
-              single: singleTitle,
-              isCoupling: true
-            });
-            if (!seen.has(normalized.id)) {
-              seen.add(normalized.id);
-              extras.push(normalized);
-            }
-          });
-        });
-      }
-
-      return [...baseSongs, ...extras];
-    }
-
     function normalizeData(data) {
-      if (!data || typeof data !== "object") {
-        throw new Error("JSON形式が不正です");
-      }
+      if (!data || typeof data !== "object") throw new Error("JSON形式が不正です");
       return {
         artist: data.artist || "ZARD",
-        version: data.version || "2.0",
+        version: data.version || "2.x",
         updatedAt: data.updatedAt || new Date().toISOString().slice(0, 10),
         notes: Array.isArray(data.notes) ? data.notes : [],
         albums: Array.isArray(data.albums) ? data.albums : [],
@@ -883,11 +765,110 @@
       };
     }
 
+    function normalizeSong(song, fallback = {}) {
+      return {
+        id: song.id || [song.title, fallback.single || song.single || "", song.year || ""].join("_"),
+        title: cleanTitle(song.title),
+        year: song.year ?? fallback.year ?? null,
+        initialReleaseType: song.initialReleaseType || fallback.initialReleaseType || "album_track",
+        initialReleaseTitle: song.initialReleaseTitle || fallback.initialReleaseTitle || null,
+        album: song.album ?? fallback.album ?? null,
+        single: song.single ?? fallback.single ?? null,
+        isCoupling: Boolean(song.isCoupling || fallback.isCoupling || song.initialReleaseType === "coupling"),
+        isAlbumTrack: Boolean(song.isAlbumTrack || fallback.isAlbumTrack || song.initialReleaseType === "album_track" || song.initialReleaseType === "album_title"),
+        official_discography_checked: Boolean(song.official_discography_checked),
+        tags: {
+          tempo: song.tags?.tempo || fallback.tags?.tempo || "mid",
+          mood: song.tags?.mood || fallback.tags?.mood || "nostalgic",
+          era: song.tags?.era || fallback.tags?.era || "early90s",
+          theme: song.tags?.theme || fallback.tags?.theme || "nostalgia",
+          popularity: song.tags?.popularity || fallback.tags?.popularity || "minor"
+        },
+        note: song.note || fallback.note || ""
+      };
+    }
+
+    function buildUniqueKey(song) {
+      return [
+        cleanTitle(song.title),
+        song.initialReleaseType || "",
+        song.single || "",
+        song.album || "",
+        song.year || ""
+      ].join("||");
+    }
+
+    function buildSongPool(data) {
+      const map = new Map();
+      const rawSongs = Array.isArray(data.songs) ? data.songs : [];
+      const rawCouplings = Array.isArray(data.couplings) ? data.couplings : [];
+
+      let couplingTracksCount = 0;
+
+      rawSongs.forEach((song) => {
+        const normalized = normalizeSong(song);
+        const key = buildUniqueKey(normalized);
+        if (!map.has(key)) map.set(key, normalized);
+      });
+
+      rawCouplings.forEach((entry) => {
+        const singleTitle = entry.singleTitle || null;
+        const tracks = Array.isArray(entry.tracks) ? entry.tracks : [];
+        couplingTracksCount += tracks.length;
+
+        tracks.forEach((track) => {
+          if (!track || !track.title) return;
+          const normalized = normalizeSong(track, {
+            initialReleaseType: "coupling",
+            initialReleaseTitle: singleTitle,
+            single: singleTitle,
+            isCoupling: true,
+            isAlbumTrack: false,
+            note: track.note || "カップリング曲",
+            tags: track.tags || {
+              tempo: "mid",
+              mood: "nostalgic",
+              era: "early90s",
+              theme: "nostalgia",
+              popularity: "minor"
+            }
+          });
+          const key = buildUniqueKey(normalized);
+          if (!map.has(key)) map.set(key, normalized);
+        });
+      });
+
+      const merged = [...map.values()];
+
+      DEBUG_INFO = {
+        rawSongs: rawSongs.length,
+        rawCouplings: rawCouplings.length,
+        couplingTracks: couplingTracksCount,
+        mergedSongs: merged.length,
+        mergedCouplings: merged.filter(isCoupling).length
+      };
+
+      return merged;
+    }
+
     function setMeta() {
       updatedAtEl.textContent = APP_DATA.updatedAt || "不明";
       songCountEl.textContent = String(SONG_POOL.length || 0);
       albumCountEl.textContent = String(APP_DATA.albums?.length || 0);
       dataUrlEl.textContent = DATA_URL;
+      renderDebug();
+    }
+
+    function renderDebug() {
+      debugBoxEl.innerHTML = `
+        <strong>読込デバッグ情報</strong><br>
+        raw songs件数: <strong>${DEBUG_INFO.rawSongs}</strong><br>
+        couplings件数: <strong>${DEBUG_INFO.rawCouplings}</strong><br>
+        coupling tracks件数: <strong>${DEBUG_INFO.couplingTracks}</strong><br>
+        統合後 songs件数: <strong>${DEBUG_INFO.mergedSongs}</strong><br>
+        統合後 カップリング曲件数: <strong>${DEBUG_INFO.mergedCouplings}</strong><br>
+        現在URL: <strong>${escapeHtml(location.href)}</strong>
+      `;
     }
 
     function setStatus(text) {
@@ -896,7 +877,6 @@
 
     function renderQuestions() {
       questionGridEl.innerHTML = "";
-
       QUESTIONS.forEach((q) => {
         const fieldset = document.createElement("fieldset");
         const legend = document.createElement("legend");
@@ -910,7 +890,7 @@
           const id = `${q.id}_${option}`;
           const label = document.createElement("label");
           label.className = "seg-item";
-          label.setAttribute("for", id);
+          label.htmlFor = id;
 
           const input = document.createElement("input");
           input.type = "radio";
@@ -971,45 +951,63 @@
       singleFilterEl.value = singleTitles.includes(currentSingle) ? currentSingle : "all";
     }
 
+    async function loadData(force = false) {
+      setStatus(force ? "最新JSONを再読込しています..." : "JSONを読み込み中です...");
 
-async function loadData(force = false) {
-  setStatus(force ? "JSONを再読込しています..." : "JSONを読み込み中です...");
+      // file:// は fetch 失敗しやすい
+      if (location.protocol === "file:") {
+        const cache = localStorage.getItem(CACHE_KEY);
+        if (cache) {
+          APP_DATA = normalizeData(JSON.parse(cache));
+          SONG_POOL = buildSongPool(APP_DATA);
+          setMeta();
+          populateFilters();
+          setStatus("file:// 直開きのためキャッシュを表示しています。ローカルサーバーまたはGitHub Pages推奨です。");
+          return;
+        }
+        APP_DATA = FALLBACK_DATA;
+        SONG_POOL = buildSongPool(APP_DATA);
+        setMeta();
+        populateFilters();
+        setStatus("file:// 直開きではJSON取得に失敗しやすいため、空データに近いフォールバック状態です。");
+        return;
+      }
 
-  try {
-    const res = await fetch(`./zard_songs_v2.json?t=${Date.now()}`, {
-      cache: "no-store"
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      try {
+        const res = await fetch(`${DATA_URL}?t=${Date.now()}`, {
+          method: "GET",
+          cache: "no-store"
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-    const json = await res.json();
-    APP_DATA = normalizeData(json);
-    SONG_POOL = buildSongPool(APP_DATA);
+        const json = await res.json();
+        APP_DATA = normalizeData(json);
+        SONG_POOL = buildSongPool(APP_DATA);
 
-    localStorage.setItem(CACHE_KEY, JSON.stringify(APP_DATA));
-    setMeta();
-    populateFilters();
-    setStatus(`最新データを読み込みました。${SONG_POOL.length}曲を利用できます。`);
-  } catch (err) {
-    console.error(err);
+        localStorage.setItem(CACHE_KEY, JSON.stringify(APP_DATA));
+        setMeta();
+        populateFilters();
+        setStatus(`最新データを読み込みました。統合後 ${SONG_POOL.length}曲 / カップリング ${DEBUG_INFO.mergedCouplings}曲です。`);
+      } catch (err) {
+        console.error("loadData error:", err);
 
-    const cache = localStorage.getItem(CACHE_KEY);
-    if (cache) {
-      APP_DATA = normalizeData(JSON.parse(cache));
-      SONG_POOL = buildSongPool(APP_DATA);
-      setMeta();
-      populateFilters();
-      setStatus("JSON取得に失敗したため、保存済みキャッシュを使用しています。");
-      return;
+        const cache = localStorage.getItem(CACHE_KEY);
+        if (cache) {
+          APP_DATA = normalizeData(JSON.parse(cache));
+          SONG_POOL = buildSongPool(APP_DATA);
+          setMeta();
+          populateFilters();
+          setStatus("JSON取得に失敗したため、保存済みキャッシュを使用しています。");
+          return;
+        }
+
+        APP_DATA = FALLBACK_DATA;
+        SONG_POOL = buildSongPool(APP_DATA);
+        setMeta();
+        populateFilters();
+        setStatus("JSON取得に失敗しました。ファイル名・配置・サーバー起動状態を確認してください。");
+      }
     }
-
-    APP_DATA = FALLBACK_DATA;
-    SONG_POOL = buildSongPool(APP_DATA);
-    setMeta();
-    populateFilters();
-    setStatus("JSON取得に失敗したため、埋め込みデータで表示しています。");
-  }
-}
-
 
     function getAnswers() {
       const answers = {};
@@ -1152,8 +1150,10 @@ async function loadData(force = false) {
       if (item.matched.includes("theme")) parts.push(`テーマが「${LABELS.theme[song.tags.theme]}」`);
       if (item.matched.includes("popularity")) parts.push(`知名度バランスが「${LABELS.popularity[answers.popularity]}」向き`);
       if (selectedAlbum !== "all") parts.push(`アルバム「${selectedAlbum}」で絞った条件に合う`);
-      if (selectedSingle !== "all") parts.push(`シングル「${selectedSingle}」周辺で相性がよい`);
-      if (selectedType !== "all") parts.push(`曲種別「${selectedType === "single" ? "シングル表題曲" : selectedType === "coupling" ? "カップリング" : "アルバム曲"}」に一致`);
+      if (selectedSingle !== "all") parts.push(`シングル「${selectedSingle}」で絞った条件に合う`);
+      if (selectedType !== "all") {
+        parts.push(`曲種別「${selectedType === "single" ? "シングル表題曲" : selectedType === "coupling" ? "カップリング" : "アルバム曲"}」に一致`);
+      }
 
       const base = parts.length ? parts.join(" / ") : "総合バランスのよさでおすすめ";
       return `${base}。${song.note ? " " + song.note : ""}`;
@@ -1166,7 +1166,8 @@ async function loadData(force = false) {
     }
 
     function openXShare(text) {
-      const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href.split("#")[0])}`;
+      const shareUrl =
+        `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(location.href.split("#")[0])}`;
       window.open(shareUrl, "_blank", "noopener");
     }
 
@@ -1274,7 +1275,11 @@ async function loadData(force = false) {
         emptyStateEl.classList.remove("hidden");
 
         if (typeFilterEl.value === "coupling") {
-          emptyStateEl.innerHTML = "カップリング曲の条件に合うデータが見つかりませんでした。<br>v2 JSON の <code>songs</code> か <code>couplings[].tracks</code> を追加すると表示できるようになります。";
+          emptyStateEl.innerHTML = `
+            カップリング曲の条件に合うデータが見つかりませんでした。<br>
+            現在の統合カップリング曲数は <strong>${DEBUG_INFO.mergedCouplings}</strong> 曲です。<br>
+            シングル絞り込みやアルバム絞り込み条件も確認してみてください。
+          `;
         } else {
           emptyStateEl.textContent = "この条件では曲が見つかりませんでした。フィルタを変更してみてください。";
         }
@@ -1300,11 +1305,22 @@ async function loadData(force = false) {
       resultListEl.innerHTML = "";
       resultListEl.classList.add("hidden");
       emptyStateEl.classList.remove("hidden");
-      emptyStateEl.innerHTML = "左側の条件を選んで「診断する」を押すと、ここにおすすめ曲が表示されます。<br>アルバムやシングルで絞ると、よりディープに楽しめます。";
+      emptyStateEl.innerHTML = "左側の条件を選んで「診断する」を押すと、ここにおすすめ曲が表示されます。<br>カップリングで絞り込むと、ディープな楽しみ方ができます。";
       resultMetaEl.innerHTML = "<span>まだ診断していません</span>";
     }
 
+    function clearCache() {
+      localStorage.removeItem(CACHE_KEY);
+      setStatus("キャッシュを削除しました。次回の再読込で最新JSONを取得します。");
+    }
+
     reloadBtn.addEventListener("click", async () => {
+      await loadData(true);
+      if (LAST_RESULTS.length) runDiagnosis();
+    });
+
+    clearCacheBtn.addEventListener("click", async () => {
+      clearCache();
       await loadData(true);
       if (LAST_RESULTS.length) runDiagnosis();
     });
