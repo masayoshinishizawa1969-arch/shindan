@@ -323,8 +323,6 @@
       line-height: 1.7;
     }
 
-
-
     .footer-help {
       margin-top: 12px;
       color: var(--muted);
@@ -445,31 +443,6 @@
       font-size: 12px;
     }
 
-    .score-wrap { margin-top: 14px; }
-
-    .score-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 7px;
-    }
-
-    .score-bar {
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(199,214,228,.45);
-      overflow: hidden;
-    }
-
-    .score-bar span {
-      display: block;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent2), var(--accent), var(--gold));
-      box-shadow: 0 0 14px rgba(139,169,199,.22);
-    }
 
     .card-actions {
       display: flex;
@@ -584,21 +557,13 @@
               <option value="album_track">アルバム曲</option>
             </select>
           </div>
-
-          <div class="field" style="grid-column: 1 / -1;">
-            <label for="reloadBtn">データ操作</label>
-            <div class="btn-row">
-              <button id="reloadBtn" class="btn-secondary" type="button">🔄 JSON再読込</button>
-              <button id="clearCacheBtn" class="btn-secondary" type="button">🗑 キャッシュ削除</button>
-            </div>
-          </div>
         </div>
 
         <div class="question-grid" id="questionGrid"></div>
 
         <div class="sticky-actions">
           <div class="btn-row">
-            <button id="diagnoseBtn" class="btn-primary" type="button">🎵 おすすめの曲は？</button>
+            <button id="diagnoseBtn" class="btn-primary" type="button">✨ 曲をゲット！</button>
             <button id="resetBtn" class="btn-secondary" type="button">↺ リセット</button>
             <button id="shareAllBtn" class="btn-x" type="button">𝕏 結果をシェア</button>
           </div>
@@ -606,11 +571,9 @@
 
         <div class="status" id="statusText">JSONを読み込み中です...</div>
 
-
-
         <div class="footer-help">
-          ・アルバム絞り込み中は「カップリング」を選べません。<br>
-          ・「カップリング」を選ぶと、アルバム絞り込みは自動で解除されます。<br>
+          ・アルバム絞り込み中は「曲種別で絞り込む」を選べません。<br>
+          ・「曲種別で絞り込む」を選ぶと、アルバム絞り込みは自動で解除されます。<br>
           ・GitHub Pages では <code>./zard_songs_v2.json</code> を読み込みます。
         </div>
       </section>
@@ -621,7 +584,7 @@
           <span>まだ診断していません</span>
         </div>
         <div id="emptyState" class="empty">
-          左側の条件を選んで「診断する」を押すと、ここにおすすめ曲が表示されます。<br>
+          左側の条件を選んで「曲をゲット！」を押すと、ここにおすすめ曲が表示されます。<br>
           カップリングで絞り込むと、ディープな楽しみ方ができます。
         </div>
         <div id="resultList" class="result-list hidden"></div>
@@ -631,7 +594,7 @@
 
   <script>
     const DATA_URL = new URL("./zard_songs_v2.json", window.location.href).href;
-    const CACHE_KEY = "zardSongsCache_v2_album_coupling_exclusive";
+    const CACHE_KEY = "zardSongsCache_v2_clean";
 
     const FALLBACK_DATA = {
       artist: "ZARD",
@@ -720,12 +683,9 @@
     const resultListEl = document.getElementById("resultList");
     const resultMetaEl = document.getElementById("resultMeta");
     const emptyStateEl = document.getElementById("emptyState");
-    const reloadBtn = document.getElementById("reloadBtn");
-    const clearCacheBtn = document.getElementById("clearCacheBtn");
     const diagnoseBtn = document.getElementById("diagnoseBtn");
     const resetBtn = document.getElementById("resetBtn");
     const shareAllBtn = document.getElementById("shareAllBtn");
-
 
     function cleanTitle(title) {
       return String(title || "")
@@ -863,10 +823,7 @@
       songCountEl.textContent = String(SONG_POOL.length || 0);
       albumCountEl.textContent = String(APP_DATA.albums?.length || 0);
       dataUrlEl.textContent = "./zard_songs_v2.json";
-
     }
-
-
 
     function setStatus(text) {
       statusTextEl.textContent = text;
@@ -913,26 +870,20 @@
       return [...new Set(arr.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "ja"));
     }
 
-    function syncExclusiveFilters() {
-      const albumSelected = albumFilterEl.value !== "all";
-      const couplingSelected = typeFilterEl.value === "coupling";
-      const couplingOption = [...typeFilterEl.options].find(opt => opt.value === "coupling");
-
-      if (albumSelected) {
-        if (couplingOption) couplingOption.disabled = true;
-        if (typeFilterEl.value === "coupling") {
-          typeFilterEl.value = "all";
-        }
-      } else {
-        if (couplingOption) couplingOption.disabled = false;
+    function syncExclusiveFilters(changedBy = null) {
+      if (changedBy === "album" && albumFilterEl.value !== "all") {
+        typeFilterEl.value = "all";
       }
 
-      if (couplingSelected) {
+      if (changedBy === "type" && typeFilterEl.value !== "all") {
         albumFilterEl.value = "all";
-        albumFilterEl.disabled = true;
-      } else {
-        albumFilterEl.disabled = false;
       }
+
+      const albumSelected = albumFilterEl.value !== "all";
+      const typeSelected = typeFilterEl.value !== "all";
+
+      albumFilterEl.disabled = typeSelected;
+      typeFilterEl.disabled = albumSelected;
     }
 
     function populateFilters() {
@@ -975,7 +926,7 @@
         localStorage.setItem(CACHE_KEY, JSON.stringify(APP_DATA));
         setMeta();
         populateFilters();
-        setStatus(`最新データを読み込みました。統合後 ${SONG_POOL.length}曲 / カップリング ${DEBUG_INFO.mergedCouplings}曲です。`);
+        setStatus(`最新データを読み込みました。${SONG_POOL.length}曲を利用できます。`);
       } catch (err) {
         console.error("loadData error:", err);
 
@@ -1099,10 +1050,7 @@
       return top;
     }
 
-    function percent(score) {
-      const max = 12.2;
-      return Math.max(8, Math.min(100, (score / max) * 100));
-    }
+
 
     function getTypeLabel(song) {
       if (isCoupling(song)) return LABELS.type.coupling;
@@ -1201,15 +1149,7 @@
           <div class="chips">
             ${chips.map(chip => `<span class="chip">${escapeHtml(chip)}</span>`).join("")}
           </div>
-          <div class="score-wrap">
-            <div class="score-top">
-              <span>おすすめ度</span>
-              <strong>${item.score.toFixed(1)}</strong>
-            </div>
-            <div class="score-bar">
-              <span style="width:${percent(item.score)}%"></span>
-            </div>
-          </div>
+
           <div class="card-actions">
             <button class="btn-youtube" type="button" data-title="${escapeHtml(cleanedTitle)}">▶ YouTubeで検索</button>
             <button class="btn-x" type="button" data-share="${escapeHtml(cleanedTitle)}">𝕏 この曲をシェア</button>
@@ -1247,7 +1187,6 @@
         if (typeFilterEl.value === "coupling") {
           emptyStateEl.innerHTML = `
             カップリング曲の条件に合うデータが見つかりませんでした。<br>
-            現在の統合カップリング曲数は <strong>${DEBUG_INFO.mergedCouplings}</strong> 曲です。<br>
             条件を変更してもう一度お試しください。
           `;
         } else {
@@ -1275,25 +1214,9 @@
       resultListEl.innerHTML = "";
       resultListEl.classList.add("hidden");
       emptyStateEl.classList.remove("hidden");
-      emptyStateEl.innerHTML = "左側の条件を選んで「診断する」を押すと、ここにおすすめ曲が表示されます。<br>カップリングで絞り込むと、ディープな楽しみ方ができます。";
+      emptyStateEl.innerHTML = "左側の条件を選んで「曲をゲット！」を押すと、ここにおすすめ曲が表示されます。<br>カップリングで絞り込むと、ディープな楽しみ方ができます。";
       resultMetaEl.innerHTML = "<span>まだ診断していません</span>";
     }
-
-    function clearCache() {
-      localStorage.removeItem(CACHE_KEY);
-      setStatus("キャッシュを削除しました。続けて「JSON再読込」を押してください。");
-    }
-
-    reloadBtn.addEventListener("click", async () => {
-      await loadData(true);
-      if (LAST_RESULTS.length) runDiagnosis();
-    });
-
-    clearCacheBtn.addEventListener("click", async () => {
-      clearCache();
-      await loadData(true);
-      if (LAST_RESULTS.length) runDiagnosis();
-    });
 
     diagnoseBtn.addEventListener("click", runDiagnosis);
     resetBtn.addEventListener("click", resetAll);
@@ -1301,16 +1224,24 @@
       openXShare(shareTextFromResults());
     });
 
-    [albumFilterEl, typeFilterEl].forEach((el) => {
-      el.addEventListener("change", () => {
-        syncExclusiveFilters();
-        runDiagnosis();
-      });
+    albumFilterEl.addEventListener("change", () => {
+      syncExclusiveFilters("album");
+      runDiagnosis();
+    });
 
-      el.addEventListener("input", () => {
-        syncExclusiveFilters();
-        runDiagnosis();
-      });
+    albumFilterEl.addEventListener("input", () => {
+      syncExclusiveFilters("album");
+      runDiagnosis();
+    });
+
+    typeFilterEl.addEventListener("change", () => {
+      syncExclusiveFilters("type");
+      runDiagnosis();
+    });
+
+    typeFilterEl.addEventListener("input", () => {
+      syncExclusiveFilters("type");
+      runDiagnosis();
     });
 
     async function init() {
