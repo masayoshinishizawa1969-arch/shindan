@@ -971,7 +971,7 @@
       singleFilterEl.value = singleTitles.includes(currentSingle) ? currentSingle : "all";
     }
 
-<script>
+
 async function loadData(force = false) {
   setStatus(force ? "JSONを再読込しています..." : "JSONを読み込み中です...");
 
@@ -1009,7 +1009,7 @@ async function loadData(force = false) {
     setStatus("JSON取得に失敗したため、埋め込みデータで表示しています。");
   }
 }
-</script>
+
 
     function getAnswers() {
       const answers = {};
