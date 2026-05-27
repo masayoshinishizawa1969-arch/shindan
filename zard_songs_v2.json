@@ -1,1573 +1,803 @@
-{
-  "artist": "ZARD",
-  "version": "2.0",
-  "updatedAt": "2026-05-27",
-  "notes": [
-    "初出情報を基準に整理する構成",
-    "type は single / coupling / album_track / album_title / other を使用",
-    "official_discography_checked を true にした項目は公式確認済みとして運用可能"
-  ],
-  "albums": [
-    {
-      "id": "album_goodbye_my_loneliness",
-      "title": "Good-bye My Loneliness",
-      "releaseYear": 1991,
-      "type": "album"
-    },
-    {
-      "id": "album_mou_sagasanai",
-      "title": "もう探さない",
-      "releaseYear": 1991,
-      "type": "album"
-    },
-    {
-      "id": "album_hold_me",
-      "title": "HOLD ME",
-      "releaseYear": 1992,
-      "type": "album"
-    },
-    {
-      "id": "album_yureru_omoi",
-      "title": "揺れる想い",
-      "releaseYear": 1993,
-      "type": "album"
-    },
-    {
-      "id": "album_oh_my_love",
-      "title": "OH MY LOVE",
-      "releaseYear": 1994,
-      "type": "album"
-    },
-    {
-      "id": "album_forever_you",
-      "title": "forever you",
-      "releaseYear": 1995,
-      "type": "album"
-    },
-    {
-      "id": "album_today_is_another_day",
-      "title": "TODAY IS ANOTHER DAY",
-      "releaseYear": 1996,
-      "type": "album"
-    },
-    {
-      "id": "album_eien",
-      "title": "永遠",
-      "releaseYear": 1999,
-      "type": "album"
-    },
-    {
-      "id": "album_jikan_no_tsubasa",
-      "title": "時間の翼",
-      "releaseYear": 2001,
-      "type": "album"
-    },
-    {
-      "id": "album_tomatteita_tokei",
-      "title": "止まっていた時計が今動き出した",
-      "releaseYear": 2004,
-      "type": "album"
-    },
-    {
-      "id": "album_kimi_to_no_distance",
-      "title": "君とのDistance",
-      "releaseYear": 2005,
-      "type": "album"
-    }
-  ],
-  "singles": [
-    {
-      "id": "single_goodbye_my_loneliness",
-      "title": "Good-bye My Loneliness",
-      "releaseYear": 1991
-    },
-    {
-      "id": "single_fushigi_ne",
-      "title": "不思議ね...",
-      "releaseYear": 1991
-    },
-    {
-      "id": "single_mou_sagasanai",
-      "title": "もう探さない",
-      "releaseYear": 1991
-    },
-    {
-      "id": "single_nemurenai_yoru",
-      "title": "眠れない夜を抱いて",
-      "releaseYear": 1992
-    },
-    {
-      "id": "single_in_my_arms_tonight",
-      "title": "IN MY ARMS TONIGHT",
-      "releaseYear": 1992
-    },
-    {
-      "id": "single_makenai_de",
-      "title": "負けないで",
-      "releaseYear": 1993
-    },
-    {
-      "id": "single_kimi_ga_inai",
-      "title": "君がいない",
-      "releaseYear": 1993
-    },
-    {
-      "id": "single_yureru_omoi",
-      "title": "揺れる想い",
-      "releaseYear": 1993
-    },
-    {
-      "id": "single_mou_sukoshi_ato_sukoshi",
-      "title": "もう少し あと少し...",
-      "releaseYear": 1993
-    },
-    {
-      "id": "single_kitto_wasurenai",
-      "title": "きっと忘れない",
-      "releaseYear": 1993
-    },
-    {
-      "id": "single_kono_ai_ni_oyogitsukaretemo",
-      "title": "この愛に泳ぎ疲れても",
-      "releaseYear": 1994
-    },
-    {
-      "id": "single_konna_ni_soba_ni_irunoni",
-      "title": "こんなにそばに居るのに",
-      "releaseYear": 1994
-    },
-    {
-      "id": "single_anata_o_kanjiteitai",
-      "title": "あなたを感じていたい",
-      "releaseYear": 1994
-    },
-    {
-      "id": "single_just_believe_in_love",
-      "title": "Just believe in love",
-      "releaseYear": 1995
-    },
-    {
-      "id": "single_ai_ga_mienai",
-      "title": "愛が見えない",
-      "releaseYear": 1995
-    },
-    {
-      "id": "single_sayonara_wa_ima_mo",
-      "title": "サヨナラは今もこの胸に居ます",
-      "releaseYear": 1995
-    },
-    {
-      "id": "single_mind_friend",
-      "title": "マイ フレンド",
-      "releaseYear": 1996
-    },
-    {
-      "id": "single_kokoro_o_hiraite",
-      "title": "心を開いて",
-      "releaseYear": 1996
-    },
-    {
-      "id": "single_dont_you_see",
-      "title": "Don't you see!",
-      "releaseYear": 1997
-    },
-    {
-      "id": "single_kimi_ni_aitaku_nattara",
-      "title": "君に逢いたくなったら...",
-      "releaseYear": 1997
-    },
-    {
-      "id": "single_eien",
-      "title": "永遠",
-      "releaseYear": 1997
-    },
-    {
-      "id": "single_my_baby_grand",
-      "title": "My Baby Grand ～ぬくもりが欲しくて～",
-      "releaseYear": 1997
-    },
-    {
-      "id": "single_unmei_no_roulette",
-      "title": "運命のルーレット廻して",
-      "releaseYear": 1998
-    },
-    {
-      "id": "single_iki_mo_dekinai",
-      "title": "息もできない",
-      "releaseYear": 1998
-    },
-    {
-      "id": "single_atarashii_door",
-      "title": "新しいドア ～冬のひまわり～",
-      "releaseYear": 1998
-    },
-    {
-      "id": "single_good_day",
-      "title": "GOOD DAY",
-      "releaseYear": 1998
-    },
-    {
-      "id": "single_mind_games",
-      "title": "MIND GAMES",
-      "releaseYear": 1999
-    },
-    {
-      "id": "single_itai_kurai_kimi_ga_afureteiru_yo",
-      "title": "痛いくらい君があふれているよ",
-      "releaseYear": 1999
-    },
-    {
-      "id": "single_kono_namida_hoshi_ni_nare",
-      "title": "この涙 星になれ",
-      "releaseYear": 1999
-    },
-    {
-      "id": "single_get_ure_dream",
-      "title": "Get U're Dream",
-      "releaseYear": 2000
-    },
-    {
-      "id": "single_promised_you",
-      "title": "promised you",
-      "releaseYear": 2000
-    },
-    {
-      "id": "single_sawayakana_kimi_no_kimochi",
-      "title": "さわやかな君の気持ち",
-      "releaseYear": 2002
-    },
-    {
-      "id": "single_ashita_o_yumemite",
-      "title": "明日を夢見て",
-      "releaseYear": 2003
-    },
-    {
-      "id": "single_hitomi_tojite",
-      "title": "瞳閉じて",
-      "releaseYear": 2003
-    },
-    {
-      "id": "single_motto_chikakude",
-      "title": "もっと近くで君の横顔見ていたい",
-      "releaseYear": 2003
-    },
-    {
-      "id": "single_kakegae_no_nai_mono",
-      "title": "かけがえのないもの",
-      "releaseYear": 2004
-    },
-    {
-      "id": "single_hoshi_no_kagayakiyo",
-      "title": "星のかがやきよ",
-      "releaseYear": 2005
-    },
-    {
-      "id": "single_natsu_o_matsu_sail",
-      "title": "夏を待つセイル(帆)のように",
-      "releaseYear": 2005
-    },
-    {
-      "id": "single_kanashii_hodo_anata_ga_suki",
-      "title": "悲しいほど貴方が好き",
-      "releaseYear": 2006
-    },
-    {
-      "id": "single_hurt_ni_hi_o_tsukete",
-      "title": "ハートに火をつけて",
-      "releaseYear": 2006
-    },
-    {
-      "id": "single_glorious_mind",
-      "title": "グロリアス マインド",
-      "releaseYear": 2007
-    },
-    {
-      "id": "single_ai_wa_kurayami_no_nakade",
-      "title": "愛は暗闇の中で",
-      "releaseYear": 2008
-    },
-    {
-      "id": "single_sunao_ni_ienakute",
-      "title": "素直に言えなくて",
-      "releaseYear": 2009
-    }
-  ],
-  "songs": [
-    {
-      "id": "song_goodbye_my_loneliness",
-      "title": "Good-bye My Loneliness",
-      "year": 1991,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "Good-bye My Loneliness",
-      "album": "Good-bye My Loneliness",
-      "single": "Good-bye My Loneliness",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "sad",
-        "era": "early90s",
-        "theme": "loneliness",
-        "popularity": "standard"
+[
+  {
+    "singleTitle": "Good-bye My Loneliness",
+    "releaseYear": 1991,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_ai_wa_kurayami_no_nakade_coupling_1991",
+        "title": "愛は暗闇の中で",
+        "year": 1991,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "Good-bye My Loneliness",
+        "album": null,
+        "single": "Good-bye My Loneliness",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "不思議ね...",
+    "releaseYear": 1991,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_sunao_ni_ienakute_coupling_1991",
+        "title": "素直に言えなくて",
+        "year": 1991,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "不思議ね...",
+        "album": null,
+        "single": "不思議ね...",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "もう探さない",
+    "releaseYear": 1991,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_konna_ni_aishitemo_coupling_1991",
+        "title": "こんなに愛しても",
+        "year": 1991,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "もう探さない",
+        "album": null,
+        "single": "もう探さない",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "眠れない夜を抱いて",
+    "releaseYear": 1992,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_dangerous_tonight_coupling_1992",
+        "title": "Dangerous Tonight",
+        "year": 1992,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "眠れない夜を抱いて",
+        "album": null,
+        "single": "眠れない夜を抱いて",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "IN MY ARMS TONIGHT",
+    "releaseYear": 1992,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_ase_no_naka_de_cry_coupling_1992",
+        "title": "汗の中でCRY",
+        "year": 1992,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "IN MY ARMS TONIGHT",
+        "album": null,
+        "single": "IN MY ARMS TONIGHT",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "負けないで",
+    "releaseYear": 1993,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_stray_love_coupling_1993",
+        "title": "Stray Love",
+        "year": 1993,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "負けないで",
+        "album": null,
+        "single": "負けないで",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "君がいない",
+    "releaseYear": 1993,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_watashi_dake_mitsumete_coupling_1993",
+        "title": "私だけ見つめて",
+        "year": 1993,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "君がいない",
+        "album": null,
+        "single": "君がいない",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "揺れる想い",
+    "releaseYear": 1993,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_just_for_you_coupling_1993",
+        "title": "Just for you",
+        "year": 1993,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "揺れる想い",
+        "album": null,
+        "single": "揺れる想い",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "果てしない夢を",
+    "releaseYear": 1993,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_ame_ni_nurete_coupling_1993",
+        "title": "雨に濡れて",
+        "year": 1993,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "果てしない夢を",
+        "album": null,
+        "single": "果てしない夢を",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "もう少し あと少し...",
+    "releaseYear": 1993,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_kanariya_coupling_1993",
+        "title": "カナリヤ",
+        "year": 1993,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "もう少し あと少し...",
+        "album": null,
+        "single": "もう少し あと少し...",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "きっと忘れない",
+    "releaseYear": 1993,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_tasogare_ni_my_lonely_heart_coupling_1993",
+        "title": "黄昏にMy Lonely Heart",
+        "year": 1993,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "きっと忘れない",
+        "album": null,
+        "single": "きっと忘れない",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "この愛に泳ぎ疲れても / Boy",
+    "releaseYear": 1994,
+    "verified": true,
+    "tracks": []
+  },
+  {
+    "singleTitle": "こんなにそばに居るのに",
+    "releaseYear": 1994,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_anata_no_seija_nai_coupling_1994",
+        "title": "あなたのせいじゃない",
+        "year": 1994,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "こんなにそばに居るのに",
+        "album": null,
+        "single": "こんなにそばに居るのに",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "あなたを感じていたい",
+    "releaseYear": 1994,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_take_me_to_your_dream_coupling_1994",
+        "title": "Take me to your dream",
+        "year": 1994,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "あなたを感じていたい",
+        "album": null,
+        "single": "あなたを感じていたい",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "Just believe in love",
+    "releaseYear": 1995,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_ready_go_coupling_1995",
+        "title": "Ready, Go!",
+        "year": 1995,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "Just believe in love",
+        "album": null,
+        "single": "Just believe in love",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "愛が見えない",
+    "releaseYear": 1995,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_teenage_dream_coupling_1995",
+        "title": "Teenage dream",
+        "year": 1995,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "愛が見えない",
+        "album": null,
+        "single": "愛が見えない",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "サヨナラは今もこの胸に居ます",
+    "releaseYear": 1995,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_nemuri_coupling_1995",
+        "title": "眠り",
+        "year": 1995,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "サヨナラは今もこの胸に居ます",
+        "album": null,
+        "single": "サヨナラは今もこの胸に居ます",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "マイ フレンド",
+    "releaseYear": 1996,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_mezameta_asa_wa_coupling_1996",
+        "title": "目覚めた朝は…",
+        "year": 1996,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "マイ フレンド",
+        "album": null,
+        "single": "マイ フレンド",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "心を開いて",
+    "releaseYear": 1996,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_change_my_mind_coupling_1996",
+        "title": "Change my mind",
+        "year": 1996,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "心を開いて",
+        "album": null,
+        "single": "心を開いて",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "Don't you see!",
+    "releaseYear": 1997,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_kaeranu_jikan_no_nakade_coupling_1997",
+        "title": "帰らぬ時間の中で",
+        "year": 1997,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "Don't you see!",
+        "album": null,
+        "single": "Don't you see!",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "君に逢いたくなったら...",
+    "releaseYear": 1997,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_ai_o_shinjite_itai_coupling_1997",
+        "title": "愛を信じていたい",
+        "year": 1997,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "君に逢いたくなったら...",
+        "album": null,
+        "single": "君に逢いたくなったら...",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "風が通り抜ける街へ",
+    "releaseYear": 1997,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_toi_hoshi_o_kazoete_coupling_1997",
+        "title": "遠い星を数えて",
+        "year": 1997,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "風が通り抜ける街へ",
+        "album": null,
+        "single": "風が通り抜ける街へ",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "永遠",
+    "releaseYear": 1997,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_i_cant_let_go_coupling_1997",
+        "title": "I can't let go",
+        "year": 1997,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "永遠",
+        "album": null,
+        "single": "永遠",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "My Baby Grand ～ぬくもりが欲しくて～",
+    "releaseYear": 1997,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_love_is_gone_coupling_1997",
+        "title": "Love is Gone",
+        "year": 1997,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "My Baby Grand ～ぬくもりが欲しくて～",
+        "album": null,
+        "single": "My Baby Grand ～ぬくもりが欲しくて～",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "息もできない",
+    "releaseYear": 1998,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_vintage_coupling_1998",
+        "title": "Vintage",
+        "year": 1998,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "息もできない",
+        "album": null,
+        "single": "息もできない",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "運命のルーレット廻して",
+    "releaseYear": 1998,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_shoujo_no_koro_ni_modotta_mitai_ni_coupling_1998",
+        "title": "少女の頃に戻ったみたいに",
+        "year": 1998,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "運命のルーレット廻して",
+        "album": null,
+        "single": "運命のルーレット廻して",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "新しいドア ～冬のひまわり～",
+    "releaseYear": 1998,
+    "verified": true,
+    "tracks": []
+  },
+  {
+    "singleTitle": "GOOD DAY",
+    "releaseYear": 1998,
+    "verified": true,
+    "tracks": []
+  },
+  {
+    "singleTitle": "MIND GAMES",
+    "releaseYear": 1999,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_hypnosis_coupling_1999",
+        "title": "Hypnosis",
+        "year": 1999,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "MIND GAMES",
+        "album": null,
+        "single": "MIND GAMES",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "世界はきっと未来の中",
+    "releaseYear": 1999,
+    "verified": true,
+    "tracks": []
+  },
+  {
+    "singleTitle": "痛いくらい君があふれているよ",
+    "releaseYear": 1999,
+    "verified": true,
+    "tracks": []
+  },
+  {
+    "singleTitle": "この涙 星になれ",
+    "releaseYear": 1999,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_omo_hi_de_coupling_1999",
+        "title": "お・も・ひ・で",
+        "year": 1999,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "この涙 星になれ",
+        "album": null,
+        "single": "この涙 星になれ",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "Get U're Dream",
+    "releaseYear": 2000,
+    "verified": true,
+    "tracks": []
+  },
+  {
+    "singleTitle": "promised you",
+    "releaseYear": 2000,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_the_only_truth_i_know_is_you_coupling_2000",
+        "title": "The only truth I know is you",
+        "year": 2000,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "promised you",
+        "album": null,
+        "single": "promised you",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "さわやかな君の気持ち",
+    "releaseYear": 2002,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_dakishimete_ite_coupling_2002",
+        "title": "抱きしめていて",
+        "year": 2002,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "さわやかな君の気持ち",
+        "album": null,
+        "single": "さわやかな君の気持ち",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
       },
-      "note": "初期ZARDの切なさを感じられる代表曲。"
-    },
-    {
-      "id": "song_fushigi_ne",
-      "title": "不思議ね...",
-      "year": 1991,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "不思議ね...",
-      "album": "Good-bye My Loneliness",
-      "single": "不思議ね...",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "early90s",
-        "theme": "love",
-        "popularity": "minor"
+      {
+        "id": "song_seven_rainbow_coupling_2002",
+        "title": "Seven Rainbow",
+        "year": 2002,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "さわやかな君の気持ち",
+        "album": null,
+        "single": "さわやかな君の気持ち",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "明日を夢見て",
+    "releaseYear": 2003,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_sagashi_ni_ikou_yo_coupling_2003",
+        "title": "探しに行こうよ",
+        "year": 2003,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "明日を夢見て",
+        "album": null,
+        "single": "明日を夢見て",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "瞳閉じて",
+    "releaseYear": 2003,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_itoshii_hito_yo_na_mo_naki_tabibito_yo_coupling_2003",
+        "title": "愛しい人よ ～名もなき旅人よ～",
+        "year": 2003,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "瞳閉じて",
+        "album": null,
+        "single": "瞳閉じて",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "もっと近くで君の横顔見ていたい",
+    "releaseYear": 2003,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_reset_coupling_2003",
+        "title": "リセット",
+        "year": 2003,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "もっと近くで君の横顔見ていたい",
+        "album": null,
+        "single": "もっと近くで君の横顔見ていたい",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "かけがえのないもの",
+    "releaseYear": 2004,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_mugamuchuu_coupling_2004",
+        "title": "無我夢中",
+        "year": 2004,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "かけがえのないもの",
+        "album": null,
+        "single": "かけがえのないもの",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
       },
-      "note": "初期の透明感を味わえる一曲。"
-    },
-    {
-      "id": "song_mou_sagasanai",
-      "title": "もう探さない",
-      "year": 1991,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "もう探さない",
-      "album": "もう探さない",
-      "single": "もう探さない",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "sad",
-        "era": "early90s",
-        "theme": "loneliness",
-        "popularity": "standard"
+      {
+        "id": "song_eien_tour_ver_coupling_2004",
+        "title": "永遠 (Tour Ver.)",
+        "year": 2004,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "かけがえのないもの",
+        "album": null,
+        "single": "かけがえのないもの",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "ハートに火をつけて",
+    "releaseYear": 2006,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_kimi_e_no_blues_coupling_2006",
+        "title": "君へのブルース",
+        "year": 2006,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "ハートに火をつけて",
+        "album": null,
+        "single": "ハートに火をつけて",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "グロリアス マインド",
+    "releaseYear": 2007,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_sagashi_ni_ikou_yo_2007_ver_coupling_2007",
+        "title": "探しに行こうよ (2007 ver.)",
+        "year": 2007,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "グロリアス マインド",
+        "album": null,
+        "single": "グロリアス マインド",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
       },
-      "note": "落ち着いた切なさが魅力。"
-    },
-    {
-      "id": "song_nemurenai_yoru_o_daite",
-      "title": "眠れない夜を抱いて",
-      "year": 1992,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "眠れない夜を抱いて",
-      "album": "HOLD ME",
-      "single": "眠れない夜を抱いて",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "sad",
-        "era": "early90s",
-        "theme": "loneliness",
-        "popularity": "standard"
-      },
-      "note": "夜にじっくり浸りたい時に。"
-    },
-    {
-      "id": "song_in_my_arms_tonight",
-      "title": "IN MY ARMS TONIGHT",
-      "year": 1992,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "IN MY ARMS TONIGHT",
-      "album": "HOLD ME",
-      "single": "IN MY ARMS TONIGHT",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "sad",
-        "era": "early90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "大人っぽい雰囲気が光る曲。"
-    },
-    {
-      "id": "song_ano_hohoemi_o_wasurenai_de",
-      "title": "あの微笑みを忘れないで",
-      "year": 1992,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "HOLD ME",
-      "album": "HOLD ME",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "early90s",
-        "theme": "nostalgia",
-        "popularity": "minor"
-      },
-      "note": "ファン人気の高い隠れた名曲。"
-    },
-    {
-      "id": "song_makenai_de",
-      "title": "負けないで",
-      "year": 1993,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "負けないで",
-      "album": "揺れる想い",
-      "single": "負けないで",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "fast",
-        "mood": "empowering",
-        "era": "early90s",
-        "theme": "empowerment",
-        "popularity": "major"
-      },
-      "note": "背中を押してくれる王道の応援ソング。"
-    },
-    {
-      "id": "song_kimi_ga_inai",
-      "title": "君がいない",
-      "year": 1993,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "君がいない",
-      "album": "揺れる想い",
-      "single": "君がいない",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "sad",
-        "era": "early90s",
-        "theme": "loneliness",
-        "popularity": "major"
-      },
-      "note": "喪失感がやさしく沁みる一曲。"
-    },
-    {
-      "id": "song_yureru_omoi",
-      "title": "揺れる想い",
-      "year": 1993,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "揺れる想い",
-      "album": "揺れる想い",
-      "single": "揺れる想い",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "early90s",
-        "theme": "love",
-        "popularity": "major"
-      },
-      "note": "透明感あふれるZARDの代表曲。"
-    },
-    {
-      "id": "song_toi_hi_no_nostalgia",
-      "title": "遠い日のNostalgia",
-      "year": 1993,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "揺れる想い",
-      "album": "揺れる想い",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "nostalgic",
-        "era": "early90s",
-        "theme": "nostalgia",
-        "popularity": "minor"
-      },
-      "note": "初期の空気感を深く味わえる。"
-    },
-    {
-      "id": "song_season",
-      "title": "season",
-      "year": 1993,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "揺れる想い",
-      "album": "揺れる想い",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "early90s",
-        "theme": "nostalgia",
-        "popularity": "minor"
-      },
-      "note": "季節の記憶と相性のいい一曲。"
-    },
-    {
-      "id": "song_mou_sukoshi_ato_sukoshi",
-      "title": "もう少し あと少し...",
-      "year": 1993,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "もう少し あと少し...",
-      "album": "OH MY LOVE",
-      "single": "もう少し あと少し...",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "sad",
-        "era": "early90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "切ない恋愛曲が好きな人におすすめ。"
-    },
-    {
-      "id": "song_kitto_wasurenai",
-      "title": "きっと忘れない",
-      "year": 1993,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "きっと忘れない",
-      "album": "OH MY LOVE",
-      "single": "きっと忘れない",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "refreshing",
-        "era": "early90s",
-        "theme": "nostalgia",
-        "popularity": "major"
-      },
-      "note": "爽やかさと懐かしさが同居する名曲。"
-    },
-    {
-      "id": "song_kono_ai_ni_oyogitsukaretemo",
-      "title": "この愛に泳ぎ疲れても",
-      "year": 1994,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "この愛に泳ぎ疲れても",
-      "album": "OH MY LOVE",
-      "single": "この愛に泳ぎ疲れても",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "sad",
-        "era": "mid90s",
-        "theme": "loneliness",
-        "popularity": "major"
-      },
-      "note": "濃い感情をじっくり味わいたい時に。"
-    },
-    {
-      "id": "song_oh_my_love",
-      "title": "Oh my love",
-      "year": 1994,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "OH MY LOVE",
-      "album": "OH MY LOVE",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "mid90s",
-        "theme": "love",
-        "popularity": "minor"
-      },
-      "note": "アルバムタイトル曲らしい優美さがある。"
-    },
-    {
-      "id": "song_toi_hoshi_o_kazoete",
-      "title": "遠い星を数えて",
-      "year": 1994,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "OH MY LOVE",
-      "album": "OH MY LOVE",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "nostalgic",
-        "era": "mid90s",
-        "theme": "nostalgia",
-        "popularity": "minor"
-      },
-      "note": "静かな夜に合う隠れた人気曲。"
-    },
-
-    {
-      "id": "song_konna_ni_soba_ni_irunoni",
-      "title": "こんなにそばに居るのに",
-      "year": 1994,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "こんなにそばに居るのに",
-      "album": "forever you",
-      "single": "こんなにそばに居るのに",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "sad",
-        "era": "mid90s",
-        "theme": "love",
-        "popularity": "major"
-      },
-      "note": "近くて遠い距離感が切ないラブソング。"
-    },
-    {
-      "id": "song_anata_o_kanjiteitai",
-      "title": "あなたを感じていたい",
-      "year": 1994,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "あなたを感じていたい",
-      "album": "forever you",
-      "single": "あなたを感じていたい",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "refreshing",
-        "era": "mid90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "軽やかな前向きさが心地よい。"
-    },
-    {
-      "id": "song_just_believe_in_love",
-      "title": "Just believe in love",
-      "year": 1995,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "Just believe in love",
-      "album": "forever you",
-      "single": "Just believe in love",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "mid90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "やわらかな高揚感のあるラブソング。"
-    },
-    {
-      "id": "song_rainen_no_natsu_mo",
-      "title": "来年の夏も",
-      "year": 1995,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "forever you",
-      "album": "forever you",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "mid90s",
-        "theme": "nostalgia",
-        "popularity": "minor"
-      },
-      "note": "季節感のある隠れた良曲。"
-    },
-    {
-      "id": "song_ai_ga_mienai",
-      "title": "愛が見えない",
-      "year": 1995,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "愛が見えない",
-      "album": "TODAY IS ANOTHER DAY",
-      "single": "愛が見えない",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "fast",
-        "mood": "refreshing",
-        "era": "mid90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "勢いのあるサウンドが魅力。"
-    },
-    {
-      "id": "song_sayonara_wa_ima_mo_kono_mune_ni_imasu",
-      "title": "サヨナラは今もこの胸に居ます",
-      "year": 1995,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "サヨナラは今もこの胸に居ます",
-      "album": "TODAY IS ANOTHER DAY",
-      "single": "サヨナラは今もこの胸に居ます",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "sad",
-        "era": "mid90s",
-        "theme": "loneliness",
-        "popularity": "standard"
-      },
-      "note": "別れの余韻を強く感じるバラード。"
-    },
-    {
-      "id": "song_my_friend",
-      "title": "マイ フレンド",
-      "year": 1996,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "マイ フレンド",
-      "album": "TODAY IS ANOTHER DAY",
-      "single": "マイ フレンド",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "empowering",
-        "era": "mid90s",
-        "theme": "empowerment",
-        "popularity": "major"
-      },
-      "note": "友情と前向きさが同居する大人気曲。"
-    },
-    {
-      "id": "song_kokoro_o_hiraite",
-      "title": "心を開いて",
-      "year": 1996,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "心を開いて",
-      "album": "TODAY IS ANOTHER DAY",
-      "single": "心を開いて",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "mid90s",
-        "theme": "love",
-        "popularity": "major"
-      },
-      "note": "柔らかなきらめきのある恋愛曲。"
-    },
-    {
-      "id": "song_today_is_another_day",
-      "title": "Today is another day",
-      "year": 1996,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "TODAY IS ANOTHER DAY",
-      "album": "TODAY IS ANOTHER DAY",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "fast",
-        "mood": "empowering",
-        "era": "mid90s",
-        "theme": "empowerment",
-        "popularity": "standard"
-      },
-      "note": "軽やかに前を向かせてくれる。"
-    },
-    {
-      "id": "song_love_is_gone",
-      "title": "Love is Gone",
-      "year": 1996,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "TODAY IS ANOTHER DAY",
-      "album": "TODAY IS ANOTHER DAY",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "sad",
-        "era": "mid90s",
-        "theme": "loneliness",
-        "popularity": "minor"
-      },
-      "note": "静かな切なさが漂う隠れた一曲。"
-    },
-
-    {
-      "id": "song_dont_you_see",
-      "title": "Don't you see!",
-      "year": 1997,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "Don't you see!",
-      "album": "永遠",
-      "single": "Don't you see!",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "fast",
-        "mood": "refreshing",
-        "era": "late90s",
-        "theme": "empowerment",
-        "popularity": "major"
-      },
-      "note": "明るさと疾走感が魅力。"
-    },
-    {
-      "id": "song_kimi_ni_aitaku_nattara",
-      "title": "君に逢いたくなったら...",
-      "year": 1997,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "君に逢いたくなったら...",
-      "album": "永遠",
-      "single": "君に逢いたくなったら...",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "late90s",
-        "theme": "love",
-        "popularity": "major"
-      },
-      "note": "会いたい気持ちがまっすぐ届く。"
-    },
-    {
-      "id": "song_eien",
-      "title": "永遠",
-      "year": 1997,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "永遠",
-      "album": "永遠",
-      "single": "永遠",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "romantic",
-        "era": "late90s",
-        "theme": "love",
-        "popularity": "major"
-      },
-      "note": "しっとり深く浸れる名バラード。"
-    },
-    {
-      "id": "song_my_baby_grand",
-      "title": "My Baby Grand ～ぬくもりが欲しくて～",
-      "year": 1997,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "My Baby Grand ～ぬくもりが欲しくて～",
-      "album": "永遠",
-      "single": "My Baby Grand ～ぬくもりが欲しくて～",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "romantic",
-        "era": "late90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "穏やかな温度感が魅力。"
-    },
-    {
-      "id": "song_unmei_no_roulette_mawashite",
-      "title": "運命のルーレット廻して",
-      "year": 1998,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "運命のルーレット廻して",
-      "album": "永遠",
-      "single": "運命のルーレット廻して",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "late90s",
-        "theme": "nostalgia",
-        "popularity": "major"
-      },
-      "note": "神秘的な印象が残る人気曲。"
-    },
-    {
-      "id": "song_iki_mo_dekinai",
-      "title": "息もできない",
-      "year": 1998,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "息もできない",
-      "album": "永遠",
-      "single": "息もできない",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "fast",
-        "mood": "refreshing",
-        "era": "late90s",
-        "theme": "love",
-        "popularity": "major"
-      },
-      "note": "勢いよく走り抜ける爽快曲。"
-    },
-    {
-      "id": "song_atarashii_door",
-      "title": "新しいドア ～冬のひまわり～",
-      "year": 1998,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "新しいドア ～冬のひまわり～",
-      "album": "永遠",
-      "single": "新しいドア ～冬のひまわり～",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "empowering",
-        "era": "late90s",
-        "theme": "empowerment",
-        "popularity": "standard"
-      },
-      "note": "再出発の気持ちに寄り添う。"
-    },
-    {
-      "id": "song_good_day",
-      "title": "GOOD DAY",
-      "year": 1998,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "GOOD DAY",
-      "album": "永遠",
-      "single": "GOOD DAY",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "refreshing",
-        "era": "late90s",
-        "theme": "empowerment",
-        "popularity": "minor"
-      },
-      "note": "やわらかく気持ちを明るくしてくれる。"
-    },
-    {
-      "id": "song_mind_games",
-      "title": "MIND GAMES",
-      "year": 1999,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "MIND GAMES",
-      "album": "永遠",
-      "single": "MIND GAMES",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "refreshing",
-        "era": "late90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "少しクールな表情も楽しめる。"
-    },
-    {
-      "id": "song_itai_kurai_kimi_ga_afureteiru_yo",
-      "title": "痛いくらい君があふれているよ",
-      "year": 1999,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "痛いくらい君があふれているよ",
-      "album": "永遠",
-      "single": "痛いくらい君があふれているよ",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "late90s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "感情の熱量を感じる恋愛曲。"
-    },
-    {
-      "id": "song_shoujo_no_koro_ni_modotta_mitai_ni",
-      "title": "少女の頃に戻ったみたいに",
-      "year": 1999,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "永遠",
-      "album": "永遠",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "late90s",
-        "theme": "nostalgia",
-        "popularity": "standard"
-      },
-      "note": "夢見心地のノスタルジーが魅力。"
-    },
-    {
-      "id": "song_kono_namida_hoshi_ni_nare",
-      "title": "この涙 星になれ",
-      "year": 1999,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "この涙 星になれ",
-      "album": "時間の翼",
-      "single": "この涙 星になれ",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "sad",
-        "era": "late90s",
-        "theme": "loneliness",
-        "popularity": "standard"
-      },
-      "note": "静かな切なさを味わえる一曲。"
-    },
-    {
-      "id": "song_get_ure_dream",
-      "title": "Get U're Dream",
-      "year": 2000,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "Get U're Dream",
-      "album": "時間の翼",
-      "single": "Get U're Dream",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "fast",
-        "mood": "empowering",
-        "era": "00s",
-        "theme": "empowerment",
-        "popularity": "major"
-      },
-      "note": "テンションを上げたい時にぴったり。"
-    },
-    {
-      "id": "song_promised_you",
-      "title": "promised you",
-      "year": 2000,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "promised you",
-      "album": "時間の翼",
-      "single": "promised you",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "romantic",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "minor"
-      },
-      "note": "後期の洗練された魅力を感じる。"
-    },
-    {
-      "id": "song_sawayakana_kimi_no_kimochi",
-      "title": "さわやかな君の気持ち",
-      "year": 2002,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "さわやかな君の気持ち",
-      "album": "時間の翼",
-      "single": "さわやかな君の気持ち",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "refreshing",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "minor"
-      },
-      "note": "穏やかな爽やかさが魅力。"
-    },
-    {
-      "id": "song_ashita_o_yumemite",
-      "title": "明日を夢見て",
-      "year": 2003,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "明日を夢見て",
-      "album": "止まっていた時計が今動き出した",
-      "single": "明日を夢見て",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "empowering",
-        "era": "00s",
-        "theme": "empowerment",
-        "popularity": "major"
-      },
-      "note": "静かな前向きさが胸に残る。"
-    },
-    {
-      "id": "song_hitomi_tojite",
-      "title": "瞳閉じて",
-      "year": 2003,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "瞳閉じて",
-      "album": "止まっていた時計が今動き出した",
-      "single": "瞳閉じて",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "sad",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "minor"
-      },
-      "note": "落ち着いた情感が美しい。"
-    },
-    {
-      "id": "song_motto_chikakude_kimi_no_yokogao_miteitai",
-      "title": "もっと近くで君の横顔見ていたい",
-      "year": 2003,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "もっと近くで君の横顔見ていたい",
-      "album": "止まっていた時計が今動き出した",
-      "single": "もっと近くで君の横顔見ていたい",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "romantic",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "しっとりした恋愛曲が好きな人向け。"
-    },
-    {
-      "id": "song_kakegae_no_nai_mono",
-      "title": "かけがえのないもの",
-      "year": 2004,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "かけがえのないもの",
-      "album": "止まっていた時計が今動き出した",
-      "single": "かけがえのないもの",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "empowering",
-        "era": "00s",
-        "theme": "empowerment",
-        "popularity": "major"
-      },
-      "note": "やさしく前を向かせてくれる。"
-    },
-    {
-      "id": "song_tomatteita_tokei_ga_ima_ugokidashita",
-      "title": "止まっていた時計が今動き出した",
-      "year": 2004,
-      "initialReleaseType": "album_title",
-      "initialReleaseTitle": "止まっていた時計が今動き出した",
-      "album": "止まっていた時計が今動き出した",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "00s",
-        "theme": "empowerment",
-        "popularity": "minor"
-      },
-      "note": "再出発の物語を感じる後期曲。"
-    },
-    {
-      "id": "song_kyou_wa_yukkuri_hanasou",
-      "title": "今日はゆっくり話そう",
-      "year": 2004,
-      "initialReleaseType": "album_track",
-      "initialReleaseTitle": "止まっていた時計が今動き出した",
-      "album": "止まっていた時計が今動き出した",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "romantic",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "minor"
-      },
-      "note": "肩の力を抜いて聴きたい一曲。"
-    },
-    {
-      "id": "song_kimi_to_no_distance",
-      "title": "君とのDistance",
-      "year": 2005,
-      "initialReleaseType": "album_title",
-      "initialReleaseTitle": "君とのDistance",
-      "album": "君とのDistance",
-      "single": null,
-      "isCoupling": false,
-      "isAlbumTrack": true,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "minor"
-      },
-      "note": "後期の落ち着いた魅力を味わえる。"
-    },
-    {
-      "id": "song_hoshi_no_kagayakiyo",
-      "title": "星のかがやきよ",
-      "year": 2005,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "星のかがやきよ",
-      "album": "君とのDistance",
-      "single": "星のかがやきよ",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "refreshing",
-        "era": "00s",
-        "theme": "empowerment",
-        "popularity": "standard"
-      },
-      "note": "抜けのよい爽快感が心地よい。"
-    },
-    {
-      "id": "song_natsu_o_matsu_sail_no_you_ni",
-      "title": "夏を待つセイル(帆)のように",
-      "year": 2005,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "夏を待つセイル(帆)のように",
-      "album": "君とのDistance",
-      "single": "夏を待つセイル(帆)のように",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "refreshing",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "夏の空気に似合う広がりのある曲。"
-    },
-    {
-      "id": "song_kanashii_hodo_anata_ga_suki",
-      "title": "悲しいほど貴方が好き",
-      "year": 2006,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "悲しいほど貴方が好き",
-      "album": "君とのDistance",
-      "single": "悲しいほど貴方が好き",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "sad",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "切ない恋愛曲を求める人に。"
-    },
-    {
-      "id": "song_heart_ni_hi_o_tsukete",
-      "title": "ハートに火をつけて",
-      "year": 2006,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "ハートに火をつけて",
-      "album": "君とのDistance",
-      "single": "ハートに火をつけて",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "fast",
-        "mood": "empowering",
-        "era": "00s",
-        "theme": "empowerment",
-        "popularity": "minor"
-      },
-      "note": "熱量のある後期アップテンポ曲。"
-    },
-    {
-      "id": "song_glorious_mind",
-      "title": "グロリアス マインド",
-      "year": 2007,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "グロリアス マインド",
-      "album": null,
-      "single": "グロリアス マインド",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "empowering",
-        "era": "00s",
-        "theme": "empowerment",
-        "popularity": "major"
-      },
-      "note": "力強さと透明感を感じる後期シングル。"
-    },
-    {
-      "id": "song_ai_wa_kurayami_no_nakade",
-      "title": "愛は暗闇の中で",
-      "year": 2008,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "愛は暗闇の中で",
-      "album": null,
-      "single": "愛は暗闇の中で",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "mid",
-        "mood": "nostalgic",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "standard"
-      },
-      "note": "ダークさと懐かしさが同居する一曲。"
-    },
-    {
-      "id": "song_sunao_ni_ienakute",
-      "title": "素直に言えなくて",
-      "year": 2009,
-      "initialReleaseType": "single",
-      "initialReleaseTitle": "素直に言えなくて",
-      "album": null,
-      "single": "素直に言えなくて",
-      "isCoupling": false,
-      "isAlbumTrack": false,
-      "official_discography_checked": false,
-      "tags": {
-        "tempo": "slow",
-        "mood": "romantic",
-        "era": "00s",
-        "theme": "love",
-        "popularity": "minor"
-      },
-      "note": "やわらかく余韻を残すラスト期の一曲。"
-    }
-  ],
-  "couplings": [
-    {
-      "singleTitle": "Good-bye My Loneliness",
-      "tracks": []
-    },
-    {
-      "singleTitle": "不思議ね...",
-      "tracks": []
-    },
-    {
-      "singleTitle": "もう探さない",
-      "tracks": []
-    },
-    {
-      "singleTitle": "眠れない夜を抱いて",
-      "tracks": []
-    },
-    {
-      "singleTitle": "IN MY ARMS TONIGHT",
-      "tracks": []
-    },
-    {
-      "singleTitle": "負けないで",
-      "tracks": []
-    },
-    {
-      "singleTitle": "君がいない",
-      "tracks": []
-    },
-    {
-      "singleTitle": "揺れる想い",
-      "tracks": []
-    },
-    {
-      "singleTitle": "もう少し あと少し...",
-      "tracks": []
-    },
-    {
-      "singleTitle": "きっと忘れない",
-      "tracks": []
-    },
-    {
-      "singleTitle": "この愛に泳ぎ疲れても",
-      "tracks": []
-    },
-    {
-      "singleTitle": "こんなにそばに居るのに",
-      "tracks": []
-    },
-    {
-      "singleTitle": "あなたを感じていたい",
-      "tracks": []
-    },
-    {
-      "singleTitle": "Just believe in love",
-      "tracks": []
-    },
-    {
-      "singleTitle": "愛が見えない",
-      "tracks": []
-    },
-    {
-      "singleTitle": "サヨナラは今もこの胸に居ます",
-      "tracks": []
-    },
-    {
-      "singleTitle": "マイ フレンド",
-      "tracks": []
-    },
-    {
-      "singleTitle": "心を開いて",
-      "tracks": []
-    },
-    {
-      "singleTitle": "Don't you see!",
-      "tracks": []
-    },
-    {
-      "singleTitle": "君に逢いたくなったら...",
-      "tracks": []
-    },
-    {
-      "singleTitle": "永遠",
-      "tracks": []
-    },
-    {
-      "singleTitle": "My Baby Grand ～ぬくもりが欲しくて～",
-      "tracks": []
-    },
-    {
-      "singleTitle": "運命のルーレット廻して",
-      "tracks": []
-    },
-    {
-      "singleTitle": "息もできない",
-      "tracks": []
-    },
-    {
-      "singleTitle": "新しいドア ～冬のひまわり～",
-      "tracks": []
-    },
-    {
-      "singleTitle": "GOOD DAY",
-      "tracks": []
-    },
-    {
-      "singleTitle": "MIND GAMES",
-      "tracks": []
-    },
-    {
-      "singleTitle": "痛いくらい君があふれているよ",
-      "tracks": []
-    },
-    {
-      "singleTitle": "この涙 星になれ",
-      "tracks": []
-    },
-    {
-      "singleTitle": "Get U're Dream",
-      "tracks": []
-    },
-    {
-      "singleTitle": "promised you",
-      "tracks": []
-    },
-    {
-      "singleTitle": "さわやかな君の気持ち",
-      "tracks": []
-    },
-    {
-      "singleTitle": "明日を夢見て",
-      "tracks": []
-    },
-    {
-      "singleTitle": "瞳閉じて",
-      "tracks": []
-    },
-    {
-      "singleTitle": "もっと近くで君の横顔見ていたい",
-      "tracks": []
-    },
-    {
-      "singleTitle": "かけがえのないもの",
-      "tracks": []
-    },
-    {
-      "singleTitle": "星のかがやきよ",
-      "tracks": []
-    },
-    {
-      "singleTitle": "夏を待つセイル(帆)のように",
-      "tracks": []
-    },
-    {
-      "singleTitle": "悲しいほど貴方が好き",
-      "tracks": []
-    },
-    {
-      "singleTitle": "ハートに火をつけて",
-      "tracks": []
-    },
-    {
-      "singleTitle": "グロリアス マインド",
-      "tracks": []
-    },
-    {
-      "singleTitle": "愛は暗闇の中で",
-      "tracks": []
-    },
-    {
-      "singleTitle": "素直に言えなくて",
-      "tracks": []
-    }
-  ]
-}
+      {
+        "id": "song_ai_o_shinjite_itai_2007_ver_coupling_2007",
+        "title": "愛を信じていたい (2007 ver.)",
+        "year": 2007,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "グロリアス マインド",
+        "album": null,
+        "single": "グロリアス マインド",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  },
+  {
+    "singleTitle": "翼を広げて / 愛は暗闇の中で",
+    "releaseYear": 2008,
+    "verified": true,
+    "tracks": []
+  },
+  {
+    "singleTitle": "素直に言えなくて",
+    "releaseYear": 2009,
+    "verified": true,
+    "tracks": [
+      {
+        "id": "song_hypnosis_coupling_2009",
+        "title": "Hypnosis",
+        "year": 2009,
+        "initialReleaseType": "coupling",
+        "initialReleaseTitle": "素直に言えなくて",
+        "album": null,
+        "single": "素直に言えなくて",
+        "isCoupling": true,
+        "isAlbumTrack": false,
+        "official_discography_checked": false,
+        "note": "カップリング曲"
+      }
+    ]
+  }
+]
