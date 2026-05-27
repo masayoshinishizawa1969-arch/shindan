@@ -1,803 +1,1851 @@
-[
-  {
-    "singleTitle": "Good-bye My Loneliness",
-    "releaseYear": 1991,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_ai_wa_kurayami_no_nakade_coupling_1991",
-        "title": "æ„›ã¯æš—é—‡ã®ä¸­ã§",
-        "year": 1991,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "Good-bye My Loneliness",
-        "album": null,
-        "single": "Good-bye My Loneliness",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ä¸æ€è­°ã­...",
-    "releaseYear": 1991,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_sunao_ni_ienakute_coupling_1991",
-        "title": "ç´ ç›´ã«è¨€ãˆãªãã¦",
-        "year": 1991,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ä¸æ€è­°ã­...",
-        "album": null,
-        "single": "ä¸æ€è­°ã­...",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã‚‚ã†æ¢ã•ãªã„",
-    "releaseYear": 1991,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_konna_ni_aishitemo_coupling_1991",
-        "title": "ã“ã‚“ãªã«æ„›ã—ã¦ã‚‚",
-        "year": 1991,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‚‚ã†æ¢ã•ãªã„",
-        "album": null,
-        "single": "ã‚‚ã†æ¢ã•ãªã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "çœ ã‚Œãªã„å¤œã‚’æŠ±ã„ã¦",
-    "releaseYear": 1992,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_dangerous_tonight_coupling_1992",
-        "title": "Dangerous Tonight",
-        "year": 1992,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "çœ ã‚Œãªã„å¤œã‚’æŠ±ã„ã¦",
-        "album": null,
-        "single": "çœ ã‚Œãªã„å¤œã‚’æŠ±ã„ã¦",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "IN MY ARMS TONIGHT",
-    "releaseYear": 1992,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_ase_no_naka_de_cry_coupling_1992",
-        "title": "æ±—ã®ä¸­ã§CRY",
-        "year": 1992,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "IN MY ARMS TONIGHT",
-        "album": null,
-        "single": "IN MY ARMS TONIGHT",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "è² ã‘ãªã„ã§",
-    "releaseYear": 1993,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_stray_love_coupling_1993",
-        "title": "Stray Love",
-        "year": 1993,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "è² ã‘ãªã„ã§",
-        "album": null,
-        "single": "è² ã‘ãªã„ã§",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "å›ãŒã„ãªã„",
-    "releaseYear": 1993,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_watashi_dake_mitsumete_coupling_1993",
-        "title": "ç§ã ã‘è¦‹ã¤ã‚ã¦",
-        "year": 1993,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "å›ãŒã„ãªã„",
-        "album": null,
-        "single": "å›ãŒã„ãªã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "æºã‚Œã‚‹æƒ³ã„",
-    "releaseYear": 1993,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_just_for_you_coupling_1993",
-        "title": "Just for you",
-        "year": 1993,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "æºã‚Œã‚‹æƒ³ã„",
-        "album": null,
-        "single": "æºã‚Œã‚‹æƒ³ã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "æœã¦ã—ãªã„å¤¢ã‚’",
-    "releaseYear": 1993,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_ame_ni_nurete_coupling_1993",
-        "title": "é›¨ã«æ¿¡ã‚Œã¦",
-        "year": 1993,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "æœã¦ã—ãªã„å¤¢ã‚’",
-        "album": null,
-        "single": "æœã¦ã—ãªã„å¤¢ã‚’",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã‚‚ã†å°‘ã— ã‚ã¨å°‘ã—...",
-    "releaseYear": 1993,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_kanariya_coupling_1993",
-        "title": "ã‚«ãƒŠãƒªãƒ¤",
-        "year": 1993,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‚‚ã†å°‘ã— ã‚ã¨å°‘ã—...",
-        "album": null,
-        "single": "ã‚‚ã†å°‘ã— ã‚ã¨å°‘ã—...",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ãã£ã¨å¿˜ã‚Œãªã„",
-    "releaseYear": 1993,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_tasogare_ni_my_lonely_heart_coupling_1993",
-        "title": "é»„æ˜ã«My Lonely Heart",
-        "year": 1993,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ãã£ã¨å¿˜ã‚Œãªã„",
-        "album": null,
-        "single": "ãã£ã¨å¿˜ã‚Œãªã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã“ã®æ„›ã«æ³³ãç–²ã‚Œã¦ã‚‚ / Boy",
-    "releaseYear": 1994,
-    "verified": true,
-    "tracks": []
-  },
-  {
-    "singleTitle": "ã“ã‚“ãªã«ãã°ã«å±…ã‚‹ã®ã«",
-    "releaseYear": 1994,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_anata_no_seija_nai_coupling_1994",
-        "title": "ã‚ãªãŸã®ã›ã„ã˜ã‚ƒãªã„",
-        "year": 1994,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã“ã‚“ãªã«ãã°ã«å±…ã‚‹ã®ã«",
-        "album": null,
-        "single": "ã“ã‚“ãªã«ãã°ã«å±…ã‚‹ã®ã«",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã‚ãªãŸã‚’æ„Ÿã˜ã¦ã„ãŸã„",
-    "releaseYear": 1994,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_take_me_to_your_dream_coupling_1994",
-        "title": "Take me to your dream",
-        "year": 1994,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‚ãªãŸã‚’æ„Ÿã˜ã¦ã„ãŸã„",
-        "album": null,
-        "single": "ã‚ãªãŸã‚’æ„Ÿã˜ã¦ã„ãŸã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "Just believe in love",
-    "releaseYear": 1995,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_ready_go_coupling_1995",
-        "title": "Ready, Go!",
-        "year": 1995,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "Just believe in love",
-        "album": null,
-        "single": "Just believe in love",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "æ„›ãŒè¦‹ãˆãªã„",
-    "releaseYear": 1995,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_teenage_dream_coupling_1995",
-        "title": "Teenage dream",
-        "year": 1995,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "æ„›ãŒè¦‹ãˆãªã„",
-        "album": null,
-        "single": "æ„›ãŒè¦‹ãˆãªã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã‚µãƒ¨ãƒŠãƒ©ã¯ä»Šã‚‚ã“ã®èƒ¸ã«å±…ã¾ã™",
-    "releaseYear": 1995,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_nemuri_coupling_1995",
-        "title": "çœ ã‚Š",
-        "year": 1995,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‚µãƒ¨ãƒŠãƒ©ã¯ä»Šã‚‚ã“ã®èƒ¸ã«å±…ã¾ã™",
-        "album": null,
-        "single": "ã‚µãƒ¨ãƒŠãƒ©ã¯ä»Šã‚‚ã“ã®èƒ¸ã«å±…ã¾ã™",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ãƒã‚¤ ãƒ•ãƒ¬ãƒ³ãƒ‰",
-    "releaseYear": 1996,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_mezameta_asa_wa_coupling_1996",
-        "title": "ç›®è¦šã‚ãŸæœã¯â€¦",
-        "year": 1996,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ãƒã‚¤ ãƒ•ãƒ¬ãƒ³ãƒ‰",
-        "album": null,
-        "single": "ãƒã‚¤ ãƒ•ãƒ¬ãƒ³ãƒ‰",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "å¿ƒã‚’é–‹ã„ã¦",
-    "releaseYear": 1996,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_change_my_mind_coupling_1996",
-        "title": "Change my mind",
-        "year": 1996,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "å¿ƒã‚’é–‹ã„ã¦",
-        "album": null,
-        "single": "å¿ƒã‚’é–‹ã„ã¦",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "Don't you see!",
-    "releaseYear": 1997,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_kaeranu_jikan_no_nakade_coupling_1997",
-        "title": "å¸°ã‚‰ã¬æ™‚é–“ã®ä¸­ã§",
-        "year": 1997,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "Don't you see!",
-        "album": null,
-        "single": "Don't you see!",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "å›ã«é€¢ã„ãŸããªã£ãŸã‚‰...",
-    "releaseYear": 1997,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_ai_o_shinjite_itai_coupling_1997",
-        "title": "æ„›ã‚’ä¿¡ã˜ã¦ã„ãŸã„",
-        "year": 1997,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "å›ã«é€¢ã„ãŸããªã£ãŸã‚‰...",
-        "album": null,
-        "single": "å›ã«é€¢ã„ãŸããªã£ãŸã‚‰...",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "é¢¨ãŒé€šã‚ŠæŠœã‘ã‚‹è¡—ã¸",
-    "releaseYear": 1997,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_toi_hoshi_o_kazoete_coupling_1997",
-        "title": "é ã„æ˜Ÿã‚’æ•°ãˆã¦",
-        "year": 1997,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "é¢¨ãŒé€šã‚ŠæŠœã‘ã‚‹è¡—ã¸",
-        "album": null,
-        "single": "é¢¨ãŒé€šã‚ŠæŠœã‘ã‚‹è¡—ã¸",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "æ°¸é ",
-    "releaseYear": 1997,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_i_cant_let_go_coupling_1997",
-        "title": "I can't let go",
-        "year": 1997,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "æ°¸é ",
-        "album": null,
-        "single": "æ°¸é ",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "My Baby Grand ï½ã¬ãã‚‚ã‚ŠãŒæ¬²ã—ãã¦ï½",
-    "releaseYear": 1997,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_love_is_gone_coupling_1997",
-        "title": "Love is Gone",
-        "year": 1997,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "My Baby Grand ï½ã¬ãã‚‚ã‚ŠãŒæ¬²ã—ãã¦ï½",
-        "album": null,
-        "single": "My Baby Grand ï½ã¬ãã‚‚ã‚ŠãŒæ¬²ã—ãã¦ï½",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "æ¯ã‚‚ã§ããªã„",
-    "releaseYear": 1998,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_vintage_coupling_1998",
-        "title": "Vintage",
-        "year": 1998,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "æ¯ã‚‚ã§ããªã„",
-        "album": null,
-        "single": "æ¯ã‚‚ã§ããªã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "é‹å‘½ã®ãƒ«ãƒ¼ãƒ¬ãƒƒãƒˆå»»ã—ã¦",
-    "releaseYear": 1998,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_shoujo_no_koro_ni_modotta_mitai_ni_coupling_1998",
-        "title": "å°‘å¥³ã®é ƒã«æˆ»ã£ãŸã¿ãŸã„ã«",
-        "year": 1998,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "é‹å‘½ã®ãƒ«ãƒ¼ãƒ¬ãƒƒãƒˆå»»ã—ã¦",
-        "album": null,
-        "single": "é‹å‘½ã®ãƒ«ãƒ¼ãƒ¬ãƒƒãƒˆå»»ã—ã¦",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "æ–°ã—ã„ãƒ‰ã‚¢ ï½å†¬ã®ã²ã¾ã‚ã‚Šï½",
-    "releaseYear": 1998,
-    "verified": true,
-    "tracks": []
-  },
-  {
-    "singleTitle": "GOOD DAY",
-    "releaseYear": 1998,
-    "verified": true,
-    "tracks": []
-  },
-  {
-    "singleTitle": "MIND GAMES",
-    "releaseYear": 1999,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_hypnosis_coupling_1999",
-        "title": "Hypnosis",
-        "year": 1999,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "MIND GAMES",
-        "album": null,
-        "single": "MIND GAMES",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ä¸–ç•Œã¯ãã£ã¨æœªæ¥ã®ä¸­",
-    "releaseYear": 1999,
-    "verified": true,
-    "tracks": []
-  },
-  {
-    "singleTitle": "ç—›ã„ãã‚‰ã„å›ãŒã‚ãµã‚Œã¦ã„ã‚‹ã‚ˆ",
-    "releaseYear": 1999,
-    "verified": true,
-    "tracks": []
-  },
-  {
-    "singleTitle": "ã“ã®æ¶™ æ˜Ÿã«ãªã‚Œ",
-    "releaseYear": 1999,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_omo_hi_de_coupling_1999",
-        "title": "ãŠãƒ»ã‚‚ãƒ»ã²ãƒ»ã§",
-        "year": 1999,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã“ã®æ¶™ æ˜Ÿã«ãªã‚Œ",
-        "album": null,
-        "single": "ã“ã®æ¶™ æ˜Ÿã«ãªã‚Œ",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "Get U're Dream",
-    "releaseYear": 2000,
-    "verified": true,
-    "tracks": []
-  },
-  {
-    "singleTitle": "promised you",
-    "releaseYear": 2000,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_the_only_truth_i_know_is_you_coupling_2000",
-        "title": "The only truth I know is you",
-        "year": 2000,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "promised you",
-        "album": null,
-        "single": "promised you",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã•ã‚ã‚„ã‹ãªå›ã®æ°—æŒã¡",
-    "releaseYear": 2002,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_dakishimete_ite_coupling_2002",
-        "title": "æŠ±ãã—ã‚ã¦ã„ã¦",
-        "year": 2002,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã•ã‚ã‚„ã‹ãªå›ã®æ°—æŒã¡",
-        "album": null,
-        "single": "ã•ã‚ã‚„ã‹ãªå›ã®æ°—æŒã¡",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      },
-      {
-        "id": "song_seven_rainbow_coupling_2002",
-        "title": "Seven Rainbow",
-        "year": 2002,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã•ã‚ã‚„ã‹ãªå›ã®æ°—æŒã¡",
-        "album": null,
-        "single": "ã•ã‚ã‚„ã‹ãªå›ã®æ°—æŒã¡",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "æ˜æ—¥ã‚’å¤¢è¦‹ã¦",
-    "releaseYear": 2003,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_sagashi_ni_ikou_yo_coupling_2003",
-        "title": "æ¢ã—ã«è¡Œã“ã†ã‚ˆ",
-        "year": 2003,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "æ˜æ—¥ã‚’å¤¢è¦‹ã¦",
-        "album": null,
-        "single": "æ˜æ—¥ã‚’å¤¢è¦‹ã¦",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ç³é–‰ã˜ã¦",
-    "releaseYear": 2003,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_itoshii_hito_yo_na_mo_naki_tabibito_yo_coupling_2003",
-        "title": "æ„›ã—ã„äººã‚ˆ ï½åã‚‚ãªãæ—…äººã‚ˆï½",
-        "year": 2003,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ç³é–‰ã˜ã¦",
-        "album": null,
-        "single": "ç³é–‰ã˜ã¦",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã‚‚ã£ã¨è¿‘ãã§å›ã®æ¨ªé¡”è¦‹ã¦ã„ãŸã„",
-    "releaseYear": 2003,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_reset_coupling_2003",
-        "title": "ãƒªã‚»ãƒƒãƒˆ",
-        "year": 2003,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‚‚ã£ã¨è¿‘ãã§å›ã®æ¨ªé¡”è¦‹ã¦ã„ãŸã„",
-        "album": null,
-        "single": "ã‚‚ã£ã¨è¿‘ãã§å›ã®æ¨ªé¡”è¦‹ã¦ã„ãŸã„",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã‹ã‘ãŒãˆã®ãªã„ã‚‚ã®",
-    "releaseYear": 2004,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_mugamuchuu_coupling_2004",
-        "title": "ç„¡æˆ‘å¤¢ä¸­",
-        "year": 2004,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‹ã‘ãŒãˆã®ãªã„ã‚‚ã®",
-        "album": null,
-        "single": "ã‹ã‘ãŒãˆã®ãªã„ã‚‚ã®",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      },
-      {
-        "id": "song_eien_tour_ver_coupling_2004",
-        "title": "æ°¸é  (Tour Ver.)",
-        "year": 2004,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‹ã‘ãŒãˆã®ãªã„ã‚‚ã®",
-        "album": null,
-        "single": "ã‹ã‘ãŒãˆã®ãªã„ã‚‚ã®",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ãƒãƒ¼ãƒˆã«ç«ã‚’ã¤ã‘ã¦",
-    "releaseYear": 2006,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_kimi_e_no_blues_coupling_2006",
-        "title": "å›ã¸ã®ãƒ–ãƒ«ãƒ¼ã‚¹",
-        "year": 2006,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ãƒãƒ¼ãƒˆã«ç«ã‚’ã¤ã‘ã¦",
-        "album": null,
-        "single": "ãƒãƒ¼ãƒˆã«ç«ã‚’ã¤ã‘ã¦",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ã‚°ãƒ­ãƒªã‚¢ã‚¹ ãƒã‚¤ãƒ³ãƒ‰",
-    "releaseYear": 2007,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_sagashi_ni_ikou_yo_2007_ver_coupling_2007",
-        "title": "æ¢ã—ã«è¡Œã“ã†ã‚ˆ (2007 ver.)",
-        "year": 2007,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‚°ãƒ­ãƒªã‚¢ã‚¹ ãƒã‚¤ãƒ³ãƒ‰",
-        "album": null,
-        "single": "ã‚°ãƒ­ãƒªã‚¢ã‚¹ ãƒã‚¤ãƒ³ãƒ‰",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      },
-      {
-        "id": "song_ai_o_shinjite_itai_2007_ver_coupling_2007",
-        "title": "æ„›ã‚’ä¿¡ã˜ã¦ã„ãŸã„ (2007 ver.)",
-        "year": 2007,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ã‚°ãƒ­ãƒªã‚¢ã‚¹ ãƒã‚¤ãƒ³ãƒ‰",
-        "album": null,
-        "single": "ã‚°ãƒ­ãƒªã‚¢ã‚¹ ãƒã‚¤ãƒ³ãƒ‰",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  },
-  {
-    "singleTitle": "ç¿¼ã‚’åºƒã’ã¦ / æ„›ã¯æš—é—‡ã®ä¸­ã§",
-    "releaseYear": 2008,
-    "verified": true,
-    "tracks": []
-  },
-  {
-    "singleTitle": "ç´ ç›´ã«è¨€ãˆãªãã¦",
-    "releaseYear": 2009,
-    "verified": true,
-    "tracks": [
-      {
-        "id": "song_hypnosis_coupling_2009",
-        "title": "Hypnosis",
-        "year": 2009,
-        "initialReleaseType": "coupling",
-        "initialReleaseTitle": "ç´ ç›´ã«è¨€ãˆãªãã¦",
-        "album": null,
-        "single": "ç´ ç›´ã«è¨€ãˆãªãã¦",
-        "isCoupling": true,
-        "isAlbumTrack": false,
-        "official_discography_checked": false,
-        "note": "ã‚«ãƒƒãƒ—ãƒªãƒ³ã‚°æ›²"
-      }
-    ]
-  }
-]
+{
+  "artist": "ZARD",
+  "version": "2.3",
+  "updatedAt": "2026-05-27",
+  "notes": [
+    "ƒVƒ“ƒOƒ‹‹È‚ÆƒJƒbƒvƒŠƒ“ƒO‹È‚Ì‘Î‰•\‚ğ”½‰f‚µ‚½“‡”Å",
+    "songs ‚ÉƒJƒbƒvƒŠƒ“ƒO‹È‚à“‡Ï‚İ",
+    "ˆê•”‚ÌƒJƒbƒvƒŠƒ“ƒO‹Èƒ^ƒO‚Íb’èİ’è"
+  ],
+  "albums": [
+    { "id": "album_goodbye_my_loneliness", "title": "Good-bye My Loneliness", "releaseYear": 1991, "type": "album" },
+    { "id": "album_mou_sagasanai", "title": "‚à‚¤’T‚³‚È‚¢", "releaseYear": 1991, "type": "album" },
+    { "id": "album_hold_me", "title": "HOLD ME", "releaseYear": 1992, "type": "album" },
+    { "id": "album_yureru_omoi", "title": "—h‚ê‚é‘z‚¢", "releaseYear": 1993, "type": "album" },
+    { "id": "album_oh_my_love", "title": "OH MY LOVE", "releaseYear": 1994, "type": "album" },
+    { "id": "album_forever_you", "title": "forever you", "releaseYear": 1995, "type": "album" },
+    { "id": "album_today_is_another_day", "title": "TODAY IS ANOTHER DAY", "releaseYear": 1996, "type": "album" },
+    { "id": "album_eien", "title": "‰i‰“", "releaseYear": 1999, "type": "album" },
+    { "id": "album_jikan_no_tsubasa", "title": "ŠÔ‚Ì—ƒ", "releaseYear": 2001, "type": "album" },
+    { "id": "album_tomatteita_tokei", "title": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½", "releaseYear": 2004, "type": "album" },
+    { "id": "album_kimi_to_no_distance", "title": "ŒN‚Æ‚ÌDistance", "releaseYear": 2005, "type": "album" }
+  ],
+  "singles": [
+    { "id": "single_goodbye_my_loneliness", "title": "Good-bye My Loneliness", "releaseYear": 1991 },
+    { "id": "single_fushigi_ne", "title": "•sv‹c‚Ë...", "releaseYear": 1991 },
+    { "id": "single_mou_sagasanai", "title": "‚à‚¤’T‚³‚È‚¢", "releaseYear": 1991 },
+    { "id": "single_nemurenai_yoru", "title": "–°‚ê‚È‚¢–é‚ğ•ø‚¢‚Ä", "releaseYear": 1992 },
+    { "id": "single_in_my_arms_tonight", "title": "IN MY ARMS TONIGHT", "releaseYear": 1992 },
+    { "id": "single_makenai_de", "title": "•‰‚¯‚È‚¢‚Å", "releaseYear": 1993 },
+    { "id": "single_kimi_ga_inai", "title": "ŒN‚ª‚¢‚È‚¢", "releaseYear": 1993 },
+    { "id": "single_yureru_omoi", "title": "—h‚ê‚é‘z‚¢", "releaseYear": 1993 },
+    { "id": "single_hateshinai_yume_o", "title": "‰Ê‚Ä‚µ‚È‚¢–²‚ğ", "releaseYear": 1993 },
+    { "id": "single_mou_sukoshi_ato_sukoshi", "title": "‚à‚¤­‚µ ‚ ‚Æ­‚µ...", "releaseYear": 1993 },
+    { "id": "single_kitto_wasurenai", "title": "‚«‚Á‚Æ–Y‚ê‚È‚¢", "releaseYear": 1993 },
+    { "id": "single_kono_ai_ni_oyogitsukaretemo_boy", "title": "‚±‚Ìˆ¤‚É‰j‚¬”æ‚ê‚Ä‚à / Boy", "releaseYear": 1994 },
+    { "id": "single_konna_ni_soba_ni_irunoni", "title": "‚±‚ñ‚È‚É‚»‚Î‚É‹‚é‚Ì‚É", "releaseYear": 1994 },
+    { "id": "single_anata_o_kanjiteitai", "title": "‚ ‚È‚½‚ğŠ´‚¶‚Ä‚¢‚½‚¢", "releaseYear": 1994 },
+    { "id": "single_just_believe_in_love", "title": "Just believe in love", "releaseYear": 1995 },
+    { "id": "single_ai_ga_mienai", "title": "ˆ¤‚ªŒ©‚¦‚È‚¢", "releaseYear": 1995 },
+    { "id": "single_sayonara_wa_ima_mo", "title": "ƒTƒˆƒiƒ‰‚Í¡‚à‚±‚Ì‹¹‚É‹‚Ü‚·", "releaseYear": 1995 },
+    { "id": "single_my_friend", "title": "ƒ}ƒC ƒtƒŒƒ“ƒh", "releaseYear": 1996 },
+    { "id": "single_kokoro_o_hiraite", "title": "S‚ğŠJ‚¢‚Ä", "releaseYear": 1996 },
+    { "id": "single_dont_you_see", "title": "Don't you see!", "releaseYear": 1997 },
+    { "id": "single_kimi_ni_aitaku_nattara", "title": "ŒN‚Éˆ§‚¢‚½‚­‚È‚Á‚½‚ç...", "releaseYear": 1997 },
+    { "id": "single_kaze_ga_toorinukeru_machi_e", "title": "•—‚ª’Ê‚è”²‚¯‚éŠX‚Ö", "releaseYear": 1997 },
+    { "id": "single_eien", "title": "‰i‰“", "releaseYear": 1997 },
+    { "id": "single_my_baby_grand", "title": "My Baby Grand `‚Ê‚­‚à‚è‚ª—~‚µ‚­‚Ä`", "releaseYear": 1997 },
+    { "id": "single_iki_mo_dekinai", "title": "‘§‚à‚Å‚«‚È‚¢", "releaseYear": 1998 },
+    { "id": "single_unmei_no_roulette", "title": "‰^–½‚Ìƒ‹[ƒŒƒbƒg‰ô‚µ‚Ä", "releaseYear": 1998 },
+    { "id": "single_atarashii_door", "title": "V‚µ‚¢ƒhƒA `“~‚Ì‚Ğ‚Ü‚í‚è`", "releaseYear": 1998 },
+    { "id": "single_good_day", "title": "GOOD DAY", "releaseYear": 1998 },
+    { "id": "single_mind_games", "title": "MIND GAMES", "releaseYear": 1999 },
+    { "id": "single_sekai_wa_kitto_mirai_no_naka", "title": "¢ŠE‚Í‚«‚Á‚Æ–¢—ˆ‚Ì’†", "releaseYear": 1999 },
+    { "id": "single_itai_kurai", "title": "’É‚¢‚­‚ç‚¢ŒN‚ª‚ ‚Ó‚ê‚Ä‚¢‚é‚æ", "releaseYear": 1999 },
+    { "id": "single_kono_namida", "title": "‚±‚Ì—Ü ¯‚É‚È‚ê", "releaseYear": 1999 },
+    { "id": "single_get_ure_dream", "title": "Get U're Dream", "releaseYear": 2000 },
+    { "id": "single_promised_you", "title": "promised you", "releaseYear": 2000 },
+    { "id": "single_sawayakana_kimi_no_kimochi", "title": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿", "releaseYear": 2002 },
+    { "id": "single_ashita_o_yumemite", "title": "–¾“ú‚ğ–²Œ©‚Ä", "releaseYear": 2003 },
+    { "id": "single_hitomi_tojite", "title": "“µ•Â‚¶‚Ä", "releaseYear": 2003 },
+    { "id": "single_motto_chikakude", "title": "‚à‚Á‚Æ‹ß‚­‚ÅŒN‚Ì‰¡ŠçŒ©‚Ä‚¢‚½‚¢", "releaseYear": 2003 },
+    { "id": "single_kakegae_no_nai_mono", "title": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì", "releaseYear": 2004 },
+    { "id": "single_hoshi_no_kagayakiyo", "title": "¯‚Ì‚©‚ª‚â‚«‚æ", "releaseYear": 2005 },
+    { "id": "single_natsu_o_matsu_sail", "title": "‰Ä‚ğ‘Ò‚ÂƒZƒCƒ‹(”¿)‚Ì‚æ‚¤‚É", "releaseYear": 2005 },
+    { "id": "single_kanashii_hodo_anata_ga_suki", "title": "”ß‚µ‚¢‚Ù‚Ç‹M•û‚ªD‚«", "releaseYear": 2006 },
+    { "id": "single_heart_ni_hi_o_tsukete", "title": "ƒn[ƒg‚É‰Î‚ğ‚Â‚¯‚Ä", "releaseYear": 2006 },
+    { "id": "single_glorious_mind", "title": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh", "releaseYear": 2007 },
+    { "id": "single_tsubasa_o_hirogete_ai_wa_kurayami_no_nakade", "title": "—ƒ‚ğL‚°‚Ä / ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å", "releaseYear": 2008 },
+    { "id": "single_sunao_ni_ienakute", "title": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä", "releaseYear": 2009 }
+  ],
+  "couplings": [
+    {
+      "singleTitle": "Good-bye My Loneliness",
+      "releaseYear": 1991,
+      "verified": true,
+      "tracks": [
+        { "id": "song_ai_wa_kurayami_no_nakade_coupling_1991", "title": "ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å", "year": 1991 }
+      ]
+    },
+    {
+      "singleTitle": "•sv‹c‚Ë...",
+      "releaseYear": 1991,
+      "verified": true,
+      "tracks": [
+        { "id": "song_sunao_ni_ienakute_coupling_1991", "title": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä", "year": 1991 }
+      ]
+    },
+    {
+      "singleTitle": "‚à‚¤’T‚³‚È‚¢",
+      "releaseYear": 1991,
+      "verified": true,
+      "tracks": [
+        { "id": "song_konna_ni_aishitemo_coupling_1991", "title": "‚±‚ñ‚È‚Éˆ¤‚µ‚Ä‚à", "year": 1991 }
+      ]
+    },
+    {
+      "singleTitle": "–°‚ê‚È‚¢–é‚ğ•ø‚¢‚Ä",
+      "releaseYear": 1992,
+      "verified": true,
+      "tracks": [
+        { "id": "song_dangerous_tonight_coupling_1992", "title": "Dangerous Tonight", "year": 1992 }
+      ]
+    },
+    {
+      "singleTitle": "IN MY ARMS TONIGHT",
+      "releaseYear": 1992,
+      "verified": true,
+      "tracks": [
+        { "id": "song_ase_no_naka_de_cry_coupling_1992", "title": "Š¾‚Ì’†‚ÅCRY", "year": 1992 }
+      ]
+    },
+    {
+      "singleTitle": "•‰‚¯‚È‚¢‚Å",
+      "releaseYear": 1993,
+      "verified": true,
+      "tracks": [
+        { "id": "song_stray_love_coupling_1993", "title": "Stray Love", "year": 1993 }
+      ]
+    },
+    {
+      "singleTitle": "ŒN‚ª‚¢‚È‚¢",
+      "releaseYear": 1993,
+      "verified": true,
+      "tracks": [
+        { "id": "song_watashi_dake_mitsumete_coupling_1993", "title": "„‚¾‚¯Œ©‚Â‚ß‚Ä", "year": 1993 }
+      ]
+    },
+    {
+      "singleTitle": "—h‚ê‚é‘z‚¢",
+      "releaseYear": 1993,
+      "verified": true,
+      "tracks": [
+        { "id": "song_just_for_you_coupling_1993", "title": "Just for you", "year": 1993 }
+      ]
+    },
+    {
+      "singleTitle": "‰Ê‚Ä‚µ‚È‚¢–²‚ğ",
+      "releaseYear": 1993,
+      "verified": true,
+      "tracks": [
+        { "id": "song_ame_ni_nurete_coupling_1993", "title": "‰J‚É”G‚ê‚Ä", "year": 1993 }
+      ]
+    },
+    {
+      "singleTitle": "‚à‚¤­‚µ ‚ ‚Æ­‚µ...",
+      "releaseYear": 1993,
+      "verified": true,
+      "tracks": [
+        { "id": "song_kanariya_coupling_1993", "title": "ƒJƒiƒŠƒ„", "year": 1993 }
+      ]
+    },
+    {
+      "singleTitle": "‚«‚Á‚Æ–Y‚ê‚È‚¢",
+      "releaseYear": 1993,
+      "verified": true,
+      "tracks": [
+        { "id": "song_tasogare_ni_my_lonely_heart_coupling_1993", "title": "‰©¨‚ÉMy Lonely Heart", "year": 1993 }
+      ]
+    },
+    {
+      "singleTitle": "‚±‚Ìˆ¤‚É‰j‚¬”æ‚ê‚Ä‚à / Boy",
+      "releaseYear": 1994,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "‚±‚ñ‚È‚É‚»‚Î‚É‹‚é‚Ì‚É",
+      "releaseYear": 1994,
+      "verified": true,
+      "tracks": [
+        { "id": "song_anata_no_seija_nai_coupling_1994", "title": "‚ ‚È‚½‚Ì‚¹‚¢‚¶‚á‚È‚¢", "year": 1994 }
+      ]
+    },
+    {
+      "singleTitle": "‚ ‚È‚½‚ğŠ´‚¶‚Ä‚¢‚½‚¢",
+      "releaseYear": 1994,
+      "verified": true,
+      "tracks": [
+        { "id": "song_take_me_to_your_dream_coupling_1994", "title": "Take me to your dream", "year": 1994 }
+      ]
+    },
+    {
+      "singleTitle": "Just believe in love",
+      "releaseYear": 1995,
+      "verified": true,
+      "tracks": [
+        { "id": "song_ready_go_coupling_1995", "title": "Ready, Go!", "year": 1995 }
+      ]
+    },
+    {
+      "singleTitle": "ˆ¤‚ªŒ©‚¦‚È‚¢",
+      "releaseYear": 1995,
+      "verified": true,
+      "tracks": [
+        { "id": "song_teenage_dream_coupling_1995", "title": "Teenage dream", "year": 1995 }
+      ]
+    },
+    {
+      "singleTitle": "ƒTƒˆƒiƒ‰‚Í¡‚à‚±‚Ì‹¹‚É‹‚Ü‚·",
+      "releaseYear": 1995,
+      "verified": true,
+      "tracks": [
+        { "id": "song_nemuri_coupling_1995", "title": "–°‚è", "year": 1995 }
+      ]
+    },
+    {
+      "singleTitle": "ƒ}ƒC ƒtƒŒƒ“ƒh",
+      "releaseYear": 1996,
+      "verified": true,
+      "tracks": [
+        { "id": "song_mezameta_asa_wa_coupling_1996", "title": "–ÚŠo‚ß‚½’©‚Íc", "year": 1996 }
+      ]
+    },
+    {
+      "singleTitle": "S‚ğŠJ‚¢‚Ä",
+      "releaseYear": 1996,
+      "verified": true,
+      "tracks": [
+        { "id": "song_change_my_mind_coupling_1996", "title": "Change my mind", "year": 1996 }
+      ]
+    },
+    {
+      "singleTitle": "Don't you see!",
+      "releaseYear": 1997,
+      "verified": true,
+      "tracks": [
+        { "id": "song_kaeranu_jikan_no_nakade_coupling_1997", "title": "‹A‚ç‚ÊŠÔ‚Ì’†‚Å", "year": 1997 }
+      ]
+    },
+    {
+      "singleTitle": "ŒN‚Éˆ§‚¢‚½‚­‚È‚Á‚½‚ç...",
+      "releaseYear": 1997,
+      "verified": true,
+      "tracks": [
+        { "id": "song_ai_o_shinjite_itai_coupling_1997", "title": "ˆ¤‚ğM‚¶‚Ä‚¢‚½‚¢", "year": 1997 }
+      ]
+    },
+    {
+      "singleTitle": "•—‚ª’Ê‚è”²‚¯‚éŠX‚Ö",
+      "releaseYear": 1997,
+      "verified": true,
+      "tracks": [
+        { "id": "song_toi_hoshi_o_kazoete_coupling_1997", "title": "‰“‚¢¯‚ğ”‚¦‚Ä", "year": 1997 }
+      ]
+    },
+    {
+      "singleTitle": "‰i‰“",
+      "releaseYear": 1997,
+      "verified": true,
+      "tracks": [
+        { "id": "song_i_cant_let_go_coupling_1997", "title": "I can't let go", "year": 1997 }
+      ]
+    },
+    {
+      "singleTitle": "My Baby Grand `‚Ê‚­‚à‚è‚ª—~‚µ‚­‚Ä`",
+      "releaseYear": 1997,
+      "verified": true,
+      "tracks": [
+        { "id": "song_love_is_gone_coupling_1997", "title": "Love is Gone", "year": 1997 }
+      ]
+    },
+    {
+      "singleTitle": "‘§‚à‚Å‚«‚È‚¢",
+      "releaseYear": 1998,
+      "verified": true,
+      "tracks": [
+        { "id": "song_vintage_coupling_1998", "title": "Vintage", "year": 1998 }
+      ]
+    },
+    {
+      "singleTitle": "‰^–½‚Ìƒ‹[ƒŒƒbƒg‰ô‚µ‚Ä",
+      "releaseYear": 1998,
+      "verified": true,
+      "tracks": [
+        { "id": "song_shoujo_no_koro_ni_modotta_mitai_ni_coupling_1998", "title": "­—‚Ì ‚É–ß‚Á‚½‚İ‚½‚¢‚É", "year": 1998 }
+      ]
+    },
+    {
+      "singleTitle": "V‚µ‚¢ƒhƒA `“~‚Ì‚Ğ‚Ü‚í‚è`",
+      "releaseYear": 1998,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "GOOD DAY",
+      "releaseYear": 1998,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "MIND GAMES",
+      "releaseYear": 1999,
+      "verified": true,
+      "tracks": [
+        { "id": "song_hypnosis_coupling_1999", "title": "Hypnosis", "year": 1999 }
+      ]
+    },
+    {
+      "singleTitle": "¢ŠE‚Í‚«‚Á‚Æ–¢—ˆ‚Ì’†",
+      "releaseYear": 1999,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "’É‚¢‚­‚ç‚¢ŒN‚ª‚ ‚Ó‚ê‚Ä‚¢‚é‚æ",
+      "releaseYear": 1999,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "‚±‚Ì—Ü ¯‚É‚È‚ê",
+      "releaseYear": 1999,
+      "verified": true,
+      "tracks": [
+        { "id": "song_omo_hi_de_coupling_1999", "title": "‚¨E‚àE‚ĞE‚Å", "year": 1999 }
+      ]
+    },
+    {
+      "singleTitle": "Get U're Dream",
+      "releaseYear": 2000,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "promised you",
+      "releaseYear": 2000,
+      "verified": true,
+      "tracks": [
+        { "id": "song_the_only_truth_i_know_is_you_coupling_2000", "title": "The only truth I know is you", "year": 2000 }
+      ]
+    },
+    {
+      "singleTitle": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "releaseYear": 2002,
+      "verified": true,
+      "tracks": [
+        { "id": "song_dakishimete_ite_coupling_2002", "title": "•ø‚«‚µ‚ß‚Ä‚¢‚Ä", "year": 2002 },
+        { "id": "song_seven_rainbow_coupling_2002", "title": "Seven Rainbow", "year": 2002 }
+      ]
+    },
+    {
+      "singleTitle": "–¾“ú‚ğ–²Œ©‚Ä",
+      "releaseYear": 2003,
+      "verified": true,
+      "tracks": [
+        { "id": "song_sagashi_ni_ikou_yo_coupling_2003", "title": "’T‚µ‚És‚±‚¤‚æ", "year": 2003 }
+      ]
+    },
+    {
+      "singleTitle": "“µ•Â‚¶‚Ä",
+      "releaseYear": 2003,
+      "verified": true,
+      "tracks": [
+        { "id": "song_itoshii_hito_yo_na_mo_naki_tabibito_yo_coupling_2003", "title": "ˆ¤‚µ‚¢l‚æ `–¼‚à‚È‚«—·l‚æ`", "year": 2003 }
+      ]
+    },
+    {
+      "singleTitle": "‚à‚Á‚Æ‹ß‚­‚ÅŒN‚Ì‰¡ŠçŒ©‚Ä‚¢‚½‚¢",
+      "releaseYear": 2003,
+      "verified": true,
+      "tracks": [
+        { "id": "song_reset_coupling_2003", "title": "ƒŠƒZƒbƒg", "year": 2003 }
+      ]
+    },
+    {
+      "singleTitle": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "releaseYear": 2004,
+      "verified": true,
+      "tracks": [
+        { "id": "song_mugamuchuu_coupling_2004", "title": "–³‰ä–²’†", "year": 2004 },
+        { "id": "song_eien_tour_ver_coupling_2004", "title": "‰i‰“ (Tour Ver.)", "year": 2004 }
+      ]
+    },
+    {
+      "singleTitle": "¯‚Ì‚©‚ª‚â‚«‚æ",
+      "releaseYear": 2005,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "‰Ä‚ğ‘Ò‚ÂƒZƒCƒ‹(”¿)‚Ì‚æ‚¤‚É",
+      "releaseYear": 2005,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "”ß‚µ‚¢‚Ù‚Ç‹M•û‚ªD‚«",
+      "releaseYear": 2006,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "ƒn[ƒg‚É‰Î‚ğ‚Â‚¯‚Ä",
+      "releaseYear": 2006,
+      "verified": true,
+      "tracks": [
+        { "id": "song_kimi_e_no_blues_coupling_2006", "title": "ŒN‚Ö‚Ìƒuƒ‹[ƒX", "year": 2006 }
+      ]
+    },
+    {
+      "singleTitle": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "releaseYear": 2007,
+      "verified": true,
+      "tracks": [
+        { "id": "song_sagashi_ni_ikou_yo_2007_ver_coupling_2007", "title": "’T‚µ‚És‚±‚¤‚æ (2007 ver.)", "year": 2007 },
+        { "id": "song_ai_o_shinjite_itai_2007_ver_coupling_2007", "title": "ˆ¤‚ğM‚¶‚Ä‚¢‚½‚¢ (2007 ver.)", "year": 2007 }
+      ]
+    },
+    {
+      "singleTitle": "—ƒ‚ğL‚°‚Ä / ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å",
+      "releaseYear": 2008,
+      "verified": true,
+      "tracks": []
+    },
+    {
+      "singleTitle": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä",
+      "releaseYear": 2009,
+      "verified": true,
+      "tracks": [
+        { "id": "song_hypnosis_coupling_2009", "title": "Hypnosis", "year": 2009 }
+      ]
+    }
+  ],
+  "songs": [
+    {
+      "id": "song_goodbye_my_loneliness",
+      "title": "Good-bye My Loneliness",
+      "year": 1991,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "Good-bye My Loneliness",
+      "album": "Good-bye My Loneliness",
+      "single": "Good-bye My Loneliness",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "loneliness", "popularity": "standard" },
+      "note": "‰ŠúZARD‚ÌØ‚È‚³‚ğŠ´‚¶‚ç‚ê‚é‘ã•\‹ÈB"
+    },
+    {
+      "id": "song_fushigi_ne",
+      "title": "•sv‹c‚Ë...",
+      "year": 1991,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "•sv‹c‚Ë...",
+      "album": "Good-bye My Loneliness",
+      "single": "•sv‹c‚Ë...",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "early90s", "theme": "love", "popularity": "standard" },
+      "note": "‰Šú‚Ì“§–¾Š´‚ªŠ´‚¶‚ç‚ê‚éƒVƒ“ƒOƒ‹B"
+    },
+    {
+      "id": "song_mou_sagasanai",
+      "title": "‚à‚¤’T‚³‚È‚¢",
+      "year": 1991,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚à‚¤’T‚³‚È‚¢",
+      "album": "‚à‚¤’T‚³‚È‚¢",
+      "single": "‚à‚¤’T‚³‚È‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "loneliness", "popularity": "standard" },
+      "note": "—‚¿’…‚¢‚½Ø‚È‚³‚ª–£—ÍB"
+    },
+    {
+      "id": "song_nemurenai_yoru_o_daite",
+      "title": "–°‚ê‚È‚¢–é‚ğ•ø‚¢‚Ä",
+      "year": 1992,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "–°‚ê‚È‚¢–é‚ğ•ø‚¢‚Ä",
+      "album": "HOLD ME",
+      "single": "–°‚ê‚È‚¢–é‚ğ•ø‚¢‚Ä",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "loneliness", "popularity": "standard" },
+      "note": "–é‚É‚¶‚Á‚­‚èZ‚è‚½‚¢‚ÉB"
+    },
+    {
+      "id": "song_in_my_arms_tonight",
+      "title": "IN MY ARMS TONIGHT",
+      "year": 1992,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "IN MY ARMS TONIGHT",
+      "album": "HOLD ME",
+      "single": "IN MY ARMS TONIGHT",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "love", "popularity": "standard" },
+      "note": "‘ål‚Á‚Û‚¢•µˆÍ‹C‚ªŒõ‚é‹ÈB"
+    },
+    {
+      "id": "song_ano_hohoemi_o_wasurenai_de",
+      "title": "‚ ‚Ì”÷Î‚İ‚ğ–Y‚ê‚È‚¢‚Å",
+      "year": 1992,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "HOLD ME",
+      "album": "HOLD ME",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "early90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "ƒtƒ@ƒ“l‹C‚Ì‚‚¢‰B‚ê‚½–¼‹ÈB"
+    },
+    {
+      "id": "song_makenai_de",
+      "title": "•‰‚¯‚È‚¢‚Å",
+      "year": 1993,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "•‰‚¯‚È‚¢‚Å",
+      "album": "—h‚ê‚é‘z‚¢",
+      "single": "•‰‚¯‚È‚¢‚Å",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "empowering", "era": "early90s", "theme": "empowerment", "popularity": "major" },
+      "note": "”w’†‚ğ‰Ÿ‚µ‚Ä‚­‚ê‚é‰¤“¹‚Ì‰‰‡ƒ\ƒ“ƒOB"
+    },
+    {
+      "id": "song_kimi_ga_inai",
+      "title": "ŒN‚ª‚¢‚È‚¢",
+      "year": 1993,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "ŒN‚ª‚¢‚È‚¢",
+      "album": "—h‚ê‚é‘z‚¢",
+      "single": "ŒN‚ª‚¢‚È‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "loneliness", "popularity": "major" },
+      "note": "‘r¸Š´‚ª‚â‚³‚µ‚­Ÿ‚İ‚éˆê‹ÈB"
+    },
+    {
+      "id": "song_yureru_omoi",
+      "title": "—h‚ê‚é‘z‚¢",
+      "year": 1993,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "—h‚ê‚é‘z‚¢",
+      "album": "—h‚ê‚é‘z‚¢",
+      "single": "—h‚ê‚é‘z‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "early90s", "theme": "love", "popularity": "major" },
+      "note": "“§–¾Š´‚ ‚Ó‚ê‚é‘ã•\‹ÈB"
+    },
+    {
+      "id": "song_hateshinai_yume_o",
+      "title": "‰Ê‚Ä‚µ‚È‚¢–²‚ğ",
+      "year": 1993,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‰Ê‚Ä‚µ‚È‚¢–²‚ğ",
+      "album": null,
+      "single": "‰Ê‚Ä‚µ‚È‚¢–²‚ğ",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "empowering", "era": "early90s", "theme": "empowerment", "popularity": "standard" },
+      "note": "ƒRƒ‰ƒ{–¼‹`‚Å’m‚ç‚ê‚é‚—gŠ´‚ ‚éŠy‹ÈB"
+    },
+    {
+      "id": "song_toi_hi_no_nostalgia",
+      "title": "‰“‚¢“ú‚ÌNostalgia",
+      "year": 1993,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "—h‚ê‚é‘z‚¢",
+      "album": "—h‚ê‚é‘z‚¢",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "nostalgic", "era": "early90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "‰Šú‚Ì‹ó‹CŠ´‚ğ[‚­–¡‚í‚¦‚éB"
+    },
+    {
+      "id": "song_season",
+      "title": "season",
+      "year": 1993,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "—h‚ê‚é‘z‚¢",
+      "album": "—h‚ê‚é‘z‚¢",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "early90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "‹Gß‚Ì‹L‰¯‚Æ‘Š«‚Ì‚¢‚¢ˆê‹ÈB"
+    },
+    {
+      "id": "song_mou_sukoshi_ato_sukoshi",
+      "title": "‚à‚¤­‚µ ‚ ‚Æ­‚µ...",
+      "year": 1993,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚à‚¤­‚µ ‚ ‚Æ­‚µ...",
+      "album": "OH MY LOVE",
+      "single": "‚à‚¤­‚µ ‚ ‚Æ­‚µ...",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "early90s", "theme": "love", "popularity": "standard" },
+      "note": "Ø‚È‚¢—öˆ¤‹È‚ªD‚«‚Èl‚É‚¨‚·‚·‚ßB"
+    },
+    {
+      "id": "song_kitto_wasurenai",
+      "title": "‚«‚Á‚Æ–Y‚ê‚È‚¢",
+      "year": 1993,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚«‚Á‚Æ–Y‚ê‚È‚¢",
+      "album": "OH MY LOVE",
+      "single": "‚«‚Á‚Æ–Y‚ê‚È‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "early90s", "theme": "nostalgia", "popularity": "major" },
+      "note": "‘u‚â‚©‚³‚Æ‰ù‚©‚µ‚³‚ª“¯‹‚·‚é–¼‹ÈB"
+    },
+    {
+      "id": "song_kono_ai_ni_oyogitsukaretemo",
+      "title": "‚±‚Ìˆ¤‚É‰j‚¬”æ‚ê‚Ä‚à",
+      "year": 1994,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚±‚Ìˆ¤‚É‰j‚¬”æ‚ê‚Ä‚à / Boy",
+      "album": "OH MY LOVE",
+      "single": "‚±‚Ìˆ¤‚É‰j‚¬”æ‚ê‚Ä‚à / Boy",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "mid90s", "theme": "loneliness", "popularity": "major" },
+      "note": "”Z‚¢Š´î‚ğ‚¶‚Á‚­‚è–¡‚í‚¢‚½‚¢‚ÉB"
+    },
+    {
+      "id": "song_boy",
+      "title": "Boy",
+      "year": 1994,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚±‚Ìˆ¤‚É‰j‚¬”æ‚ê‚Ä‚à / Boy",
+      "album": "OH MY LOVE",
+      "single": "‚±‚Ìˆ¤‚É‰j‚¬”æ‚ê‚Ä‚à / Boy",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "mid90s", "theme": "empowerment", "popularity": "standard" },
+      "note": "ƒ_ƒuƒ‹A–Ê‚Ì‚à‚¤ˆê•ûB"
+    },
+    {
+      "id": "song_oh_my_love",
+      "title": "Oh my love",
+      "year": 1994,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "OH MY LOVE",
+      "album": "OH MY LOVE",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "mid90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒAƒ‹ƒoƒ€ƒ^ƒCƒgƒ‹‹È‚ç‚µ‚¢—D”ü‚³‚ª‚ ‚éB"
+    },
+    {
+      "id": "song_toi_hoshi_o_kazoete_album",
+      "title": "‰“‚¢¯‚ğ”‚¦‚Ä",
+      "year": 1994,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "OH MY LOVE",
+      "album": "OH MY LOVE",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "nostalgic", "era": "mid90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "Ã‚©‚È–é‚É‡‚¤‰B‚ê‚½l‹C‹ÈB"
+    },
+    {
+      "id": "song_konna_ni_soba_ni_irunoni",
+      "title": "‚±‚ñ‚È‚É‚»‚Î‚É‹‚é‚Ì‚É",
+      "year": 1994,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚±‚ñ‚È‚É‚»‚Î‚É‹‚é‚Ì‚É",
+      "album": "forever you",
+      "single": "‚±‚ñ‚È‚É‚»‚Î‚É‹‚é‚Ì‚É",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "mid90s", "theme": "love", "popularity": "major" },
+      "note": "‹ß‚­‚Ä‰“‚¢‹——£Š´‚ªØ‚È‚¢ƒ‰ƒuƒ\ƒ“ƒOB"
+    },
+    {
+      "id": "song_anata_o_kanjiteitai",
+      "title": "‚ ‚È‚½‚ğŠ´‚¶‚Ä‚¢‚½‚¢",
+      "year": 1994,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚ ‚È‚½‚ğŠ´‚¶‚Ä‚¢‚½‚¢",
+      "album": "forever you",
+      "single": "‚ ‚È‚½‚ğŠ´‚¶‚Ä‚¢‚½‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "mid90s", "theme": "love", "popularity": "standard" },
+      "note": "Œy‚â‚©‚È‘OŒü‚«‚³‚ªS’n‚æ‚¢B"
+    },
+    {
+      "id": "song_just_believe_in_love",
+      "title": "Just believe in love",
+      "year": 1995,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "Just believe in love",
+      "album": "forever you",
+      "single": "Just believe in love",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "mid90s", "theme": "love", "popularity": "standard" },
+      "note": "‚â‚í‚ç‚©‚È‚—gŠ´‚Ì‚ ‚éƒ‰ƒuƒ\ƒ“ƒOB"
+    },
+    {
+      "id": "song_rainen_no_natsu_mo",
+      "title": "—ˆ”N‚Ì‰Ä‚à",
+      "year": 1995,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "forever you",
+      "album": "forever you",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "mid90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "‹GßŠ´‚Ì‚ ‚é‰B‚ê‚½—Ç‹ÈB"
+    },
+    {
+      "id": "song_ai_ga_mienai",
+      "title": "ˆ¤‚ªŒ©‚¦‚È‚¢",
+      "year": 1995,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "ˆ¤‚ªŒ©‚¦‚È‚¢",
+      "album": "TODAY IS ANOTHER DAY",
+      "single": "ˆ¤‚ªŒ©‚¦‚È‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "refreshing", "era": "mid90s", "theme": "love", "popularity": "standard" },
+      "note": "¨‚¢‚Ì‚ ‚éƒTƒEƒ“ƒh‚ª–£—ÍB"
+    },
+    {
+      "id": "song_sayonara_wa_ima_mo_kono_mune_ni_imasu",
+      "title": "ƒTƒˆƒiƒ‰‚Í¡‚à‚±‚Ì‹¹‚É‹‚Ü‚·",
+      "year": 1995,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "ƒTƒˆƒiƒ‰‚Í¡‚à‚±‚Ì‹¹‚É‹‚Ü‚·",
+      "album": "TODAY IS ANOTHER DAY",
+      "single": "ƒTƒˆƒiƒ‰‚Í¡‚à‚±‚Ì‹¹‚É‹‚Ü‚·",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "mid90s", "theme": "loneliness", "popularity": "standard" },
+      "note": "•Ê‚ê‚Ì—]‰C‚ğ‹­‚­Š´‚¶‚éƒoƒ‰[ƒhB"
+    },
+    {
+      "id": "song_my_friend",
+      "title": "ƒ}ƒC ƒtƒŒƒ“ƒh",
+      "year": 1996,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "ƒ}ƒC ƒtƒŒƒ“ƒh",
+      "album": "TODAY IS ANOTHER DAY",
+      "single": "ƒ}ƒC ƒtƒŒƒ“ƒh",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "mid90s", "theme": "empowerment", "popularity": "major" },
+      "note": "—Fî‚Æ‘OŒü‚«‚³‚ª“¯‹‚·‚é‘ål‹C‹ÈB"
+    },
+    {
+      "id": "song_kokoro_o_hiraite",
+      "title": "S‚ğŠJ‚¢‚Ä",
+      "year": 1996,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "S‚ğŠJ‚¢‚Ä",
+      "album": "TODAY IS ANOTHER DAY",
+      "single": "S‚ğŠJ‚¢‚Ä",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "mid90s", "theme": "love", "popularity": "major" },
+      "note": "_‚ç‚©‚È‚«‚ç‚ß‚«‚Ì‚ ‚é—öˆ¤‹ÈB"
+    },
+    {
+      "id": "song_today_is_another_day",
+      "title": "Today is another day",
+      "year": 1996,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "TODAY IS ANOTHER DAY",
+      "album": "TODAY IS ANOTHER DAY",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "empowering", "era": "mid90s", "theme": "empowerment", "popularity": "standard" },
+      "note": "Œy‚â‚©‚É‘O‚ğŒü‚©‚¹‚Ä‚­‚ê‚éB"
+    },
+    {
+      "id": "song_love_is_gone_album",
+      "title": "Love is Gone",
+      "year": 1996,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "TODAY IS ANOTHER DAY",
+      "album": "TODAY IS ANOTHER DAY",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "mid90s", "theme": "loneliness", "popularity": "minor" },
+      "note": "Ã‚©‚ÈØ‚È‚³‚ª•Y‚¤‰B‚ê‚½ˆê‹ÈB"
+    },
+    {
+      "id": "song_dont_you_see",
+      "title": "Don't you see!",
+      "year": 1997,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "Don't you see!",
+      "album": "‰i‰“",
+      "single": "Don't you see!",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "refreshing", "era": "late90s", "theme": "empowerment", "popularity": "major" },
+      "note": "–¾‚é‚³‚Æ¾‘–Š´‚ª–£—ÍB"
+    },
+    {
+      "id": "song_kimi_ni_aitaku_nattara",
+      "title": "ŒN‚Éˆ§‚¢‚½‚­‚È‚Á‚½‚ç...",
+      "year": 1997,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "ŒN‚Éˆ§‚¢‚½‚­‚È‚Á‚½‚ç...",
+      "album": "‰i‰“",
+      "single": "ŒN‚Éˆ§‚¢‚½‚­‚È‚Á‚½‚ç...",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "late90s", "theme": "love", "popularity": "major" },
+      "note": "‰ï‚¢‚½‚¢‹C‚¿‚ª‚Ü‚Á‚·‚®“Í‚­B"
+    },
+    {
+      "id": "song_kaze_ga_toorinukeru_machi_e",
+      "title": "•—‚ª’Ê‚è”²‚¯‚éŠX‚Ö",
+      "year": 1997,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "•—‚ª’Ê‚è”²‚¯‚éŠX‚Ö",
+      "album": "‰i‰“",
+      "single": "•—‚ª’Ê‚è”²‚¯‚éŠX‚Ö",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "late90s", "theme": "nostalgia", "popularity": "standard" },
+      "note": "•—Œi‚ªL‚ª‚é‚æ‚¤‚È‘u‚â‚©‚³‚ª–£—ÍB"
+    },
+    {
+      "id": "song_eien",
+      "title": "‰i‰“",
+      "year": 1997,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‰i‰“",
+      "album": "‰i‰“",
+      "single": "‰i‰“",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "late90s", "theme": "love", "popularity": "major" },
+      "note": "‚µ‚Á‚Æ‚è[‚­Z‚ê‚é–¼ƒoƒ‰[ƒhB"
+    },
+    {
+      "id": "song_my_baby_grand",
+      "title": "My Baby Grand `‚Ê‚­‚à‚è‚ª—~‚µ‚­‚Ä`",
+      "year": 1997,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "My Baby Grand `‚Ê‚­‚à‚è‚ª—~‚µ‚­‚Ä`",
+      "album": "‰i‰“",
+      "single": "My Baby Grand `‚Ê‚­‚à‚è‚ª—~‚µ‚­‚Ä`",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "late90s", "theme": "love", "popularity": "standard" },
+      "note": "‰¸‚â‚©‚È‰·“xŠ´‚ª–£—ÍB"
+    },
+    {
+      "id": "song_iki_mo_dekinai",
+      "title": "‘§‚à‚Å‚«‚È‚¢",
+      "year": 1998,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‘§‚à‚Å‚«‚È‚¢",
+      "album": "‰i‰“",
+      "single": "‘§‚à‚Å‚«‚È‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "refreshing", "era": "late90s", "theme": "love", "popularity": "major" },
+      "note": "¨‚¢‚æ‚­‘–‚è”²‚¯‚é‘u‰õ‹ÈB"
+    },
+    {
+      "id": "song_unmei_no_roulette_mawashite",
+      "title": "‰^–½‚Ìƒ‹[ƒŒƒbƒg‰ô‚µ‚Ä",
+      "year": 1998,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‰^–½‚Ìƒ‹[ƒŒƒbƒg‰ô‚µ‚Ä",
+      "album": "‰i‰“",
+      "single": "‰^–½‚Ìƒ‹[ƒŒƒbƒg‰ô‚µ‚Ä",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "late90s", "theme": "nostalgia", "popularity": "major" },
+      "note": "_”é“I‚ÈˆóÛ‚ªc‚él‹C‹ÈB"
+    },
+    {
+      "id": "song_atarashii_door",
+      "title": "V‚µ‚¢ƒhƒA `“~‚Ì‚Ğ‚Ü‚í‚è`",
+      "year": 1998,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "V‚µ‚¢ƒhƒA `“~‚Ì‚Ğ‚Ü‚í‚è`",
+      "album": "‰i‰“",
+      "single": "V‚µ‚¢ƒhƒA `“~‚Ì‚Ğ‚Ü‚í‚è`",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "late90s", "theme": "empowerment", "popularity": "standard" },
+      "note": "Äo”­‚Ì‹C‚¿‚ÉŠñ‚è“Y‚¤B"
+    },
+    {
+      "id": "song_good_day",
+      "title": "GOOD DAY",
+      "year": 1998,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "GOOD DAY",
+      "album": "‰i‰“",
+      "single": "GOOD DAY",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "late90s", "theme": "empowerment", "popularity": "minor" },
+      "note": "‚â‚í‚ç‚©‚­‹C‚¿‚ğ–¾‚é‚­‚µ‚Ä‚­‚ê‚éB"
+    },
+    {
+      "id": "song_mind_games",
+      "title": "MIND GAMES",
+      "year": 1999,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "MIND GAMES",
+      "album": "‰i‰“",
+      "single": "MIND GAMES",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "late90s", "theme": "love", "popularity": "standard" },
+      "note": "­‚µƒN[ƒ‹‚È•\î‚àŠy‚µ‚ß‚éB"
+    },
+    {
+      "id": "song_sekai_wa_kitto_mirai_no_naka",
+      "title": "¢ŠE‚Í‚«‚Á‚Æ–¢—ˆ‚Ì’†",
+      "year": 1999,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "¢ŠE‚Í‚«‚Á‚Æ–¢—ˆ‚Ì’†",
+      "album": null,
+      "single": "¢ŠE‚Í‚«‚Á‚Æ–¢—ˆ‚Ì’†",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "late90s", "theme": "empowerment", "popularity": "standard" },
+      "note": "–¢—ˆ‚ÖŒü‚©‚¤‚Ü‚Á‚·‚®‚ÈŠ´G‚Ì‚ ‚éˆê‹ÈB"
+    },
+    {
+      "id": "song_itai_kurai_kimi_ga_afureteiru_yo",
+      "title": "’É‚¢‚­‚ç‚¢ŒN‚ª‚ ‚Ó‚ê‚Ä‚¢‚é‚æ",
+      "year": 1999,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "’É‚¢‚­‚ç‚¢ŒN‚ª‚ ‚Ó‚ê‚Ä‚¢‚é‚æ",
+      "album": "‰i‰“",
+      "single": "’É‚¢‚­‚ç‚¢ŒN‚ª‚ ‚Ó‚ê‚Ä‚¢‚é‚æ",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "late90s", "theme": "love", "popularity": "standard" },
+      "note": "Š´î‚Ì”M—Ê‚ğŠ´‚¶‚é—öˆ¤‹ÈB"
+    },
+    {
+      "id": "song_shoujo_no_koro_ni_modotta_mitai_ni_album",
+      "title": "­—‚Ì ‚É–ß‚Á‚½‚İ‚½‚¢‚É",
+      "year": 1999,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "‰i‰“",
+      "album": "‰i‰“",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "late90s", "theme": "nostalgia", "popularity": "standard" },
+      "note": "–²Œ©S’n‚ÌƒmƒXƒ^ƒ‹ƒW[‚ª–£—ÍB"
+    },
+    {
+      "id": "song_kono_namida_hoshi_ni_nare",
+      "title": "‚±‚Ì—Ü ¯‚É‚È‚ê",
+      "year": 1999,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚±‚Ì—Ü ¯‚É‚È‚ê",
+      "album": "ŠÔ‚Ì—ƒ",
+      "single": "‚±‚Ì—Ü ¯‚É‚È‚ê",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "late90s", "theme": "loneliness", "popularity": "standard" },
+      "note": "Ã‚©‚ÈØ‚È‚³‚ğ–¡‚í‚¦‚éˆê‹ÈB"
+    },
+    {
+      "id": "song_get_ure_dream",
+      "title": "Get U're Dream",
+      "year": 2000,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "Get U're Dream",
+      "album": "ŠÔ‚Ì—ƒ",
+      "single": "Get U're Dream",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "major" },
+      "note": "ƒeƒ“ƒVƒ‡ƒ“‚ğã‚°‚½‚¢‚É‚Ò‚Á‚½‚èB"
+    },
+    {
+      "id": "song_promised_you",
+      "title": "promised you",
+      "year": 2000,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "promised you",
+      "album": "ŠÔ‚Ì—ƒ",
+      "single": "promised you",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ŒãŠú‚Ìô—û‚³‚ê‚½–£—Í‚ğŠ´‚¶‚éB"
+    },
+    {
+      "id": "song_sawayakana_kimi_no_kimochi",
+      "title": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "year": 2002,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "album": "ŠÔ‚Ì—ƒ",
+      "single": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "‰¸‚â‚©‚È‘u‚â‚©‚³‚ª–£—ÍB"
+    },
+    {
+      "id": "song_ashita_o_yumemite",
+      "title": "–¾“ú‚ğ–²Œ©‚Ä",
+      "year": 2003,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "–¾“ú‚ğ–²Œ©‚Ä",
+      "album": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "single": "–¾“ú‚ğ–²Œ©‚Ä",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "major" },
+      "note": "Ã‚©‚È‘OŒü‚«‚³‚ª‹¹‚Éc‚éB"
+    },
+    {
+      "id": "song_hitomi_tojite",
+      "title": "“µ•Â‚¶‚Ä",
+      "year": 2003,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "“µ•Â‚¶‚Ä",
+      "album": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "single": "“µ•Â‚¶‚Ä",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "—‚¿’…‚¢‚½îŠ´‚ª”ü‚µ‚¢B"
+    },
+    {
+      "id": "song_motto_chikakude_kimi_no_yokogao_miteitai",
+      "title": "‚à‚Á‚Æ‹ß‚­‚ÅŒN‚Ì‰¡ŠçŒ©‚Ä‚¢‚½‚¢",
+      "year": 2003,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚à‚Á‚Æ‹ß‚­‚ÅŒN‚Ì‰¡ŠçŒ©‚Ä‚¢‚½‚¢",
+      "album": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "single": "‚à‚Á‚Æ‹ß‚­‚ÅŒN‚Ì‰¡ŠçŒ©‚Ä‚¢‚½‚¢",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "00s", "theme": "love", "popularity": "standard" },
+      "note": "‚µ‚Á‚Æ‚è‚µ‚½—öˆ¤‹È‚ªD‚«‚ÈlŒü‚¯B"
+    },
+    {
+      "id": "song_kakegae_no_nai_mono",
+      "title": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "year": 2004,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "album": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "single": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "major" },
+      "note": "‚â‚³‚µ‚­‘O‚ğŒü‚©‚¹‚Ä‚­‚ê‚éB"
+    },
+    {
+      "id": "song_tomatteita_tokei_ga_ima_ugokidashita",
+      "title": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "year": 2004,
+      "initialReleaseType": "album_title",
+      "initialReleaseTitle": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "album": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "00s", "theme": "empowerment", "popularity": "minor" },
+      "note": "Äo”­‚Ì•¨Œê‚ğŠ´‚¶‚éŒãŠú‹ÈB"
+    },
+    {
+      "id": "song_kyou_wa_yukkuri_hanasou",
+      "title": "¡“ú‚Í‚ä‚Á‚­‚è˜b‚»‚¤",
+      "year": 2004,
+      "initialReleaseType": "album_track",
+      "initialReleaseTitle": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "album": "~‚Ü‚Á‚Ä‚¢‚½Œv‚ª¡“®‚«o‚µ‚½",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "Œ¨‚Ì—Í‚ğ”²‚¢‚Ä’®‚«‚½‚¢ˆê‹ÈB"
+    },
+    {
+      "id": "song_kimi_to_no_distance",
+      "title": "ŒN‚Æ‚ÌDistance",
+      "year": 2005,
+      "initialReleaseType": "album_title",
+      "initialReleaseTitle": "ŒN‚Æ‚ÌDistance",
+      "album": "ŒN‚Æ‚ÌDistance",
+      "single": null,
+      "isCoupling": false,
+      "isAlbumTrack": true,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ŒãŠú‚Ì—‚¿’…‚¢‚½–£—Í‚ğ–¡‚í‚¦‚éB"
+    },
+    {
+      "id": "song_hoshi_no_kagayakiyo",
+      "title": "¯‚Ì‚©‚ª‚â‚«‚æ",
+      "year": 2005,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "¯‚Ì‚©‚ª‚â‚«‚æ",
+      "album": "ŒN‚Æ‚ÌDistance",
+      "single": "¯‚Ì‚©‚ª‚â‚«‚æ",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "00s", "theme": "empowerment", "popularity": "standard" },
+      "note": "”²‚¯‚Ì‚æ‚¢‘u‰õŠ´‚ªS’n‚æ‚¢B"
+    },
+    {
+      "id": "song_natsu_o_matsu_sail_no_you_ni",
+      "title": "‰Ä‚ğ‘Ò‚ÂƒZƒCƒ‹(”¿)‚Ì‚æ‚¤‚É",
+      "year": 2005,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‰Ä‚ğ‘Ò‚ÂƒZƒCƒ‹(”¿)‚Ì‚æ‚¤‚É",
+      "album": "ŒN‚Æ‚ÌDistance",
+      "single": "‰Ä‚ğ‘Ò‚ÂƒZƒCƒ‹(”¿)‚Ì‚æ‚¤‚É",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "00s", "theme": "love", "popularity": "standard" },
+      "note": "‰Ä‚Ì‹ó‹C‚É—‡‚¤L‚ª‚è‚Ì‚ ‚é‹ÈB"
+    },
+    {
+      "id": "song_kanashii_hodo_anata_ga_suki",
+      "title": "”ß‚µ‚¢‚Ù‚Ç‹M•û‚ªD‚«",
+      "year": 2006,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "”ß‚µ‚¢‚Ù‚Ç‹M•û‚ªD‚«",
+      "album": "ŒN‚Æ‚ÌDistance",
+      "single": "”ß‚µ‚¢‚Ù‚Ç‹M•û‚ªD‚«",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "00s", "theme": "love", "popularity": "standard" },
+      "note": "Ø‚È‚¢—öˆ¤‹È‚ğ‹‚ß‚él‚ÉB"
+    },
+    {
+      "id": "song_heart_ni_hi_o_tsukete",
+      "title": "ƒn[ƒg‚É‰Î‚ğ‚Â‚¯‚Ä",
+      "year": 2006,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "ƒn[ƒg‚É‰Î‚ğ‚Â‚¯‚Ä",
+      "album": "ŒN‚Æ‚ÌDistance",
+      "single": "ƒn[ƒg‚É‰Î‚ğ‚Â‚¯‚Ä",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "fast", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "minor" },
+      "note": "”M—Ê‚Ì‚ ‚éŒãŠúƒAƒbƒvƒeƒ“ƒ|‹ÈB"
+    },
+    {
+      "id": "song_glorious_mind",
+      "title": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "year": 2007,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "album": null,
+      "single": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "major" },
+      "note": "—Í‹­‚³‚Æ“§–¾Š´‚ğŠ´‚¶‚éŒãŠúƒVƒ“ƒOƒ‹B"
+    },
+    {
+      "id": "song_tsubasa_o_hirogete",
+      "title": "—ƒ‚ğL‚°‚Ä",
+      "year": 2008,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "—ƒ‚ğL‚°‚Ä / ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å",
+      "album": null,
+      "single": "—ƒ‚ğL‚°‚Ä / ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "standard" },
+      "note": "L‚ª‚è‚Ì‚ ‚éŒãŠúƒVƒ“ƒOƒ‹B"
+    },
+    {
+      "id": "song_ai_wa_kurayami_no_nakade_single_2008",
+      "title": "ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å",
+      "year": 2008,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "—ƒ‚ğL‚°‚Ä / ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å",
+      "album": null,
+      "single": "—ƒ‚ğL‚°‚Ä / ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "00s", "theme": "love", "popularity": "standard" },
+      "note": "ƒ_[ƒN‚³‚Æ‰ù‚©‚µ‚³‚ª“¯‹‚·‚éˆê‹ÈB"
+    },
+    {
+      "id": "song_sunao_ni_ienakute_single_2009",
+      "title": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä",
+      "year": 2009,
+      "initialReleaseType": "single",
+      "initialReleaseTitle": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä",
+      "album": null,
+      "single": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä",
+      "isCoupling": false,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "‚â‚í‚ç‚©‚­—]‰C‚ğc‚·ƒ‰ƒXƒgŠú‚Ìˆê‹ÈB"
+    },
+    {
+      "id": "song_ai_wa_kurayami_no_nakade_coupling_1991",
+      "title": "ˆ¤‚ÍˆÃˆÅ‚Ì’†‚Å",
+      "year": 1991,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "Good-bye My Loneliness",
+      "album": null,
+      "single": "Good-bye My Loneliness",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_sunao_ni_ienakute_coupling_1991",
+      "title": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä",
+      "year": 1991,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "•sv‹c‚Ë...",
+      "album": null,
+      "single": "•sv‹c‚Ë...",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_konna_ni_aishitemo_coupling_1991",
+      "title": "‚±‚ñ‚È‚Éˆ¤‚µ‚Ä‚à",
+      "year": 1991,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚à‚¤’T‚³‚È‚¢",
+      "album": null,
+      "single": "‚à‚¤’T‚³‚È‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_dangerous_tonight_coupling_1992",
+      "title": "Dangerous Tonight",
+      "year": 1992,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "–°‚ê‚È‚¢–é‚ğ•ø‚¢‚Ä",
+      "album": null,
+      "single": "–°‚ê‚È‚¢–é‚ğ•ø‚¢‚Ä",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "fast", "mood": "refreshing", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_ase_no_naka_de_cry_coupling_1992",
+      "title": "Š¾‚Ì’†‚ÅCRY",
+      "year": 1992,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "IN MY ARMS TONIGHT",
+      "album": null,
+      "single": "IN MY ARMS TONIGHT",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_stray_love_coupling_1993",
+      "title": "Stray Love",
+      "year": 1993,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "•‰‚¯‚È‚¢‚Å",
+      "album": null,
+      "single": "•‰‚¯‚È‚¢‚Å",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_watashi_dake_mitsumete_coupling_1993",
+      "title": "„‚¾‚¯Œ©‚Â‚ß‚Ä",
+      "year": 1993,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ŒN‚ª‚¢‚È‚¢",
+      "album": null,
+      "single": "ŒN‚ª‚¢‚È‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_just_for_you_coupling_1993",
+      "title": "Just for you",
+      "year": 1993,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "—h‚ê‚é‘z‚¢",
+      "album": null,
+      "single": "—h‚ê‚é‘z‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_ame_ni_nurete_coupling_1993",
+      "title": "‰J‚É”G‚ê‚Ä",
+      "year": 1993,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‰Ê‚Ä‚µ‚È‚¢–²‚ğ",
+      "album": null,
+      "single": "‰Ê‚Ä‚µ‚È‚¢–²‚ğ",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "early90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_kanariya_coupling_1993",
+      "title": "ƒJƒiƒŠƒ„",
+      "year": 1993,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚à‚¤­‚µ ‚ ‚Æ­‚µ...",
+      "album": null,
+      "single": "‚à‚¤­‚µ ‚ ‚Æ­‚µ...",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "early90s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_tasogare_ni_my_lonely_heart_coupling_1993",
+      "title": "‰©¨‚ÉMy Lonely Heart",
+      "year": 1993,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚«‚Á‚Æ–Y‚ê‚È‚¢",
+      "album": null,
+      "single": "‚«‚Á‚Æ–Y‚ê‚È‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "early90s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_anata_no_seija_nai_coupling_1994",
+      "title": "‚ ‚È‚½‚Ì‚¹‚¢‚¶‚á‚È‚¢",
+      "year": 1994,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚±‚ñ‚È‚É‚»‚Î‚É‹‚é‚Ì‚É",
+      "album": null,
+      "single": "‚±‚ñ‚È‚É‚»‚Î‚É‹‚é‚Ì‚É",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "mid90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_take_me_to_your_dream_coupling_1994",
+      "title": "Take me to your dream",
+      "year": 1994,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚ ‚È‚½‚ğŠ´‚¶‚Ä‚¢‚½‚¢",
+      "album": null,
+      "single": "‚ ‚È‚½‚ğŠ´‚¶‚Ä‚¢‚½‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "mid90s", "theme": "empowerment", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_ready_go_coupling_1995",
+      "title": "Ready, Go!",
+      "year": 1995,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "Just believe in love",
+      "album": null,
+      "single": "Just believe in love",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "fast", "mood": "empowering", "era": "mid90s", "theme": "empowerment", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_teenage_dream_coupling_1995",
+      "title": "Teenage dream",
+      "year": 1995,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ˆ¤‚ªŒ©‚¦‚È‚¢",
+      "album": null,
+      "single": "ˆ¤‚ªŒ©‚¦‚È‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "fast", "mood": "refreshing", "era": "mid90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_nemuri_coupling_1995",
+      "title": "–°‚è",
+      "year": 1995,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ƒTƒˆƒiƒ‰‚Í¡‚à‚±‚Ì‹¹‚É‹‚Ü‚·",
+      "album": null,
+      "single": "ƒTƒˆƒiƒ‰‚Í¡‚à‚±‚Ì‹¹‚É‹‚Ü‚·",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "mid90s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_mezameta_asa_wa_coupling_1996",
+      "title": "–ÚŠo‚ß‚½’©‚Íc",
+      "year": 1996,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ƒ}ƒC ƒtƒŒƒ“ƒh",
+      "album": null,
+      "single": "ƒ}ƒC ƒtƒŒƒ“ƒh",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "mid90s", "theme": "empowerment", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_change_my_mind_coupling_1996",
+      "title": "Change my mind",
+      "year": 1996,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "S‚ğŠJ‚¢‚Ä",
+      "album": null,
+      "single": "S‚ğŠJ‚¢‚Ä",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "mid90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_kaeranu_jikan_no_nakade_coupling_1997",
+      "title": "‹A‚ç‚ÊŠÔ‚Ì’†‚Å",
+      "year": 1997,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "Don't you see!",
+      "album": null,
+      "single": "Don't you see!",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "nostalgic", "era": "late90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_ai_o_shinjite_itai_coupling_1997",
+      "title": "ˆ¤‚ğM‚¶‚Ä‚¢‚½‚¢",
+      "year": 1997,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ŒN‚Éˆ§‚¢‚½‚­‚È‚Á‚½‚ç...",
+      "album": null,
+      "single": "ŒN‚Éˆ§‚¢‚½‚­‚È‚Á‚½‚ç...",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "late90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_toi_hoshi_o_kazoete_coupling_1997",
+      "title": "‰“‚¢¯‚ğ”‚¦‚Ä",
+      "year": 1997,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "•—‚ª’Ê‚è”²‚¯‚éŠX‚Ö",
+      "album": null,
+      "single": "•—‚ª’Ê‚è”²‚¯‚éŠX‚Ö",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "nostalgic", "era": "late90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_i_cant_let_go_coupling_1997",
+      "title": "I can't let go",
+      "year": 1997,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‰i‰“",
+      "album": null,
+      "single": "‰i‰“",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "late90s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_love_is_gone_coupling_1997",
+      "title": "Love is Gone",
+      "year": 1997,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "My Baby Grand `‚Ê‚­‚à‚è‚ª—~‚µ‚­‚Ä`",
+      "album": null,
+      "single": "My Baby Grand `‚Ê‚­‚à‚è‚ª—~‚µ‚­‚Ä`",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "sad", "era": "late90s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_vintage_coupling_1998",
+      "title": "Vintage",
+      "year": 1998,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‘§‚à‚Å‚«‚È‚¢",
+      "album": null,
+      "single": "‘§‚à‚Å‚«‚È‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "late90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_shoujo_no_koro_ni_modotta_mitai_ni_coupling_1998",
+      "title": "­—‚Ì ‚É–ß‚Á‚½‚İ‚½‚¢‚É",
+      "year": 1998,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‰^–½‚Ìƒ‹[ƒŒƒbƒg‰ô‚µ‚Ä",
+      "album": null,
+      "single": "‰^–½‚Ìƒ‹[ƒŒƒbƒg‰ô‚µ‚Ä",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "late90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_hypnosis_coupling_1999",
+      "title": "Hypnosis",
+      "year": 1999,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "MIND GAMES",
+      "album": null,
+      "single": "MIND GAMES",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "late90s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_omo_hi_de_coupling_1999",
+      "title": "‚¨E‚àE‚ĞE‚Å",
+      "year": 1999,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚±‚Ì—Ü ¯‚É‚È‚ê",
+      "album": null,
+      "single": "‚±‚Ì—Ü ¯‚É‚È‚ê",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "nostalgic", "era": "late90s", "theme": "nostalgia", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_the_only_truth_i_know_is_you_coupling_2000",
+      "title": "The only truth I know is you",
+      "year": 2000,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "promised you",
+      "album": null,
+      "single": "promised you",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "romantic", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_dakishimete_ite_coupling_2002",
+      "title": "•ø‚«‚µ‚ß‚Ä‚¢‚Ä",
+      "year": 2002,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "album": null,
+      "single": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_seven_rainbow_coupling_2002",
+      "title": "Seven Rainbow",
+      "year": 2002,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "album": null,
+      "single": "‚³‚í‚â‚©‚ÈŒN‚Ì‹C‚¿",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "refreshing", "era": "00s", "theme": "empowerment", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_sagashi_ni_ikou_yo_coupling_2003",
+      "title": "’T‚µ‚És‚±‚¤‚æ",
+      "year": 2003,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "–¾“ú‚ğ–²Œ©‚Ä",
+      "album": null,
+      "single": "–¾“ú‚ğ–²Œ©‚Ä",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_itoshii_hito_yo_na_mo_naki_tabibito_yo_coupling_2003",
+      "title": "ˆ¤‚µ‚¢l‚æ `–¼‚à‚È‚«—·l‚æ`",
+      "year": 2003,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "“µ•Â‚¶‚Ä",
+      "album": null,
+      "single": "“µ•Â‚¶‚Ä",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_reset_coupling_2003",
+      "title": "ƒŠƒZƒbƒg",
+      "year": 2003,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚à‚Á‚Æ‹ß‚­‚ÅŒN‚Ì‰¡ŠçŒ©‚Ä‚¢‚½‚¢",
+      "album": null,
+      "single": "‚à‚Á‚Æ‹ß‚­‚ÅŒN‚Ì‰¡ŠçŒ©‚Ä‚¢‚½‚¢",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_mugamuchuu_coupling_2004",
+      "title": "–³‰ä–²’†",
+      "year": 2004,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "album": null,
+      "single": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "fast", "mood": "empowering", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_eien_tour_ver_coupling_2004",
+      "title": "‰i‰“ (Tour Ver.)",
+      "year": 2004,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "album": null,
+      "single": "‚©‚¯‚ª‚¦‚Ì‚È‚¢‚à‚Ì",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "romantic", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_kimi_e_no_blues_coupling_2006",
+      "title": "ŒN‚Ö‚Ìƒuƒ‹[ƒX",
+      "year": 2006,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ƒn[ƒg‚É‰Î‚ğ‚Â‚¯‚Ä",
+      "album": null,
+      "single": "ƒn[ƒg‚É‰Î‚ğ‚Â‚¯‚Ä",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "slow", "mood": "sad", "era": "00s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_sagashi_ni_ikou_yo_2007_ver_coupling_2007",
+      "title": "’T‚µ‚És‚±‚¤‚æ (2007 ver.)",
+      "year": 2007,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "album": null,
+      "single": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "00s", "theme": "empowerment", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_ai_o_shinjite_itai_2007_ver_coupling_2007",
+      "title": "ˆ¤‚ğM‚¶‚Ä‚¢‚½‚¢ (2007 ver.)",
+      "year": 2007,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "album": null,
+      "single": "ƒOƒƒŠƒAƒX ƒ}ƒCƒ“ƒh",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "empowering", "era": "00s", "theme": "love", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    },
+    {
+      "id": "song_hypnosis_coupling_2009",
+      "title": "Hypnosis",
+      "year": 2009,
+      "initialReleaseType": "coupling",
+      "initialReleaseTitle": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä",
+      "album": null,
+      "single": "‘f’¼‚ÉŒ¾‚¦‚È‚­‚Ä",
+      "isCoupling": true,
+      "isAlbumTrack": false,
+      "official_discography_checked": false,
+      "tagProvisional": true,
+      "tags": { "tempo": "mid", "mood": "nostalgic", "era": "00s", "theme": "loneliness", "popularity": "minor" },
+      "note": "ƒJƒbƒvƒŠƒ“ƒO‹È"
+    }
+  ]
+}
