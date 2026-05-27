@@ -609,13 +609,57 @@
       el.addEventListener('change', calculate);
     });
 
-    document.querySelectorAll('.spin-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = document.getElementById(btn.dataset.target);
-        const dir = btn.dataset.dir;
-        if (target) spinValue(target, dir);
-      });
-    });
+let holdStartTimer = null;
+let holdRepeatTimer = null;
+
+function stopSpinHold() {
+  clearTimeout(holdStartTimer);
+  clearInterval(holdRepeatTimer);
+  holdStartTimer = null;
+  holdRepeatTimer = null;
+}
+
+function startSpinHold(btn, e) {
+  e.preventDefault();
+
+  const target = document.getElementById(btn.dataset.target);
+  const dir = btn.dataset.dir;
+  if (!target) return;
+
+  // まず1回動かす
+  spinValue(target, dir);
+
+  // Pointer capture
+  if (typeof btn.setPointerCapture === 'function' && e.pointerId !== undefined) {
+    try {
+      btn.setPointerCapture(e.pointerId);
+    } catch (_) {}
+  }
+
+  // 既存タイマー停止
+  stopSpinHold();
+
+  // 少し長押ししたら連続増減開始
+  holdStartTimer = setTimeout(() => {
+    holdRepeatTimer = setInterval(() => {
+      spinValue(target, dir);
+    }, 80); // 連続増減の速さ
+  }, 350); // 長押し判定までの時間
+}
+
+document.querySelectorAll('.spin-btn').forEach(btn => {
+  btn.addEventListener('pointerdown', (e) => startSpinHold(btn, e));
+  btn.addEventListener('pointerup', stopSpinHold);
+  btn.addEventListener('pointercancel', stopSpinHold);
+  btn.addEventListener('lostpointercapture', stopSpinHold);
+  btn.addEventListener('pointerleave', stopSpinHold);
+});
+
+document.addEventListener('pointerup', stopSpinHold);
+document.addEventListener('pointercancel', stopSpinHold);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopSpinHold();
+});
 
     els.copyBtn.addEventListener('click', async () => {
       const t = texts[lang];
