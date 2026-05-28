@@ -2,8 +2,19 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>長秒一枚撮り星景写真用 絞り値計算ツール</title>
+  <meta name="theme-color" content="#060606" />
+  <meta name="description" content="長秒一枚撮り星景写真用の絞り値計算ツール" />
+
+  <!-- PWA -->
+<link rel="manifest" href="./manifest.webmanifest" />
+<link rel="icon" href="./icon-192.png" sizes="192x192" type="image/png" />
+<link rel="apple-touch-icon" href="./apple-touch-icon-180.png" sizes="180x180" />
+<meta name="theme-color" content="#060606" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="星景絞り" />
   <style>
     :root {
       --bg: #f6f7fb;
@@ -32,8 +43,12 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans",
         "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
       background: var(--bg);
@@ -145,6 +160,9 @@
       color: var(--btnText);
       cursor: pointer;
       transition: transform 0.05s ease, background 0.2s ease, color 0.25s ease, border-color 0.25s ease;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
     }
 
     button:hover {
@@ -158,6 +176,7 @@
     .stop-btn {
       min-width: 72px;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .actions {
@@ -182,39 +201,7 @@
       color: var(--muted);
     }
 
-    /* カスタム △▽ ステッパー */
-    .num-wrap {
-      display: flex;
-      align-items: stretch;
-      gap: 6px;
-    }
-
-    .num-wrap input {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .spinner {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      width: 44px;
-      flex: 0 0 44px;
-    }
-
-.spin-btn {
-  min-height: 42px;
-  height: 42px;
-  padding: 0;
-  border-radius: 12px;
-  font-size: 14px;
-  font-weight: 700;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-    /* number の標準スピンを隠す（見た目を統一） */
+    /* number native spinner off */
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -222,10 +209,65 @@
     }
 
     input[type="number"] {
-      -moz-appearance: textfield;
       appearance: textfield;
+      -moz-appearance: textfield;
     }
 
+    /* custom stepper */
+    .num-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 44px;
+      grid-template-rows: 19px 19px;
+      gap: 4px 6px;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .num-wrap > input {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      min-width: 0;
+      width: 100%;
+    }
+
+    .spinner {
+      display: contents;
+    }
+
+    .spin-btn {
+      padding: 0;
+      border-radius: 8px;
+      line-height: 1;
+      font-size: 13px;
+      font-weight: 700;
+      width: 44px;
+      min-height: 19px;
+      height: 19px;
+    }
+
+    .spin-btn[data-dir="up"] {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .spin-btn[data-dir="down"] {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .row.aperture-row {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .row.aperture-row input {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    /* night mode */
     body.night {
       background: var(--night-bg);
       color: var(--night-text);
@@ -278,75 +320,41 @@
       font-weight: 800;
     }
 
-.row.aperture-row {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  gap: 8px;
-}
+    @media (max-width: 560px) {
+      .stop-btn {
+        min-width: 64px;
+        padding: 10px 8px;
+      }
 
-.row.aperture-row input {
-  flex: 1 1 auto;
-  min-width: 0;
-}
+      .num-wrap {
+        grid-template-columns: 44px minmax(0, 1fr) 44px;
+        grid-template-rows: 42px;
+        gap: 6px;
+      }
 
-@media (max-width: 560px) {
-  .row.aperture-row {
-    flex-wrap: nowrap;
-  }
+      .num-wrap > input {
+        grid-column: 2;
+        grid-row: 1;
+      }
 
-  .row.aperture-row input {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
+      .spin-btn {
+        width: 44px;
+        min-height: 42px;
+        height: 42px;
+        border-radius: 12px;
+        font-size: 14px;
+      }
 
-  .stop-btn {
-    flex: 0 0 auto;
-    min-width: 64px;
-    padding: 10px 8px;
-    white-space: nowrap;
-  }
+      .spin-btn[data-dir="down"] {
+        grid-column: 1;
+        grid-row: 1;
+      }
 
-  /* 数値入力欄＋左右ボタンを1列固定 */
-  .num-wrap {
-    display: grid !important;
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
-    grid-template-rows: 42px;
-    gap: 6px;
-    align-items: stretch;
-    width: 100%;
-  }
-
-  .num-wrap > input {
-    grid-column: 2;
-    grid-row: 1;
-    min-width: 0;
-    width: 100%;
-  }
-
-  .num-wrap .spinner {
-    display: contents !important;
-  }
-
-  .num-wrap .spin-btn {
-    min-height: 42px;
-    height: 42px;
-    padding: 0;
-    border-radius: 12px;
-    font-size: 14px;
-    width: 44px;
-  }
-
-  .num-wrap .spin-btn[data-dir="down"] {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .num-wrap .spin-btn[data-dir="up"] {
-    grid-column: 3;
-    grid-row: 1;
-  }
-}
+      .spin-btn[data-dir="up"] {
+        grid-column: 3;
+        grid-row: 1;
+      }
+    }
   </style>
 </head>
 <body>
@@ -365,22 +373,22 @@
         <div class="field">
           <label id="t1Label" for="t1">試し撮り露光 (秒)</label>
           <div class="num-wrap">
-            <input id="t1" type="number" step="1" min="0" value="20" />
+            <input id="t1" type="number" step="1" min="0" value="20" inputmode="numeric" />
             <div class="spinner">
-              <button type="button" class="spin-btn" data-target="t1" data-dir="up">△</button>
-              <button type="button" class="spin-btn" data-target="t1" data-dir="down">▽</button>
+              <button type="button" class="spin-btn" data-target="t1" data-dir="down" aria-label="decrease">▽</button>
+              <button type="button" class="spin-btn" data-target="t1" data-dir="up" aria-label="increase">△</button>
             </div>
           </div>
         </div>
 
-<div class="field">
-  <label id="f1Label" for="f1">試し撮り絞り</label>
-  <div class="row aperture-row">
-    <button id="f1Minus" type="button" class="stop-btn">-1段</button>
-    <input id="f1" type="number" step="0.1" min="0" value="4.0" />
-    <button id="f1Plus" type="button" class="stop-btn">+1段</button>
-  </div>
-</div>
+        <div class="field">
+          <label id="f1Label" for="f1">試し撮り絞り</label>
+          <div class="row aperture-row">
+            <button id="f1Minus" type="button" class="stop-btn">-1段</button>
+            <input id="f1" type="number" step="0.1" min="0" value="4.0" inputmode="decimal" />
+            <button id="f1Plus" type="button" class="stop-btn">+1段</button>
+          </div>
+        </div>
 
         <div class="field">
           <label id="iso1Label" for="iso1">試し撮り ISO</label>
@@ -401,10 +409,10 @@
         <div class="field">
           <label id="iso2Label" for="iso2">長秒 ISO</label>
           <div class="num-wrap">
-            <input id="iso2" type="number" step="10" min="10" value="100" />
+            <input id="iso2" type="number" step="10" min="10" value="100" inputmode="numeric" />
             <div class="spinner">
-              <button type="button" class="spin-btn" data-target="iso2" data-dir="up">△</button>
-              <button type="button" class="spin-btn" data-target="iso2" data-dir="down">▽</button>
+              <button type="button" class="spin-btn" data-target="iso2" data-dir="down" aria-label="decrease">▽</button>
+              <button type="button" class="spin-btn" data-target="iso2" data-dir="up" aria-label="increase">△</button>
             </div>
           </div>
         </div>
@@ -412,17 +420,17 @@
         <div class="field">
           <label id="t2minLabel" for="t2min">長秒露光時間(分)</label>
           <div class="num-wrap">
-            <input id="t2min" type="number" step="1" min="0" value="30" />
+            <input id="t2min" type="number" step="1" min="0" value="30" inputmode="numeric" />
             <div class="spinner">
-              <button type="button" class="spin-btn" data-target="t2min" data-dir="up">△</button>
-              <button type="button" class="spin-btn" data-target="t2min" data-dir="down">▽</button>
+              <button type="button" class="spin-btn" data-target="t2min" data-dir="down" aria-label="decrease">▽</button>
+              <button type="button" class="spin-btn" data-target="t2min" data-dir="up" aria-label="increase">△</button>
             </div>
           </div>
         </div>
 
         <div class="field">
           <label id="f2Label" for="f2">長秒絞り(自動算出)</label>
-          <input id="f2" class="result" type="text" readonly />
+          <input id="f2" class="result" type="text" readonly value="—" />
         </div>
 
         <div class="actions">
@@ -438,6 +446,7 @@
 
   <script>
     const SQRT2 = Math.SQRT2;
+    const STORAGE_KEY = 'cyobyoStateV1';
 
     const els = {
       title: document.getElementById('title'),
@@ -466,8 +475,19 @@
       f2: document.getElementById('f2'),
     };
 
-    let lang = 'ja';
-    let night = localStorage.getItem('cyobyoNight') !== '0';
+    const defaults = {
+      lang: 'ja',
+      night: true,
+      t1: '20',
+      f1: '4.0',
+      iso1: '3200',
+      iso2: '100',
+      t2min: '30'
+    };
+
+    let saveTimer = null;
+    let lang = defaults.lang;
+    let night = defaults.night;
 
     const texts = {
       ja: {
@@ -512,6 +532,44 @@
       }
     };
 
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const state = JSON.parse(raw);
+
+        lang = state.lang === 'en' ? 'en' : defaults.lang;
+        night = state.night !== undefined ? !!state.night : defaults.night;
+
+        els.t1.value = state.t1 || defaults.t1;
+        els.f1.value = state.f1 || defaults.f1;
+        els.iso1.value = state.iso1 || defaults.iso1;
+        els.iso2.value = state.iso2 || defaults.iso2;
+        els.t2min.value = state.t2min || defaults.t2min;
+      } catch {
+        lang = defaults.lang;
+        night = defaults.night;
+      }
+    }
+
+    function saveState() {
+      const state = {
+        lang,
+        night,
+        t1: els.t1.value || defaults.t1,
+        f1: els.f1.value || defaults.f1,
+        iso1: els.iso1.value || defaults.iso1,
+        iso2: els.iso2.value || defaults.iso2,
+        t2min: els.t2min.value || defaults.t2min
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+
+    function scheduleSaveState() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveState, 120);
+    }
+
     function renderLang() {
       const t = texts[lang];
       els.title.innerHTML = t.title;
@@ -536,8 +594,8 @@
 
     function applyNightMode() {
       document.body.classList.toggle('night', night);
-      localStorage.setItem('cyobyoNight', night ? '1' : '0');
       renderLang();
+      scheduleSaveState();
     }
 
     function adjustAperture(delta) {
@@ -546,6 +604,7 @@
       v = delta > 0 ? v * SQRT2 : v / SQRT2;
       els.f1.value = v.toFixed(1);
       calculate();
+      scheduleSaveState();
     }
 
     function normalizeByStep(value, step) {
@@ -556,18 +615,18 @@
     function spinValue(input, dir) {
       const step = parseFloat(input.step) || 1;
       const min = parseFloat(input.min);
+      const max = parseFloat(input.max);
       let value = parseFloat(input.value);
 
       if (!isFinite(value)) value = 0;
       value += dir === 'up' ? step : -step;
 
       if (isFinite(min) && value < min) value = min;
+      if (isFinite(max) && value > max) value = max;
 
       value = normalizeByStep(value, step);
       input.value = value;
-
       input.dispatchEvent(new Event('input', { bubbles: true }));
-      input.dispatchEvent(new Event('change', { bubbles: true }));
     }
 
     function calculate() {
@@ -601,65 +660,66 @@
       }
     }
 
+    // hold-to-repeat
+    let holdStartTimer = null;
+    let holdRepeatTimer = null;
+
+    function stopSpinHold() {
+      clearTimeout(holdStartTimer);
+      clearInterval(holdRepeatTimer);
+      holdStartTimer = null;
+      holdRepeatTimer = null;
+    }
+
+    function startSpinHold(btn, e) {
+      e.preventDefault();
+
+      const target = document.getElementById(btn.dataset.target);
+      const dir = btn.dataset.dir;
+      if (!target) return;
+
+      spinValue(target, dir);
+
+      if (typeof btn.setPointerCapture === 'function' && e.pointerId !== undefined) {
+        try { btn.setPointerCapture(e.pointerId); } catch (_) {}
+      }
+
+      stopSpinHold();
+
+      holdStartTimer = setTimeout(() => {
+        holdRepeatTimer = setInterval(() => {
+          spinValue(target, dir);
+        }, 80);
+      }, 350);
+    }
+
     els.f1Minus.addEventListener('click', () => adjustAperture(-1));
     els.f1Plus.addEventListener('click', () => adjustAperture(1));
 
     [els.t1, els.f1, els.iso1, els.iso2, els.t2min].forEach(el => {
-      el.addEventListener('input', calculate);
-      el.addEventListener('change', calculate);
+      el.addEventListener('input', () => {
+        calculate();
+        scheduleSaveState();
+      });
+      el.addEventListener('change', () => {
+        calculate();
+        scheduleSaveState();
+      });
     });
 
-let holdStartTimer = null;
-let holdRepeatTimer = null;
+    document.querySelectorAll('.spin-btn').forEach(btn => {
+      btn.addEventListener('pointerdown', (e) => startSpinHold(btn, e));
+      btn.addEventListener('pointerup', stopSpinHold);
+      btn.addEventListener('pointercancel', stopSpinHold);
+      btn.addEventListener('lostpointercapture', stopSpinHold);
+      btn.addEventListener('pointerleave', stopSpinHold);
+    });
 
-function stopSpinHold() {
-  clearTimeout(holdStartTimer);
-  clearInterval(holdRepeatTimer);
-  holdStartTimer = null;
-  holdRepeatTimer = null;
-}
-
-function startSpinHold(btn, e) {
-  e.preventDefault();
-
-  const target = document.getElementById(btn.dataset.target);
-  const dir = btn.dataset.dir;
-  if (!target) return;
-
-  // まず1回動かす
-  spinValue(target, dir);
-
-  // Pointer capture
-  if (typeof btn.setPointerCapture === 'function' && e.pointerId !== undefined) {
-    try {
-      btn.setPointerCapture(e.pointerId);
-    } catch (_) {}
-  }
-
-  // 既存タイマー停止
-  stopSpinHold();
-
-  // 少し長押ししたら連続増減開始
-  holdStartTimer = setTimeout(() => {
-    holdRepeatTimer = setInterval(() => {
-      spinValue(target, dir);
-    }, 80); // 連続増減の速さ
-  }, 350); // 長押し判定までの時間
-}
-
-document.querySelectorAll('.spin-btn').forEach(btn => {
-  btn.addEventListener('pointerdown', (e) => startSpinHold(btn, e));
-  btn.addEventListener('pointerup', stopSpinHold);
-  btn.addEventListener('pointercancel', stopSpinHold);
-  btn.addEventListener('lostpointercapture', stopSpinHold);
-  btn.addEventListener('pointerleave', stopSpinHold);
-});
-
-document.addEventListener('pointerup', stopSpinHold);
-document.addEventListener('pointercancel', stopSpinHold);
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) stopSpinHold();
-});
+    document.addEventListener('pointerup', stopSpinHold);
+    document.addEventListener('pointercancel', stopSpinHold);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopSpinHold();
+    });
 
     els.copyBtn.addEventListener('click', async () => {
       const t = texts[lang];
@@ -683,6 +743,7 @@ document.addEventListener('visibilitychange', () => {
     els.langBtn.addEventListener('click', () => {
       lang = lang === 'ja' ? 'en' : 'ja';
       renderLang();
+      scheduleSaveState();
     });
 
     els.nightBtn.addEventListener('click', () => {
@@ -690,8 +751,23 @@ document.addEventListener('visibilitychange', () => {
       applyNightMode();
     });
 
+    // init
+    els.t1.value = defaults.t1;
+    els.f1.value = defaults.f1;
+    els.iso1.value = defaults.iso1;
+    els.iso2.value = defaults.iso2;
+    els.t2min.value = defaults.t2min;
+
+    loadState();
     applyNightMode();
     calculate();
+
+    // service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(console.error);
+      });
+    }
   </script>
 </body>
 </html>

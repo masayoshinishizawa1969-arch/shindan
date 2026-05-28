@@ -1,0 +1,24 @@
+{
+  "name": "長秒一枚撮り星景写真用 絞り値計算ツール",
+  "short_name": "星景絞り",
+  "description": "長秒一枚撮り星景写真用の絞り値計算ツール",
+  "lang": "ja",
+  "start_url": "./cyobyo.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#060606",
+  "theme_color": "#060606",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
