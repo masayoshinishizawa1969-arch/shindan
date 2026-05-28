@@ -1,8 +1,10 @@
-const CACHE_NAME = 'cyobyo-pwa-v1';
+const CACHE_NAME = 'cyobyo-pwa-nd-v1';
 const ASSETS = [
   './cyobyo.html',
   './manifest.webmanifest',
-  './icon.svg'
+  './icon-192.png',
+  './icon-512.png',
+  './apple-touch-icon-180.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -31,22 +33,17 @@ self.addEventListener('fetch', (event) => {
   if (request.method !== 'GET') return;
 
   const url = new URL(request.url);
-
   if (url.origin !== location.origin) return;
 
   event.respondWith(
-    caches.match(request).then((cached) => {
-      if (cached) return cached;
-
-      return fetch(request)
-        .then((response) => {
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseClone);
-          });
-          return response;
-        })
-        .catch(() => caches.match('./cyobyo.html'));
-    })
+    fetch(request)
+      .then((response) => {
+        const responseClone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(request, responseClone);
+        });
+        return response;
+      })
+      .catch(() => caches.match(request).then((cached) => cached || caches.match('./cyobyo.html')))
   );
 });
