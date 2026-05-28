@@ -37,6 +37,7 @@
       --night-btn: #1a1a1a;
       --night-btn-text: #ff6666;
       --night-result-bg: #160b0b;
+      --night-strong: #ff8080;
     }
 
     * {
@@ -187,6 +188,25 @@
       margin-top: 8px;
     }
 
+    .timer-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .timer-start {
+      font-weight: 700;
+    }
+
+    .timer-status {
+      margin-top: 8px;
+      min-height: 1.5em;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #7a1f1f;
+    }
+
     .result {
       background: var(--resultBg);
       font-weight: 700;
@@ -325,6 +345,10 @@
       font-weight: 800;
     }
 
+    body.night .timer-status {
+      color: var(--night-strong);
+    }
+
     @media (max-width: 560px) {
       .stop-btn {
         min-width: 64px;
@@ -450,6 +474,13 @@
               <button type="button" class="spin-btn" data-target="t2min" data-dir="up" aria-label="increase">△</button>
             </div>
           </div>
+
+          <div class="timer-actions">
+            <button id="timerStartBtn" type="button" class="timer-start">スタート！</button>
+          </div>
+          <div id="timerStatus" class="timer-status" aria-live="polite">
+            スタート！でカウントダウン開始
+          </div>
         </div>
 
         <div class="field">
@@ -470,7 +501,7 @@
 
   <script>
     const SQRT2 = Math.SQRT2;
-    const STORAGE_KEY = 'cyobyoStateV2';
+    const STORAGE_KEY = 'cyobyoStateV3';
 
     const els = {
       title: document.getElementById('title'),
@@ -492,6 +523,8 @@
       f2Label: document.getElementById('f2Label'),
       copyBtn: document.getElementById('copyBtn'),
       formulaNote: document.getElementById('formulaNote'),
+      timerStartBtn: document.getElementById('timerStartBtn'),
+      timerStatus: document.getElementById('timerStatus'),
 
       t1: document.getElementById('t1'),
       f1: document.getElementById('f1'),
@@ -532,6 +565,14 @@
     let lang = defaults.lang;
     let night = defaults.night;
 
+    const timer = {
+      state: 'idle',
+      endAt: 0,
+      lastRemainingSec: 0,
+      intervalId: null,
+      audioCtx: null
+    };
+
     const texts = {
       ja: {
         title: '長秒一枚撮り星景写真用<BR>絞り値計算ツール',
@@ -549,6 +590,10 @@
         ndLabel: 'NDフィルター使用',
         ndHelp: '無し = 減光なし / ND値が大きいほど光量が減ります',
         t2minLabel: '長秒露光時間(分)',
+        timerStartBtn: 'スタート！',
+        timerReady: 'スタート！でカウントダウン開始',
+        timerInvalid: '長秒露光時間(分)を確認してください。',
+        timerFinished: '終了しました。',
         f2Label: '長秒絞り(自動算出)',
         copyBtn: '結果をコピー',
         formulaNote: '※ 露出等価: 露光時間 × ISO ÷ (絞り値² × ND係数) を基準に計算',
@@ -571,6 +616,10 @@
         ndLabel: 'Use ND filter',
         ndHelp: 'None = no light reduction / higher ND means less light',
         t2minLabel: 'Long exposure time (min)',
+        timerStartBtn: 'Start!',
+        timerReady: 'Tap Start! to begin countdown',
+        timerInvalid: 'Please check long exposure time (min).',
+        timerFinished: 'Finished.',
         f2Label: 'Long exposure aperture (auto)',
         copyBtn: 'Copy result',
         formulaNote: '※ Based on exposure equivalence: exposure time × ISO ÷ (aperture² × ND factor)',
@@ -630,6 +679,31 @@
       saveTimer = setTimeout(saveState, 120);
     }
 
+    function formatRemainingText(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return lang === 'ja'
+        ? `あと${m}分${s}秒で終了`
+        : `Ends in ${m}m ${s}s`;
+    }
+
+    function renderTimerStatus(customText = '') {
+      const t = texts[lang];
+
+      if (customText) {
+        els.timerStatus.textContent = customText;
+        return;
+      }
+
+      if (timer.state === 'running') {
+        els.timerStatus.textContent = formatRemainingText(timer.lastRemainingSec);
+      } else if (timer.state === 'finished') {
+        els.timerStatus.textContent = t.timerFinished;
+      } else {
+        els.timerStatus.textContent = t.timerReady;
+      }
+    }
+
     function renderLang() {
       const t = texts[lang];
       els.title.innerHTML = t.title;
@@ -646,10 +720,12 @@
       els.ndLabel.textContent = t.ndLabel;
       els.ndHelp.textContent = t.ndHelp;
       els.t2minLabel.textContent = t.t2minLabel;
+      els.timerStartBtn.textContent = t.timerStartBtn;
       els.f2Label.textContent = t.f2Label;
       els.copyBtn.textContent = t.copyBtn;
       els.formulaNote.textContent = t.formulaNote;
       renderNDOptions();
+      renderTimerStatus();
       document.title = lang === 'ja'
         ? '長秒一枚撮り星景写真用 絞り値計算ツール'
         : 'Long-Exposure Single-Shot Star Photography Aperture Calculator';
@@ -724,8 +800,6 @@
       }
 
       const t2sec = t2min * 60;
-
-      // NDフィルターを考慮した露出等価
       const f2 = f1 * Math.sqrt((t2sec * ISO2) / (t1 * ISO1 * ND));
 
       if (isFinite(f2) && f2 > 0) {
@@ -735,6 +809,98 @@
         els.f2.value = '—';
         els.f2.classList.remove('computed');
       }
+    }
+
+    function clearExposureTimer() {
+      if (timer.intervalId) {
+        clearInterval(timer.intervalId);
+        timer.intervalId = null;
+      }
+    }
+
+    function ensureAudioContext() {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      if (!timer.audioCtx) timer.audioCtx = new AC();
+      if (timer.audioCtx.state === 'suspended') {
+        timer.audioCtx.resume().catch(() => {});
+      }
+      return timer.audioCtx;
+    }
+
+    function playAlarm() {
+      const ctx = ensureAudioContext();
+
+      if (ctx) {
+        const pattern = [0, 0.35, 0.7];
+        const now = ctx.currentTime;
+
+        pattern.forEach((offset, index) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = index % 2 === 0 ? 'sine' : 'triangle';
+          osc.frequency.value = index % 2 === 0 ? 880 : 1174;
+
+          gain.gain.setValueAtTime(0.0001, now + offset);
+          gain.gain.exponentialRampToValueAtTime(0.18, now + offset + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + offset + 0.22);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(now + offset);
+          osc.stop(now + offset + 0.24);
+        });
+      }
+
+      if (navigator.vibrate) {
+        navigator.vibrate([200, 100, 200, 100, 400]);
+      }
+    }
+
+    function finishExposureTimer() {
+      clearExposureTimer();
+      timer.state = 'finished';
+      timer.lastRemainingSec = 0;
+      renderTimerStatus();
+      playAlarm();
+    }
+
+    function updateExposureTimer() {
+      if (timer.state !== 'running') return;
+
+      const remainingSec = Math.max(0, Math.ceil((timer.endAt - Date.now()) / 1000));
+      timer.lastRemainingSec = remainingSec;
+
+      if (remainingSec <= 0) {
+        finishExposureTimer();
+        return;
+      }
+
+      renderTimerStatus();
+    }
+
+    function startExposureTimer() {
+      const t = texts[lang];
+      const t2min = parseFloat(els.t2min.value);
+
+      if (!isFinite(t2min) || t2min <= 0) {
+        timer.state = 'idle';
+        renderTimerStatus(t.timerInvalid);
+        return;
+      }
+
+      ensureAudioContext();
+      clearExposureTimer();
+
+      const totalSec = Math.max(1, Math.round(t2min * 60));
+      timer.endAt = Date.now() + totalSec * 1000;
+      timer.lastRemainingSec = totalSec;
+      timer.state = 'running';
+
+      renderTimerStatus();
+      timer.intervalId = setInterval(updateExposureTimer, 250);
     }
 
     let holdStartTimer = null;
@@ -771,6 +937,7 @@
 
     els.f1Minus.addEventListener('click', () => adjustAperture(-1));
     els.f1Plus.addEventListener('click', () => adjustAperture(1));
+    els.timerStartBtn.addEventListener('click', startExposureTimer);
 
     [els.t1, els.f1, els.iso1, els.iso2, els.ndFilter, els.t2min].forEach(el => {
       el.addEventListener('input', () => {
