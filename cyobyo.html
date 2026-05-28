@@ -8,13 +8,14 @@
   <meta name="description" content="長秒一枚撮り星景写真用の絞り値計算ツール" />
 
   <!-- PWA -->
-<link rel="manifest" href="./manifest.webmanifest" />
-<link rel="icon" href="./icon-192.png" sizes="192x192" type="image/png" />
-<link rel="apple-touch-icon" href="./apple-touch-icon-180.png" sizes="180x180" />
-<meta name="theme-color" content="#060606" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="星景絞り" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./icon-192.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon-180.png" sizes="180x180" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="星景絞り" />
+
   <style>
     :root {
       --bg: #f6f7fb;
@@ -201,7 +202,12 @@
       color: var(--muted);
     }
 
-    /* number native spinner off */
+    .subnote {
+      margin-top: 6px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -213,7 +219,6 @@
       -moz-appearance: textfield;
     }
 
-    /* custom stepper */
     .num-wrap {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 44px;
@@ -267,7 +272,6 @@
       min-width: 0;
     }
 
-    /* night mode */
     body.night {
       background: var(--night-bg);
       color: var(--night-text);
@@ -286,7 +290,8 @@
     body.night label,
     body.night h1,
     body.night h2,
-    body.night .note {
+    body.night .note,
+    body.night .subnote {
       color: var(--night-text);
     }
 
@@ -418,6 +423,25 @@
         </div>
 
         <div class="field">
+          <label id="ndLabel" for="ndFilter">NDフィルター使用</label>
+          <select id="ndFilter">
+            <option value="1">無し</option>
+            <option value="2">ND2 (1/2)</option>
+            <option value="4">ND4 (1/4)</option>
+            <option value="8">ND8 (1/8)</option>
+            <option value="16">ND16 (1/16)</option>
+            <option value="32">ND32 (1/32)</option>
+            <option value="64">ND64 (1/64)</option>
+            <option value="128">ND128 (1/128)</option>
+            <option value="256">ND256 (1/256)</option>
+            <option value="400">ND400 (1/400)</option>
+            <option value="500">ND500 (1/500)</option>
+            <option value="1000">ND1000 (1/1000)</option>
+          </select>
+          <div id="ndHelp" class="subnote">無し = 減光なし / ND値が大きいほど光量が減ります</div>
+        </div>
+
+        <div class="field">
           <label id="t2minLabel" for="t2min">長秒露光時間(分)</label>
           <div class="num-wrap">
             <input id="t2min" type="number" step="1" min="0" value="30" inputmode="numeric" />
@@ -438,7 +462,7 @@
         </div>
 
         <div id="formulaNote" class="note">
-          ※ 露出等価: 露光時間 × ISO ÷ 絞り値² を基準に計算
+          ※ 露出等価: 露光時間 × ISO ÷ (絞り値² × ND係数) を基準に計算
         </div>
       </div>
     </div>
@@ -446,7 +470,7 @@
 
   <script>
     const SQRT2 = Math.SQRT2;
-    const STORAGE_KEY = 'cyobyoStateV1';
+    const STORAGE_KEY = 'cyobyoStateV2';
 
     const els = {
       title: document.getElementById('title'),
@@ -462,6 +486,8 @@
 
       longTitle: document.getElementById('longTitle'),
       iso2Label: document.getElementById('iso2Label'),
+      ndLabel: document.getElementById('ndLabel'),
+      ndHelp: document.getElementById('ndHelp'),
       t2minLabel: document.getElementById('t2minLabel'),
       f2Label: document.getElementById('f2Label'),
       copyBtn: document.getElementById('copyBtn'),
@@ -471,6 +497,7 @@
       f1: document.getElementById('f1'),
       iso1: document.getElementById('iso1'),
       iso2: document.getElementById('iso2'),
+      ndFilter: document.getElementById('ndFilter'),
       t2min: document.getElementById('t2min'),
       f2: document.getElementById('f2'),
     };
@@ -482,8 +509,24 @@
       f1: '4.0',
       iso1: '3200',
       iso2: '100',
+      ndFilter: '1',
       t2min: '30'
     };
+
+    const ndOptions = [
+      { value: '1', ja: '無し', en: 'None', ratio: '' },
+      { value: '2', ja: 'ND2', en: 'ND2', ratio: '1/2' },
+      { value: '4', ja: 'ND4', en: 'ND4', ratio: '1/4' },
+      { value: '8', ja: 'ND8', en: 'ND8', ratio: '1/8' },
+      { value: '16', ja: 'ND16', en: 'ND16', ratio: '1/16' },
+      { value: '32', ja: 'ND32', en: 'ND32', ratio: '1/32' },
+      { value: '64', ja: 'ND64', en: 'ND64', ratio: '1/64' },
+      { value: '128', ja: 'ND128', en: 'ND128', ratio: '1/128' },
+      { value: '256', ja: 'ND256', en: 'ND256', ratio: '1/256' },
+      { value: '400', ja: 'ND400', en: 'ND400', ratio: '1/400' },
+      { value: '500', ja: 'ND500', en: 'ND500', ratio: '1/500' },
+      { value: '1000', ja: 'ND1000', en: 'ND1000', ratio: '1/1000' }
+    ];
 
     let saveTimer = null;
     let lang = defaults.lang;
@@ -503,10 +546,12 @@
         iso1Label: '試し撮り ISO',
         longTitle: '2) 長秒設定と結果',
         iso2Label: '長秒 ISO',
+        ndLabel: 'NDフィルター使用',
+        ndHelp: '無し = 減光なし / ND値が大きいほど光量が減ります',
         t2minLabel: '長秒露光時間(分)',
         f2Label: '長秒絞り(自動算出)',
         copyBtn: '結果をコピー',
-        formulaNote: '※ 露出等価: 露光時間 × ISO ÷ 絞り値² を基準に計算',
+        formulaNote: '※ 露出等価: 露光時間 × ISO ÷ (絞り値² × ND係数) を基準に計算',
         copied: '結果をコピーしました。',
         copyFailed: 'コピーに失敗しました。'
       },
@@ -523,14 +568,27 @@
         iso1Label: 'Trial ISO',
         longTitle: '2) Long-exposure settings and result',
         iso2Label: 'Long exposure ISO',
+        ndLabel: 'Use ND filter',
+        ndHelp: 'None = no light reduction / higher ND means less light',
         t2minLabel: 'Long exposure time (min)',
         f2Label: 'Long exposure aperture (auto)',
         copyBtn: 'Copy result',
-        formulaNote: '※ Based on exposure equivalence: exposure time × ISO ÷ aperture²',
+        formulaNote: '※ Based on exposure equivalence: exposure time × ISO ÷ (aperture² × ND factor)',
         copied: 'Copied.',
         copyFailed: 'Copy failed.'
       }
     };
+
+    function renderNDOptions() {
+      const current = els.ndFilter.value || defaults.ndFilter;
+      els.ndFilter.innerHTML = ndOptions.map(opt => {
+        if (opt.value === '1') {
+          return `<option value="${opt.value}">${lang === 'ja' ? opt.ja : opt.en}</option>`;
+        }
+        return `<option value="${opt.value}">${opt.ja} (${opt.ratio})</option>`;
+      }).join('');
+      els.ndFilter.value = current;
+    }
 
     function loadState() {
       try {
@@ -545,6 +603,7 @@
         els.f1.value = state.f1 || defaults.f1;
         els.iso1.value = state.iso1 || defaults.iso1;
         els.iso2.value = state.iso2 || defaults.iso2;
+        els.ndFilter.value = state.ndFilter || defaults.ndFilter;
         els.t2min.value = state.t2min || defaults.t2min;
       } catch {
         lang = defaults.lang;
@@ -560,6 +619,7 @@
         f1: els.f1.value || defaults.f1,
         iso1: els.iso1.value || defaults.iso1,
         iso2: els.iso2.value || defaults.iso2,
+        ndFilter: els.ndFilter.value || defaults.ndFilter,
         t2min: els.t2min.value || defaults.t2min
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -583,10 +643,13 @@
       els.iso1Label.textContent = t.iso1Label;
       els.longTitle.textContent = t.longTitle;
       els.iso2Label.textContent = t.iso2Label;
+      els.ndLabel.textContent = t.ndLabel;
+      els.ndHelp.textContent = t.ndHelp;
       els.t2minLabel.textContent = t.t2minLabel;
       els.f2Label.textContent = t.f2Label;
       els.copyBtn.textContent = t.copyBtn;
       els.formulaNote.textContent = t.formulaNote;
+      renderNDOptions();
       document.title = lang === 'ja'
         ? '長秒一枚撮り星景写真用 絞り値計算ツール'
         : 'Long-Exposure Single-Shot Star Photography Aperture Calculator';
@@ -629,11 +692,22 @@
       input.dispatchEvent(new Event('input', { bubbles: true }));
     }
 
+    function getNDValue() {
+      const nd = parseFloat(els.ndFilter.value);
+      return isFinite(nd) && nd > 0 ? nd : 1;
+    }
+
+    function getNDLabel() {
+      const selected = els.ndFilter.options[els.ndFilter.selectedIndex];
+      return selected ? selected.textContent : 'None';
+    }
+
     function calculate() {
       const t1 = parseFloat(els.t1.value);
       const f1 = parseFloat(els.f1.value);
       const ISO1 = parseFloat(els.iso1.value);
       const ISO2 = parseFloat(els.iso2.value);
+      const ND = getNDValue();
       const t2min = parseFloat(els.t2min.value);
 
       if (
@@ -641,6 +715,7 @@
         !isFinite(f1) || f1 <= 0 ||
         !isFinite(ISO1) || ISO1 <= 0 ||
         !isFinite(ISO2) || ISO2 <= 0 ||
+        !isFinite(ND) || ND <= 0 ||
         !isFinite(t2min) || t2min <= 0
       ) {
         els.f2.value = '—';
@@ -649,7 +724,9 @@
       }
 
       const t2sec = t2min * 60;
-      const f2 = f1 * Math.sqrt((t2sec * ISO2) / (t1 * ISO1));
+
+      // NDフィルターを考慮した露出等価
+      const f2 = f1 * Math.sqrt((t2sec * ISO2) / (t1 * ISO1 * ND));
 
       if (isFinite(f2) && f2 > 0) {
         els.f2.value = f2.toFixed(1);
@@ -660,7 +737,6 @@
       }
     }
 
-    // hold-to-repeat
     let holdStartTimer = null;
     let holdRepeatTimer = null;
 
@@ -696,7 +772,7 @@
     els.f1Minus.addEventListener('click', () => adjustAperture(-1));
     els.f1Plus.addEventListener('click', () => adjustAperture(1));
 
-    [els.t1, els.f1, els.iso1, els.iso2, els.t2min].forEach(el => {
+    [els.t1, els.f1, els.iso1, els.iso2, els.ndFilter, els.t2min].forEach(el => {
       el.addEventListener('input', () => {
         calculate();
         scheduleSaveState();
@@ -728,6 +804,8 @@
         trialAperture: els.f1.value,
         trialISO: els.iso1.value,
         longExposureISO: els.iso2.value,
+        ndFilter: getNDLabel(),
+        ndFactor: els.ndFilter.value,
         longExposureMin: els.t2min.value,
         calculatedAperture: els.f2.value
       };
@@ -744,6 +822,7 @@
       lang = lang === 'ja' ? 'en' : 'ja';
       renderLang();
       scheduleSaveState();
+      calculate();
     });
 
     els.nightBtn.addEventListener('click', () => {
@@ -751,18 +830,18 @@
       applyNightMode();
     });
 
-    // init
     els.t1.value = defaults.t1;
     els.f1.value = defaults.f1;
     els.iso1.value = defaults.iso1;
     els.iso2.value = defaults.iso2;
+    els.ndFilter.value = defaults.ndFilter;
     els.t2min.value = defaults.t2min;
 
+    renderNDOptions();
     loadState();
     applyNightMode();
     calculate();
 
-    // service worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(console.error);
